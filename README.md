@@ -4,6 +4,10 @@
 
 Мы принимаем Pull Request'ы!
 
+#### Правила
+
+* Располагайте компании в алфавитном порядке
+
 ### Задания
 
 * [Ecwid](https://www.ecwid.com/)
@@ -22,4 +26,4 @@
     * [Тестовое задание на позицию Frontender](https://github.com/tutu-ru/frontend-javascript-test)
     * [Тестовое задание для кандидатов на позицию iOS-разработчика (Swift)](https://github.com/tutu-ru/hire_ios-test)
     * [Тестовое задание на позицию Android-разработчика](https://github.com/tutu-ru/hire_android_test)
-    
+
