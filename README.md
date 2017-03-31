@@ -27,3 +27,5 @@
     * [Тестовое задание для кандидатов на позицию iOS-разработчика (Swift)](https://github.com/tutu-ru/hire_ios-test)
     * [Тестовое задание на позицию Android-разработчика](https://github.com/tutu-ru/hire_android_test)
 
+* [Xored](http://ru.xored.com/)
+    * [Тестовое задание на позицию инженера](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
