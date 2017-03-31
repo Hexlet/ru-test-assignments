@@ -32,3 +32,6 @@
 
 * [Xored](http://ru.xored.com/)
   * [Тестовое задание на позицию инженера](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
+
+* [Яндекс](https://yandex.ru)
+  * [Тестовое в Школу Разработки Интерфейсов-2017](https://academy.yandex.ru/events/frontend/shri_msk-2017/)
