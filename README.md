@@ -30,6 +30,9 @@
   * [Тестовое задание для кандидатов на позицию iOS-разработчика (Swift)](https://github.com/tutu-ru/hire_ios-test)
   * [Тестовое задание на позицию Android-разработчика](https://github.com/tutu-ru/hire_android_test)
 
+* [Volt](http://www.wearevolt.com/)
+  * [Тестовое задание на позицию младшего Rails-разработчика](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
+
 * [Xored](http://ru.xored.com/)
   * [Тестовое задание на позицию инженера](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
