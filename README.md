@@ -36,5 +36,9 @@
 * [Xored](http://ru.xored.com/)
   * [Тестовое задание на позицию инженера](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
+* [Петер-Сервис](http://billing.ru)
+  * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
+  * [Шелл](https://github.com/peterservice-rnd/new-job/blob/master/shell.md)
+
 * [Яндекс](https://yandex.ru)
   * [Тестовое в Школу Разработки Интерфейсов-2017](https://academy.yandex.ru/events/frontend/shri_msk-2017/)
