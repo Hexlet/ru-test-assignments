@@ -39,10 +39,11 @@
 * [Петер-Сервис](http://billing.ru)
   * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
   * [Шелл](https://github.com/peterservice-rnd/new-job/blob/master/shell.md)
+  * [Тестовый фреймворк](https://github.com/peterservice-rnd/new-job/blob/master/test-framework.md)
 
 * [Яндекс](https://yandex.ru)
   * [Тестовое в Школу Разработки Интерфейсов-2017](https://academy.yandex.ru/events/frontend/shri_msk-2017/)
-  
+
 * [Aviasales](https://aviasales.ru)
-  * [Тестовое задание Aviasales (frontend)](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)  
-  
+  * [Тестовое задание Aviasales (frontend)](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
+
