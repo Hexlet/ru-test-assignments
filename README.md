@@ -16,6 +16,9 @@
   * [Просмотр картинок на RN](https://github.com/Ecwid/new-job/blob/master/React-Native-Gallery.md)
   * [java.util.Map поверх Redis](https://github.com/Ecwid/new-job/blob/master/Redis-and-collections.md)
 
+* [Evercode Lab](https://evercodelab.com/)
+  * [Тестовое задание для PHP-разработчика — Разработка API](https://github.com/EvercodeLab/php-test-assignment)
+
 * [Evil Martians](https://evilmartians.com/)
   * [Задачи из реальных проектов на гитхабе](http://cultofmartians.com/)
 
