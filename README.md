@@ -30,6 +30,9 @@
   * [Elixir-разработчик](https://dl.fun-box.ru/qt-elixir.pdf)
   * [HTML/CSS-разработчик](https://dl.fun-box.ru/qt-htmlcss.zip)
   * [JS-разработчик](https://dl.fun-box.ru/qt-js.pdf)
+
+* [Return On Intelligence](http://www.returnonintelligence.ru/)
+  * [Java-Intern](https://github.com/marganezz/returnonintelligence.ru_JavaIntern)
   
 * [Segmento](https://segmento.ru/)
   * [Java-разработчик](https://github.com/marganezz/segmento_javaJunior)
