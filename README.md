@@ -30,7 +30,10 @@
   * [Elixir-разработчик](https://dl.fun-box.ru/qt-elixir.pdf)
   * [HTML/CSS-разработчик](https://dl.fun-box.ru/qt-htmlcss.zip)
   * [JS-разработчик](https://dl.fun-box.ru/qt-js.pdf)
-
+  
+* [Segmento](https://segmento.ru/)
+  * [Java-разработчик](https://github.com/marganezz/segmento_javaJunior)
+  
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание на позицию Frontender](https://github.com/tutu-ru/frontend-javascript-test)
   * [Тестовое задание для кандидатов на позицию iOS-разработчика (Swift)](https://github.com/tutu-ru/hire_ios-test)
