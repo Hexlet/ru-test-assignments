@@ -27,6 +27,9 @@
 * [Evil Martians](https://evilmartians.com/)
   * [Задачи из реальных проектов на гитхабе](http://cultofmartians.com/)
 
+* [Flatstack](http://www.flatstack.com)
+  * [Тестовое задание для кандидатов на позицию iOS-разработчика](https://github.com/fs/test-tasks/tree/master/ios)
+
 * [FunBox](http://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
   * [Elixir-разработчик](https://dl.fun-box.ru/qt-elixir.pdf)
