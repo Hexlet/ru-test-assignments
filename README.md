@@ -61,3 +61,6 @@
   
 * [Яндекс](https://yandex.ru)
   * [Тестовое в Школу Разработки Интерфейсов-2017](https://academy.yandex.ru/events/frontend/shri_msk-2017/)
+
+* [Ostrovok.ru](https://ostrovok.ru)
+  * [Тестовые задания для backend и frontend разработчиков](https://github.com/ostrovok-team/code-challenge)
