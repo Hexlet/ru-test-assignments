@@ -11,9 +11,6 @@
 ### Задания
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание Aviasales (frontend)](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
-  
-* [Badoo](https://badoo.com/)
-  * [Тест "Разработчик PHP/MySQL/Linux"](http://php.feedme.ru/)
 
 * [Ecwid](https://www.ecwid.com/)
   * [Консольная утилита для скачивания файлов по HTTP протоколу.](https://github.com/Ecwid/new-job/blob/master/Console-downloader.md)
