@@ -10,7 +10,7 @@
 
 ### Задания
 * [Aviasales](https://aviasales.ru)
-  * [Тестовое задание Aviasales (frontend)](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
+  * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
 
 * [Ecwid](https://www.ecwid.com/)
   * [Консольная утилита для скачивания файлов по HTTP протоколу.](https://github.com/Ecwid/new-job/blob/master/Console-downloader.md)
@@ -19,13 +19,13 @@
   * [java.util.Map поверх Redis](https://github.com/Ecwid/new-job/blob/master/Redis-and-collections.md)
 
 * [Evercode Lab](https://evercodelab.com/)
-  * [Тестовое задание для PHP-разработчика — Разработка API](https://github.com/EvercodeLab/php-test-assignment)
+  * [PHP Developer — Разработка API](https://github.com/EvercodeLab/php-test-assignment)
 
 * [Evil Martians](https://evilmartians.com/)
   * [Задачи из реальных проектов на гитхабе](http://cultofmartians.com/)
 
 * [Flatstack](http://www.flatstack.com)
-  * [Тестовое задание для кандидатов на позицию iOS-разработчика](https://github.com/fs/test-tasks/tree/master/ios)
+  * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
 
 * [FunBox](http://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
@@ -40,15 +40,15 @@
   * [Java-разработчик](https://github.com/marganezz/segmento_javaJunior)
   
 * [Tutu.ru](https://www.Tutu.ru/)
-  * [Тестовое задание на позицию Frontender](https://github.com/tutu-ru/frontend-javascript-test)
-  * [Тестовое задание для кандидатов на позицию iOS-разработчика (Swift)](https://github.com/tutu-ru/hire_ios-test)
-  * [Тестовое задание на позицию Android-разработчика](https://github.com/tutu-ru/hire_android_test)
+  * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
+  * [iOS Developer (Swift)](https://github.com/tutu-ru/hire_ios-test)
+  * [Android Developer](https://github.com/tutu-ru/hire_android_test)
 
 * [Volt](http://www.wearevolt.com/)
-  * [Тестовое задание на позицию младшего Rails-разработчика](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
+  * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
 
 * [Xored](http://ru.xored.com/)
-  * [Тестовое задание на позицию инженера](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
+  * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
   
 * [Петер-Сервис](http://billing.ru)
   * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
@@ -56,11 +56,12 @@
   * [Тестовый фреймворк](https://github.com/peterservice-rnd/new-job/blob/master/test-framework.md)
 
 * [СКБ Контур](https://kontur.ru/)
-  * [Тестовое задание на летнюю стажировку 2017 - front-end](https://kontur.ru/education/programs/intern/frontend)
-  * [Тестовое задание на летнюю стажировку 2017 - back-end](https://kontur.ru/education/programs/intern/backend)
+  * [Front End](https://kontur.ru/education/programs/intern/frontend)
+  * [Back End](https://kontur.ru/education/programs/intern/backend)
   
 * [Яндекс](https://yandex.ru)
-  * [Тестовое в Школу Разработки Интерфейсов-2017](https://academy.yandex.ru/events/frontend/shri_msk-2017/)
+  * [Front — End Школа Разработки Интерфейсов-2017](https://academy.yandex.ru/events/frontend/shri_msk-2017/)
 
 * [Ostrovok.ru](https://ostrovok.ru)
-  * [Тестовые задания для backend и frontend разработчиков](https://github.com/ostrovok-team/code-challenge)
+  * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
+  * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
