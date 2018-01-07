@@ -12,6 +12,10 @@
 * [Aviasales](https://aviasales.ru)
   * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
 
+* [CSSSR](https://csssr.ru)
+  * [Middle JavaScript Developer](https://csssr.ru/jobs/middle-js-developer)
+  * [Верстальщик](https://csssr.ru/jobs/pixel-perfectionist)
+
 * [Ecwid](https://www.ecwid.com/)
   * [Консольная утилита для скачивания файлов по HTTP протоколу.](https://github.com/Ecwid/new-job/blob/master/Console-downloader.md)
   * [Глубокое копирование](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
@@ -65,3 +69,4 @@
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
+
