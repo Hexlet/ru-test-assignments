@@ -12,6 +12,10 @@
 * [Aviasales](https://aviasales.ru)
   * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
 
+* [Chatfuel](https://chatfuel.com/)
+  * [Frontend-разработчик](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
+  * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
+
 * [CSSSR](https://csssr.ru)
   * [Middle JavaScript Developer](https://csssr.ru/jobs/middle-js-developer)
   * [Верстальщик](https://csssr.ru/jobs/pixel-perfectionist)
