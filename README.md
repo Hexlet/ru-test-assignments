@@ -40,6 +40,9 @@
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
 
+* [HeadHunter](https://hh.ru/)
+  * [Frontend-разработчик](https://github.com/hhru/frontend-test)
+
 * [Return On Intelligence](http://www.returnonintelligence.ru/)
   * [Java-Intern](https://github.com/marganezz/returnonintelligence.ru_JavaIntern)
 
