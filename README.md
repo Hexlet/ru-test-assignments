@@ -12,6 +12,10 @@
 * [Aviasales](https://aviasales.ru)
   * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
 
+* [Chatfuel](https://chatfuel.com/)
+  * [Frontend-разработчик](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
+  * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
+
 * [CSSSR](https://csssr.ru)
   * [Middle JavaScript Developer](https://csssr.ru/jobs/middle-js-developer)
   * [Верстальщик](https://csssr.ru/jobs/pixel-perfectionist)
@@ -37,12 +41,18 @@
   * [HTML/CSS-разработчик](https://dl.fun-box.ru/qt-htmlcss.zip)
   * [JS-разработчик](https://dl.fun-box.ru/qt-js.pdf)
 
+* [Ivelum](https://ivelum.com/)
+  * [Python-разработчик](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
+
+* [HeadHunter](https://hh.ru/)
+  * [Frontend-разработчик](https://github.com/hhru/frontend-test)
+
 * [Return On Intelligence](http://www.returnonintelligence.ru/)
   * [Java-Intern](https://github.com/marganezz/returnonintelligence.ru_JavaIntern)
-  
+
 * [Segmento](https://segmento.ru/)
   * [Java-разработчик](https://github.com/marganezz/segmento_javaJunior)
-  
+
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
   * [iOS Developer (Swift)](https://github.com/tutu-ru/hire_ios-test)
@@ -53,7 +63,7 @@
 
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
-  
+
 * [Петер-Сервис](http://billing.ru)
   * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
   * [Шелл](https://github.com/peterservice-rnd/new-job/blob/master/shell.md)
@@ -62,7 +72,7 @@
 * [СКБ Контур](https://kontur.ru/)
   * [Front End](https://kontur.ru/education/programs/intern/frontend)
   * [Back End](https://kontur.ru/education/programs/intern/backend)
-  
+
 * [Яндекс](https://yandex.ru)
   * [Front — End Школа Разработки Интерфейсов-2017](https://academy.yandex.ru/events/frontend/shri_msk-2017/)
 
