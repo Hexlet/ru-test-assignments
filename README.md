@@ -1,4 +1,4 @@
-#https://github.com/ivelum/job/blob/master/code_challenges/python.md Список тестовых заданий для прокачки
+# Список тестовых заданий для прокачки
 
 ### Как помочь?
 
