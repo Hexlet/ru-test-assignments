@@ -33,7 +33,10 @@
   * [Задачи из реальных проектов на гитхабе](http://cultofmartians.com/)
 
 * [Flatstack](http://www.flatstack.com)
+  * [Android Developer](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
+  * [Frontend Developer](https://github.com/fs/test-tasks/tree/master/front-end)
+  * [Ruby Developer](https://github.com/fs/test-tasks/tree/master/ruby)
 
 * [FunBox](http://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
