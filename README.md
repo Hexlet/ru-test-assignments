@@ -43,6 +43,11 @@
   * [Elixir-разработчик](https://dl.fun-box.ru/qt-elixir.pdf)
   * [HTML/CSS-разработчик](https://dl.fun-box.ru/qt-htmlcss.zip)
   * [JS-разработчик](https://dl.fun-box.ru/qt-js.pdf)
+  * [Erlang-разработчик](https://dl.fun-box.ru/qt-erlang.pdf)
+  * [Java-разработчик](https://dl.fun-box.ru/qt-java.pdf)
+  * [iOS/Android-разработчик](https://dl.fun-box.ru/qt-mobile.pdf)
+  * [C-разработчик](https://dl.fun-box.ru/qt-c.pdf)
+  * [Big Data-разработчик](https://dl.fun-box.ru/qt-bigdata.pdf)
 
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
