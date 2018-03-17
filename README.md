@@ -20,6 +20,9 @@
   * [Middle JavaScript Developer](https://csssr.ru/jobs/middle-js-developer)
   * [Верстальщик](https://csssr.ru/jobs/pixel-perfectionist)
 
+* [DevJS](http://devjs.ru/)
+  * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
+
 * [Ecwid](https://www.ecwid.com/)
   * [Консольная утилита для скачивания файлов по HTTP протоколу.](https://github.com/Ecwid/new-job/blob/master/Console-downloader.md)
   * [Глубокое копирование](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
