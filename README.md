@@ -24,7 +24,9 @@
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
 
 * [Ecwid](https://www.ecwid.com/)
-  * [Глубокое копирование](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
+  * [Задача трёх тел на Elm](https://github.com/Ecwid/new-job/blob/master/Elm-3body-problem)
+  * [Парсер SQL запросов, Kotlin / Java 8](https://github.com/Ecwid/new-job/blob/master/SQL-parser.md)
+  * [Глубокое копирование, Kotlin / Java 8](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
   * [java.util.Map поверх Redis](https://github.com/Ecwid/new-job/blob/master/Redis-and-collections.md)
   * [Просмотр картинок на RN (archived)](https://github.com/Ecwid/new-job/blob/b104fb636deb3f113657a404285edfa3b9fe4e1c/React-Native-Gallery.md)
   * [Консольная утилита для скачивания файлов по HTTP протоколу (archived)](https://github.com/Ecwid/new-job/blob/f4c62fb8b5e479b6e9c81c3ea4c57ad338ccbe75/Console-downloader.md)
