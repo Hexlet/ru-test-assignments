@@ -74,6 +74,9 @@
 
 * [Volt](http://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
+  
+* [wemake.services](https://wemake.services)
+  * [Software Developer](https://wemake.services/meta/rsdp/job-application/)
 
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
