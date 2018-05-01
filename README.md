@@ -96,4 +96,5 @@
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
+  jsate
 
