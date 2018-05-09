@@ -14,8 +14,11 @@
 
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend-разработчик](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
-  * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
-
+  * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)  
+  
+* [Digital Dali](http://digitaldali.pro/)  
+  * [Junior Front End](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)  
+  
 * [CSSSR](https://csssr.ru)
   * [Middle JavaScript Developer](https://csssr.ru/jobs/middle-js-developer)
   * [Верстальщик](https://csssr.ru/jobs/pixel-perfectionist)
