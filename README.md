@@ -21,7 +21,6 @@
   
 * [CSSSR](https://csssr.ru)
   * [Middle JavaScript Developer](https://csssr.ru/jobs/middle-js-developer)
-  * [Верстальщик](https://csssr.ru/jobs/pixel-perfectionist)
 
 * [DevJS](http://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
@@ -43,8 +42,11 @@
 * [Flatstack](http://www.flatstack.com)
   * [Android Developer](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
-  * [Frontend Developer](https://github.com/fs/test-tasks/tree/master/front-end)
+  * [Frontend Developer (HTML+CSS+JS)](https://github.com/fs/test-tasks/tree/master/front-end)
   * [Ruby Developer](https://github.com/fs/test-tasks/tree/master/ruby)
+  * [Unity Developer] (https://github.com/fs/test-tasks/tree/master/unity) // new
+  * [QA engineer] (https://github.com/fs/test-tasks/tree/master/qa) // new
+  * [Frontend Developer (JS, Angular.js)] (https://github.com/fs/test-tasks/tree/master/js) // new
 
 * [FunBox](http://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
@@ -63,22 +65,23 @@
 * [HeadHunter](https://hh.ru/)
   * [Frontend-разработчик](https://github.com/hhru/frontend-test)
 
-* [Return On Intelligence](http://www.returnonintelligence.ru/)
-  * [Java-Intern](https://github.com/marganezz/returnonintelligence.ru_JavaIntern)
+*  [Procom] (http://csoprocom.com.ua/)
+  * [Frontend-разработчик] (http://csoprocom.com.ua/info/frontend1.pdf) // new
 
-* [Segmento](https://segmento.ru/)
-  * [Java-разработчик](https://github.com/marganezz/segmento_javaJunior)
+* [Return On Intelligence](http://www.returnonintelligence.ru/)
+  * [JS practice 2018](http://www.returnonintelligence.ru/students/practice/tasks2018/) // new
 
 * [Tutu.ru](https://www.Tutu.ru/)
-  * [Back End](https://github.com/tutu-ru/php-interview)
+  * [Back End PHP](https://github.com/tutu-ru/php-interview)
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
   * [iOS Developer (Swift)](https://github.com/tutu-ru/hire_ios-test)
   * [Android Developer](https://github.com/tutu-ru/hire_android_test)
+  * [Fronend homework] (https://github.com/tutu-ru/fe-homework) // new
 
 * [Volt](http://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
   
-* [wemake.services](https://wemake.services)
+* [Wemake.services](https://wemake.services)
   * [Software Developer](https://wemake.services/meta/rsdp/job-application/)
 
 * [Xored](http://ru.xored.com/)
@@ -94,9 +97,10 @@
   * [Back End](https://kontur.ru/education/programs/intern/backend)
 
 * [Яндекс](https://yandex.ru)
-  * [Front — End Школа Разработки Интерфейсов-2017](https://academy.yandex.ru/events/frontend/shri_msk-2017/)
+  * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/) // updated
 
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
+  * [DevOps engineer] (https://github.com/ostrovok-team/code-challenge/tree/master/devops) // new
 
