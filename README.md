@@ -26,7 +26,7 @@
 * [Digital Dali](http://digitaldali.pro/)  
   * [Junior Front End](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
 
-* [eComCharge] (https://ecomcharge.com/)
+* [eComCharge](https://ecomcharge.com/)
   * [Система решения математических уравнений](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798) // new
 
 * [Ecwid](https://www.ecwid.com/)
@@ -43,7 +43,7 @@
 * [Evil Martians](https://evilmartians.com/)
   * [Задачи из реальных проектов на гитхабе](http://cultofmartians.com/)
 
-* [Evrone] (https://evrone.com/)
+* [Evrone](https://evrone.com/)
   * [Easy test - создать блог на Rails + PostgreSQL](https://github.com/evrone/easy_test) // new
 
 * [Flatstack](http://www.flatstack.com)
@@ -66,7 +66,7 @@
   * [C-разработчик](https://dl.fun-box.ru/qt-c.pdf)
   * [Big Data-разработчик](https://dl.fun-box.ru/qt-bigdata.pdf)
 
-* [Haulmont] (https://www.haulmont.com/front)
+* [Haulmont](https://www.haulmont.com/front)
   * [Тестовое задание от Haulmont](https://github.com/nikolaychernov/StudentDatabase) // new
 
 * [HeadHunter](https://hh.ru/)
@@ -75,10 +75,10 @@
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
 
-* [Juno Inc.] (https://gojuno.com/)
+* [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache](https://github.com/gojuno/test_tasks) // new
 
-*  [Procom] (http://csoprocom.com.ua/)
+* [Procom](http://csoprocom.com.ua/)
   * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf) // new
 
 * [Return On Intelligence](http://www.returnonintelligence.ru/)
