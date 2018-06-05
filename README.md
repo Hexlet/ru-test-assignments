@@ -27,7 +27,7 @@
   * [Junior Front End](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
 
 * [eComCharge] (https://ecomcharge.com/)
-  * [Система решения математических уравнений] (https://gist.github.com/shiroginne/2cd4ade25d7c81f28798) // new
+  * [Система решения математических уравнений](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798) // new
 
 * [Ecwid](https://www.ecwid.com/)
   * [Задача трёх тел на Elm](https://github.com/Ecwid/new-job/blob/master/Elm-3body-problem)
@@ -51,9 +51,9 @@
   * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
   * [Frontend Developer (HTML+CSS+JS)](https://github.com/fs/test-tasks/tree/master/front-end)
   * [Ruby Developer](https://github.com/fs/test-tasks/tree/master/ruby)
-  * [Unity Developer] (https://github.com/fs/test-tasks/tree/master/unity) // new
-  * [QA engineer] (https://github.com/fs/test-tasks/tree/master/qa) // new
-  * [Frontend Developer (JS, Angular.js)] (https://github.com/fs/test-tasks/tree/master/js) // new
+  * [Unity Developer](https://github.com/fs/test-tasks/tree/master/unity) // new
+  * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa) // new
+  * [Frontend Developer (JS, Angular.js)](https://github.com/fs/test-tasks/tree/master/js) // new
 
 * [FunBox](http://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
@@ -79,7 +79,7 @@
   * [Test Task: In-memory cache](https://github.com/gojuno/test_tasks) // new
 
 *  [Procom] (http://csoprocom.com.ua/)
-  * [Frontend-разработчик] (http://csoprocom.com.ua/info/frontend1.pdf) // new
+  * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf) // new
 
 * [Return On Intelligence](http://www.returnonintelligence.ru/)
   * [JS practice 2018](http://www.returnonintelligence.ru/students/practice/tasks2018/) // new
@@ -89,7 +89,7 @@
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
   * [iOS Developer (Swift)](https://github.com/tutu-ru/hire_ios-test)
   * [Android Developer](https://github.com/tutu-ru/hire_android_test)
-  * [Fronend homework] (https://github.com/tutu-ru/fe-homework) // new
+  * [Fronend homework](https://github.com/tutu-ru/fe-homework) // new
 
 * [Volt](http://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
@@ -115,5 +115,5 @@
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
-  * [DevOps engineer] (https://github.com/ostrovok-team/code-challenge/tree/master/devops) // new
+  * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops) // new
 
