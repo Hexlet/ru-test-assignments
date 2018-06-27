@@ -14,6 +14,7 @@
 * Располагайте компании в алфавитном порядке
 
 ### Задания
+
 * [Aviasales](https://aviasales.ru)
   * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
 
@@ -26,13 +27,13 @@
 
 * [DevJS](http://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
-  * [Тестовое задание на позицию Junior Frontend Developer](https://github.com/devjsru/react_test) // new
+  * [Тестовое задание на позицию Junior Frontend Developer](https://github.com/devjsru/react_test)
 
-* [Digital Dali](http://digitaldali.pro/)  
+* [Digital Dali](http://digitaldali.pro/)
   * [Junior Front End](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
 
 * [eComCharge](https://ecomcharge.com/)
-  * [Система решения математических уравнений](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798) // new
+  * [Система решения математических уравнений](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798)
 
 * [Ecwid](https://www.ecwid.com/)
   * [Задача трёх тел на Elm](https://github.com/Ecwid/new-job/blob/master/Elm-3body-problem)
@@ -49,16 +50,16 @@
   * [Задачи из реальных проектов на гитхабе](http://cultofmartians.com/)
 
 * [Evrone](https://evrone.com/)
-  * [Easy test - создать блог на Rails + PostgreSQL](https://github.com/evrone/easy_test) // new
+  * [Easy test - создать блог на Rails + PostgreSQL](https://github.com/evrone/easy_test)
 
 * [Flatstack](http://www.flatstack.com)
   * [Android Developer](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
   * [Frontend Developer (HTML+CSS+JS)](https://github.com/fs/test-tasks/tree/master/front-end)
   * [Ruby Developer](https://github.com/fs/test-tasks/tree/master/ruby)
-  * [Unity Developer](https://github.com/fs/test-tasks/tree/master/unity) // new
-  * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa) // new
-  * [Frontend Developer (JS, Angular.js)](https://github.com/fs/test-tasks/tree/master/js) // new
+  * [Unity Developer](https://github.com/fs/test-tasks/tree/master/unity)
+  * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
+  * [Frontend Developer (JS, Angular.js)](https://github.com/fs/test-tasks/tree/master/js)
 
 * [FunBox](http://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
@@ -72,7 +73,7 @@
   * [Big Data-разработчик](https://dl.fun-box.ru/qt-bigdata.pdf)
 
 * [Haulmont](https://www.haulmont.com/front)
-  * [Тестовое задание от Haulmont](https://github.com/nikolaychernov/StudentDatabase) // new
+  * [Тестовое задание от Haulmont](https://github.com/nikolaychernov/StudentDatabase)
 
 * [HeadHunter](https://hh.ru/)
   * [Frontend-разработчик](https://github.com/hhru/frontend-test)
@@ -81,24 +82,24 @@
   * [Python-разработчик](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
 
 * [Juno Inc.](https://gojuno.com/)
-  * [Test Task: In-memory cache](https://github.com/gojuno/test_tasks) // new
+  * [Test Task: In-memory cache](https://github.com/gojuno/test_tasks)
 
 * [Procom](http://csoprocom.com.ua/)
-  * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf) // new
+  * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf)
 
 * [Return On Intelligence](http://www.returnonintelligence.ru/)
-  * [JS practice 2018](http://www.returnonintelligence.ru/students/practice/tasks2018/) // new
+  * [JS practice 2018](http://www.returnonintelligence.ru/students/practice/tasks2018/)
 
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Back End PHP](https://github.com/tutu-ru/php-interview)
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
   * [iOS Developer (Swift)](https://github.com/tutu-ru/hire_ios-test)
   * [Android Developer](https://github.com/tutu-ru/hire_android_test)
-  * [Fronend homework](https://github.com/tutu-ru/fe-homework) // new
+  * [Fronend homework](https://github.com/tutu-ru/fe-homework)
 
 * [Volt](http://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
-  
+
 * [Wemake.services](https://wemake.services)
   * [Software Developer](https://wemake.services/meta/rsdp/job-application/)
 
@@ -115,10 +116,9 @@
   * [Back End](https://kontur.ru/education/programs/intern/backend)
 
 * [Яндекс](https://yandex.ru)
-  * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/) // updated
+  * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/)
 
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
-  * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops) // new
-
+  * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
