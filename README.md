@@ -78,6 +78,9 @@
 * [HeadHunter](https://hh.ru/)
   * [Frontend-разработчик](https://github.com/hhru/frontend-test)
 
+* [ITSumma](https://www.itsumma.ru)
+  * [Тестовое задание для PHP разработчиков](http://php.itsumma.ru)
+
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
 
