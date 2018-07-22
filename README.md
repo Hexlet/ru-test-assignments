@@ -87,6 +87,11 @@
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache](https://github.com/gojuno/test_tasks)
 
+* [Ostrovok.ru](https://ostrovok.ru)
+  * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
+  * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
+  * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
+  
 * [Procom](http://csoprocom.com.ua/)
   * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf)
 
@@ -120,8 +125,3 @@
 
 * [Яндекс](https://yandex.ru)
   * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/)
-
-* [Ostrovok.ru](https://ostrovok.ru)
-  * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
-  * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
-  * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
