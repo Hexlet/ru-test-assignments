@@ -17,7 +17,8 @@
 
 * [Aviasales](https://aviasales.ru)
   * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
-
+* [BellIntegrator](http://www.bellintegrator.ru/)
+  * [Front End](https://docs.google.com/document/d/1YWJGDKB1pLrox6Y4CNm15Nuu_EVcAHIciYUHWYrDNDY/edit?usp=sharing)
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend-разработчик](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
