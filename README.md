@@ -98,6 +98,9 @@
 * [Return On Intelligence](http://www.returnonintelligence.ru/)
   * [JS practice 2018](http://www.returnonintelligence.ru/students/practice/tasks2018/)
 
+* [Smena](http://smena.space/)
+  * [Python Developer](https://github.com/smenateam/python-assignment)
+  
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Back End PHP](https://github.com/tutu-ru/php-interview)
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
