@@ -116,6 +116,11 @@
 * [Volt](http://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
 
+* [Wargaming.net](https://wargaming.com)
+  * [Software Developer Back End](https://github.com/wgnet/wg_forge_backend)
+  * [Software Developer Front End](https://github.com/wgnet/wg_forge_frontend)
+
+
 * [Wemake.services](https://wemake.services)
   * [Software Developer](https://wemake.services/meta/rsdp/job-application/)
 
