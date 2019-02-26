@@ -115,6 +115,7 @@
 
 * [Volt](http://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
+  * [Junior React Developer](https://drive.google.com/file/d/0B9gbscdfWqaqQzZBdEtJRktRaHM/view)
 
 * [Wargaming.net](https://wargaming.com)
   * [Software Developer Back End](https://github.com/wgnet/wg_forge_backend)
