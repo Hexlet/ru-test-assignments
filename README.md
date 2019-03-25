@@ -139,5 +139,3 @@
 
 * [Яндекс](https://yandex.ru)
   * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/)
-
-
