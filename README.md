@@ -105,6 +105,9 @@
 
 * [Smena](http://smena.space/)
   * [Python Developer](https://github.com/smenateam/python-assignment)
+
+* [Travelpayouts](https://www.travelpayouts.com/ru)
+  * [Front End](https://github.com/KosyanMedia/Front-end_TP_test)
   
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Back End PHP](https://github.com/tutu-ru/php-interview)
@@ -120,7 +123,6 @@
 * [Wargaming.net](https://wargaming.com)
   * [Software Developer Back End](https://github.com/wgnet/wg_forge_backend)
   * [Software Developer Front End](https://github.com/wgnet/wg_forge_frontend)
-
 
 * [Wemake.services](https://wemake.services)
   * [Software Developer](https://wemake.services/meta/rsdp/job-application/)
