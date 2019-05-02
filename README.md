@@ -15,9 +15,14 @@
 
 ### Задания
 
+* [Appbooster](https://appbooster.com/)
+  * [iOS Developer](https://gist.github.com/KELiON/5725bc24c2ed5c34fb60047362f424aa)
+  * [Ruby Developer](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d)
+  * [Frontend / React Native Developer](https://gist.github.com/KELiON/847543083fa37585dd06be197a405ec7)
 * [Aviasales](https://aviasales.ru)
   * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
-
+* [BellIntegrator](http://www.bellintegrator.ru/)
+  * [Front End](https://docs.google.com/document/d/1YWJGDKB1pLrox6Y4CNm15Nuu_EVcAHIciYUHWYrDNDY/edit?usp=sharing)
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend-разработчик](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
@@ -101,6 +106,12 @@
 * [Sendsay.ru](https://sendsay.ru/)
   * [Fron End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
 
+* [Smena](http://smena.space/)
+  * [Python Developer](https://github.com/smenateam/python-assignment)
+
+* [Travelpayouts](https://www.travelpayouts.com/ru)
+  * [Front End](https://github.com/KosyanMedia/Front-end_TP_test)
+  
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Back End PHP](https://github.com/tutu-ru/php-interview)
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
@@ -110,6 +121,11 @@
 
 * [Volt](http://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
+  * [Junior React Developer](https://drive.google.com/file/d/0B9gbscdfWqaqQzZBdEtJRktRaHM/view)
+
+* [Wargaming.net](https://wargaming.com)
+  * [Software Developer Back End](https://github.com/wgnet/wg_forge_backend)
+  * [Software Developer Front End](https://github.com/wgnet/wg_forge_frontend)
 
 * [Wemake.services](https://wemake.services)
   * [Software Developer](https://wemake.services/meta/rsdp/job-application/)
