@@ -103,6 +103,9 @@
 * [Return On Intelligence](http://www.returnonintelligence.ru/)
   * [JS practice 2018](http://www.returnonintelligence.ru/students/practice/tasks2018/)
 
+* [Sendsay.ru](https://sendsay.ru/)
+  * [Fron End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
+
 * [Smena](http://smena.space/)
   * [Python Developer](https://github.com/smenateam/python-assignment)
 
