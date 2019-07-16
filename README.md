@@ -21,6 +21,8 @@
   * [Frontend / React Native Developer](https://gist.github.com/KELiON/847543083fa37585dd06be197a405ec7)
 * [Aviasales](https://aviasales.ru)
   * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
+* [BeeJee](https://beejee.org/)
+  * [Web-разработчик (PHP, JS)](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
 * [BellIntegrator](http://www.bellintegrator.ru/)
   * [Front End](https://docs.google.com/document/d/1YWJGDKB1pLrox6Y4CNm15Nuu_EVcAHIciYUHWYrDNDY/edit?usp=sharing)
 * [Chatfuel](https://chatfuel.com/)
