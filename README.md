@@ -66,6 +66,7 @@
   * [Ruby Developer](https://github.com/fs/test-tasks/tree/master/ruby)
   * [Unity Developer](https://github.com/fs/test-tasks/tree/master/unity)
   * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
+  * [NodeJS Developer](https://github.com/fs/test-tasks/tree/master/nodejs)
 
 * [FunBox](http://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
