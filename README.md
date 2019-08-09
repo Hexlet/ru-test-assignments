@@ -20,7 +20,7 @@
   * [Ruby Developer](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d)
   * [Frontend / React Native Developer](https://gist.github.com/KELiON/847543083fa37585dd06be197a405ec7)
 * [Aviasales](https://aviasales.ru)
-  * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
+  * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
 * [BeeJee](https://beejee.org/)
   * [Web-разработчик (PHP, JS)](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
 * [BellIntegrator](http://www.bellintegrator.ru/)
