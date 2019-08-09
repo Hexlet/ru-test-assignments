@@ -143,3 +143,9 @@
 
 * [Яндекс](https://yandex.ru)
   * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/)
+  * Школа разработки интерфейсов (ШРИ)
+    * 2019
+      * Осень ([#1](https://github.com/yndx-shri-reviewer/task-1), [#2](https://github.com/yndx-shri-reviewer/task-2), [#3](https://github.com/yndx-shri-reviewer/task-3))
+    * 2018
+      * Весна ([#1](https://github.com/yandex-shri-2018/entrance-task-1), [#2](https://github.com/yandex-shri-2018/entrance-task-2))
+      * Осень ([#1](https://github.com/yandex-shri-2018/entrance-task-1-2), [#2](https://github.com/yandex-shri-2018/entrance-task-2-2), [#3](https://github.com/yandex-shri-2018/entrance-task-3-2))
