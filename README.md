@@ -103,7 +103,7 @@
   * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf)
 
 * [Sendsay.ru](https://sendsay.ru/)
-  * [Fron End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
+  * [Front End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
 
 * [Smena](http://smena.space/)
   * [Python Developer](https://github.com/smenateam/python-assignment)
@@ -116,7 +116,7 @@
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
   * [iOS Developer (Swift)](https://github.com/tutu-ru/hire_ios-test)
   * [Android Developer](https://github.com/tutu-ru/hire_android_test)
-  * [Fronend homework](https://github.com/tutu-ru/fe-homework)
+  * [Frontend homework](https://github.com/tutu-ru/fe-homework)
 
 * [Volt](http://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
