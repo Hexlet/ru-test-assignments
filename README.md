@@ -102,9 +102,6 @@
 * [Procom](http://csoprocom.com.ua/)
   * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf)
 
-* [Return On Intelligence](http://www.returnonintelligence.ru/)
-  * [JS practice 2018](http://www.returnonintelligence.ru/students/practice/tasks2018/)
-
 * [Sendsay.ru](https://sendsay.ru/)
   * [Fron End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
 
