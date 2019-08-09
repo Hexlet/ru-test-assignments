@@ -20,7 +20,7 @@
   * [Ruby Developer](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d)
   * [Frontend / React Native Developer](https://gist.github.com/KELiON/847543083fa37585dd06be197a405ec7)
 * [Aviasales](https://aviasales.ru)
-  * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales)
+  * [Front End](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
 * [BeeJee](https://beejee.org/)
   * [Web-разработчик (PHP, JS)](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
 * [BellIntegrator](http://www.bellintegrator.ru/)
@@ -30,13 +30,13 @@
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
 
 * [CSSSR](https://csssr.ru)
-  * [Middle JavaScript Developer](https://csssr.ru/jobs/middle-js-developer)
+  * [Middle JavaScript Developer](https://csssr.com/ru/jobs/middle-js-developer)
 
-* [DevJS](http://devjs.ru/)
+* [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
   * [Тестовое задание на позицию Junior Frontend Developer](https://github.com/devjsru/react_test)
 
-* [Digital Dali](http://digitaldali.pro/)
+* [Digital Dali](https://digitaldali.ru/)
   * [Junior Front End](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
 
 * [eComCharge](https://ecomcharge.com/)
@@ -54,21 +54,21 @@
   * [PHP Developer — Разработка API](https://github.com/EvercodeLab/php-test-assignment)
 
 * [Evil Martians](https://evilmartians.com/)
-  * [Задачи из реальных проектов на гитхабе](http://cultofmartians.com/)
+  * [Задачи из реальных проектов на гитхабе](https://cultofmartians.com/)
 
 * [Evrone](https://evrone.com/)
   * [Easy test - создать блог на Rails + PostgreSQL](https://github.com/evrone/easy_test)
 
-* [Flatstack](http://www.flatstack.com)
+* [Flatstack](https://www.flatstack.com)
   * [Android Developer](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
   * [Frontend Developer (HTML+CSS+JS)](https://github.com/fs/test-tasks/tree/master/front-end)
   * [Ruby Developer](https://github.com/fs/test-tasks/tree/master/ruby)
   * [Unity Developer](https://github.com/fs/test-tasks/tree/master/unity)
   * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
-  * [Frontend Developer (JS, Angular.js)](https://github.com/fs/test-tasks/tree/master/js)
+  * [NodeJS Developer](https://github.com/fs/test-tasks/tree/master/nodejs)
 
-* [FunBox](http://funbox.ru/)
+* [FunBox](https://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
   * [Elixir-разработчик](https://dl.fun-box.ru/qt-elixir.pdf)
   * [HTML/CSS-разработчик](https://dl.fun-box.ru/qt-htmlcss.zip)
@@ -99,16 +99,13 @@
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
   * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
   
-* [Procom](http://csoprocom.com.ua/)
-  * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf)
-
-* [Return On Intelligence](http://www.returnonintelligence.ru/)
-  * [JS practice 2018](http://www.returnonintelligence.ru/students/practice/tasks2018/)
+* [Procom](https://csoprocom.com.ua/)
+  * [Frontend-разработчик](https://csoprocom.com.ua/info/frontend1.pdf)
 
 * [Sendsay.ru](https://sendsay.ru/)
-  * [Fron End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
+  * [Front End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
 
-* [Smena](http://smena.space/)
+* [Smena](https://smena.space/)
   * [Python Developer](https://github.com/smenateam/python-assignment)
 
 * [Travelpayouts](https://www.travelpayouts.com/ru)
@@ -119,9 +116,9 @@
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
   * [iOS Developer (Swift)](https://github.com/tutu-ru/hire_ios-test)
   * [Android Developer](https://github.com/tutu-ru/hire_android_test)
-  * [Fronend homework](https://github.com/tutu-ru/fe-homework)
+  * [Frontend homework](https://github.com/tutu-ru/fe-homework)
 
-* [Volt](http://www.wearevolt.com/)
+* [Volt](https://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
   * [Junior React Developer](https://drive.google.com/file/d/0B9gbscdfWqaqQzZBdEtJRktRaHM/view)
 
@@ -135,7 +132,7 @@
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
-* [Петер-Сервис](http://billing.ru)
+* [Петер-Сервис](https://billing.ru)
   * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
   * [Шелл](https://github.com/peterservice-rnd/new-job/blob/master/shell.md)
   * [Тестовый фреймворк](https://github.com/peterservice-rnd/new-job/blob/master/test-framework.md)
@@ -146,3 +143,9 @@
 
 * [Яндекс](https://yandex.ru)
   * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/)
+  * Школа разработки интерфейсов (ШРИ)
+    * 2019
+      * Осень ([#1](https://github.com/yndx-shri-reviewer/task-1), [#2](https://github.com/yndx-shri-reviewer/task-2), [#3](https://github.com/yndx-shri-reviewer/task-3))
+    * 2018
+      * Весна ([#1](https://github.com/yandex-shri-2018/entrance-task-1), [#2](https://github.com/yandex-shri-2018/entrance-task-2))
+      * Осень ([#1](https://github.com/yandex-shri-2018/entrance-task-1-2), [#2](https://github.com/yandex-shri-2018/entrance-task-2-2), [#3](https://github.com/yandex-shri-2018/entrance-task-3-2))
