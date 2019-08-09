@@ -32,11 +32,11 @@
 * [CSSSR](https://csssr.ru)
   * [Middle JavaScript Developer](https://csssr.com/ru/jobs/middle-js-developer)
 
-* [DevJS](http://devjs.ru/)
+* [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
   * [Тестовое задание на позицию Junior Frontend Developer](https://github.com/devjsru/react_test)
 
-* [Digital Dali](http://digitaldali.pro/)
+* [Digital Dali](https://digitaldali.ru/)
   * [Junior Front End](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
 
 * [eComCharge](https://ecomcharge.com/)
@@ -54,12 +54,12 @@
   * [PHP Developer — Разработка API](https://github.com/EvercodeLab/php-test-assignment)
 
 * [Evil Martians](https://evilmartians.com/)
-  * [Задачи из реальных проектов на гитхабе](http://cultofmartians.com/)
+  * [Задачи из реальных проектов на гитхабе](https://cultofmartians.com/)
 
 * [Evrone](https://evrone.com/)
   * [Easy test - создать блог на Rails + PostgreSQL](https://github.com/evrone/easy_test)
 
-* [Flatstack](http://www.flatstack.com)
+* [Flatstack](https://www.flatstack.com)
   * [Android Developer](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
   * [Frontend Developer (HTML+CSS+JS)](https://github.com/fs/test-tasks/tree/master/front-end)
@@ -68,7 +68,7 @@
   * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
   * [NodeJS Developer](https://github.com/fs/test-tasks/tree/master/nodejs)
 
-* [FunBox](http://funbox.ru/)
+* [FunBox](https://funbox.ru/)
   * [Ruby-разработчик](https://dl.fun-box.ru/qt-ruby.pdf)
   * [Elixir-разработчик](https://dl.fun-box.ru/qt-elixir.pdf)
   * [HTML/CSS-разработчик](https://dl.fun-box.ru/qt-htmlcss.zip)
@@ -99,13 +99,13 @@
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
   * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
   
-* [Procom](http://csoprocom.com.ua/)
-  * [Frontend-разработчик](http://csoprocom.com.ua/info/frontend1.pdf)
+* [Procom](https://csoprocom.com.ua/)
+  * [Frontend-разработчик](https://csoprocom.com.ua/info/frontend1.pdf)
 
 * [Sendsay.ru](https://sendsay.ru/)
   * [Front End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
 
-* [Smena](http://smena.space/)
+* [Smena](https://smena.space/)
   * [Python Developer](https://github.com/smenateam/python-assignment)
 
 * [Travelpayouts](https://www.travelpayouts.com/ru)
@@ -118,7 +118,7 @@
   * [Android Developer](https://github.com/tutu-ru/hire_android_test)
   * [Frontend homework](https://github.com/tutu-ru/fe-homework)
 
-* [Volt](http://www.wearevolt.com/)
+* [Volt](https://www.wearevolt.com/)
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
   * [Junior React Developer](https://drive.google.com/file/d/0B9gbscdfWqaqQzZBdEtJRktRaHM/view)
 
@@ -132,7 +132,7 @@
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
-* [Петер-Сервис](http://billing.ru)
+* [Петер-Сервис](https://billing.ru)
   * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
   * [Шелл](https://github.com/peterservice-rnd/new-job/blob/master/shell.md)
   * [Тестовый фреймворк](https://github.com/peterservice-rnd/new-job/blob/master/test-framework.md)
