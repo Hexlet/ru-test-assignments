@@ -30,7 +30,7 @@
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
 
 * [CSSSR](https://csssr.ru)
-  * [Middle JavaScript Developer](https://csssr.ru/jobs/middle-js-developer)
+  * [Middle JavaScript Developer](https://csssr.com/ru/jobs/middle-js-developer)
 
 * [DevJS](http://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
