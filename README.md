@@ -31,6 +31,8 @@
 
 * [CSSSR](https://csssr.ru)
   * [Middle JavaScript Developer](https://csssr.com/ru/jobs/middle-js-developer)
+  * [Middle Java Developer](https://csssr.com/ru/jobs/java-developer)
+  * [QA engineer](https://csssr.com/ru/jobs/qa-engineer)
 
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
