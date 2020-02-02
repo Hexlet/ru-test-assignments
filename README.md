@@ -49,7 +49,6 @@
   * [Система решения математических уравнений](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798)
 
 * [Ecwid](https://www.ecwid.com/)
-  * [Задача трёх тел на Elm](https://github.com/Ecwid/new-job/blob/master/Elm-3body-problem)
   * [Парсер SQL запросов, Kotlin / Java 8](https://github.com/Ecwid/new-job/blob/master/SQL-parser.md)
   * [Глубокое копирование, Kotlin / Java 8](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
   * [java.util.Map поверх Redis](https://github.com/Ecwid/new-job/blob/master/Redis-and-collections.md)
