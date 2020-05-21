@@ -108,7 +108,9 @@
   * [Frontend-разработчик](https://csoprocom.com.ua/info/frontend1.pdf)
 
 * [Sendsay.ru](https://sendsay.ru/)
-  * [Front End React](https://docs.google.com/document/d/1ALAXy1ZIOT3JG8ZVKJi5jBOyMpskpCSyk_TKVfIXMp0/edit)
+  * [Frontend Jr + QA (АРХИВ)](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
+  * [Frontend React (АРХИВ)](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
+  * [Frontend React](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
 
 * [Smena](https://smena.space/)
   * [Python Developer](https://github.com/smenateam/python-assignment)
