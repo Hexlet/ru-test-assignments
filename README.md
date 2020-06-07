@@ -38,6 +38,10 @@
   * [Middle Java Developer](https://csssr.com/ru/jobs/java-developer)
   * [QA engineer](https://csssr.com/ru/jobs/qa-engineer)
 
+* [Development Systems](https://www.ds.do/)
+  * [Стажер-программист C#](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
+ 
+
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
   * [Тестовое задание на позицию Junior Frontend Developer](https://github.com/devjsru/react_test)
@@ -99,6 +103,14 @@
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache](https://github.com/gojuno/test_tasks)
 
+* [Mindbox](https://mindbox.ru/)
+  * [Стажировка на c#](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
+  
+
+* [NAUKA](http://www.ntik.ru/)
+  * [Тестовое задание на C# стажера](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
+  * [Тестовое задание на Java стажера](https://drive.google.com/file/d/1cbUD3ID1yyHJES9KQH12L_wGhKTn6Jrg/view)
+
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
@@ -139,6 +151,10 @@
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
+* [Инфотекс](https://infotecs.ru/)
+  * [Тестовое на стажировку, C#](https://drive.google.com/drive/folders/1UCx7__WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
+
+
 * [Петер-Сервис](https://billing.ru)
   * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
   * [Шелл](https://github.com/peterservice-rnd/new-job/blob/master/shell.md)
@@ -147,6 +163,9 @@
 * [СКБ Контур](https://kontur.ru/)
   * [Front End](https://kontur.ru/education/programs/intern/frontend)
   * [Back End](https://kontur.ru/education/programs/intern/backend)
+  * [Тестовые задания на c# стажировку](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
+  * [Тестовые задания на java](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
+  
 
 * [Яндекс](https://yandex.ru)
   * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/)
