@@ -25,6 +25,10 @@
   * [Frontend Стажёр](https://github.com/avito-tech/safedeal-frontend-trainee)
   * [Frontend Стажёр](https://github.com/avito-tech/verticals/blob/master/trainee/frontend.md)
   * [Backend Стажёр](https://github.com/avito-tech/verticals/blob/master/trainee/backend.md)
+
+* [BEBOSS](https://beboss.ru/)
+  * [Web-разработчик (PHP, JS)](https://github.com/funkylen/beboss-test-assignments)
+
 * [BeeJee](https://beejee.org/)
   * [Web-разработчик (PHP, JS)](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
 * [BellIntegrator](http://www.bellintegrator.ru/)
