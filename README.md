@@ -151,9 +151,11 @@
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
+* [Инфоматика](https://infomatika.ru/)
+  * [Frontend разработчик](https://github.com/some-yummy-nick/infomatika-test)
+
 * [Инфотекс](https://infotecs.ru/)
   * [Тестовое на стажировку, C#](https://drive.google.com/drive/folders/1UCx7__WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
-
 
 * [Петер-Сервис](https://billing.ru)
   * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
