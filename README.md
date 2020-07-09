@@ -138,7 +138,8 @@
   * [Frontend React](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
 
 * [Smena](https://smena.space/)
-  * [Python Developer](https://github.com/smenateam/python-assignment)
+  * [Python Developer](https://github.com/smenateam/assignments/blob/master/backend/README.md)
+  * [JavaScript Developer](https://github.com/smenateam/assignments/blob/master/frontend/README.md)
 
 * [Travelpayouts](https://www.travelpayouts.com/ru)
   * [Front End](https://github.com/KosyanMedia/Front-end_TP_test)
