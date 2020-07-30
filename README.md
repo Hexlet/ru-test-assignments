@@ -24,7 +24,20 @@
 * [Avito](https://www.avito.ru)
   * [Frontend Стажёр](https://github.com/avito-tech/safedeal-frontend-trainee)
   * [Frontend Стажёр](https://github.com/avito-tech/verticals/blob/master/trainee/frontend.md)
+  * [Frontend Стажёр](https://github.com/avito-tech/pro-fe-trainee-task)
   * [Backend Стажёр](https://github.com/avito-tech/verticals/blob/master/trainee/backend.md)
+  * [Backend Стажёр](https://github.com/avito-tech/safedeal-backend-trainee)
+  * [Backend Стажёр](https://github.com/avito-tech/mi-trainee-task)
+  * [Backend Стажёр](https://github.com/avito-tech/brave-new-billing)
+  * [Backend Стажёр](https://github.com/avito-tech/backend-trainee-assignment)
+  * [Android Стажёр](https://github.com/avito-tech/android-trainee-task)
+  * [iOS Стажёр](https://github.com/avito-tech/ios-trainee-problem)
+  * [QA Стажёр](https://github.com/avito-tech/qa-trainee-task)
+  * [Security Стажёр](https://github.com/avito-tech/antibot-developer-trainee)
+
+* [BEBOSS](https://beboss.ru/)
+  * [Web-разработчик (PHP, JS)](https://github.com/funkylen/beboss-test-assignments)
+
 * [BeeJee](https://beejee.org/)
   * [Web-разработчик (PHP, JS)](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
 * [BellIntegrator](http://www.bellintegrator.ru/)
@@ -125,7 +138,8 @@
   * [Frontend React](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
 
 * [Smena](https://smena.space/)
-  * [Python Developer](https://github.com/smenateam/python-assignment)
+  * [Python Developer](https://github.com/smenateam/assignments/blob/master/backend/README.md)
+  * [JavaScript Developer](https://github.com/smenateam/assignments/blob/master/frontend/README.md)
 
 * [Travelpayouts](https://www.travelpayouts.com/ru)
   * [Front End](https://github.com/KosyanMedia/Front-end_TP_test)
@@ -167,7 +181,9 @@
   * [Back End](https://kontur.ru/education/programs/intern/backend)
   * [Тестовые задания на c# стажировку](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
   * [Тестовые задания на java](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
-  
+
+* [TMK](https://tmktools.ru/)
+  * [Тестовое задание PHP-developer (Symfony)](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)  
 
 * [Яндекс](https://yandex.ru)
   * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/)
