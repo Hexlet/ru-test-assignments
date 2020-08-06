@@ -134,6 +134,9 @@
 * [Procom](https://csoprocom.com.ua/)
   * [Frontend-разработчик](https://csoprocom.com.ua/info/frontend1.pdf)
 
+* [Redsoft](https://redsoft.ru)
+  * [Frontend-разработчик](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
+
 * [Sendsay.ru](https://sendsay.ru/)
   * [Frontend Jr + QA (АРХИВ)](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
   * [Frontend React (АРХИВ)](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
