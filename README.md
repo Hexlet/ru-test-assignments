@@ -146,6 +146,9 @@
   * [Python Developer](https://github.com/smenateam/assignments/blob/master/backend/README.md)
   * [JavaScript Developer](https://github.com/smenateam/assignments/blob/master/frontend/README.md)
 
+* [SoftPro](https://softpro.com/)
+  * [Junior Go Developer](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn)
+
 * [Travelpayouts](https://www.travelpayouts.com/ru)
   * [Front End](https://github.com/KosyanMedia/Front-end_TP_test)
   
