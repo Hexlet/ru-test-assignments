@@ -15,6 +15,9 @@
 
 ### Задания
 
+* [abz.agency](https://abz.agency/)
+  * [Junior Python Developer](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view?usp=sharing)
+
 * [Appbooster](https://appbooster.com/)
   * [iOS Developer](https://gist.github.com/KELiON/5725bc24c2ed5c34fb60047362f424aa)
   * [Ruby Developer](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d)
