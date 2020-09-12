@@ -192,7 +192,9 @@
   * [Тестовое задание PHP-developer (Symfony)](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
 
 * [Яндекс](https://yandex.ru)
-  * Школа разработки интерфейсов (ШРИ)
-    * 2018
-      * Весна ([#1](https://github.com/yandex-shri-2018/entrance-task-1), [#2](https://github.com/yandex-shri-2018/entrance-task-2))
-      * Осень ([#1](https://github.com/yandex-shri-2018/entrance-task-1-2), [#2](https://github.com/yandex-shri-2018/entrance-task-2-2), [#3](https://github.com/yandex-shri-2018/entrance-task-3-2))
+  * Школа разработки интерфейсов (ШРИ) 2018
+    * [Приложение для создания и редактирования информации о встречах сотрудников _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1)
+    * [Тестовое задание по вёрстке](https://github.com/yandex-shri-2018/entrance-task-2)
+    * [Найди ошибки _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1-2)
+    * [Сверстать макет](https://github.com/yandex-shri-2018/entrance-task-2-2)
+    * [Реализовать алгоритм _(JS)_](https://github.com/yandex-shri-2018/entrance-task-3-2)
