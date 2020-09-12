@@ -58,7 +58,6 @@
 
 * [Development Systems](https://www.ds.do/)
   * [Стажер-программист C#](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
- 
 
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
@@ -83,9 +82,6 @@
 * [Evil Martians](https://evilmartians.com/)
   * [Задачи из реальных проектов на гитхабе](https://cultofmartians.com/)
 
-* [Evrone](https://evrone.com/)
-  * [Easy test - создать блог на Rails + PostgreSQL](https://github.com/evrone/easy_test)
-
 * [Flatstack](https://www.flatstack.com)
   * [Android Developer](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
@@ -109,9 +105,6 @@
 * [Haulmont](https://www.haulmont.com/front)
   * [Тестовое задание от Haulmont](https://github.com/nikolaychernov/StudentDatabase)
 
-* [HeadHunter](https://hh.ru/)
-  * [Frontend-разработчик](https://github.com/hhru/frontend-test)
-
 * [ITSumma](https://www.itsumma.ru)
   * [Тестовое задание для PHP разработчиков](http://php.itsumma.ru)
 
@@ -123,7 +116,6 @@
 
 * [Mindbox](https://mindbox.ru/)
   * [Стажировка на c#](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
-  
 
 * [NAUKA](http://www.ntik.ru/)
   * [Тестовое задание на C# стажера](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
@@ -133,7 +125,7 @@
   * [Front End](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer](https://github.com/ostrovok-team/code-challenge/tree/master/python)
   * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
-  
+
 * [Procom](https://csoprocom.com.ua/)
   * [Frontend-разработчик](https://csoprocom.com.ua/info/frontend1.pdf)
 
@@ -154,7 +146,7 @@
 
 * [Travelpayouts](https://www.travelpayouts.com/ru)
   * [Front End](https://github.com/KosyanMedia/Front-end_TP_test)
-  
+
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Back End PHP](https://github.com/tutu-ru/php-interview)
   * [Front End](https://github.com/tutu-ru/frontend-javascript-test)
@@ -188,19 +180,14 @@
   * [Тестовый фреймворк](https://github.com/peterservice-rnd/new-job/blob/master/test-framework.md)
 
 * [СКБ Контур](https://kontur.ru/)
-  * [Front End](https://kontur.ru/education/programs/intern/frontend)
-  * [Back End](https://kontur.ru/education/programs/intern/backend)
   * [Тестовые задания на c# стажировку](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
   * [Тестовые задания на java](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
 
 * [TMK](https://tmktools.ru/)
-  * [Тестовое задание PHP-developer (Symfony)](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)  
+  * [Тестовое задание PHP-developer (Symfony)](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
 
 * [Яндекс](https://yandex.ru)
-  * [Frontend Разработка интерфейсов](https://academy.yandex.ru/events/frontend/)
   * Школа разработки интерфейсов (ШРИ)
-    * 2019
-      * Осень ([#1](https://github.com/yndx-shri-reviewer/task-1), [#2](https://github.com/yndx-shri-reviewer/task-2), [#3](https://github.com/yndx-shri-reviewer/task-3))
     * 2018
       * Весна ([#1](https://github.com/yandex-shri-2018/entrance-task-1), [#2](https://github.com/yandex-shri-2018/entrance-task-2))
       * Осень ([#1](https://github.com/yandex-shri-2018/entrance-task-1-2), [#2](https://github.com/yandex-shri-2018/entrance-task-2-2), [#3](https://github.com/yandex-shri-2018/entrance-task-3-2))
