@@ -23,6 +23,9 @@
   * [Ruby Developer](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d)
   * [Frontend Developer _(React)_](https://gist.github.com/KELiON/847543083fa37585dd06be197a405ec7)
 
+* [Au](https://au.ru/)
+  * [Junior Frontend Developer _(React)_](https://drive.google.com/file/d/18GjJJJlw7YoshQfq2_FYQv6hnRTpjLp2/view?usp=sharing)
+
 * [Aviasales](https://aviasales.ru)
   * [Front End _(React, TS, JS)_](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
 
@@ -67,6 +70,9 @@
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков](https://github.com/devjsru/php_test)
   * [Тестовое задание на позицию Junior Frontend Developer](https://github.com/devjsru/react_test)
+
+* [Devsteam.mobi](http://devsteam.mobi/)
+  *[Junior Frontend Developer _(React Native)_](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
 
 * [Digital Dali](https://digitaldali.ru/)
   * [Junior Front End _(PHP)_](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
@@ -118,6 +124,9 @@
 
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache _(eng)_](https://github.com/gojuno/test_tasks)
+
+* [Medods](https://medods.ru/)
+  * [Junior Frontend Developer _(Vue)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
 
 * [Mindbox](https://mindbox.ru/)
   * [Стажировка на c#](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
@@ -178,6 +187,9 @@
 
 * [Инфотекс](https://infotecs.ru/)
   * [Тестовое на стажировку, C#](https://drive.google.com/drive/folders/1UCx7__WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
+
+* [Кошелёк](https://koshelek.ru/)
+  * [Junior Frontend Developer _(Vue)_](https://drive.google.com/file/d/1k6c0AiXsTko1kfLv3sLtFxV9vIJwpUSd/view?usp=sharing)
 
 * [Петер-Сервис](https://billing.ru)
   * [Выбор лидера](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
