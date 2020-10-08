@@ -163,6 +163,10 @@
   * [Junior Rails Developer](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
   * [Junior React Developer](https://drive.google.com/file/d/0B9gbscdfWqaqQzZBdEtJRktRaHM/view)
 
+* [Waliot](https://waliot.com/)
+  * [Backend Developer](https://github.com/waliot/test-tasks/blob/master/tasks/backend-1.md)
+  * [Frontend Developer](https://github.com/waliot/test-tasks/blob/master/tasks/frontend-1.md)
+
 * [Wargaming.net](https://wargaming.com)
   * [Software Developer Back End](https://github.com/wgnet/wg_forge_backend)
   * [Software Developer Front End _(Node.js)_](https://github.com/wgnet/wg_forge_frontend)
