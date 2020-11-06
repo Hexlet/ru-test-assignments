@@ -1,0 +1,17 @@
+AUTHORS.rst
+CHANGES.rst
+CONTRIBUTING.rst
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+names/__init__.py
+names/dist.all.last
+names/dist.female.first
+names/dist.male.first
+names/main.py
+names.egg-info/PKG-INFO
+names.egg-info/SOURCES.txt
+names.egg-info/dependency_links.txt
+names.egg-info/entry_points.txt
+names.egg-info/top_level.txt
