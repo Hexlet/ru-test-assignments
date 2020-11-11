@@ -196,6 +196,9 @@
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
+* [ВсеИнструменты.ру](https://www.vseinstrumenti.ru/)
+  * [Провести код-ревью разработанного микросервиса](https://docs.google.com/document/d/14KXYF3ELAn31ddUiZdHdwWDjJ6hVymq26UCVE9r0GYk/edit?usp=sharing)
+  
 * [Инфоматика](https://infomatika.ru/)
   * [Требуется сверстать HTML страницу на основе рисунка](https://github.com/some-yummy-nick/infomatika-test)
 
