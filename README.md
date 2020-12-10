@@ -153,6 +153,9 @@
 * [Procom](https://csoprocom.com.ua/)
   * [Frontend-разработчик _(JS)_](https://csoprocom.com.ua/info/frontend1.pdf)
 
+* Profiliance Group
+  * [Backend Developer _(PHP Laravel)_](https://workflowy.com/s/2ca3f38ef0f5/TRUbIAFhIadLR6zq)
+
 * [Redsoft](https://redsoft.ru)
   * [Frontend-разработчик _(Node.js)_](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
 
