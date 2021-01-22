@@ -79,6 +79,7 @@
 
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков _(PHP)_](https://github.com/devjsru/php_test)
+  * [Тестовое задания на позицию Frontend разработчика](https://github.com/devjsru/react_test)
 
 * [Devsteam.mobi](http://devsteam.mobi/)
   * [Junior Frontend Developer _(React Native)_](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
@@ -144,9 +145,11 @@
   * [Тестовое задания для кандидатов в бэкенд разработку _(Java)_](https://github.com/KazanExpress/backend-spring-test-task)
   * [Тестовое задание на Android разработку _(TheCocktailDb API)_](https://github.com/KazanExpress/android-test-task)
   * [Тестовое задание на Android разработку](https://github.com/KazanExpress/ke-test-android)
+  * [KazanExpress test for Python developer _(Django)_](https://github.com/KazanExpress/django-test-task)
+
 
 * [Medods](https://medods.ru/)
-  * [Junior Frontend Developer _(Vue)_](https://github.com/KazanExpress/django-test-task)
+  * [Junior Frontend Developer _(Vue)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
 
 * [Mindbox](https://mindbox.ru/)
   * [Стажировка на c#](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
