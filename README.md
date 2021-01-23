@@ -79,6 +79,7 @@
 
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков _(PHP)_](https://github.com/devjsru/php_test)
+  * [Тестовое задания на позицию Frontend разработчика](https://github.com/devjsru/react_test)
 
 * [Devsteam.mobi](http://devsteam.mobi/)
   * [Junior Frontend Developer _(React Native)_](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
@@ -134,6 +135,18 @@
 
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache _(eng)_](https://github.com/gojuno/test_tasks)
+  
+* [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress?type=source)
+  * [Test for Python developer _(eng)_ _(Django, DB - any)_](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
+  * [Test for Java/Kotlin backend developer _(eng)_ _(Java/Kotlin, Spring Boot, Maven/Gradle)_](https://github.com/KazanExpress/wms-backend-test-task)  
+  * [Тестовое задание Front-End _(Vue.js)_](https://github.com/KazanExpress/frontend-test-task)
+  * [Упрощённое тестовое задание Front-End _(JS)_](https://github.com/KazanExpress/frontend-test-task-short)
+  * [Тестовое задание для Golang разработчика _(Go)_](https://github.com/KazanExpress/golang-test-task)
+  * [Тестовое задания для кандидатов в бэкенд разработку _(Java)_](https://github.com/KazanExpress/backend-spring-test-task)
+  * [Тестовое задание на Android разработку _(TheCocktailDb API)_](https://github.com/KazanExpress/android-test-task)
+  * [Тестовое задание на Android разработку](https://github.com/KazanExpress/ke-test-android)
+  * [KazanExpress test for Python developer _(Django)_](https://github.com/KazanExpress/django-test-task)
+
 
 * [Medods](https://medods.ru/)
   * [Junior Frontend Developer _(Vue)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
@@ -161,6 +174,9 @@
 
 * [Redsoft](https://redsoft.ru)
   * [Frontend-разработчик _(Node.js)_](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
+
+* [REG.RU](https://www.reg.ru/)
+  * [Тестовое задание для вакансии «Программист PHP»](https://www.reg.ru/company/jobs/testtask-prog-php)
 
 * [Sendsay.ru](https://sendsay.ru/)
   * [Frontend Jr + QA (АРХИВ) _(JS)_](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
@@ -221,7 +237,7 @@
   * [Тестовые задания на java](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
 
 * [TMK](https://tmktools.ru/)
-  * [Тестовое задание PHP-developer (Symfony)](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
+  * [Тестовое задание PHP-developer _(Symfony)_](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
 
 * [Яндекс](https://yandex.ru)
   * Школа разработки интерфейсов (ШРИ) 2018
@@ -230,3 +246,11 @@
     * [Найди ошибки _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1-2)
     * [Сверстать макет](https://github.com/yandex-shri-2018/entrance-task-2-2)
     * [Реализовать алгоритм _(JS)_](https://github.com/yandex-shri-2018/entrance-task-3-2)
+    
+* [Студия Валерия Комягина](https://www.internet-design.ru/)
+  * [Тестовое задание Веб-программист _(Laravel)_](https://drive.google.com/file/d/1ACBukx7UpnLztRnnCKID3K-DxX1UciMw/view)
+
+* [True Positive Lab](http://www.truepositive.ru/)
+_(все задания на одной странице)_
+  * [Тестовое задание "Фотоколлаж" _(C++ или Python, OpenCV, Windows или Linux)_](http://www.truepositive.ru/hr/)
+  * [Тестовое задание "Фотогалерея" _(C++/Qt или Java/Android, Windows, Linux или Android)_](http://www.truepositive.ru/hr/)
