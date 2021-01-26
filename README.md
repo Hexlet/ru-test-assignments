@@ -187,6 +187,9 @@
   * [Python Developer _(Django)_](https://github.com/smenateam/assignments/blob/master/backend/README.md)
   * [JavaScript Developer _(Node.js)_](https://github.com/smenateam/assignments/blob/master/frontend/README.md)
 
+* [SoftCorp](https://softcorp.by/)
+    * [Web Developer](https://gist.github.com/c0nsul/6eeb6cc98810958c9f6acf946f38f2d2/revisions)
+
 * [SoftPro](https://softpro.com/)
   * [Junior Go Developer](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
 
