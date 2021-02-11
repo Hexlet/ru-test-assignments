@@ -239,6 +239,9 @@
   * [Тестовые задания на c# стажировку](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
   * [Тестовые задания на java](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
 
+* [Ти Экс Консалтинг](http://teoxoft.com/)
+  * [Программист PHP](https://drive.google.com/file/d/1u5CsefYwLyA9WB_6QKcZLWQrP83ULxnk/view?usp=sharing)
+  
 * [TMK](https://tmktools.ru/)
   * [Тестовое задание PHP-developer _(Symfony)_](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
 
