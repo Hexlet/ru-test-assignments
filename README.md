@@ -187,6 +187,9 @@
   * [Python Developer _(Django)_](https://github.com/smenateam/assignments/blob/master/backend/README.md)
   * [JavaScript Developer _(Node.js)_](https://github.com/smenateam/assignments/blob/master/frontend/README.md)
 
+* [SoftCorp](https://softcorp.by/)
+    * [Web Developer](https://gist.github.com/c0nsul/6eeb6cc98810958c9f6acf946f38f2d2/revisions)
+
 * [SoftPro](https://softpro.com/)
   * [Junior Go Developer](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
 
@@ -236,6 +239,9 @@
   * [Тестовые задания на c# стажировку](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
   * [Тестовые задания на java](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
 
+* [Ти Экс Консалтинг](http://teoxoft.com/)
+  * [Программист PHP](https://drive.google.com/file/d/1u5CsefYwLyA9WB_6QKcZLWQrP83ULxnk/view?usp=sharing)
+  
 * [TMK](https://tmktools.ru/)
   * [Тестовое задание PHP-developer _(Symfony)_](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
 
