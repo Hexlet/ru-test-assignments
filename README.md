@@ -135,6 +135,9 @@
   * [C-разработчик](https://dl.funbox.ru/qt-c.pdf)
   * [Big Data-разработчик](https://dl.funbox.ru/qt-bigdata.pdf)
 
+* [Greensight](https://greensight.ru/careers/backend-developer-intern)
+  * [Тестовое задание для направления Backend разработка _(PHP)](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
+
 * [Haulmont](https://www.haulmont.ru)
   * [StudentDatabase _(Java)_](https://github.com/nikolaychernov/StudentDatabase)
 
