@@ -150,6 +150,12 @@
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache _(eng)_ _(Go)_](https://github.com/gojuno/test_tasks)
 
+* [Matic Insurance Services](https://matic.com/)
+  * [Junior DevOps test assignment _(eng)_ _(DockerHub or AWS ECR, Kubernetes)_](https://github.com/gojuno/test_tasks)
+  * [DevOps test assignment _(eng)_ _(any)_](https://github.com/gojuno/test_tasks)
+  * [Ruby test assignment _(eng)_ _(Ruby)_](https://github.com/gojuno/test_tasks)
+  * [AQA test assignment _(eng)_ _(Ruby, Rspec)_](https://github.com/gojuno/test_tasks)
+
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
   * [Test for Java/Kotlin backend developer _(eng)_ _(Java/Kotlin, Spring Boot, Maven/Gradle)_](https://github.com/KazanExpress/wms-backend-test-task)
   * [Тестовое задание Front-End _(JS/TS, Vue.js)_](https://github.com/KazanExpress/frontend-test-task)
