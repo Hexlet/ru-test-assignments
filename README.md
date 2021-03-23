@@ -79,6 +79,10 @@
   * [Frontend-разработчик _(JS)_](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
 
+* [CS-Cart](https://cs-cart.com/)
+  * [Тестовое задание для PHP разработчиков _(PHP)_](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
+  * [Тестовое задание для Javascript разработчика _(JS, jQuery)_](https://github.com/cscart/apply-for-job/tree/master/frontend/developer)
+
 * [CSSSR](https://csssr.ru)
   *(задания в конце каждой страницы)*
   * [High middle front-end разработчик _(JS/TS, HTML и CSS, React, React Hooks, Flux (Redux/MobX))_](https://csssr.com/ru-ru/jobs/middle-js-developer)
