@@ -118,6 +118,9 @@
 * [Evil Martians](https://evilmartians.com/)
   * [Задачи из реальных проектов на гитхабе](https://cultofmartians.com/)
 
+* [FEIP](https://feip.co/)
+  * [PHP-разработчик](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
+
 * [Flatstack](https://www.flatstack.com)
   * [Android Developer _(Kotlin, Java, C++)_](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
@@ -144,6 +147,9 @@
 
 * [Haulmont](https://www.haulmont.ru)
   * [StudentDatabase _(Java)_](https://github.com/nikolaychernov/StudentDatabase)
+
+* [House](https://housevl.ru/)
+  * [PHP-разработчик](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
 
 * [ITSumma](https://www.itsumma.ru)
   * [Тестовое задание для PHP разработчиков _(PHP, Laravel, Angular/React)_](http://php.itsumma.ru)
