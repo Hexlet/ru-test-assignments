@@ -85,6 +85,7 @@
 
 * [CSSSR](https://csssr.ru)
   *(задания в конце каждой страницы)*
+  * [Junior front-end разработчик _(JS, HTML, CSS)_](https://csssr.com/ru-ru/jobs/junior-js-developer)
   * [High middle front-end разработчик _(JS/TS, HTML и CSS, React, React Hooks, Flux (Redux/MobX))_](https://csssr.com/ru-ru/jobs/middle-js-developer)
   * [High middle back-end разработчик _(Java, Spring (Spring Boot),Hibernate/SQL, Docker)_](https://csssr.com/ru-ru/jobs/java-developer)
   * [Back-end QA-инженер _(Atlassian (JIRA, Confluence, Bamboo, Bitbucket), SOAP UI, Swagger, Kafka, Kibana, Oracle, MongoDB, Java, Selenium/Selenide, Cucumber, RestAssured)_](https://csssr.com/ru-ru/jobs/backend-qa-engineer)
