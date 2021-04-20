@@ -4,6 +4,10 @@
 
 Данный репозиторий создан и поддерживается командой и сообществом образовательного проекта _Хекслет_. [Подробнее о проекте](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments).
 
+----
+
+Выполненные тестовые задания прикрепляйте как портфолио к своему резюме на [Hexlet CV](https://cv.hexlet.io/).
+
 ## Как помочь?
 
 Мы принимаем Pull Request'ы!
