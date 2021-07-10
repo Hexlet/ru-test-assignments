@@ -83,6 +83,9 @@
   * [Frontend-разработчик _(JS)_](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
 
+* [CLC Tech](https://clc-logistic.ru/)
+  *[Junior PHP developer_(telegram-bot)](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
+
 * [CS-Cart](https://cs-cart.com/)
   * [Тестовое задание для PHP разработчиков _(PHP)_](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
   * [Тестовое задание для Javascript разработчика _(JS, jQuery)_](https://github.com/cscart/apply-for-job/tree/master/frontend/developer)
