@@ -150,6 +150,15 @@
   * [C-разработчик](https://dl.funbox.ru/qt-c.pdf)
   * [Big Data-разработчик](https://dl.funbox.ru/qt-bigdata.pdf)
 
+* [Future](https://future-group.ru/)
+  * [Фронтенд-разработчик 1](https://github.com/fugr-ru/frontend-javascript-test)
+  * [Фронтенд-разработчик 2](https://github.com/fugr-ru/frontend-javascript-test-2)
+  * [PHP-разработчик](https://github.com/fugr-ru/php-comments)
+  * [Тестировщик](https://github.com/fugr-ru/qa)
+  * [Верстальщик 1](https://github.com/fugr-ru/frontend-html)
+  * [Верстальщик 2](https://github.com/fugr-ru/frontend-html-2)
+  * [Верстальщик 3](https://github.com/fugr-ru/frontend-html-3)
+
 * [Greensight](https://greensight.ru/careers/backend-developer-intern)
   * [Тестовое задание для направления Backend разработка _(PHP)](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
 
