@@ -98,7 +98,7 @@
   * [Back-end QA-инженер _(Atlassian (JIRA, Confluence, Bamboo, Bitbucket), SOAP UI, Swagger, Kafka, Kibana, Oracle, MongoDB, Java, Selenium/Selenide, Cucumber, RestAssured)_](https://csssr.com/ru-ru/jobs/backend-qa-engineer)
 
 * [Dapplets Project](https://dapplets.org/)
-  * [Тестовое задание на вакансию “Frontend Developer](https://docs.google.com/document/d/1A67hVEF5fb6Uk1Y341PeyV9Yr1UUWLtANITxSzWVHHY/edit#heading=h.dn2s0spi21rh)
+  * [Тестовое задание на вакансию "Frontend Developer"](https://docs.google.com/document/d/1A67hVEF5fb6Uk1Y341PeyV9Yr1UUWLtANITxSzWVHHY/edit#heading=h.dn2s0spi21rh)
 
 * [Development Systems](https://www.ds.do/)
   * [Стажер-программист _(C#)_](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
