@@ -296,3 +296,6 @@
   Школа разработки интерфейсов (ШРИ) 2018
   * [Приложение для создания и редактирования информации о встречах сотрудников _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1)
   * [Найди ошибки _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1-2)
+
+* Без компании
+  * [Frontend test case _(React, TypeScript)_](https://docs.google.com/document/d/16IkxQ_ZDRxrfnzdjQdYP5UfyloGwmwXsZ5IEXEbuL2E/edit?usp=sharing)
