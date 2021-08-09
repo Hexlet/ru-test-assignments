@@ -97,6 +97,9 @@
   * [High middle back-end разработчик _(Java, Spring (Spring Boot),Hibernate/SQL, Docker)_](https://csssr.com/ru-ru/jobs/java-developer)
   * [Back-end QA-инженер _(Atlassian (JIRA, Confluence, Bamboo, Bitbucket), SOAP UI, Swagger, Kafka, Kibana, Oracle, MongoDB, Java, Selenium/Selenide, Cucumber, RestAssured)_](https://csssr.com/ru-ru/jobs/backend-qa-engineer)
 
+* [DAO TECH](https://daotech.ru/)
+  * [Тестовое задание на вакансию "Frontend Developer" _(JS, React)_](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
+
 * [Dapplets Project](https://dapplets.org/)
   * [Тестовое задание на вакансию "Frontend Developer"](https://docs.google.com/document/d/1A67hVEF5fb6Uk1Y341PeyV9Yr1UUWLtANITxSzWVHHY/edit#heading=h.dn2s0spi21rh)
 
@@ -284,6 +287,9 @@
 
 * [Кошелёк](https://koshelek.ru/)
   * [Junior Frontend Developer _(JS, Vue.js/React/Angular)_](https://drive.google.com/file/d/1k6c0AiXsTko1kfLv3sLtFxV9vIJwpUSd/view?usp=sharing)
+
+* [Маквес Групп](https://www.makves.ru/)
+  * [Стажёр-разработчик Frontend](https://drive.google.com/file/d/1ZRKa2us1D49l8natOIpO5TYTirKdNssz/view?usp=sharing)
 
 * [СКБ Контур](https://kontur.ru/)
   * [Тестовые задания на c# стажировку _(C#)_](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
