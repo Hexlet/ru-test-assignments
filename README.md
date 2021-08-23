@@ -174,9 +174,6 @@
 * [House](https://housevl.ru/)
   * [PHP-разработчик](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
 
-* [ITSumma](https://www.itsumma.ru)
-  * [Тестовое задание для PHP разработчиков _(PHP, Laravel, Angular/React)_](http://php.itsumma.ru)
-
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик _(Python, Django)_](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
 
