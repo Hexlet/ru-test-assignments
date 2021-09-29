@@ -103,6 +103,9 @@
 * [Dapplets Project](https://dapplets.org/)
   * [Тестовое задание на вакансию "Frontend Developer"](https://docs.google.com/document/d/1A67hVEF5fb6Uk1Y341PeyV9Yr1UUWLtANITxSzWVHHY/edit#heading=h.dn2s0spi21rh)
 
+* [Detego](https://www.detego.com/en/)
+  * [Тестовое задание на позицию React-Native developer](https://docs.google.com/document/d/1AKeJuZmhbLdv7PCMdJsQoCu60tT3OHyen7laa58aKMk/edit?usp=sharing)
+
 * [Development Systems](https://www.ds.do/)
   * [Стажер-программист _(C#)_](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
 
