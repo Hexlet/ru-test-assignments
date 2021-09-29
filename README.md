@@ -174,6 +174,9 @@
 * [House](https://housevl.ru/)
   * [PHP-разработчик](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
 
+* [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
+  * [React-native разработчик](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
+
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик _(Python, Django)_](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
 
