@@ -181,7 +181,7 @@
   * [React-native разработчик](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
 
 * [Ivelum](https://ivelum.com/)
-  * [Python-разработчик _(Python, Django)_](https://github.com/ivelum/job/blob/master/code_challenges/python.md)
+  * [Python-разработчик _(Python, Django)_](https://github.com/ivelum/job/blob/master/challenges/python.md)
 
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache _(eng)_ _(Go)_](https://github.com/gojuno/test_tasks)
