@@ -237,6 +237,9 @@
 * [REG.RU](https://www.reg.ru/)
   * [Тестовое задание для вакансии «Программист PHP» _(PHP)_](https://www.reg.ru/company/jobs/testtask-prog-php)
 
+* [Ruport](http://ruport.ru/)
+  * [Middle Frontend Developer](https://github.com/ruport-digital/middle-frontend-assignment)
+
 * [Sendsay](https://sendsay.ru/)
   * [Frontend Jr + QA (АРХИВ) _(JS)_](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
   * [Frontend React (АРХИВ) _(JS, React, Redux)_](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
