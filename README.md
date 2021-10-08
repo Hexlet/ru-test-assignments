@@ -247,7 +247,7 @@
 
 * [Smena](https://smena.space/)
   * [Python Developer _(Python, Django)_](https://github.com/smenateam/assignments/blob/master/backend/README.md)
-  * [JavaScript Developer _(JS, Node.js)_](https://github.com/smenateam/assignments/blob/master/frontend/README.md)
+  * [JavaScript Developer _(JS, Node.js)_](https://github.com/smenateam/assignments/blob/master/site-frontend/README.md)
 
 * [SoftPro](https://softpro.com/)
   * [Тестовое задание _(Go, C++, Python)_](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
