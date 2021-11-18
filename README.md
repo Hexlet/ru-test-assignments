@@ -203,11 +203,11 @@
   * [KazanExpress test for Python developer _(eng)_ _(Python, Django)_](https://github.com/KazanExpress/django-test-task)
   
 * [MediaSoft](https://mediasoft.team/)
-  * [Тестовое задание. Android. iOS. Flutter](https://docs.google.com/document/d/1Z6fxiGql8ddiur5buFVlVy5CtR3wFen5hh6FtLUU2lM/edit?usp=sharing)
-  * [Тестовое задание. ReactJS](https://docs.google.com/document/d/1nl52jEKPhvaHEXHipWXZa29G7DV8MGjo5-Zwd4wckus/edit?usp=sharing)
-  * [Тестовое задание. Python](https://docs.google.com/document/d/1f3ZGfaYil9Xd8er1-nQazC6jA2wTzzevOGGDqeyfMXo/edit?usp=sharing)
-  * [Тестовое задание. Java](https://docs.google.com/document/d/1i3NuQPkiVB2YVEYlWQmp_2uzrXnR2X5nEOiqrtrksDc/edit?usp=sharing)
-  * [Тестовое задание. Системный / Бизнес-аналитик](https://docs.google.com/document/d/1tTYka62s6piVMh9VmzJBtZ4olPU7buivflcq3wFkXb4/edit?usp=sharing)
+  * [Тестовое задание. Android. iOS. Flutter](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
+  * [Тестовое задание. ReactJS](https://drive.google.com/file/d/1LUlaX0-8MuZXOMbqsIt8tW3xPrBPWSHU/view?usp=sharing)
+  * [Тестовое задание. Python](https://drive.google.com/file/d/1DU2-MSCNN-FzCa8ksB3rx2GQy23LSt5T/view?usp=sharing)
+  * [Тестовое задание. Java](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
+  * [Тестовое задание. Системный / Бизнес-аналитик](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
   
 * [Medods](https://medods.ru/)
   * [Junior Frontend Developer _(JS, Vue.js, Vuelidate, Sass)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
