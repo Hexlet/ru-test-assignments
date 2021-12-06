@@ -86,6 +86,9 @@
 * [CLC Tech](https://clc-logistic.ru/)
   *[Junior PHP developer_(telegram-bot)](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
 
+* [Crazy Panda](https://crazypanda.ru/)
+  *[Тестовое задание "Junior C# программист" _(C#)_](https://gist.github.com/Busyrev/cb89f309d2c32873449366023b8e0057)
+
 * [CS-Cart](https://cs-cart.com/)
   * [Тестовое задание для PHP разработчиков _(PHP)_](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
   * [Тестовое задание для Javascript разработчика _(JS, jQuery)_](https://github.com/cscart/apply-for-job/tree/master/frontend/developer)
@@ -180,6 +183,9 @@
 * [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
   * [React-native разработчик](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
 
+* [is.Digital](https://isdigi.ru/)
+  * [Тестовое задание для веб разработчика _(PHP, MySQL)_](https://isdigi.ru/is/job/web-programmer-2/test-web-dev-junior/)
+
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик _(Python, Django)_](https://github.com/ivelum/job/blob/master/challenges/python.md)
 
@@ -201,14 +207,14 @@
   * [Тестовое задание на Android разработку - поиск коктейлей](https://github.com/KazanExpress/android-test-task)
   * [Тестовое задание на Android разработку - просмотр статей](https://github.com/KazanExpress/ke-test-android)
   * [KazanExpress test for Python developer _(eng)_ _(Python, Django)_](https://github.com/KazanExpress/django-test-task)
-  
+
 * [MediaSoft](https://mediasoft.team/)
   * [Тестовое задание. Android. iOS. Flutter](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
   * [Тестовое задание. ReactJS](https://drive.google.com/file/d/1LUlaX0-8MuZXOMbqsIt8tW3xPrBPWSHU/view?usp=sharing)
   * [Тестовое задание. Python](https://drive.google.com/file/d/1DU2-MSCNN-FzCa8ksB3rx2GQy23LSt5T/view?usp=sharing)
   * [Тестовое задание. Java](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
   * [Тестовое задание. Системный / Бизнес-аналитик](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
-  
+
 * [Medods](https://medods.ru/)
   * [Junior Frontend Developer _(JS, Vue.js, Vuelidate, Sass)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
 
@@ -243,6 +249,10 @@
 
 * [REG.RU](https://www.reg.ru/)
   * [Тестовое задание для вакансии «Программист PHP» _(PHP)_](https://www.reg.ru/company/jobs/testtask-prog-php)
+  * [Тестовое задание для вакансии «Инженер по автоматизации тестирования» _(any)_](https://www.reg.ru/company/jobs/testtask-qa-automator)
+  * [Тестовое задание на вакансию Perl-программист _(Perl)_](https://www.reg.ru/company/jobs/testtask-prog)
+  * [Тестовое задание для вакансии web-технолог _(CSS)_](https://www.reg.ru/company/jobs/testtask-webtech)
+  * [Тестовое задание на должность «Специалист службы технической поддержки хостинга»](https://www.reg.ru/company/jobs/testtask-hostingsupport)
 
 * [Ruport](http://ruport.ru/)
   * [Middle Frontend Developer](https://github.com/ruport-digital/middle-frontend-assignment)
@@ -273,6 +283,9 @@
   * [Тестовое задание на позицию iOS-разработчика _(Swift)_](https://github.com/tutu-ru/hire_ios-test)
   * [Тестовое задание на позицию Android-разработчика _(Kotlin/Java, Dagger, RxJava)_](https://github.com/tutu-ru/hire_android_test)
   * [Домашнее задание для соискателей на позицию фронтенд-разработчика _(JS, React, Node.js)_](https://github.com/tutu-ru/fe-homework)
+
+* [Versta](https://versta24.ru/)
+  * [Тестовое задание на вакансию Разработчика C# _(C#, ASP.NET Core, Entity Framework Core)_](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
 
 * [Volt](https://www.wearevolt.com/)
   * [Тестовое задание на позицию младшего Rails-разработчика _(Ruby, Rails, Postgres, Rspec)_](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
