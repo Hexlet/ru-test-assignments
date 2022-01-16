@@ -30,6 +30,10 @@
   * [Backend developer _(JS, React, GraphQL)_](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
   * [Ruby Developer _(Ruby)_](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d)
 
+* [Appstorespy](https://appstorespy.com/)
+
+  * [Junior Backend developer _(Python, GraphQL/REST)_](https://www.notion.so/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
+
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание в команду ассистеда _(Python, Go)_](https://github.com/KosyanMedia/test-tasks/tree/master/assisted_team)
   * [Тестовое задание Aviasales (frontend) _(JS/TS, React)_](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
