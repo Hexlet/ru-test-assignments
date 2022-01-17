@@ -291,10 +291,6 @@
 * [Versta](https://versta24.ru/)
   * [Тестовое задание на вакансию Разработчика C# _(C#, ASP.NET Core, Entity Framework Core)_](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
 
-* [Volt](https://www.wearevolt.com/)
-  * [Тестовое задание на позицию младшего Rails-разработчика _(Ruby, Rails, Postgres, Rspec)_](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
-  * [Тестовое задание на позицию frontend-разработчика _(JS, React)_](https://drive.google.com/file/d/0B9gbscdfWqaqQzZBdEtJRktRaHM/view)
-
 * [Waliot](https://waliot.com/)
   * [Backend Developer _(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)_](https://github.com/waliot/test-tasks/blob/master/tasks/backend-1.md)
   * [Frontend Developer _(TypeScript/JavaScript, Angular/React/Vue)_](https://github.com/waliot/test-tasks/blob/master/tasks/frontend-1.md)
