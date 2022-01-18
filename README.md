@@ -34,6 +34,10 @@
 
   * [Junior Backend developer _(Python, GraphQL/REST)_](https://www.notion.so/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
 
+* [Apsolutions](https://apsolutions.ru)
+
+  * [Тестовое задание для стажера (Python)](https://freezing-helicopter-7fb.notion.site/67777c95bdbe4e59856c59b707349f2d) 
+
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание в команду ассистеда _(Python, Go)_](https://github.com/KosyanMedia/test-tasks/tree/master/assisted_team)
   * [Тестовое задание Aviasales (frontend) _(JS/TS, React)_](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
