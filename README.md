@@ -264,6 +264,9 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Тестовое задание для вакансии web-технолог _(CSS)_](https://www.reg.ru/company/jobs/testtask-webtech)
   * [Тестовое задание на должность «Специалист службы технической поддержки хостинга»](https://www.reg.ru/company/jobs/testtask-hostingsupport)
 
+* [RooX Solutions](https://roox.ru/)
+  * [Junior frontend-developer _(React)_](https://roox.notion.site/frontend-32b79baef66c4ca4a27f6f76e01a7dd2)
+
 * [Ruport](http://ruport.ru/)
   * [Middle Frontend Developer](https://github.com/ruport-digital/middle-frontend-assignment)
 
