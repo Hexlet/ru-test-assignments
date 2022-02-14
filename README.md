@@ -298,7 +298,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Домашнее задание для соискателей на позицию фронтенд-разработчика _(JS, React, Node.js)_](https://github.com/tutu-ru/fe-homework)
 
 * [Versta](https://versta24.ru/)
-  * [Тестовое задание на вакансию Разработчика C# _(C#, ASP.NET Core, Entity Framework Core)_](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
+  * [Тестовое задание на вакансию Junior Разработчика C# _(C#, ASP.NET Core, Entity Framework Core)_](https://versta24.ru/hr/testfordevjun)
 
 * [Waliot](https://waliot.com/)
   * [Backend Developer _(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)_](https://github.com/waliot/test-tasks/blob/master/tasks/backend-1.md)
