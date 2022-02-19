@@ -313,6 +313,9 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
+  
+* [Домотехника](https://domotekhnika.ru/)
+  * [Сверстать страницу со списком новостей и страницу с описанием новости (Vue, Nuxt, AJAX, Figma)](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
 
 * [Инфоматика](https://infomatika.ru/)
   * [Требуется сверстать HTML страницу на основе рисунка](https://github.com/some-yummy-nick/infomatika-test)
