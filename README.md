@@ -346,3 +346,5 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 
 * Без компании
   * [Frontend test case _(React, TypeScript)_](https://docs.google.com/document/d/16IkxQ_ZDRxrfnzdjQdYP5UfyloGwmwXsZ5IEXEbuL2E/edit?usp=sharing)
+  * [Frontend test case _(React)_](https://docs.google.com/document/d/1LQ7olXMcjNKF_vHoPqm8VsJc65K3PfW5M3s9D1EO8xs/edit)
+
