@@ -105,10 +105,10 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 
 * [CSSSR](https://csssr.ru)
   *(задания в конце каждой страницы)*
-  * [Junior front-end разработчик _(JS, HTML, CSS)_](https://csssr.com/ru-ru/jobs/junior-js-developer)
-  * [High middle front-end разработчик _(JS/TS, HTML и CSS, React, React Hooks, Flux (Redux/MobX))_](https://csssr.com/ru-ru/jobs/middle-js-developer)
-  * [High middle back-end разработчик _(Java, Spring (Spring Boot),Hibernate/SQL, Docker)_](https://csssr.com/ru-ru/jobs/java-developer)
-  * [Back-end QA-инженер _(Atlassian (JIRA, Confluence, Bamboo, Bitbucket), SOAP UI, Swagger, Kafka, Kibana, Oracle, MongoDB, Java, Selenium/Selenide, Cucumber, RestAssured)_](https://csssr.com/ru-ru/jobs/backend-qa-engineer)
+  * [High middle front-end разработчик (JS/TS, HTML и CSS, React + Slomux, Flux(Redux/MobX))](https://csssr.com/ru/jobs/high-middle-js-developer)
+  * [Middle front-end разработчик _(JS/TS, HTML и CSS, React, React Hooks, Flux (Redux/MobX))_](https://csssr.com/ru-ru/jobs/middle-js-developer)
+  * [Middle back-end разработчик _(Java, Spring (Spring Boot),Hibernate/SQL, Docker)_](https://csssr.com/ru-ru/jobs/java-developer)
+  * [Middle front-end QA инженер  (JS, QR, Agile)](https://csssr.com/ru/jobs/qa-engineer)
 
 * [DAO TECH](https://daotech.ru/)
   * [Тестовое задание на вакансию "Frontend Developer" _(JS, React)_](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
