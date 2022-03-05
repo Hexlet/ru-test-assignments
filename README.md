@@ -226,7 +226,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Тестовое задание. Системный / Бизнес-аналитик](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
 
 * [Medods](https://medods.ru/)
-  * [Junior Frontend Developer _(JS, Vue.js, Vuelidate, Sass)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
+  * [Junior Frontend Developer _(JS, Vue.js (упор на Vue 2), Vuelidate, Sass)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
 
 * [Mindbox](https://mindbox.ru/)
   * [Тестовое задание на стажировку _(C#, SQL)_](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
