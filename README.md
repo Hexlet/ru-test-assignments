@@ -38,7 +38,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 
 * [Apsolutions](https://apsolutions.ru)
 
-  * [Тестовое задание для стажера (Python)](https://freezing-helicopter-7fb.notion.site/67777c95bdbe4e59856c59b707349f2d) 
+  * [Тестовое задание для стажера (Python)](https://freezing-helicopter-7fb.notion.site/67777c95bdbe4e59856c59b707349f2d)
 
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание в команду ассистеда _(Python, Go)_](https://github.com/KosyanMedia/test-tasks/tree/master/assisted_team)
@@ -313,7 +313,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
-  
+
 * [Домотехника](https://domotekhnika.ru/)
   * [Сверстать страницу со списком новостей и страницу с описанием новости (Vue, Nuxt, AJAX, Figma)](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
 
@@ -344,7 +344,9 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Приложение для создания и редактирования информации о встречах сотрудников _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1)
   * [Найди ошибки _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1-2)
 
+* [Hicaliber](https://www.hicaliber.com.au/)
+  * [PHP Developer Test (Vue.js)](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ)
+
 * Без компании
   * [Frontend test case _(React, TypeScript)_](https://docs.google.com/document/d/16IkxQ_ZDRxrfnzdjQdYP5UfyloGwmwXsZ5IEXEbuL2E/edit?usp=sharing)
   * [Frontend test case _(React)_](https://docs.google.com/document/d/1LQ7olXMcjNKF_vHoPqm8VsJc65K3PfW5M3s9D1EO8xs/edit)
-
