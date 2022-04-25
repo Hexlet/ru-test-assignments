@@ -188,7 +188,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [StudentDatabase _(Java)_](https://github.com/nikolaychernov/StudentDatabase)
 
 * [Hexlet](https://ru.hexlet.io)
-  * [Тестовое задание для верстальщика](https://hexlet.notion.site/38fd01d380cb43efa94702b5188cfde4)
+  * [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)
 
 * [House](https://housevl.ru/)
   * [PHP-разработчик](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
