@@ -285,6 +285,9 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 * [SoftPro](https://softpro.com/)
   * [Тестовое задание _(Go, C++, Python)_](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
 
+* [S2snext](http://s2snext.com/)
+  * [Тестовое задание (C#, ASP.NET Core, Entity Framework Core)](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
+
 * [Travelpayouts](https://www.travelpayouts.com/ru)
   * [Front End _(JS, TS)_](https://github.com/KosyanMedia/Front-end_TP_test)
 
