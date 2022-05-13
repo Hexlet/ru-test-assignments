@@ -320,6 +320,9 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 * [Xored](http://ru.xored.com/)
   * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
+* [Армо](http://armo.ru/)
+  * [Junior программист JavaScript (Frontend)](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
+
 * [Газпромбанк](https://www.gazprombank.ru/personal/page/online-bank)
   * [frontend-разработчик(React, react route, Mobx, Redux saga)](https://github.com/Vkube/test-work-react)
 
