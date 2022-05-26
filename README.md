@@ -42,7 +42,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание в команду ассистеда _(Python, Go)_](https://github.com/KosyanMedia/test-tasks/tree/master/assisted_team)
-  * [Тестовое задание Aviasales (frontend) _(JS/TS, React)_](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
+  * [~~Тестовое задание Aviasales (frontend) _(JS/TS, React)_~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
   * [Тестовое задание в команду гейтов _(Python)_](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team)
   * [Тестовое задание в команду гейтов (full-stack) _(JS + React, Redux/Redux-saga, Python + PostgresSQL)_](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team_fullstack)
   * [Тестовое задание Aviasales Marketing (full-stack) _(JS, React, Redux, NodeJS, PostgreSQL)_](https://github.com/KosyanMedia/test-tasks/tree/master/marketing)
