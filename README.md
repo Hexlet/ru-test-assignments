@@ -171,6 +171,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [iOS/Android-разработчик](https://dl.funbox.ru/qt-mobile.pdf)
   * [C-разработчик](https://dl.funbox.ru/qt-c.pdf)
   * [Big Data-разработчик](https://dl.funbox.ru/qt-bigdata.pdf)
+  * [Python-разработчик](https://funbox.ru/q/python.pdf)
 
 * [Future](https://future-group.ru/)
   * [Фронтенд-разработчик 1](https://github.com/fugr-ru/frontend-javascript-test)
