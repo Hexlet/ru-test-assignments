@@ -4,8 +4,6 @@
 
 Данный репозиторий создан и поддерживается командой и сообществом образовательного проекта _Хекслет_. [Подробнее о проекте](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments).
 
-See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
-
 ----
 
 Выполненные тестовые задания прикрепляйте как портфолио к своему резюме на [Hexlet CV](https://cv.hexlet.io/).
@@ -32,17 +30,9 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Backend developer _(JS, React, GraphQL)_](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
   * [Ruby Developer _(Ruby)_](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d)
 
-* [Appstorespy](https://appstorespy.com/)
-
-  * [Junior Backend developer _(Python, GraphQL/REST)_](https://www.notion.so/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
-
-* [Apsolutions](https://apsolutions.ru)
-
-  * [Тестовое задание для стажера (Python)](https://freezing-helicopter-7fb.notion.site/67777c95bdbe4e59856c59b707349f2d)
-
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание в команду ассистеда _(Python, Go)_](https://github.com/KosyanMedia/test-tasks/tree/master/assisted_team)
-  * [~~Тестовое задание Aviasales (frontend) _(JS/TS, React)_~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
+  * [Тестовое задание Aviasales (frontend) _(JS/TS, React)_](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend)
   * [Тестовое задание в команду гейтов _(Python)_](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team)
   * [Тестовое задание в команду гейтов (full-stack) _(JS + React, Redux/Redux-saga, Python + PostgresSQL)_](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team_fullstack)
   * [Тестовое задание Aviasales Marketing (full-stack) _(JS, React, Redux, NodeJS, PostgreSQL)_](https://github.com/KosyanMedia/test-tasks/tree/master/marketing)
@@ -106,19 +96,16 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 * [CLC Tech](https://clc-logistic.ru/)
   *[Junior PHP developer_(telegram-bot)](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
 
-* [Crazy Panda](https://crazypanda.ru/)
-  *[Тестовое задание "Junior C# программист" _(C#)_](https://gist.github.com/Busyrev/cb89f309d2c32873449366023b8e0057)
-
 * [CS-Cart](https://cs-cart.com/)
   * [Тестовое задание для PHP разработчиков _(PHP)_](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
   * [Тестовое задание для Javascript разработчика _(JS, jQuery)_](https://github.com/cscart/apply-for-job/tree/master/frontend/developer)
 
 * [CSSSR](https://csssr.ru)
   *(задания в конце каждой страницы)*
-  * [High middle front-end разработчик (JS/TS, HTML и CSS, React + Slomux, Flux(Redux/MobX))](https://csssr.com/ru/jobs/high-middle-js-developer)
-  * [Middle front-end разработчик _(JS/TS, HTML и CSS, React, React Hooks, Flux (Redux/MobX))_](https://csssr.com/ru-ru/jobs/middle-js-developer)
-  * [Middle back-end разработчик _(Java, Spring (Spring Boot),Hibernate/SQL, Docker)_](https://csssr.com/ru-ru/jobs/java-developer)
-  * [Middle front-end QA инженер  (JS, QR, Agile)](https://csssr.com/ru/jobs/qa-engineer)
+  * [Junior front-end разработчик _(JS, HTML, CSS)_](https://csssr.com/ru-ru/jobs/junior-js-developer)
+  * [High middle front-end разработчик _(JS/TS, HTML и CSS, React, React Hooks, Flux (Redux/MobX))_](https://csssr.com/ru-ru/jobs/middle-js-developer)
+  * [High middle back-end разработчик _(Java, Spring (Spring Boot),Hibernate/SQL, Docker)_](https://csssr.com/ru-ru/jobs/java-developer)
+  * [Back-end QA-инженер _(Atlassian (JIRA, Confluence, Bamboo, Bitbucket), SOAP UI, Swagger, Kafka, Kibana, Oracle, MongoDB, Java, Selenium/Selenide, Cucumber, RestAssured)_](https://csssr.com/ru-ru/jobs/backend-qa-engineer)
 
 * [DAO TECH](https://daotech.ru/)
   * [Тестовое задание на вакансию "Frontend Developer" _(JS, React)_](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
@@ -181,17 +168,15 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [iOS/Android-разработчик](https://dl.funbox.ru/qt-mobile.pdf)
   * [C-разработчик](https://dl.funbox.ru/qt-c.pdf)
   * [Big Data-разработчик](https://dl.funbox.ru/qt-bigdata.pdf)
-  * [Python-разработчик](https://funbox.ru/q/python.pdf)
 
 * [Future](https://future-group.ru/)
-  * [Фронтенд-разработчик 1 _(React, Docker, TS)_](https://github.com/fugr-ru/frontend-javascript-test)
-  * [Фронтенд-разработчик 2 _(React, Docker, TS, Redux/MobX)_](https://github.com/fugr-ru/frontend-javascript-test-2)
-  * [PHP-разработчик _(PHP, MySQL)_](https://github.com/fugr-ru/php-comments)
+  * [Фронтенд-разработчик 1](https://github.com/fugr-ru/frontend-javascript-test)
+  * [Фронтенд-разработчик 2](https://github.com/fugr-ru/frontend-javascript-test-2)
+  * [PHP-разработчик](https://github.com/fugr-ru/php-comments)
   * [Тестировщик](https://github.com/fugr-ru/qa)
-  * [Верстальщик 1 _(HTML, CSS)_](https://github.com/fugr-ru/frontend-html)
-  * [Верстальщик 2 _(HTML, CSS, JS)_](https://github.com/fugr-ru/frontend-html-2)
-  * [Верстальщик 3 _(Figma, HTML, CSS, JS)_](https://github.com/fugr-ru/frontend-html-3)
-  * [Тестовое задание на позицию Менеджер проекта _(Figma, HTML, CSS, JS)_](https://github.com/fugr-ru/frontend-html-3)
+  * [Верстальщик 1](https://github.com/fugr-ru/frontend-html)
+  * [Верстальщик 2](https://github.com/fugr-ru/frontend-html-2)
+  * [Верстальщик 3](https://github.com/fugr-ru/frontend-html-3)
 
 * [Greensight](https://greensight.ru/careers/backend-developer-intern)
   * [Тестовое задание для направления Backend разработка _(PHP)](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
@@ -199,17 +184,11 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 * [Haulmont](https://www.haulmont.ru)
   * [StudentDatabase _(Java)_](https://github.com/nikolaychernov/StudentDatabase)
 
-* [Hexlet](https://ru.hexlet.io)
-  * [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)
-
 * [House](https://housevl.ru/)
   * [PHP-разработчик](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
 
 * [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
   * [React-native разработчик](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
-
-* [is.Digital](https://isdigi.ru/)
-  * [Тестовое задание для веб разработчика _(PHP, MySQL)_](https://isdigi.ru/is/job/web-programmer-2/test-web-dev-junior/)
 
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик _(Python, Django)_](https://github.com/ivelum/job/blob/master/challenges/python.md)
@@ -232,16 +211,16 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Тестовое задание на Android разработку - поиск коктейлей](https://github.com/KazanExpress/android-test-task)
   * [Тестовое задание на Android разработку - просмотр статей](https://github.com/KazanExpress/ke-test-android)
   * [KazanExpress test for Python developer _(eng)_ _(Python, Django)_](https://github.com/KazanExpress/django-test-task)
-
+  
 * [MediaSoft](https://mediasoft.team/)
   * [Тестовое задание. Android. iOS. Flutter](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
   * [Тестовое задание. ReactJS](https://drive.google.com/file/d/1LUlaX0-8MuZXOMbqsIt8tW3xPrBPWSHU/view?usp=sharing)
   * [Тестовое задание. Python](https://drive.google.com/file/d/1DU2-MSCNN-FzCa8ksB3rx2GQy23LSt5T/view?usp=sharing)
   * [Тестовое задание. Java](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
   * [Тестовое задание. Системный / Бизнес-аналитик](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
-
+  
 * [Medods](https://medods.ru/)
-  * [Junior Frontend Developer _(JS, Vue.js (упор на Vue 2), Vuelidate, Sass)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
+  * [Junior Frontend Developer _(JS, Vue.js, Vuelidate, Sass)_](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
 
 * [Mindbox](https://mindbox.ru/)
   * [Тестовое задание на стажировку _(C#, SQL)_](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
@@ -274,13 +253,6 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 
 * [REG.RU](https://www.reg.ru/)
   * [Тестовое задание для вакансии «Программист PHP» _(PHP)_](https://www.reg.ru/company/jobs/testtask-prog-php)
-  * [Тестовое задание для вакансии «Инженер по автоматизации тестирования» _(any)_](https://www.reg.ru/company/jobs/testtask-qa-automator)
-  * [Тестовое задание на вакансию Perl-программист _(Perl)_](https://www.reg.ru/company/jobs/testtask-prog)
-  * [Тестовое задание для вакансии web-технолог _(CSS)_](https://www.reg.ru/company/jobs/testtask-webtech)
-  * [Тестовое задание на должность «Специалист службы технической поддержки хостинга»](https://www.reg.ru/company/jobs/testtask-hostingsupport)
-
-* [RooX Solutions](https://roox.ru/)
-  * [Junior frontend-developer _(React)_](https://roox.notion.site/frontend-32b79baef66c4ca4a27f6f76e01a7dd2)
 
 * [Ruport](http://ruport.ru/)
   * [Middle Frontend Developer](https://github.com/ruport-digital/middle-frontend-assignment)
@@ -297,9 +269,6 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 * [SoftPro](https://softpro.com/)
   * [Тестовое задание _(Go, C++, Python)_](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
 
-* [S2snext](http://s2snext.com/)
-  * [Тестовое задание (C#, ASP.NET Core, Entity Framework Core)](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
-
 * [Travelpayouts](https://www.travelpayouts.com/ru)
   * [Front End _(JS, TS)_](https://github.com/KosyanMedia/Front-end_TP_test)
 
@@ -315,8 +284,9 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Тестовое задание на позицию Android-разработчика _(Kotlin/Java, Dagger, RxJava)_](https://github.com/tutu-ru/hire_android_test)
   * [Домашнее задание для соискателей на позицию фронтенд-разработчика _(JS, React, Node.js)_](https://github.com/tutu-ru/fe-homework)
 
-* [Versta](https://versta24.ru/)
-  * [Тестовое задание на вакансию Junior Разработчика C# _(C#, ASP.NET Core, Entity Framework Core)_](https://versta24.ru/hr/testfordevjun)
+* [Volt](https://www.wearevolt.com/)
+  * [Тестовое задание на позицию младшего Rails-разработчика _(Ruby, Rails, Postgres, Rspec)_](https://drive.google.com/file/d/0B9gbscdfWqaqMnZPb2NOZjREQ3M)
+  * [Тестовое задание на позицию frontend-разработчика _(JS, React)_](https://drive.google.com/file/d/0B9gbscdfWqaqQzZBdEtJRktRaHM/view)
 
 * [Waliot](https://waliot.com/)
   * [Backend Developer _(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)_](https://github.com/waliot/test-tasks/blob/master/tasks/backend-1.md)
@@ -330,22 +300,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Github repository browsing tool _(Python)_](https://github.com/wemake-services/meta/issues/7)
 
 * [Xored](http://ru.xored.com/)
-  * [Маленький Эксель _(any)_](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
-  * [Screen sharing + chat _(ENG)_ _(any)_](https://docs.xored.com/display/XL/Test+task+Screen+sharing+with+chat)
-  * [Xored home work test task _(ENG)_ _(Eclipse)_](https://docs.xored.com/display/XL/Xored+home+work+test+task)
-  * [Xored home work test task 2 _(ENG)_ _(Eclipse)_](https://docs.xored.com/display/XL/Xored+home+work+test+task+2)
-  * [Remote FS Explorer - Eclipse plugin _(ENG)_ _(Eclipse)_](https://docs.xored.com/pages/viewpage.action?pageId=22742624)
-  * [Тестовое задание _(Eclipse)_](https://docs.xored.com/pages/viewpage.action?pageId=16023682)
-  * [developer's performance measurement tool _(Eclipse)_](https://docs.xored.com/pages/viewpage.action?pageId=19694895)
-
-* [Армо](http://armo.ru/)
-  * [Junior программист JavaScript (Frontend)](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
-
-* [Газпромбанк](https://www.gazprombank.ru/personal/page/online-bank)
-  * [frontend-разработчик(React, react route, Mobx, Redux saga)](https://github.com/Vkube/test-work-react)
-
-* [Домотехника](https://domotekhnika.ru/)
-  * [Сверстать страницу со списком новостей и страницу с описанием новости (Vue, Nuxt, AJAX, Figma)](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
+  * [Software Engineer](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
 
 * [Инфоматика](https://infomatika.ru/)
   * [Требуется сверстать HTML страницу на основе рисунка](https://github.com/some-yummy-nick/infomatika-test)
@@ -374,9 +329,5 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Приложение для создания и редактирования информации о встречах сотрудников _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1)
   * [Найди ошибки _(Node.js)_](https://github.com/yandex-shri-2018/entrance-task-1-2)
 
-* [Hicaliber](https://www.hicaliber.com.au/)
-  * [PHP Developer Test (Vue.js)](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ)
-
 * Без компании
   * [Frontend test case _(React, TypeScript)_](https://docs.google.com/document/d/16IkxQ_ZDRxrfnzdjQdYP5UfyloGwmwXsZ5IEXEbuL2E/edit?usp=sharing)
-  * [Frontend test case _(React)_](https://docs.google.com/document/d/1LQ7olXMcjNKF_vHoPqm8VsJc65K3PfW5M3s9D1EO8xs/edit)
