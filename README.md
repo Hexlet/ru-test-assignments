@@ -244,6 +244,7 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
 
 * [Mindbox](https://mindbox.ru/)
   * [Тестовое задание на стажировку _(C#, SQL)_](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
+  * [Тестовое задание на стажировку Frontend _(JS, React)_](https://docs.google.com/document/d/1jq5yCrQJRHaRG4TabGhDITDMteYuLWG_LjlR9HmB5ac/edit?usp=sharing)
 
 * [NAUKA](http://www.ntik.ru/)
   * [[C# Dev] Тестовое задание _(C#)_](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
