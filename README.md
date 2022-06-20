@@ -4,7 +4,7 @@
 
 Данный репозиторий создан и поддерживается командой и сообществом образовательного проекта _Хекслет_. [Подробнее о проекте](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments).
 
-See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
+Посмотрите самых активных участников проекта на [hexlet-friends](https://friends.hexlet.io/).
 
 ----
 
@@ -24,25 +24,23 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Junior Python Developer _(Python, Django/Flask, MySQL/PostgreSQL)_](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view?usp=sharing)
 
 * [Appbooster](https://appbooster.com/)
-
   * [iOS Developer _(any)_](https://github.com/appbooster/test-assignments/blob/master/tasks/ios.md)
-  * [Frontend Developer _(JS, React)_](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
+  * [Frontend Developer _(any)_](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
   * [html-верстальщик _(JS, HTML/CSS)_](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)
-  * [Frontend + graphql developer _(JS, React, GraphQL)_](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
-  * [Backend developer _(JS, React, GraphQL)_](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
-  * [Ruby Developer _(Ruby)_](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d)
+  * [Frontend + graphql developer _(React, Github GraphQL API)_](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
+  * [Backend developer _(any)_](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
+  * [Ruby Developer _(Ruby)_](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-ruby-md)
+  * [SQL _(any SQL DB)_](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-sql-md)
 
 * [Appstorespy](https://appstorespy.com/)
-
-  * [Junior Backend developer _(Python, GraphQL/REST)_](https://www.notion.so/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
+  * [Junior Backend developer _(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)_](https://www.notion.so/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
 
 * [Apsolutions](https://apsolutions.ru)
-
   * [Тестовое задание для стажера (Python)](https://freezing-helicopter-7fb.notion.site/67777c95bdbe4e59856c59b707349f2d)
 
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание в команду ассистеда _(Python, Go)_](https://github.com/KosyanMedia/test-tasks/tree/master/assisted_team)
-  * [~~Тестовое задание Aviasales (frontend) _(JS/TS, React)_~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
+  * [~~Тестовое задание Aviasales (frontend) _(JS/TS, React)_~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) _(сервер тестового задания не работает)_
   * [Тестовое задание в команду гейтов _(Python)_](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team)
   * [Тестовое задание в команду гейтов (full-stack) _(JS + React, Redux/Redux-saga, Python + PostgresSQL)_](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team_fullstack)
   * [Тестовое задание Aviasales Marketing (full-stack) _(JS, React, Redux, NodeJS, PostgreSQL)_](https://github.com/KosyanMedia/test-tasks/tree/master/marketing)
@@ -81,53 +79,51 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Тестовое задание на позицию стажера-бекендера _(Go/PHP/Python,  MySQL/PostgreSQL, Docker)_](https://github.com/avito-tech/autumn-2021-intern-assignment)
   * [Задание для стажера на платформу iOS _(Swift)_](https://github.com/avito-tech/ios-trainee-problem-2021)
   * [Тестовое задание стажера в юнит AvitoPRO _(Go)_](https://github.com/avito-tech/pro-backend-trainee-assignment)
-  * [Тестовое задание для QA-cтажёра _(Go/any)_](https://github.com/avito-tech/qa-trainee-general)
+  * [Тестовое задание для QA-стажёра _(Go/any)_](https://github.com/avito-tech/qa-trainee-general)
   * [Internship iOS)_](https://github.com/avito-tech/internship)
 
 * [Au](https://au.ru/)
   * [Junior Frontend Developer _(JS, React)_](https://drive.google.com/file/d/18GjJJJlw7YoshQfq2_FYQv6hnRTpjLp2/view?usp=sharing)
 
 * [BEBOSS](https://beboss.ru/)
-  * [Web-разработчик _(PHP)_](https://github.com/funkylen/beboss-test-assignments)
+  * [Web-разработчик _(PHP, jQuery, YII)_](https://github.com/funkylen/beboss-test-assignments)
 
 * [BeeJee NINJA Developers](https://beejee.org/)
   * [Web-разработчик _(PHP)_](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
 
 * [BellIntegrator](http://www.bellintegrator.ru/)
-  * [Front End _(JS, JQuery, HTML5, CSS3)_](https://docs.google.com/document/d/1YWJGDKB1pLrox6Y4CNm15Nuu_EVcAHIciYUHWYrDNDY/edit?usp=sharing)
+  * [Тестовое задание Frontend JS _(JS, JQuery, HTML5, CSS3)_](https://docs.google.com/document/d/1YWJGDKB1pLrox6Y4CNm15Nuu_EVcAHIciYUHWYrDNDY/edit?usp=sharing)
 
-* [~~Bluesweater-studio~~](https://vk.com/bluesweaterstudio) *студия закрыта*
+* [~~Bluesweater-studio~~](https://vk.com/bluesweaterstudio) _студия закрыта_
   * [Frontend task _(JS, React, React Hooks, JSS)_](https://github.com/some-yummy-nick/frontend-task)
 
 * [Chatfuel](https://chatfuel.com/)
-  * [Frontend-разработчик _(JS)_](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
+  * [Frontend Engineer — тестовое задание _(any)_](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
 
 * [CLC Tech](https://clc-logistic.ru/)
-  *[Junior PHP developer_(telegram-bot)](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
+  * [Junior PHP developer _(yii2)_](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
 
 * [Crazy Panda](https://crazypanda.ru/)
-  *[Тестовое задание "Junior C# программист" _(C#)_](https://gist.github.com/Busyrev/cb89f309d2c32873449366023b8e0057)
+  * [Тестовое задание C# _(C#)_](https://gist.github.com/Busyrev/cb89f309d2c32873449366023b8e0057)
 
 * [CS-Cart](https://cs-cart.com/)
   * [Тестовое задание для PHP разработчиков _(PHP)_](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
   * [Тестовое задание для Javascript разработчика _(JS, jQuery)_](https://github.com/cscart/apply-for-job/tree/master/frontend/developer)
 
 * [CSSSR](https://csssr.ru)
-  *(задания в конце каждой страницы)*
-  * [High middle front-end разработчик (JS/TS, HTML и CSS, React + Slomux, Flux(Redux/MobX))](https://csssr.com/ru/jobs/high-middle-js-developer)
-  * [Middle front-end разработчик _(JS/TS, HTML и CSS, React, React Hooks, Flux (Redux/MobX))_](https://csssr.com/ru-ru/jobs/middle-js-developer)
-  * [Middle back-end разработчик _(Java, Spring (Spring Boot),Hibernate/SQL, Docker)_](https://csssr.com/ru-ru/jobs/java-developer)
-  * [Middle front-end QA инженер  (JS, QR, Agile)](https://csssr.com/ru/jobs/qa-engineer)
+  _(задания в конце каждой страницы)_
+  * [Middle front-end разработчик _(React)_](https://csssr.com/ru-ru/jobs/middle-js-developer)
+  * [Middle back-end разработчик _(Java/Kotlin)_](https://csssr.com/ru-ru/jobs/java-developer)
 
 * [DAO TECH](https://daotech.ru/)
-  * [Тестовое задание на вакансию "Frontend Developer" _(JS, React)_](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
+  * [Тестовое задание на вакансию "Frontend Developer" _(JS, React, Docker)_](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
 
 * [Dapplets Project](https://dapplets.org/)
-  * [Тестовое задание на вакансию "Frontend Developer"](https://docs.google.com/document/d/1A67hVEF5fb6Uk1Y341PeyV9Yr1UUWLtANITxSzWVHHY/edit#heading=h.dn2s0spi21rh)
+  * [Тестовое задание на вакансию "Frontend Developer" _(TS, React)_](https://docs.google.com/document/d/1A67hVEF5fb6Uk1Y341PeyV9Yr1UUWLtANITxSzWVHHY/edit#heading=h.dn2s0spi21rh)
 
 * [Detego](https://www.detego.com/en/)
-  * [Тестовое задание на позицию React-Native developer](https://docs.google.com/document/d/1AKeJuZmhbLdv7PCMdJsQoCu60tT3OHyen7laa58aKMk/edit?usp=sharing)
+  * [Тестовое задание на позицию React-Native developer _(React-Native CLI (iOS, Android))_](https://docs.google.com/document/d/1AKeJuZmhbLdv7PCMdJsQoCu60tT3OHyen7laa58aKMk/edit?usp=sharing)
 
 * [Development Systems](https://www.ds.do/)
   * [Стажер-программист _(C#)_](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
@@ -137,13 +133,13 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Тестовое задания на позицию Frontend разработчика _(JS, React)_](https://github.com/devjsru/react_test)
 
 * [Devsteam.mobi](http://devsteam.mobi/)
-  * [Junior Frontend Developer _(JS + React Native или Dart + Flutter)_](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
+  * [Junior Frontend Developer _(React-Native/Flutter)_](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
 
-* ~~Digital Dali~~ *(похоже компания закрылась)*
-  * [React Engineer _(JS, React, Redux, Node.JS, MongoDB, HTML, PHP)_](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
+* ~~[Digital Dali](http://digitaldali.pro/)~~ _(похоже компания закрылась)_
+  * [React Engineer _(JS, HTML, PHP)_](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
 
 * [DrupalJedi](https://drupaljedi.com/)
-  * [Front-End Developer _(JS, Gulp)_](https://github.com/JediFE/trial-assignments)
+  * [Front-End Developer _(HTML, CSS, JS)_](https://github.com/JediFE/trial-assignments)
 
 * [eComCharge](https://ecomcharge.com/)
   * [Система решения математических уравнений _(CSS, JS/Ajax, TestUnit/RSpec/Cucumber, Sinatra)_](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798)
@@ -153,17 +149,15 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Глубокое копирование, _(Kotlin/Java)_](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
   * [java.util.Map поверх Redis _(Kotlin/Java, Redis)_](https://github.com/Ecwid/new-job/blob/master/Redis-and-collections.md)
   * [Реализовать свой собственный аналог класса ThreadLocal  _(Kotlin/Java)_](https://github.com/Ecwid/new-job/blob/master/ThreadLocal.md)
-  * [Посчитать количество уникальных IP-адресов в простом тесктовом файле _(Kotlin/Java)_](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
-
-* [Evil Martians](https://evilmartians.com/)
-  * [Задачи из реальных проектов на гитхабе](https://cultofmartians.com/)
+  * [Посчитать количество уникальных IP-адресов в простом текстовом файле _(Kotlin/Java)_](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
+  * [Тестовое задание для TypeScript/Vue.js разработчика _(TS, VueJS, HTML/CSS)_](https://github.com/Ecwid/new-job/blob/master/TypeScript.md)
 
 * [FEIP](https://feip.co/)
-  * [PHP-разработчик](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
+  * [PHP-разработчик _(PHP)_](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
 
 * [Flatstack](https://www.flatstack.com)
   * [Android Developer _(Kotlin, Java, C++)_](https://github.com/fs/test-tasks/tree/master/android)
-  * [iOS Developer](https://github.com/fs/test-tasks/tree/master/ios)
+  * [iOS Developer _(any)_](https://github.com/fs/test-tasks/tree/master/ios)
   * [Frontend Developer _(JS, HTML, CSS)_](https://github.com/fs/test-tasks/tree/master/front-end)
   * [Ruby Developer _(Ruby, Rails)_](https://github.com/fs/test-tasks/tree/master/ruby)
   * [Ruby Intern _(Ruby, Rails)_](https://github.com/fs/test-tasks/tree/master/ruby-intern)
@@ -172,15 +166,15 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Node.js Developer _(Node.js)_](https://github.com/fs/test-tasks/tree/master/nodejs)
 
 * [FunBox](https://funbox.ru/)
-  * [Ruby-разработчик](https://dl.funbox.ru/qt-ruby.pdf)
-  * [Elixir-разработчик](https://dl.funbox.ru/qt-elixir.pdf)
-  * [HTML/CSS-разработчик](https://dl.funbox.ru/qt-htmlcss.zip)
-  * [JS-разработчик](https://dl.funbox.ru/qt-js.pdf)
-  * [Erlang-разработчик](https://dl.funbox.ru/qt-erlang.pdf)
-  * [Java-разработчик](https://dl.funbox.ru/qt-java.pdf)
-  * [iOS/Android-разработчик](https://dl.funbox.ru/qt-mobile.pdf)
-  * [C-разработчик](https://dl.funbox.ru/qt-c.pdf)
-  * [Big Data-разработчик](https://dl.funbox.ru/qt-bigdata.pdf)
+  * [Ruby-разработчик _(Ruby, Rails, JS)_](https://dl.funbox.ru/qt-ruby.pdf)
+  * [Elixir-разработчик _(Elixir)_](https://dl.funbox.ru/qt-elixir.pdf)
+  * [HTML/CSS/JS-разработчик _(HTML/CSS, JS, Node.js, React)_](https://dl.funbox.ru/qt-htmlcss.zip)
+  * [JS-разработчик _(JS, React)_](https://dl.funbox.ru/qt-js.pdf)
+  * [Erlang-разработчик _(Erlang)_](https://dl.funbox.ru/qt-erlang.pdf)
+  * [Java-разработчик _(Java, )_](https://dl.funbox.ru/qt-java.pdf)
+  * [iOS/Android-разработчик _(Xcode/Android Studio)_](https://dl.funbox.ru/qt-mobile.pdf)
+  * [C-разработчик _(C/C++)_](https://dl.funbox.ru/qt-c.pdf)
+  * [BigData-разработчик _(Hadoop, Cassandra, Docker)_](https://dl.funbox.ru/qt-bigdata.pdf)
   * [Python-разработчик](https://funbox.ru/q/python.pdf)
 
 * [Future](https://future-group.ru/)
@@ -193,36 +187,41 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Верстальщик 3 _(Figma, HTML, CSS, JS)_](https://github.com/fugr-ru/frontend-html-3)
   * [Тестовое задание на позицию Менеджер проекта _(Figma, HTML, CSS, JS)_](https://github.com/fugr-ru/frontend-html-3)
 
-* [Greensight](https://greensight.ru/careers/backend-developer-intern)
-  * [Тестовое задание для направления Backend разработка _(PHP)](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
+* [Greensight](https://greensight.ru/)
+  * [Тестовое задание для направления Backend разработка _(PHP)_](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
 
 * [Haulmont](https://www.haulmont.ru)
   * [StudentDatabase _(Java)_](https://github.com/nikolaychernov/StudentDatabase)
 
 * [Hexlet](https://ru.hexlet.io)
   * [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)
-  * [Тестовое задание для ментора](https://hexlet-ru.notion.site/8b301b64d4834a3e91f709f8ada1187a)
+  * [Тестовое задание для ментора _(any)_](https://hexlet-ru.notion.site/8b301b64d4834a3e91f709f8ada1187a)
 
 * [House](https://housevl.ru/)
-  * [PHP-разработчик](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
+  * [Тестовое задание backend (junior) 2.1 _(Laravel)_](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
 
 * [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
-  * [React-native разработчик](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
+  * [React-Native Mobile app _(React-Native CLI)_](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
 
 * [is.Digital](https://isdigi.ru/)
   * [Тестовое задание для веб разработчика _(PHP, MySQL)_](https://isdigi.ru/is/job/web-programmer-2/test-web-dev-junior/)
 
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик _(Python, Django)_](https://github.com/ivelum/job/blob/master/challenges/python.md)
+  * [PHP-разработчик _(PHP)_](https://github.com/ivelum/job/blob/master/challenges/php.md)
+  * [frontend-разработчик _(React)_](https://github.com/ivelum/job/blob/master/challenges/php.md)
 
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache _(eng)_ _(Go)_](https://github.com/gojuno/test_tasks)
 
 * [Matic Insurance Services](https://matic.com/)
-  * [Junior DevOps test assignment _(eng)_ _(DockerHub or AWS ECR, Kubernetes)_](https://github.com/gojuno/test_tasks)
-  * [DevOps test assignment _(eng)_ _(any)_](https://github.com/gojuno/test_tasks)
-  * [Ruby test assignment _(eng)_ _(Ruby)_](https://github.com/gojuno/test_tasks)
-  * [AQA test assignment _(eng)_ _(Ruby, Rspec)_](https://github.com/gojuno/test_tasks)
+  * [Kittens Store - DevOps test assignment _(ENG)_ _(any)_](https://github.com/matic-insurance/assignment-kittens-store)
+  * [Cats Shop - DevOps test assignment _(ENG)_ _(any)_](https://github.com/matic-insurance/assignment-cats-shop)
+  * [Cats Dealer - Ruby test assignment _(ENG)_ _(Ruby)_](https://github.com/matic-insurance/assignment-cats-dealer)
+  * [Matic Test assignment - Front-end test assignment _(ENG)_ _(any)_](https://github.com/matic-insurance/assignment-fetch-n-cache)
+  * [Customer Import Platform - Ruby test assignment _(ENG)_ _(Ruby)_](https://github.com/matic-insurance/assignment-test-import)
+  * [Customer Import Platform MQA - MQA test assignment _(ENG)_ _(any)_](https://github.com/matic-insurance/assignment-test-import)
+  * [Customer Import Platform - AQA test assignment _(ENG)_ _(Ruby)_](https://github.com/matic-insurance/assignment-test-import)
 
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
   * [Test for Java/Kotlin backend developer _(eng)_ _(Java/Kotlin, Spring Boot, Maven/Gradle)_](https://github.com/KazanExpress/wms-backend-test-task)
@@ -300,13 +299,13 @@ See most active contributers on [hexlet-friends](https://friends.hexlet.io/).
   * [Тестовое задание _(Go, C++, Python)_](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
 
 * [S2snext](http://s2snext.com/)
-  * [Тестовое задание (C#, ASP.NET Core, Entity Framework Core)](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
+  * [Тестовое задание _(C#, ASP.NET Core, Entity Framework Core)_](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
 
 * [Travelpayouts](https://www.travelpayouts.com/ru)
   * [Front End _(JS, TS)_](https://github.com/KosyanMedia/Front-end_TP_test)
 
 * [True Positive Lab](http://www.truepositive.ru/)
-  *(все задания на одной странице)*
+  _(все задания на одной странице)_
   * [Тестовое задание "Фотоколлаж" _(C++ или Python, OpenCV, Windows или Linux)_](http://www.truepositive.ru/hr/)
   * [Тестовое задание "Фотогалерея" _(C++/Qt или Java/Android, Windows, Linux или Android)_](http://www.truepositive.ru/hr/)
 
