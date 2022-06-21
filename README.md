@@ -21,7 +21,11 @@
 ## Задания
 
 * [abz.agency](https://abz.agency/)
+<<<<<<< HEAD
   * [Junior Python Developer *(Python, Django/Flask, MySQL/PostgreSQL)*](https://drive.google.com/file/d/1qUzx0m*Koj83k*G8BScCNK7opazbuDzk/view?usp=sharing)
+=======
+  * [Junior Python Developer *(Python, Django/Flask, MySQL/PostgreSQL)*](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view?usp=sharing)
+>>>>>>> 6f55fc6 (исправил форматирование  `*` вместо `_`)
 
 * [Appbooster](https://appbooster.com/)
   * [iOS Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/ios.md)
@@ -162,7 +166,11 @@
   * [Ruby Developer *(Ruby, Rails)*](https://github.com/fs/test-tasks/tree/master/ruby)
   * [Ruby Intern *(Ruby, Rails)*](https://github.com/fs/test-tasks/tree/master/ruby-intern)
   * [Unity Developer *(Unity)*](https://github.com/fs/test-tasks/tree/master/unity)
+<<<<<<< HEAD
   * [QA ENGineer](https://github.com/fs/test-tasks/tree/master/qa)
+=======
+  * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
+>>>>>>> 6f55fc6 (исправил форматирование  `*` вместо `_`)
   * [Node.js Developer *(Node.js)*](https://github.com/fs/test-tasks/tree/master/nodejs)
 
 * [FunBox](https://funbox.ru/)
@@ -207,12 +215,21 @@
   * [Тестовое задание для веб разработчика *(PHP, MySQL)*](https://isdigi.ru/is/job/web-programmer-2/test-web-dev-junior/)
 
 * [Ivelum](https://ivelum.com/)
+<<<<<<< HEAD
   * [Python-разработчик *(Python, Django)*](https://github.com/ivelum/job/blob/master/challENGes/python.md)
   * [PHP-разработчик *(PHP)*](https://github.com/ivelum/job/blob/master/challENGes/php.md)
   * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challENGes/php.md)
 
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache *(ENG)* *(Go)*](https://github.com/gojuno/test*tasks)
+=======
+  * [Python-разработчик *(Python, Django)*](https://github.com/ivelum/job/blob/master/challenges/python.md)
+  * [PHP-разработчик *(PHP)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
+  * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
+
+* [Juno Inc.](https://gojuno.com/)
+  * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test*tasks)
+>>>>>>> 6f55fc6 (исправил форматирование  `*` вместо `_`)
 
 * [Matic Insurance Services](https://matic.com/)
   * [Kittens Store - DevOps test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-kittens-store)
@@ -224,14 +241,22 @@
   * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
 
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
+<<<<<<< HEAD
   * [Test for Java/Kotlin backend developer *(ENG)* *(Java/Kotlin, Spring Boot, Maven/Gradle)*](https://github.com/KazanExpress/wms-backend-test-task)
+=======
+  * [Test for Java/Kotlin backend developer *(eng)* *(Java/Kotlin, Spring Boot, Maven/Gradle)*](https://github.com/KazanExpress/wms-backend-test-task)
+>>>>>>> 6f55fc6 (исправил форматирование  `*` вместо `_`)
   * [Тестовое задание Front-End *(JS/TS, Vue.js)*](https://github.com/KazanExpress/frontend-test-task)
   * [Упрощённое тестовое задание Front-End *(JS, Vue.js)*](https://github.com/KazanExpress/frontend-test-task-short)
   * [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
   * [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](https://github.com/KazanExpress/backend-spring-test-task)
   * [Тестовое задание на Android разработку - поиск коктейлей](https://github.com/KazanExpress/android-test-task)
   * [Тестовое задание на Android разработку - просмотр статей](https://github.com/KazanExpress/ke-test-android)
+<<<<<<< HEAD
   * [KazanExpress test for Python developer *(ENG)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
+=======
+  * [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
+>>>>>>> 6f55fc6 (исправил форматирование  `*` вместо `_`)
 
 * [MediaSoft](https://mediasoft.team/)
   * [Тестовое задание. Android. iOS. Flutter](https://drive.google.com/file/d/16glieEeWz0o*Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
@@ -257,9 +282,15 @@
   * [Система тестирования *(any)*](https://github.com/peterservice-rnd/new-job/blob/master/test-framework.md)
 
 * [Ostrovok.ru](https://ostrovok.ru)
+<<<<<<< HEAD
   * [Frontend Developer *(JS)*](https://github.com/ostrovok-team/code-challENGe/tree/master/js)
   * [Python Developer *(Python)*](https://github.com/ostrovok-team/code-challENGe/tree/master/python)
   * [DevOps ENGineer](https://github.com/ostrovok-team/code-challENGe/tree/master/devops)
+=======
+  * [Frontend Developer *(JS)*](https://github.com/ostrovok-team/code-challenge/tree/master/js)
+  * [Python Developer *(Python)*](https://github.com/ostrovok-team/code-challenge/tree/master/python)
+  * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
+>>>>>>> 6f55fc6 (исправил форматирование  `*` вместо `_`)
 
 * [Poker Stars](https://www.pokerstars.com)
   * [Frontend Developer *(JS, React + Redux)* *(задания находятся в самом проекте)*](https://github.com/digitisle/cards)
@@ -376,7 +407,11 @@
   * [Найди ошибки *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1-2)
 
 * [Hicaliber](https://www.hicaliber.com.au/)
+<<<<<<< HEAD
   * [PHP Developer Test *(Vue.js)*](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K*Zu0DCnnhfFs3aokDQ)
+=======
+  * [PHP Developer Test (Vue.js)](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K*Zu0DCnnhfFs3aokDQ)
+>>>>>>> 6f55fc6 (исправил форматирование  `*` вместо `_`)
 
 * Без компании
   * [Frontend test case *(React, TypeScript)*](https://docs.google.com/document/d/16IkxQ*ZDRxrfnzdjQdYP5UfyloGwmwXsZ5IEXEbuL2E/edit?usp=sharing)
