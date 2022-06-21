@@ -2,7 +2,7 @@
 
 [![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet*logo128.png)](https://ru.hexlet.io/pages/about?utm*source=github&utm*medium=link&utm*campaign=ru-test-assignments)
 
-Данный репозиторий создан и поддерживается командой и сообществом образовательного проекта *Хекслет*. [Подробнее о проекте](https://ru.hexlet.io/pages/about?utm*source=github&utm*medium=link&utm*campaign=ru-test-assignments).
+Данный репозиторий создан и поддерживается командой и сообществом образовательного проекта *Хекслет*. [Подробнее о проекте](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments).
 
 Посмотрите самых активных участников проекта на [hexlet-friends](https://friends.hexlet.io/).
 
@@ -83,7 +83,7 @@
   * [Internship *(iOS)*](https://github.com/avito-tech/internship)
 
 * [Au](https://au.ru/)
-  * [Junior Frontend Developer *(JS, React)*](https://drive.google.com/file/d/18GjJJJlw7YoshQfq2_FYQv6hnRTpjLp2/view)
+  * [Junior Frontend Developer *(JS, React)*](https://drive.google.com/file/d/18GjJJJlw7YoshQfq2_FYQv6hnRTpjLp2/view?usp=sharing)
 
 * [BEBOSS](https://beboss.ru/)
   * [Web-разработчик *(PHP, jQuery, YII)*](https://github.com/funkylen/beboss-test-assignments)
@@ -129,8 +129,8 @@
   * [Стажер-программист *(C#)*](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
 
 * [DevJS](https://devjs.ru/)
-  * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/devjsru/php*test)
-  * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](https://github.com/devjsru/react*test)
+  * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/devjsru/php_test)
+  * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](https://github.com/devjsru/react_test)
 
 * [Devsteam.mobi](http://devsteam.mobi/)
   * [Junior Frontend Developer *(React-Native/Flutter)*](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
@@ -220,6 +220,7 @@
   * [iOS разработчик *(Swift 5, UIKit, iOS 13+, Зависимости через SPM или Cocoapods)*](https://github.com/appKODE/trainee-test-ios)
   * [Хитрые задачки по iOS *(any)*](https://github.com/appKODE/test2019)
   * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)
+  * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
 
 * [Matic Insurance Services](https://matic.com/)
   * [Kittens Store - DevOps test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-kittens-store)
@@ -231,7 +232,7 @@
   * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
 
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
-  * [KazanExpress test for Java/Kotlin backend developer *(eng)* *(Java/Kotlin, Spring Boot, JDK, Maven/Gradle)*](https://github.com/KazanExpress/wms-backend-test-task)
+  * [Test for Java/Kotlin backend developer *(eng)* *(Java/Kotlin, Spring Boot, Maven/Gradle)*](https://github.com/KazanExpress/wms-backend-test-task)
   * [Тестовое задание Front-End *(JS/TS, Vue.js)*](https://github.com/KazanExpress/frontend-test-task)
   * [Упрощённое тестовое задание Front-End *(JS, Vue.js)*](https://github.com/KazanExpress/frontend-test-task-short)
   * [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
