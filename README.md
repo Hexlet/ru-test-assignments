@@ -1,6 +1,6 @@
 # Список тестовых заданий для прокачки
 
-[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments)
+[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet*logo128.png)](https://ru.hexlet.io/pages/about?utm*source=github&utm*medium=link&utm*campaign=ru-test-assignments)
 
 Данный репозиторий создан и поддерживается командой и сообществом образовательного проекта *Хекслет*. [Подробнее о проекте](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments).
 
@@ -33,7 +33,7 @@
   * [SQL *(any SQL DB)*](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-sql-md)
 
 * [Appstorespy](https://appstorespy.com/)
-  * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](https://www.notion.so/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
+  * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](https://catkin-gymnast-f1a.notion.site/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
 
 * [Apsolutions](https://apsolutions.ru)
   * [Тестовое задание для стажера *(Python)*](https://freezing-helicopter-7fb.notion.site/67777c95bdbe4e59856c59b707349f2d)
@@ -212,6 +212,14 @@
   * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
 
 * [Juno Inc.](https://gojuno.com/)
+  * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test*tasks)
+
+* [KODE](https://kode.ru/)
+  * [Frontend разработчик *(Create React App, React Router, Axios)*](https://github.com/appKODE/trainee-test-frontend)
+  * [Android разработчик *(Kotlin, Single Activity, Retrofit, Jetpack Compose / XML, Kotlinx Serialization / Gson, RxJava / Coroutines)*](https://github.com/appKODE/trainee-test-android)
+  * [iOS разработчик *(Swift 5, UIKit, iOS 13+, Зависимости через SPM или Cocoapods)*](https://github.com/appKODE/trainee-test-ios)
+  * [Хитрые задачки по iOS *(any)*](https://github.com/appKODE/test2019)
+  * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)
   * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
 
 * [Jupiter soft](https://jupiter-soft.com/)
@@ -232,19 +240,19 @@
   * [Упрощённое тестовое задание Front-End *(JS, Vue.js)*](https://github.com/KazanExpress/frontend-test-task-short)
   * [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
   * [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](https://github.com/KazanExpress/backend-spring-test-task)
-  * [Тестовое задание на Android разработку - поиск коктейлей](https://github.com/KazanExpress/android-test-task)
-  * [Тестовое задание на Android разработку - просмотр статей](https://github.com/KazanExpress/ke-test-android)
+  * [Тестовое задание на Android разработку - поиск коктейлей *(Java, Kotlin)*](https://github.com/KazanExpress/android-test-task)
+  * [Тестовое задание на Android разработку - просмотр статей *(Java, Kotlin)*](https://github.com/KazanExpress/ke-test-android)
   * [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
 
 * [MediaSoft](https://mediasoft.team/)
-  * [Тестовое задание. Android. iOS. Flutter](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
-  * [Тестовое задание. ReactJS](https://drive.google.com/file/d/1LUlaX0-8MuZXOMbqsIt8tW3xPrBPWSHU/view?usp=sharing)
-  * [Тестовое задание. Python](https://drive.google.com/file/d/1DU2-MSCNN-FzCa8ksB3rx2GQy23LSt5T/view?usp=sharing)
-  * [Тестовое задание. Java](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
-  * [Тестовое задание. Системный / Бизнес-аналитик](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
+  * [Тестовое задание.Mobile *(Swift/Kotlin/Flutter)*](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
+  * [Тестовое задание.React *(React/Redux)*](https://drive.google.com/file/d/1LUlaX0-8MuZXOMbqsIt8tW3xPrBPWSHU/view?usp=sharing)
+  * [Тестовое задание.Python *(Python)*](https://drive.google.com/file/d/1DU2-MSCNN-FzCa8ksB3rx2GQy23LSt5T/view?usp=sharing)
+  * [Тестовое задание.Java *(Java EE/Spring, Maven/Gradle)*](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
+  * [Тестовое задание. Системный / Бизнес-аналитик *(any)*](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
 
 * [Medods](https://medods.ru/)
-  * [Junior Frontend Developer *(JS, Vue.js (упор на Vue 2), Vuelidate, Sass)*](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
+  * [Junior Frontend Developer *(JS, Vue.js, Vuelidate, Sass)*](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
 
 * [Mindbox](https://mindbox.ru/)
   * [Тестовое задание на стажировку *(C#, SQL)*](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
@@ -254,18 +262,10 @@
   * [[C# Dev] Тестовое задание *(C#)*](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
   * [[Dev] Тестовое задание *(any)*](https://drive.google.com/file/d/1cbUD3ID1yyHJES9KQH12L_wGhKTn6Jrg/view)
 
-* [Nexign](https://nexign.com/ru)
-  * [Выбор лидера *(any)*](https://github.com/peterservice-rnd/new-job/blob/master/leader.md)
-  * [Шелл *(any)*](https://github.com/peterservice-rnd/new-job/blob/master/shell.md)
-  * [Система тестирования *(any)*](https://github.com/peterservice-rnd/new-job/blob/master/test-framework.md)
-
 * [Ostrovok.ru](https://ostrovok.ru)
-  * [Frontend Developer *(JS)*](https://github.com/ostrovok-team/code-challenge/tree/master/js)
+  * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer *(Python)*](https://github.com/ostrovok-team/code-challenge/tree/master/python)
   * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
-
-* [Poker Stars](https://www.pokerstars.com)
-  * [Frontend Developer *(JS, React + Redux)* *(задания находятся в самом проекте)*](https://github.com/digitisle/cards)
 
 * [Procom](https://csoprocom.com.ua/)
   * [Frontend-разработчик *(JS, Angular)*](https://csoprocom.com.ua/info/frontend1.pdf)
@@ -274,7 +274,7 @@
   * [Backend Developer *(PHP, Laravel)*](https://workflowy.com/s/2ca3f38ef0f5/TRUbIAFhIadLR6zq)
 
 * [Redsoft](https://redsoft.ru)
-  * [Frontend-разработчик *(JS, Node.js)*](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
+  * [Frontend-разработчик *(JS, Vue.js, Node.js)*](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
 
 * [REG.RU](https://www.reg.ru/)
   * [Тестовое задание для вакансии «Программист PHP» *(PHP)*](https://www.reg.ru/company/jobs/testtask-prog-php)
@@ -284,33 +284,27 @@
   * [Тестовое задание на должность «Специалист службы технической поддержки хостинга»](https://www.reg.ru/company/jobs/testtask-hostingsupport)
 
 * [RooX Solutions](https://roox.ru/)
-  * [Junior frontend-developer *(React)*](https://roox.notion.site/frontend-32b79baef66c4ca4a27f6f76e01a7dd2)
+  * [Frontend разработчик *(TS, React, CSS)*](https://roox.notion.site/frontend-32b79baef66c4ca4a27f6f76e01a7dd2)
 
 * [Ruport](http://ruport.ru/)
-  * [Middle Frontend Developer](https://github.com/ruport-digital/middle-frontend-assignment)
+  * [Middle Frontend Developer *(ECMAScript, SCSS)*](https://github.com/ruport-digital/middle-frontend-assignment)
+  * [Junior Frontend Developer *(верстка)*](https://github.com/ruport-digital/junior-frontend-assignment)
 
 * [Sendsay](https://sendsay.ru/)
-  * [Frontend Jr + QA (АРХИВ) *(JS)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
-  * [Frontend React (АРХИВ) *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
-  * [Frontend React *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
+  * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
+  * [Frontend-разработчик 1 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
+  * [Frontend-разработчик 2 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
 
 * [Smena](https://smena.space/)
-  * [Python Developer *(Python, Django)*](https://github.com/smenateam/assignments/blob/master/backend/README.md)
-  * [JavaScript Developer *(JS, Node.js)*](https://github.com/smenateam/assignments/blob/master/site-frontend/README.md)
+  * [Python Developer *(Python, Django, PostgreSQL, Docker)*](https://github.com/smenateam/assignments/blob/master/backend/README.md)
+  * [JavaScript Developer *(JS, Vue.js)*](https://github.com/smenateam/assignments/blob/master/site-frontend/README.md)
+  * [TypeScript Developer *(TS, React)*](https://github.com/smenateam/assignments/blob/master/erp-frontend/README.md)
 
 * [SoftPro](https://softpro.com/)
   * [Тестовое задание *(Go, C++, Python)*](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
 
 * [S2snext](http://s2snext.com/)
   * [Тестовое задание *(C#, ASP.NET Core, Entity Framework Core)*](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
-
-* [Travelpayouts](https://www.travelpayouts.com/ru)
-  * [Front End *(JS, TS)*](https://github.com/KosyanMedia/Front-end_TP_test)
-
-* [True Positive Lab](http://www.truepositive.ru/)
-  *(все задания на одной странице)*
-  * [Тестовое задание "Фотоколлаж" *(C++ или Python, OpenCV, Windows или Linux)*](http://www.truepositive.ru/hr/)
-  * [Тестовое задание "Фотогалерея" *(C++/Qt или Java/Android, Windows, Linux или Android)*](http://www.truepositive.ru/hr/)
 
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание на позицию backend-разработчик *(PHP)*](https://github.com/tutu-ru/php-interview)
@@ -330,7 +324,7 @@
   * [Тестовое задание WG Forge (Backend) *(Python 3/Ruby/Go/Erlang/Elixir/Java/Scala/C#/F#, PostgreSQL, Docker)*](https://github.com/wgnet/wg_forge_backend)
   * [Тестовое задание WG Forge Platform Front-End *(JS, Node.js)*](https://github.com/wgnet/wg_forge_frontend)
 
-* [Wemake.services](https://wemake.services)
+* [Wemake.services](https://wemake-services.github.io/)
   * [Github repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
 
 * [Xored](http://ru.xored.com/)
@@ -343,25 +337,25 @@
   * [developer's performance measurement tool *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=19694895)
 
 * [Армо](http://armo.ru/)
-  * [Junior программист JavaScript (Frontend)](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
+  * [Junior Frontend *(JSc+ Electron, Python + Tornado)*](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
 
-* [Газпромбанк](https://www.gazprombank.ru/personal/page/online-bank)
-  * [frontend-разработчик *(React, react route, Mobx, Redux saga)*](https://github.com/Vkube/test-work-react)
+* [Газпромбанк](https://www.gazprombank.ru/)
+  * [Тестовые задания по React *(React, React Router, Redux Saga, Mobx)*](https://github.com/GPB-COS/test-work-react)
 
 * [Домотехника](https://domotekhnika.ru/)
-  * [Сверстать страницу со списком новостей и страницу с описанием новости *(Vue, Nuxt, AJAX, Figma)*](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
+  * [Тестовое задание Frontend *(Vue.js)*](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
 
 * [Инфоматика](https://infomatika.ru/)
-  * [Требуется сверстать HTML страницу на основе рисунка](https://github.com/some-yummy-nick/infomatika-test)
+  * [Верстка *(HTML, CSS)*](https://github.com/some-yummy-nick/infomatika-test)
 
 * [Инфотекс](https://infotecs.ru/)
-  * [Тестовое на стажировку C#, зима 2019-2020 *(C#, ASP.NET)*](https://drive.google.com/drive/folders/1UCx7**WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
+  * [Тестовое на стажировку C#, зима 2019-2020 *(C#, ASP.NET)*](https://drive.google.com/drive/folders/1UCx7__WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
 
 * [Кошелёк](https://koshelek.ru/)
   * [Junior Frontend Developer *(JS, Vue.js/React/Angular)*](https://drive.google.com/file/d/1k6c0AiXsTko1kfLv3sLtFxV9vIJwpUSd/view?usp=sharing)
 
 * [Маквес Групп](https://www.makves.ru/)
-  * [Стажёр-разработчик Frontend](https://drive.google.com/file/d/1ZRKa2us1D49l8natOIpO5TYTirKdNssz/view?usp=sharing)
+  * [Стажёр-разработчик Frontend *(JS, React)*](https://drive.google.com/file/d/1ZRKa2us1D49l8natOIpO5TYTirKdNssz/view?usp=sharing)
 
 * [СКБ Контур](https://kontur.ru/)
   * [Тестовые задания на c# стажировку *(C#)*](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
@@ -374,13 +368,15 @@
   * [Тестовое задание PHP-developer *(PHP, Symfony)*](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
 
 * [Яндекс](https://yandex.ru)
-  Школа разработки интерфейсов (ШРИ) 2018
-  * [Приложение для создания и редактирования информации о встречах сотрудников *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1)
-  * [Найди ошибки *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1-2)
+  * [Задание "найди ошибки" — ШРИ, Москва, весна 2018 *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1)
+  * [Задание по вёрстке — ШРИ, Москва, весна 2018](https://github.com/yandex-shri-2018/entrance-task-2)
+  * [Задание "найди ошибки" — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018 *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1-2)
+  * [Задание по вёрстке — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](https://github.com/yandex-shri-2018/entrance-task-2-2)
+  * [Задание "реализовать алгоритм" — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](https://github.com/yandex-shri-2018/entrance-task-3-2)
 
 * [Hicaliber](https://www.hicaliber.com.au/)
-  * [PHP Developer Test (Vue.js)](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ)
+  * [PHP Developer Test *(ENG)* *(PHP + Laravel, Vue.js)*](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ)
 
 * Без компании
   * [Frontend test case *(React, TypeScript)*](https://docs.google.com/document/d/16IkxQ_ZDRxrfnzdjQdYP5UfyloGwmwXsZ5IEXEbuL2E/edit?usp=sharing)
-  * [Frontend test case *(React)*](https://docs.google.com/document/d/1LQ7olXMcjNKF_vHoPqm8VsJc65K3PfW5M3s9D1EO8xs/edit)
+  * [C32. Frontend JS test task 1 *(React)*](https://docs.google.com/document/d/1LQ7olXMcjNKF_vHoPqm8VsJc65K3PfW5M3s9D1EO8xs/edit)
