@@ -104,6 +104,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [CLC Tech](https://clc-logistic.ru/)
   * [Junior PHP developer *(yii2)*](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
 
+* [Cone Center](https://www.cone.ee)
+  * [Java/Scala developer](https://github.com/mondayish/ConeTestTask/blob/master/README.md)
+
 * [Crazy Panda](https://crazypanda.ru/)
   * [Тестовое задание C# *(C#)*](https://gist.github.com/Busyrev/cb89f309d2c32873449366023b8e0057)
 
