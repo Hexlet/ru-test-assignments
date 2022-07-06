@@ -97,6 +97,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [~~Bluesweater-studio~~](https://vk.com/bluesweaterstudio) *студия закрыта*
   * [Frontend task *(JS, React, React Hooks, JSS)*](https://github.com/some-yummy-nick/frontend-task)
 
+* [Byndyusoft](https://byndyusoft.com)
+  * [Java/Kotlin developer](https://github.com/mondayish/SimpleConsoleCalculator/blob/master/README.md)
+
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend Engineer — тестовое задание *(any)*](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
