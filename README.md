@@ -370,6 +370,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [Студия Валерия Комягина](https://www.internet-design.ru/)
   * [Тестовое задание Веб-программист *(any, предпочтительно Laravel)*](https://drive.google.com/file/d/1ACBukx7UpnLztRnnCKID3K-DxX1UciMw/view)
 
+* [Титан](https://spb.hh.ru/employer/1268355)
+  * [Java разработчик](https://docs.google.com/document/d/1peoDqaNraEL5jW3kMWPSQevLvKNwyOjC0KNOigfQTNM/edit?usp=sharing)
+
 * [TMK](https://tmktools.ru/)
   * [Тестовое задание PHP-developer *(PHP, Symfony)*](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
 
