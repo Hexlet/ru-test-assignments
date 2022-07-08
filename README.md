@@ -312,6 +312,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [S2snext](http://s2snext.com/)
   * [Тестовое задание *(C#, ASP.NET Core, Entity Framework Core)*](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
 
+* [Teamlead](https://www.teamlead.ru)
+  * [Java разработчик](https://docs.google.com/document/d/1f5frd0d_sQk471oeznTnHpc-YSo9EfkQ3avHpxy4TtE/edit?usp=sharing)
+
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание на позицию backend-разработчик *(PHP)*](https://github.com/tutu-ru/php-interview)
   * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](https://github.com/tutu-ru/frontend-javascript-test)
