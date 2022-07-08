@@ -209,6 +209,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
   * [React-Native Mobile app *(React-Native CLI)*](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
 
+* [Infomaximum](https://infomaximum.com)
+  * [Java разработчик](https://drive.google.com/file/d/17g9-4HTkBtJln-3I-iavMqWkX9bBYcg2/view?usp=sharing)
+
 * [is.Digital](https://isdigi.ru/)
   * [Тестовое задание для веб разработчика *(PHP, MySQL)*](https://isdigi.ru/is/job/web-programmer-2/test-web-dev-junior/)
 
