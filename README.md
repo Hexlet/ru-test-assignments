@@ -271,6 +271,9 @@ This repository is created and maintained by the team and the community of Hexle
   * [[C# Dev] Тестовое задание *(C#)*](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
   * [[Dev] Тестовое задание *(any)*](https://drive.google.com/file/d/1cbUD3ID1yyHJES9KQH12L_wGhKTn6Jrg/view)
 
+* [NewGen Vision](https://www.unipage.net/)
+  * [Junior Frontend Developer *(JS, Vue.js)*](https://newgen-it.github.io/tests/front)
+
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer *(Python)*](https://github.com/ostrovok-team/code-challenge/tree/master/python)
