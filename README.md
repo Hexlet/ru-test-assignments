@@ -221,7 +221,7 @@ This repository is created and maintained by the team and the community of Hexle
   * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
 
 * [Juno Inc.](https://gojuno.com/)
-  * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test*tasks)
+  * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
 
 * [KODE](https://kode.ru/)
   * [Frontend разработчик *(Create React App, React Router, Axios)*](https://github.com/appKODE/trainee-test-frontend)
@@ -277,6 +277,7 @@ This repository is created and maintained by the team and the community of Hexle
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/ostrovok-team/code-challenge/tree/master/js)
   * [Python Developer *(Python)*](https://github.com/ostrovok-team/code-challenge/tree/master/python)
+  * [Django Developer *(в Контент)*](https://github.com/ostrovok-team/code-challenge/blob/master/python/content-tech-task.md)
   * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
 
 * [Procom](https://csoprocom.com.ua/)
