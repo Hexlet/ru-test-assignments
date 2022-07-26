@@ -94,6 +94,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [BellIntegrator](http://www.bellintegrator.ru/)
   * [Тестовое задание Frontend JS *(JS, JQuery, HTML5, CSS3)*](https://docs.google.com/document/d/1YWJGDKB1pLrox6Y4CNm15Nuu_EVcAHIciYUHWYrDNDY/edit?usp=sharing)
 
+* [BirdsBuild](https://bb.market/)
+  * [Тестовое задание на позицию Frontend разработчик Nuxt.js *(Nuxt 3, TypeScript, GraphQL)*](https://docs.google.com/document/d/1_BN8bbym0InYFDElyyVJ5GzPptaOe0p9kteX-Uaww3I/edit#heading=h.ikkq5tsgq96y)
+
 * [~~Bluesweater-studio~~](https://vk.com/bluesweaterstudio) *студия закрыта*
   * [Frontend task *(JS, React, React Hooks, JSS)*](https://github.com/some-yummy-nick/frontend-task)
 
