@@ -221,7 +221,7 @@ This repository is created and maintained by the team and the community of Hexle
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик *(Python, Django)*](https://github.com/ivelum/job/blob/master/challenges/python.md)
   * [PHP-разработчик *(PHP)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
-  * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
+  * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/frontend.md)
 
 * [Juno Inc.](https://gojuno.com/)
   * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
