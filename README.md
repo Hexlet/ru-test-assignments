@@ -110,6 +110,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [CLC Tech](https://clc-logistic.ru/)
   * [Junior PHP developer *(yii2)*](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
 
+* [Coin32](https://coin32.com)
+  * [Middle React Developer *(React)*](https://docs.yandex.ru/docs/view?url=ya-browser%3A%2F%2F4DT1uXEPRrJRXlUFoewruGRq51sHAR8cS-yeWYBhFMCh3ilbI8TRJ9orF0iZN4p1ZHUztQVBJig5cqF5UlIe2CQrzRjNNwAVdTp7K5vfQ9zIeRA6dUkSBnQxZc6WPeAkxbQzfFHgRY3UnLKah5eAyw%3D%3D%3Fsign%3DHxALCk-9-1hK5ZyAdhzmu3UW_jrNJ2ORoHzcChQBbe4%3D&name=React.docx&nosw=1)
+
 * [Cone Center](https://www.cone.ee)
   * [Java/Scala developer](https://github.com/mondayish/ConeTestTask/blob/master/README.md)
 
@@ -375,6 +378,9 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [Маквес Групп](https://www.makves.ru/)
   * [Стажёр-разработчик Frontend *(JS, React)*](https://drive.google.com/file/d/1ZRKa2us1D49l8natOIpO5TYTirKdNssz/view?usp=sharing)
+
+* [НПО Фарватер](https://tsep.pro/)
+  * [Junior+ Frontend Developer *(Vue, React, Canvas)*](https://docs.google.com/document/d/1ReRmhwrI1qwJi2PxhC9GQdP1h9BSt3bKZBaj_oV210s/edit)
 
 * [СКБ Контур](https://kontur.ru/)
   * [Тестовые задания на c# стажировку *(C#)*](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
