@@ -123,11 +123,6 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
   * [Тестовое задание для Javascript разработчика *(JS, jQuery)*](https://github.com/cscart/apply-for-job/tree/master/frontend/developer)
 
-* [CSSSR](https://csssr.ru)
-  *(задания в конце каждой страницы)*
-  * [Middle front-end разработчик *(React)*](https://csssr.com/ru-ru/jobs/middle-js-developer)
-  * [Middle back-end разработчик *(Java/Kotlin)*](https://csssr.com/ru-ru/jobs/java-developer)
-
 * [DAO TECH](https://daotech.ru/)
   * [Тестовое задание на вакансию "Frontend Developer" *(JS, React, Docker)*](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
 
