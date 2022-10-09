@@ -281,6 +281,10 @@ This repository is created and maintained by the team and the community of Hexle
   * [Django Developer *(в Контент)*](https://github.com/ostrovok-team/code-challenge/blob/master/python/content-tech-task.md)
   * [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
 
+* [Oxem Studio](https://oxem.ru)
+  * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
+  * [Бэкенд-разработчик *(PHP)*](https://doc.clickup.com/p/h/2h539-778/840ce49e651e59a)
+
 * [Procom](https://csoprocom.com.ua/)
   * [Frontend-разработчик *(JS, Angular)*](https://csoprocom.com.ua/info/frontend1.pdf)
 
