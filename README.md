@@ -159,6 +159,10 @@ This repository is created and maintained by the team and the community of Hexle
   * [Посчитать количество уникальных IP-адресов в простом текстовом файле *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
   * [Тестовое задание для TypeScript/Vue.js разработчика *(TS, VueJS, HTML/CSS)*](https://github.com/Ecwid/new-job/blob/master/TypeScript.md)
 
+* [Evil Martians](https://evilmartians.com/)
+  * [Cult of Martians, настоящие задачи для веб-программистов: создать новые библиотеки или добавить что-то в существующие. Учитываются при найме в «Марсиане» *(JavaScript/TypeScript/Ruby/Go)*](https://cultofmartians.com/)
+  * Посмотрите [уже сделанные библиотеки и Pull Request'ы](https://cultofmartians.com/done.html).
+
 * [FEIP](https://feip.co/)
   * [PHP-разработчик *(PHP)*](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
 
