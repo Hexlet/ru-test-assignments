@@ -49,6 +49,9 @@ This repository is created and maintained by the team and the community of Hexle
   * [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](https://github.com/KosyanMedia/test-tasks/tree/master/DEPRECATED_aviasales)
 
 * [avito.tech](https://github.com/avito-tech)
+  * [Тестовое задание на позицию стажёра в iOS 2022 *(Swift)*](https://github.com/avito-tech/internship_ios_2022)
+  * [Тестовое задание на позицию стажёра-фронтендера 2022 *(React, Redux, TS)*](https://github.com/avito-tech/internship_frontend_2022)
+  * [Тестовое задание на позицию стажёра-бэкендера 2022 *(Go, MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/internship_backend_2022)
   * [Тестовое задание для стажёра Backend в команду Advertising *(Go/PHP)*](https://github.com/avito-tech/adv-backend-trainee-assignment)
   * [Тестовое задание для стажёра Android (archived) *(Kotlin/Java)*](https://github.com/avito-tech/android-trainee-task)
   * [Тестовая задача для разработчика-стажёра в команду Информационной безопасности Авито для защиты сайта от ботов *(Go/Python)*](https://github.com/avito-tech/antibot-developer-trainee)
@@ -109,9 +112,6 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [CLC Tech](https://clc-logistic.ru/)
   * [Junior PHP developer *(yii2)*](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
-
-* [Coin32](https://coin32.com)
-  * [Middle React Developer *(React)*](https://docs.yandex.ru/docs/view?url=ya-browser%3A%2F%2F4DT1uXEPRrJRXlUFoewruGRq51sHAR8cS-yeWYBhFMCh3ilbI8TRJ9orF0iZN4p1ZHUztQVBJig5cqF5UlIe2CQrzRjNNwAVdTp7K5vfQ9zIeRA6dUkSBnQxZc6WPeAkxbQzfFHgRY3UnLKah5eAyw%3D%3D%3Fsign%3DHxALCk-9-1hK5ZyAdhzmu3UW_jrNJ2ORoHzcChQBbe4%3D&name=React.docx&nosw=1)
 
 * [Cone Center](https://www.cone.ee)
   * [Java/Scala developer](https://github.com/mondayish/ConeTestTask/blob/master/README.md)
@@ -217,11 +217,11 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание для веб разработчика *(PHP, MySQL)*](https://isdigi.ru/is/job/web-programmer-2/test-web-dev-junior/)
 
 * [Ivelum](https://ivelum.com/)
-  * [Python-разработчик *(Python, Django)*](https://github.com/ivelum/job/blob/master/challenges/python.md)
+  * [Python-разработчик *(Python)*](https://github.com/ivelum/job/blob/master/challenges/python.md)
   * [PHP-разработчик *(PHP)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
   * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/frontend.md)
 
-* [Juno Inc.](https://gojuno.com/)
+* ~~[Juno Inc.](https://gojuno.com/)~~ (сайт не доступен)
   * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
 
 * [KODE](https://kode.ru/)
@@ -308,12 +308,16 @@ This repository is created and maintained by the team and the community of Hexle
   * [Middle Frontend Developer *(ECMAScript, SCSS)*](https://github.com/ruport-digital/middle-frontend-assignment)
   * [Junior Frontend Developer *(верстка)*](https://github.com/ruport-digital/junior-frontend-assignment)
 
+* [Scandiweb](https://scandiweb.com/)
+  * [GraphQL endpoint for Junior Developer position in Scandiweb *(ENG)* *(TS, GraphQL)*](https://github.com/scandiweb/junior-react-endpoint)
+
 * [Sendsay](https://sendsay.ru/)
   * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
   * [Frontend-разработчик 1 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
   * [Frontend-разработчик 2 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
 
 * [Smena](https://smena.space/)
+  * [Тестовое задание DevOps разработчик *(Docker, minikube, Python)*](https://github.com/smenateam/assignments/tree/master/devops)
   * [Python Developer *(Python, Django, PostgreSQL, Docker)*](https://github.com/smenateam/assignments/blob/master/backend/README.md)
   * [JavaScript Developer *(JS, Vue.js)*](https://github.com/smenateam/assignments/blob/master/site-frontend/README.md)
   * [TypeScript Developer *(TS, React)*](https://github.com/smenateam/assignments/blob/master/erp-frontend/README.md)
