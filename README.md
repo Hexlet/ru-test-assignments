@@ -375,6 +375,7 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [Инфотекс](https://infotecs.ru/)
   * [Тестовое на стажировку C#, зима 2019-2020 *(C#, ASP.NET)*](https://drive.google.com/drive/folders/1UCx7__WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
+  * [Тестовое на стажировку Тестировщик, осень 2022 *(any)*](https://disk.yandex.kz/i/Aew3EEz3GNuxHA)
 
 * [Кошелёк](https://koshelek.ru/)
   * [Junior Frontend Developer *(JS, Vue.js/React/Angular)*](https://drive.google.com/file/d/1k6c0AiXsTko1kfLv3sLtFxV9vIJwpUSd/view?usp=sharing)
