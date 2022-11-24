@@ -26,7 +26,7 @@ This repository is created and maintained by the team and the community of Hexle
 * [Appbooster](https://appbooster.com/)
   * [iOS Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/ios.md)
   * [Frontend Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
-  * [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)
+  * [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)* 
   * [Frontend + graphql developer *(React, Github GraphQL API)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
   * [Backend developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
   * [Ruby Developer *(Ruby)*](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-ruby-md)
@@ -137,7 +137,7 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/devjsru/php_test)
-  * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](https://github.com/devjsru/react_test)
+  * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](https://github.com/devjsru/react_test)*(отсутствует дизайн-макет по указанной ссылке)*
 
 * [Devsteam.mobi](http://devsteam.mobi/)
   * [Junior Frontend Developer *(React-Native/Flutter)*](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
@@ -165,10 +165,10 @@ This repository is created and maintained by the team and the community of Hexle
 * [Flatstack](https://www.flatstack.com)
   * [Android Developer *(Kotlin, Java, C++)*](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer *(any)*](https://github.com/fs/test-tasks/tree/master/ios)
-  * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/fs/test-tasks/tree/master/front-end)
+  * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/fs/test-tasks/tree/master/front-end)*(отсутствует дизайн-макет по указанным ссылкам)*
   * [Ruby Developer *(Ruby, Rails)*](https://github.com/fs/test-tasks/tree/master/ruby)
   * [Ruby Intern *(Ruby, Rails)*](https://github.com/fs/test-tasks/tree/master/ruby-intern)
-  * [Unity Developer *(Unity)*](https://github.com/fs/test-tasks/tree/master/unity)
+  * [Unity Developer *(Unity)*](https://github.com/fs/test-tasks/tree/master/unity)*(ссылка "тестовым проектом" нерабочая)*   
   * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
   * [Node.js Developer *(Node.js)*](https://github.com/fs/test-tasks/tree/master/nodejs)
 
@@ -228,8 +228,8 @@ This repository is created and maintained by the team and the community of Hexle
   * [Frontend разработчик *(Create React App, React Router, Axios)*](https://github.com/appKODE/trainee-test-frontend)
   * [Android разработчик *(Kotlin, Single Activity, Retrofit, Jetpack Compose / XML, Kotlinx Serialization / Gson, RxJava / Coroutines)*](https://github.com/appKODE/trainee-test-android)
   * [iOS разработчик *(Swift 5, UIKit, iOS 13+, Зависимости через SPM или Cocoapods)*](https://github.com/appKODE/trainee-test-ios)
-  * [Хитрые задачки по iOS *(any)*](https://github.com/appKODE/test2019)
-  * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)
+  * [Хитрые задачки по iOS *(any)*](https://github.com/appKODE/test2019)*(сервер тестового задания не работает)*
+  * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)*(изображение не найдено)*
   * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
 
 * [Jupiter soft](https://jupiter-soft.com/)
