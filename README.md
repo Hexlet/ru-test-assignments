@@ -352,6 +352,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [Wemake.services](https://wemake-services.github.io/)
   * [Github repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
 
+* [Workle](https://www.workle.ru/)
+  * [Тестовое задание для Workle *(Vue.js)*](https://github.com/mikhail-shamshurin/workle-test-task)
+
 * [Xored](http://ru.xored.com/)
   * [Маленький Эксель *(any)*](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
   * [Screen sharing + chat *(ENG)* *(any)*](https://docs.xored.com/display/XL/Test+task+Screen+sharing+with+chat)
@@ -360,6 +363,9 @@ This repository is created and maintained by the team and the community of Hexle
   * [Remote FS Explorer - Eclipse plugin *(ENG)* *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=22742624)
   * [Тестовое задание *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=16023682)
   * [developer's performance measurement tool *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=19694895)
+
+* [Youscan](https://youscan.io/ru/)  
+  * [Test Task for Intern / Junior Front-End Developer Position *(React)*](https://gist.github.com/krambertech/ecb3890824fd7ada0f4ec1ff55125758)
 
 * [Армо](http://armo.ru/)
   * [Junior Frontend *(JSc+ Electron, Python + Tornado)*](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
@@ -416,3 +422,4 @@ This repository is created and maintained by the team and the community of Hexle
   * [Frontend test case *(React, TypeScript)*](https://docs.google.com/document/d/16IkxQ_ZDRxrfnzdjQdYP5UfyloGwmwXsZ5IEXEbuL2E/edit?usp=sharing)
   * [C32. Frontend JS test task 1 *(React)*](https://docs.google.com/document/d/1LQ7olXMcjNKF_vHoPqm8VsJc65K3PfW5M3s9D1EO8xs/edit)
   * [Тестовое задание Frontend-разработчик *(JS, React, Redux, React Router)*](https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FPg8Mn9b2nwRtbsd79GdjAOk0sK0J5vagJAQzR5a5H4HBf2B6dSCQGd5kCvgXaxdcq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5.docx)
+  * [Тестовое задание для frontend web-разработчика [cloud-storage-client] *(Vue.js)*](https://spiky-sky-d11.notion.site/frontend-web-cloud-storage-client-fa687ddac81d4088a2e1e4ca6dd499f1)
