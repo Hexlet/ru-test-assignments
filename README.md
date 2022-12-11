@@ -162,6 +162,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [FEIP](https://feip.co/)
   * [PHP-разработчик *(PHP)*](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
 
+* [FitnessKit](https://fitness-kit.ru/)
+  * [Python разработчик на backend *(Python, Django)*](https://fitness-kit.ru/files/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B1%D1%8D%D0%BA.pdf)
+
 * [Flatstack](https://www.flatstack.com)
   * [Android Developer *(Kotlin, Java, C++)*](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer *(any)*](https://github.com/fs/test-tasks/tree/master/ios)
