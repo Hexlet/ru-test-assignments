@@ -414,8 +414,8 @@ This repository is created and maintained by the team and the community of Hexle
 * [ЭВРИКА](https://hr.eureca.ru)
   * [Fullstack разработчик (JS + Java)](https://docs.google.com/document/d/1fodUFtPCuHyP2Hn7ly3ZsSD_GsSR_wTf/edit?usp=sharing&ouid=115639618941993452518&rtpof=true&sd=true)
 
-* [ООО ЮТОР]()
-  *[Стажер фронтенд разработчик, 1 этап отбора](https://docs.google.com/document/d/1BK6lOSnTEtI0V5K5idK_QJU6CC5Iv1-lhpGAGDqftkA/edit?usp=sharing) 
+* ЮТОР
+  * [Стажер фронтенд разработчик, 1 этап отбора](https://docs.google.com/document/d/1BK6lOSnTEtI0V5K5idK_QJU6CC5Iv1-lhpGAGDqftkA/edit?usp=sharing) 
 * [Яндекс](https://yandex.ru)
   * [Задание "найди ошибки" — ШРИ, Москва, весна 2018 *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1)
   * [Задание по вёрстке — ШРИ, Москва, весна 2018](https://github.com/yandex-shri-2018/entrance-task-2)
