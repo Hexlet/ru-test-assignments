@@ -304,6 +304,9 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание для вакансии web-технолог *(CSS)*](https://www.reg.ru/company/jobs/testtask-webtech)
   * [Тестовое задание на должность «Специалист службы технической поддержки хостинга»](https://www.reg.ru/company/jobs/testtask-hostingsupport)
 
+* [Renue](https://renue.ru/)
+  * [Junior Frontend Developer](https://drive.google.com/file/d/1cAip836SHNBBUVH6g4Dl5AzTa2Ubg0Om/view?usp=sharing)
+
 * [RooX Solutions](https://roox.ru/)
   * [Frontend разработчик *(TS, React, CSS)*](https://roox.notion.site/frontend-32b79baef66c4ca4a27f6f76e01a7dd2)
 
