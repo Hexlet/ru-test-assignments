@@ -376,6 +376,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [Youscan](https://youscan.io/ru/)  
   * [Test Task for Intern / Junior Front-End Developer Position *(React)*](https://gist.github.com/krambertech/ecb3890824fd7ada0f4ec1ff55125758)
 
+* [Yoldi](https://yoldi.agency/development)
+  * [Тестовое задание для вакансии фронтенд разработчик в Yoldi](https://yoldi-agency.notion.site/Yoldi-7552752e30964431ab0ca03d54908148)
+
 * [Армо](http://armo.ru/)
   * [Junior Frontend *(JSc+ Electron, Python + Tornado)*](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
 
