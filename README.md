@@ -440,3 +440,4 @@ This repository is created and maintained by the team and the community of Hexle
   * [C32. Frontend JS test task 1 *(React)*](https://docs.google.com/document/d/1LQ7olXMcjNKF_vHoPqm8VsJc65K3PfW5M3s9D1EO8xs/edit)
   * [Тестовое задание Frontend-разработчик *(JS, React, Redux, React Router)*](https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FPg8Mn9b2nwRtbsd79GdjAOk0sK0J5vagJAQzR5a5H4HBf2B6dSCQGd5kCvgXaxdcq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5.docx)
   * [Тестовое задание для frontend web-разработчика [cloud-storage-client] *(Vue.js)*](https://spiky-sky-d11.notion.site/frontend-web-cloud-storage-client-fa687ddac81d4088a2e1e4ca6dd499f1)
+  * [Тестовое задание для стажера Python [elasticsearch]](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
