@@ -321,9 +321,11 @@ This repository is created and maintained by the team and the community of Hexle
   * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
   * [Frontend-разработчик 1 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
   * [Frontend-разработчик 2 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
+  * [Младший frontend-разработчик *(JS, React)*](https://sendsay.notion.site/Frontend-e378a45c3a934dafb6e44f79da2a0040)
   
 * [Shopify](https://www.shopify.com/)
   * [Frontend Intern, Fall 2022 *(JS, OpenAI) (ENG)*](https://docs.google.com/document/d/16tMBx990qfnX2P1lTKTqaS4Ugp2RzqFrLIZ1TwWCVo4/edit?usp=sharing)
+
 
 * [Smena](https://smena.space/)
   * [Тестовое задание DevOps разработчик *(Docker, minikube, Python)*](https://github.com/smenateam/assignments/tree/master/devops)
