@@ -159,6 +159,9 @@ This repository is created and maintained by the team and the community of Hexle
   * [Посчитать количество уникальных IP-адресов в простом текстовом файле *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
   * [Тестовое задание для TypeScript/Vue.js разработчика *(TS, VueJS, HTML/CSS)*](https://github.com/Ecwid/new-job/blob/master/TypeScript.md)
 
+* [Edstein](https://www.edstein.ru/)
+  * [Тестовое задание Middle Backend-разработчик *(Ruby on Rails)*](https://docs.google.com/document/d/1uHtZQckkQXGA6occB6R9F8l9Nru1ELPFKWi7cO79dLc/edit?usp=sharing)
+
 * [FEIP](https://feip.co/)
   * [PHP-разработчик *(PHP)*](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
 
