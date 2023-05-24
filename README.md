@@ -168,6 +168,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [FitnessKit](https://fitness-kit.ru/)
   * [Python разработчик на backend *(Python, Django)*](https://fitness-kit.ru/files/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B1%D1%8D%D0%BA.pdf)
 
+* [fundraiseup](https://fundraiseup.com/)
+  * [Backend test NodeJS](https://fundraiseup.notion.site/Backend-test-0e0e0961077e4e74bb6afc42dcf1759a)  
+
 * [Flatstack](https://www.flatstack.com)
   * [Android Developer *(Kotlin, Java, C++)*](https://github.com/fs/test-tasks/tree/master/android)
   * [iOS Developer *(any)*](https://github.com/fs/test-tasks/tree/master/ios)
