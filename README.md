@@ -414,6 +414,9 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [НПО Фарватер](https://tsep.pro/)
   * [Junior+ Frontend Developer *(Vue, React, Canvas)*](https://docs.google.com/document/d/1ReRmhwrI1qwJi2PxhC9GQdP1h9BSt3bKZBaj_oV210s/edit)
+ 
+* [Очень Интересно](https://www.interesnee.ru/)
+  * [Python-разработчик на позицию стажера](https://github.com/David-Roklem/django-test-task/blob/main/Task-itself.md)
   
 * [СДК Гарант](https://www.sdkgarant.ru/index.php/ru/)
   * [Junior Front-End разработчик *(JS, ExtJS)*](https://github.com/georgy-p/SDK-Garant-test-task)
