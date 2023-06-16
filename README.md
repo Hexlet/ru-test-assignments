@@ -35,9 +35,6 @@ This repository is created and maintained by the team and the community of Hexle
 * [Appstorespy](https://appstorespy.com/)
   * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](https://catkin-gymnast-f1a.notion.site/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
 
-* [Apsolutions](https://apsolutions.ru)
-  * [Тестовое задание для стажера *(Python)*](https://freezing-helicopter-7fb.notion.site/67777c95bdbe4e59856c59b707349f2d)
-
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание в команду ассистеда *(Python, Go)*](https://github.com/KosyanMedia/test-tasks/tree/master/assisted_team)
   * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
@@ -155,7 +152,6 @@ This repository is created and maintained by the team and the community of Hexle
   * [Парсер SQL запросов, *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/SQL-parser.md)
   * [Глубокое копирование, *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
   * [java.util.Map поверх Redis *(Kotlin/Java, Redis)*](https://github.com/Ecwid/new-job/blob/master/Redis-and-collections.md)
-  * [Реализовать свой собственный аналог класса ThreadLocal  *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/ThreadLocal.md)
   * [Посчитать количество уникальных IP-адресов в простом текстовом файле *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
   * [Тестовое задание для TypeScript/Vue.js разработчика *(TS, VueJS, HTML/CSS)*](https://github.com/Ecwid/new-job/blob/master/TypeScript.md)
 
@@ -254,7 +250,6 @@ This repository is created and maintained by the team and the community of Hexle
   * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
 
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
-  * [Test for Java/Kotlin backend developer *(eng)* *(Java/Kotlin, Spring Boot, Maven/Gradle)*](https://github.com/KazanExpress/wms-backend-test-task)
   * [Тестовое задание Front-End *(JS/TS, Vue.js)*](https://github.com/KazanExpress/frontend-test-task)
   * [Упрощённое тестовое задание Front-End *(JS, Vue.js)*](https://github.com/KazanExpress/frontend-test-task-short)
   * [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
