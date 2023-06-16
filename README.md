@@ -6,7 +6,7 @@ This repository is created and maintained by the team and the community of Hexle
 
 Посмотрите самых активных участников проекта на [hexlet-friends](https://friends.hexlet.io/).
 
-----
+---
 
 Выполненные тестовые задания прикрепляйте как портфолио к своему резюме на [Hexlet CV](https://cv.hexlet.io/).
 
@@ -16,7 +16,7 @@ This repository is created and maintained by the team and the community of Hexle
 
 ## Правила
 
-* Располагайте компании в алфавитном порядке
+- Располагайте компании в алфавитном порядке
 
 ## Задания
 
@@ -26,7 +26,7 @@ This repository is created and maintained by the team and the community of Hexle
 * [Appbooster](https://appbooster.com/)
   * [iOS Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/ios.md)
   * [Frontend Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
-  * [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)* 
+  * [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)*
   * [Frontend + graphql developer *(React, Github GraphQL API)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
   * [Backend developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
   * [Ruby Developer *(Ruby)*](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-ruby-md)
@@ -110,6 +110,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [CLC Tech](https://clc-logistic.ru/)
   * [Junior PHP developer *(yii2)*](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
 
+* [Cloud.ru](https://cloud.ru/ru)
+  * [Тестовое задание для поступления в FrontCloudCamp](https://github.com/FrontCloudCamp/test-assignment)
+
 * [Cone Center](https://www.cone.ee)
   * [Java/Scala developer](https://github.com/mondayish/ConeTestTask/blob/master/README.md)
 
@@ -165,7 +168,7 @@ This repository is created and maintained by the team and the community of Hexle
   * [Python разработчик на backend *(Python, Django)*](https://fitness-kit.ru/files/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B1%D1%8D%D0%BA.pdf)
 
 * [fundraiseup](https://fundraiseup.com/)
-  * [Backend test NodeJS](https://fundraiseup.notion.site/Backend-test-0e0e0961077e4e74bb6afc42dcf1759a)  
+  * [Backend test NodeJS](https://fundraiseup.notion.site/Backend-test-0e0e0961077e4e74bb6afc42dcf1759a)
 
 * [Flatstack](https://www.flatstack.com)
   * [Android Developer *(Kotlin, Java, C++)*](https://github.com/fs/test-tasks/tree/master/android)
@@ -173,7 +176,7 @@ This repository is created and maintained by the team and the community of Hexle
   * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/fs/test-tasks/tree/master/front-end)*(отсутствует дизайн-макет по указанным ссылкам)*
   * [Ruby Developer *(Ruby, Rails)*](https://github.com/fs/test-tasks/tree/master/ruby)
   * [Ruby Intern *(Ruby, Rails)*](https://github.com/fs/test-tasks/tree/master/ruby-intern)
-  * [Unity Developer *(Unity)*](https://github.com/fs/test-tasks/tree/master/unity)*(ссылка "тестовым проектом" нерабочая)*   
+  * [Unity Developer *(Unity)*](https://github.com/fs/test-tasks/tree/master/unity)*(ссылка "тестовым проектом" нерабочая)*
   * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
   * [Node.js Developer *(Node.js)*](https://github.com/fs/test-tasks/tree/master/nodejs)
 
@@ -201,6 +204,9 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [Greensight](https://greensight.ru/)
   * [Тестовое задание для направления Backend разработка *(PHP)*](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
+
+* [Hammer Systems](https://hammer.systems/)
+  * [Тестовое задание для Frontend разработчика](https://disk.yandex.ru/d/R74ptnVnK5xpPA)
 
 * [Haulmont](https://www.haulmont.ru)
   * [StudentDatabase *(Java)*](https://github.com/nikolaychernov/StudentDatabase)
@@ -323,7 +329,7 @@ This repository is created and maintained by the team and the community of Hexle
   * [Frontend-разработчик 1 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
   * [Frontend-разработчик 2 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
   * [Младший frontend-разработчик *(JS, React)*](https://sendsay.notion.site/Frontend-e378a45c3a934dafb6e44f79da2a0040)
-  
+
 * [Shopify](https://www.shopify.com/)
   * [Frontend Intern, Fall 2022 *(JS, OpenAI) (ENG)*](https://docs.google.com/document/d/16tMBx990qfnX2P1lTKTqaS4Ugp2RzqFrLIZ1TwWCVo4/edit?usp=sharing)
 
@@ -340,9 +346,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [S2snext](http://s2snext.com/)
   * [Тестовое задание *(C#, ASP.NET Core, Entity Framework Core)*](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
 
-* [Studika](https://studika.ru/)  
+* [Studika](https://studika.ru/)
   * [Frontend-разработчик](https://docs.google.com/document/d/1guSGNGsmd5JdKBTgeiik94dLIUVkVgElqOYvqO8ekZ0/edit?usp=sharing)
- 
+
 * [Teamlead](https://www.teamlead.ru)
   * [Java разработчик](https://docs.google.com/document/d/1f5frd0d_sQk471oeznTnHpc-YSo9EfkQ3avHpxy4TtE/edit?usp=sharing)
 
@@ -379,7 +385,7 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=16023682)
   * [developer's performance measurement tool *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=19694895)
 
-* [Youscan](https://youscan.io/ru/)  
+* [Youscan](https://youscan.io/ru/)
   * [Test Task for Intern / Junior Front-End Developer Position *(React)*](https://gist.github.com/krambertech/ecb3890824fd7ada0f4ec1ff55125758)
 
 * [Yoldi](https://yoldi.agency/development)
@@ -409,10 +415,10 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [НПО Фарватер](https://tsep.pro/)
   * [Junior+ Frontend Developer *(Vue, React, Canvas)*](https://docs.google.com/document/d/1ReRmhwrI1qwJi2PxhC9GQdP1h9BSt3bKZBaj_oV210s/edit)
- 
+
 * [Очень Интересно](https://www.interesnee.ru/)
   * [Python-разработчик на позицию стажера](https://github.com/David-Roklem/django-test-task/blob/main/Task-itself.md)
-  
+
 * [СДК Гарант](https://www.sdkgarant.ru/index.php/ru/)
   * [Junior Front-End разработчик *(JS, ExtJS)*](https://github.com/georgy-p/SDK-Garant-test-task)
 
@@ -433,7 +439,7 @@ This repository is created and maintained by the team and the community of Hexle
   * [Fullstack разработчик (JS + Java)](https://docs.google.com/document/d/1fodUFtPCuHyP2Hn7ly3ZsSD_GsSR_wTf/edit?usp=sharing&ouid=115639618941993452518&rtpof=true&sd=true)
 
 * ЮТОР
-  * [Стажер фронтенд разработчик, 1 этап отбора](https://docs.google.com/document/d/1BK6lOSnTEtI0V5K5idK_QJU6CC5Iv1-lhpGAGDqftkA/edit?usp=sharing) 
+  * [Стажер фронтенд разработчик, 1 этап отбора](https://docs.google.com/document/d/1BK6lOSnTEtI0V5K5idK_QJU6CC5Iv1-lhpGAGDqftkA/edit?usp=sharing)
 * [Яндекс](https://yandex.ru)
   * [Задание "найди ошибки" — ШРИ, Москва, весна 2018 *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1)
   * [Задание по вёрстке — ШРИ, Москва, весна 2018](https://github.com/yandex-shri-2018/entrance-task-2)
