@@ -215,6 +215,9 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)
   * [Тестовое задание для ментора *(any)*](https://hexlet-ru.notion.site/8b301b64d4834a3e91f709f8ada1187a)
 
+* [Hommler OU](https://hommler.de/)
+  * [Middle developer / PHP разработчик](https://github.com/dimalepel/test-assignments/blob/main/tasks/193305072023.md)
+
 * [House](https://housevl.ru/)
   * [Тестовое задание backend (junior) 2.1 *(Laravel)*](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
 
