@@ -413,7 +413,6 @@ This repository is created and maintained by the team and the community of Hexle
 * [Квартирка](https://kvartirka.com/)
   * [Frontend-разработчик, джун *(JS, React/Next.js/TypeScript)*](https://docs.google.com/document/d/1bSC3hgaYe69FJFKKNFHKokJ2Rs0bxkYQ9ixnBS8xn-M/edit)
 
-
 * [Кошелёк](https://koshelek.ru/)
   * [Junior Frontend Developer *(JS, Vue.js/React/Angular)*](https://drive.google.com/file/d/1k6c0AiXsTko1kfLv3sLtFxV9vIJwpUSd/view?usp=sharing)
 
