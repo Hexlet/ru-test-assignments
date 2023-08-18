@@ -139,6 +139,9 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/devjsru/php_test)
   * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](https://github.com/devjsru/react_test)*(отсутствует дизайн-макет по указанной ссылке)*
 
+* [Devs23](https://23devs.com/)
+  * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
+
 * [Devsteam.mobi](http://devsteam.mobi/)
   * [Junior Frontend Developer *(React-Native/Flutter)*](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
 
