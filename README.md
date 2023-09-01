@@ -82,9 +82,6 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
   * [Internship *(iOS)*](https://github.com/avito-tech/internship)
 
-* [Au](https://au.ru/)
-  * [Junior Frontend Developer *(JS, React)*](https://drive.google.com/file/d/18GjJJJlw7YoshQfq2_FYQv6hnRTpjLp2/view?usp=sharing)
-
 * [BEBOSS](https://beboss.ru/)
   * [Web-разработчик *(PHP, jQuery, YII)*](https://github.com/funkylen/beboss-test-assignments)
 
@@ -141,9 +138,6 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [Devs23](https://23devs.com/)
   * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
-
-* [Devsteam.mobi](http://devsteam.mobi/)
-  * [Junior Frontend Developer *(React-Native/Flutter)*](https://drive.google.com/file/d/17LK7_k5wTV-O51_s5cj-A5_W0_p-JyMv/view?usp=sharing)
 
 * ~~[Digital Dali](http://digitaldali.pro/)~~ *(похоже компания закрылась)*
   * [React Engineer *(JS, HTML, PHP)*](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
@@ -277,9 +271,6 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание.Java *(Java EE/Spring, Maven/Gradle)*](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
   * [Тестовое задание. Системный / Бизнес-аналитик *(any)*](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
 
-* [Medods](https://medods.ru/)
-  * [Junior Frontend Developer *(JS, Vue.js, Vuelidate, Sass)*](https://drive.google.com/file/d/1IRDWw0oEYQcC9h4tZ2Js06V1CayeWkCu/view?usp=sharing)
-
 * [Mindbox](https://mindbox.ru/)
   * [Тестовое задание на стажировку *(C#, SQL)*](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
   * [Тестовое задание на стажировку Frontend *(JS, React)*](https://docs.google.com/document/d/1jq5yCrQJRHaRG4TabGhDITDMteYuLWG_LjlR9HmB5ac/edit?usp=sharing)
@@ -304,9 +295,6 @@ This repository is created and maintained by the team and the community of Hexle
 * [Procom](https://csoprocom.com.ua/)
   * [Frontend-разработчик *(JS, Angular)*](https://csoprocom.com.ua/info/frontend1.pdf)
 
-* [Profiliance Group](https://profilance.com/)
-  * [Backend Developer *(PHP, Laravel)*](https://workflowy.com/s/2ca3f38ef0f5/TRUbIAFhIadLR6zq)
-
 * [Redsoft](https://redsoft.ru)
   * [Frontend-разработчик *(JS, Vue.js, Node.js)*](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
 
@@ -316,12 +304,6 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание на вакансию Perl-программист *(Perl)*](https://www.reg.ru/company/jobs/testtask-prog)
   * [Тестовое задание для вакансии web-технолог *(CSS)*](https://www.reg.ru/company/jobs/testtask-webtech)
   * [Тестовое задание на должность «Специалист службы технической поддержки хостинга»](https://www.reg.ru/company/jobs/testtask-hostingsupport)
-
-* [Renue](https://renue.ru/)
-  * [Junior Frontend Developer](https://drive.google.com/file/d/1cAip836SHNBBUVH6g4Dl5AzTa2Ubg0Om/view?usp=sharing)
-
-* [RooX Solutions](https://roox.ru/)
-  * [Frontend разработчик *(TS, React, CSS)*](https://roox.notion.site/frontend-32b79baef66c4ca4a27f6f76e01a7dd2)
 
 * [Ruport](http://ruport.ru/)
   * [Middle Frontend Developer *(ECMAScript, SCSS)*](https://github.com/ruport-digital/middle-frontend-assignment)
@@ -415,9 +397,6 @@ This repository is created and maintained by the team and the community of Hexle
 
 * [Квартирка](https://kvartirka.com/)
   * [Frontend-разработчик,  Junior+ *(JS, React/Next.js/TypeScript)*](https://docs.google.com/document/d/1bSC3hgaYe69FJFKKNFHKokJ2Rs0bxkYQ9ixnBS8xn-M/edit)
-
-* [Кошелёк](https://koshelek.ru/)
-  * [Junior Frontend Developer *(JS, Vue.js/React/Angular)*](https://drive.google.com/file/d/1k6c0AiXsTko1kfLv3sLtFxV9vIJwpUSd/view?usp=sharing)
 
 * [Маквес Групп](https://www.makves.ru/)
   * [Стажёр-разработчик Frontend *(JS, React)*](https://drive.google.com/file/d/1ZRKa2us1D49l8natOIpO5TYTirKdNssz/view?usp=sharing)
