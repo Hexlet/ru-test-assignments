@@ -158,6 +158,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [Edstein](https://www.edstein.ru/)
   * [Тестовое задание Middle Backend-разработчик *(Ruby on Rails)*](https://docs.google.com/document/d/1uHtZQckkQXGA6occB6R9F8l9Nru1ELPFKWi7cO79dLc/edit?usp=sharing)
 
+* [Escape Tech](https://escape-team.tech/)
+  * [Python разработчик (стажер), *Python*](https://github.com/brain4power/software_tester)
+
 * [FEIP](https://feip.co/)
   * [PHP-разработчик *(PHP)*](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
 
