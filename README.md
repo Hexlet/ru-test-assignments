@@ -278,6 +278,10 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание на стажировку *(C#, SQL)*](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
   * [Тестовое задание на стажировку Frontend *(JS, React)*](https://docs.google.com/document/d/1jq5yCrQJRHaRG4TabGhDITDMteYuLWG_LjlR9HmB5ac/edit?usp=sharing)
 
+ 
+
+
+
 * [NAUKA](http://www.ntik.ru/)
   * [[C# Dev] Тестовое задание *(C#)*](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
   * [[Dev] Тестовое задание *(any)*](https://drive.google.com/file/d/1cbUD3ID1yyHJES9KQH12L_wGhKTn6Jrg/view)
@@ -404,8 +408,11 @@ This repository is created and maintained by the team and the community of Hexle
 * [Маквес Групп](https://www.makves.ru/)
   * [Стажёр-разработчик Frontend *(JS, React)*](https://drive.google.com/file/d/1ZRKa2us1D49l8natOIpO5TYTirKdNssz/view?usp=sharing)
 
-* [Монолит Северо-Запад] (https://spb.hh.ru/employer/4170463?hhtmFrom=vacancy)
-  * [Junior Full Stack Web PHP разработчик] (https://gleaming-tent-a11.notion.site/PHP-c1648a59bc8c4880a40ec750ee1d8aee)
+* [Монолит Северо-Запад](https://spb.hh.ru/employer/4170463?hhtmFrom=vacancy)
+  * [Junior Full Stack Web PHP разработчик](https://gleaming-tent-a11.notion.site/PHP-c1648a59bc8c4880a40ec750ee1d8aee)
+
+* [ООО "МСтрой"](https://mstroy.tech/)
+   * [Тестовое задание Backend developer / Python](https://docs.google.com/document/d/1pUECHmEijyal6aFHrBN5oweKCmSZsjTGhtE-mqIqj6U/edit?usp=sharing)
 
 * [НПО Фарватер](https://tsep.pro/)
   * [Junior+ Frontend Developer *(Vue, React, Canvas)*](https://docs.google.com/document/d/1ReRmhwrI1qwJi2PxhC9GQdP1h9BSt3bKZBaj_oV210s/edit)
