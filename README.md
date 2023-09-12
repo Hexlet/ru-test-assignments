@@ -278,10 +278,6 @@ This repository is created and maintained by the team and the community of Hexle
   * [Тестовое задание на стажировку *(C#, SQL)*](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
   * [Тестовое задание на стажировку Frontend *(JS, React)*](https://docs.google.com/document/d/1jq5yCrQJRHaRG4TabGhDITDMteYuLWG_LjlR9HmB5ac/edit?usp=sharing)
 
- 
-
-
-
 * [NAUKA](http://www.ntik.ru/)
   * [[C# Dev] Тестовое задание *(C#)*](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
   * [[Dev] Тестовое задание *(any)*](https://drive.google.com/file/d/1cbUD3ID1yyHJES9KQH12L_wGhKTn6Jrg/view)
