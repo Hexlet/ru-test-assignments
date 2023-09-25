@@ -416,6 +416,9 @@ This repository is created and maintained by the team and the community of Hexle
 * [Очень Интересно](https://www.interesnee.ru/)
   * [Python-разработчик на позицию стажера](https://github.com/David-Roklem/django-test-task/blob/main/Task-itself.md)
 
+* [ПИКАССО](https://picasso-diagnostic.ru/)
+  * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
+
 * [СДК Гарант](https://www.sdkgarant.ru/index.php/ru/)
   * [Junior Front-End разработчик *(JS, ExtJS)*](https://github.com/georgy-p/SDK-Garant-test-task)
 
