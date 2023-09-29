@@ -215,6 +215,9 @@
   * [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)
   * [Тестовое задание для ментора *(any)*](https://hexlet-ru.notion.site/8b301b64d4834a3e91f709f8ada1187a)
 
+* [HRlink](https://hr-link.ru/)
+  * [Junior QA (SQL+Python)](https://docs.google.com/document/d/1ylGFf4_p4w9S8PvRsZF0UdyeokWol3KS/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+
 * [Hommler OU](https://hommler.de/)
   * [Middle developer / PHP разработчик](https://github.com/dimalepel/test-assignments/blob/main/tasks/193305072023.md)
 
@@ -407,8 +410,14 @@
 * [Монолит Северо-Запад](https://spb.hh.ru/employer/4170463?hhtmFrom=vacancy)
   * [Junior Full Stack Web PHP разработчик](https://gleaming-tent-a11.notion.site/PHP-c1648a59bc8c4880a40ec750ee1d8aee)
 
+* [ООО Крит](https://krit.pro/)
+  * [Стажер_QA](https://docs.google.com/document/d/1nwz_MlVTe30lKQ4kYKD4HVNco-IQFqQe/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+
 * [ООО "МСтрой"](https://mstroy.tech/)
    * [Тестовое задание Backend developer / Python](https://docs.google.com/document/d/1pUECHmEijyal6aFHrBN5oweKCmSZsjTGhtE-mqIqj6U/edit?usp=sharing)
+
+* [ООО Синтека](https://cynteka.ru/)
+  * [Junior_QA](https://docs.google.com/document/d/1VecQvPkyEyPrzQvce6BvWNnDn4SYw8jL/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
 
 * [НПО Фарватер](https://tsep.pro/)
   * [Junior+ Frontend Developer *(Vue, React, Canvas)*](https://docs.google.com/document/d/1ReRmhwrI1qwJi2PxhC9GQdP1h9BSt3bKZBaj_oV210s/edit)
