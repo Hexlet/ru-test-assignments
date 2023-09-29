@@ -158,6 +158,9 @@
 * [Edstein](https://www.edstein.ru/)
   * [Тестовое задание Middle Backend-разработчик *(Ruby on Rails)*](https://docs.google.com/document/d/1uHtZQckkQXGA6occB6R9F8l9Nru1ELPFKWi7cO79dLc/edit?usp=sharing)
 
+* [Eltex](https://eltex-co.ru/)
+  * [Многопользовательский тайм-трекер *(Backend Java/Kotlin)*](backend/java_time_tracker.md)
+
 * [Escape Tech](https://escape-team.tech/)
   * [Python разработчик (стажер), *Python*](https://github.com/brain4power/software_tester)
 
