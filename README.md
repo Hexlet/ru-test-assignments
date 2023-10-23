@@ -307,6 +307,11 @@
 * [Procom](https://csoprocom.com.ua/)
   * [Frontend-разработчик *(JS, Angular)*](https://csoprocom.com.ua/info/frontend1.pdf)
 
+* [pixlpark](https://pixlpark.ru/)
+  * [Frontend-разработка *(React, MobX)*](https://gist.github.com/paraekklisiarh/c03c97ae553a0038962fb945644392cf)
+  * [Backend-разработка *(C#, ASP.NET, React/RazorPages)*](https://gist.github.com/paraekklisiarh/d64fbbc1de1028aaa7a47ff3fa0650a1)
+  * [Mobile-разработка *(React Native, TS/JS)*](https://gist.github.com/paraekklisiarh/de6b38cc79be8e14f2c98d88028447c6)
+
 * [Redsoft](https://redsoft.ru)
   * [Frontend-разработчик *(JS, Vue.js, Node.js)*](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
 
