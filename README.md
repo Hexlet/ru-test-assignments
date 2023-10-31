@@ -142,7 +142,7 @@
 * ~~[Digital Dali](http://digitaldali.pro/)~~ *(похоже компания закрылась)*
   * [React Engineer *(JS, HTML, PHP)*](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
 
-* [DrupalJedi](https://drupaljedi.com/)
+* ~~[DrupalJedi](https://drupaljedi.com/)~~ *(ссылка недоступна)*
   * [Front-End Developer *(HTML, CSS, JS)*](https://github.com/JediFE/trial-assignments)
 
 * [eComCharge](https://ecomcharge.com/)
