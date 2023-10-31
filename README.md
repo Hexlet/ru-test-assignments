@@ -363,7 +363,6 @@
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание на позицию backend-разработчик *(PHP)*](https://github.com/tutu-ru/php-interview)
   * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](https://github.com/tutu-ru/frontend-javascript-test)
-  * [Тестовое задание на позицию iOS-разработчика *(Swift)*](https://github.com/tutu-ru/hire_ios-test)
   * [Тестовое задание на позицию Android-разработчика *(Kotlin/Java, Dagger, RxJava)*](https://github.com/tutu-ru/hire_android_test)
   * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](https://github.com/tutu-ru/fe-homework)
 
