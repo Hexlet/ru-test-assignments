@@ -365,7 +365,7 @@
   * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](https://github.com/tutu-ru/frontend-javascript-test)
   * [Тестовое задание на позицию Android-разработчика *(Kotlin/Java, Dagger, RxJava)*](https://github.com/tutu-ru/hire_android_test)
   * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](https://github.com/tutu-ru/fe-homework)
-
+  * [Тестовое задание для кандидата на позицию QA](https://github.com/tutu-ru/tutu-ru.github.io)
 * [Versta](https://versta24.ru/)
   * [Тестовое задание на вакансию Junior Разработчика C# *(C#, ASP.NET Core, Entity Framework Core)*](https://versta24.ru/hr/testfordevjun)
 
