@@ -345,7 +345,7 @@
   * [JavaScript Developer *(JS, Vue.js)*](https://github.com/smenateam/assignments/blob/master/site-frontend/README.md)
   * [TypeScript Developer *(TS, React)*](https://github.com/smenateam/assignments/blob/master/erp-frontend/README.md)
 
-* [SoftPro](https://softpro.com/)
+* ~~[SoftPro](https://softpro.com/)~~ *(ссылка недоступна)*
   * [Тестовое задание *(Go, C++, Python)*](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
 
 * [S2snext](http://s2snext.com/)
