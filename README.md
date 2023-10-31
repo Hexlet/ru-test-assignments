@@ -304,8 +304,8 @@
   * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
   * [Бэкенд-разработчик *(PHP)*](https://doc.clickup.com/p/h/2h539-778/840ce49e651e59a)
 
-* [Procom](https://csoprocom.com.ua/)
-  * [Frontend-разработчик *(JS, Angular)*](https://csoprocom.com.ua/info/frontend1.pdf)
+* [Procom](https://csoprocom.com.ua/) *(ссылка доступна с впн)*
+  * [Frontend-разработчик *(JS, Angular)*](https://csoprocom.com.ua/info/frontend1.pdf) *(ссылка доступна с впн)*
 
 * [pixlpark](https://pixlpark.ru/)
   * [Frontend-разработка *(React, MobX)*](https://gist.github.com/paraekklisiarh/c03c97ae553a0038962fb945644392cf)
