@@ -139,12 +139,6 @@
 * [Devs23](https://23devs.com/)
   * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
 
-* ~~[Digital Dali](http://digitaldali.pro/)~~ *(похоже компания закрылась)*
-  * [React Engineer *(JS, HTML, PHP)*](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
-
-* ~~[DrupalJedi](https://drupaljedi.com/)~~ *(ссылка недоступна)*
-  * [Front-End Developer *(HTML, CSS, JS)*](https://github.com/JediFE/trial-assignments)
-
 * [eComCharge](https://ecomcharge.com/)
   * [Система решения математических уравнений *(CSS, JS/Ajax, TestUnit/RSpec/Cucumber, Sinatra)*](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798)
 
@@ -244,9 +238,6 @@
   * [PHP-разработчик *(PHP)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
   * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/frontend.md)
 
-* ~~[Juno Inc.](https://gojuno.com/)~~ (сайт не доступен)
-  * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
-
 * [KODE](https://kode.ru/)
   * [Frontend разработчик *(Create React App, React Router, Axios)*](https://github.com/appKODE/trainee-test-frontend)
   * [Android разработчик *(Kotlin, Single Activity, Retrofit, Jetpack Compose / XML, Kotlinx Serialization / Gson, RxJava / Coroutines)*](https://github.com/appKODE/trainee-test-android)
@@ -304,9 +295,6 @@
   * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
   * [Бэкенд-разработчик *(PHP)*](https://doc.clickup.com/p/h/2h539-778/840ce49e651e59a)
 
-* [Procom](https://csoprocom.com.ua/) *(ссылка доступна с впн)*
-  * [Frontend-разработчик *(JS, Angular)*](https://csoprocom.com.ua/info/frontend1.pdf) *(ссылка доступна с впн)*
-
 * [pixlpark](https://pixlpark.ru/)
   * [Frontend-разработка *(React, MobX)*](https://gist.github.com/paraekklisiarh/c03c97ae553a0038962fb945644392cf)
   * [Backend-разработка *(C#, ASP.NET, React/RazorPages)*](https://gist.github.com/paraekklisiarh/d64fbbc1de1028aaa7a47ff3fa0650a1)
@@ -344,9 +332,6 @@
   * [Python Developer *(Python, Django, PostgreSQL, Docker)*](https://github.com/smenateam/assignments/blob/master/backend/README.md)
   * [JavaScript Developer *(JS, Vue.js)*](https://github.com/smenateam/assignments/blob/master/site-frontend/README.md)
   * [TypeScript Developer *(TS, React)*](https://github.com/smenateam/assignments/blob/master/erp-frontend/README.md)
-
-* ~~[SoftPro](https://softpro.com/)~~ *(ссылка недоступна)*
-  * [Тестовое задание *(Go, C++, Python)*](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
 
 * [S2snext](http://s2snext.com/)
   * [Тестовое задание *(C#, ASP.NET Core, Entity Framework Core)*](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
@@ -479,3 +464,7 @@
   * [Тестовое задание для frontend web-разработчика [cloud-storage-client] *(Vue.js)*](https://spiky-sky-d11.notion.site/frontend-web-cloud-storage-client-fa687ddac81d4088a2e1e4ca6dd499f1)
   * [Тестовое задание для стажера Python [elasticsearch]](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
   * [Frontend test case *(React, TypeScript)*](https://drive.google.com/file/d/1GPYkayQVevwsPcipL76DsKBm3so3DihR/view?usp=share_link)
+  * [React Engineer *(JS, HTML, PHP)*](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
+  * [Front-End Developer *(HTML, CSS, JS)*](https://github.com/JediFE/trial-assignments)
+  * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
+  * [Тестовое задание *(Go, C++, Python)*](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
