@@ -388,6 +388,9 @@
 
 * [Армо](http://armo.ru/)
   * [Junior Frontend *(JSc+ Electron, Python + Tornado)*](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
+ 
+* [Айтек](https://iqtek.ru/)
+  * [Задание QA engineer](https://disk.yandex.ru/d/5FQXDeZP2BaPMQ)
 
 * [Газпромбанк](https://www.gazprombank.ru/)
   * [Тестовые задания по React *(React, React Router, Redux Saga, Mobx)*](https://github.com/GPB-COS/test-work-react)
