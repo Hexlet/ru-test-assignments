@@ -304,7 +304,7 @@
   * [Mobile-разработка *(React Native, TS/JS)*](https://gist.github.com/paraekklisiarh/de6b38cc79be8e14f2c98d88028447c6)
 
 * [Purrweb](https://www.purrweb.com/ru/)
-  * [Тестовое задание на позицию QA](https://github.com/alexidude/QA-test-task/blob/main/Purrweb.md)
+  * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
 
 * [Redsoft](https://redsoft.ru)
   * [Frontend-разработчик *(JS, Vue.js, Node.js)*](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
