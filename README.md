@@ -22,6 +22,8 @@
 
 * [abz.agency](https://abz.agency/)
   * [Junior Python Developer *(Python, Django/Flask, MySQL/PostgreSQL)*](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view?usp=sharing)
+* [AFCStudio](https://afcstudio.ru/)
+  * [Junior C# Developer *(C#, .NET, Angular, React, Razor)*](https://gist.github.com/paraekklisiarh/0621204ce249e9faf1aaa1e1b7d3f7ef)
 
 * [Appbooster](https://appbooster.com/)
   * [iOS Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/ios.md)
