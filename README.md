@@ -215,7 +215,7 @@
   * [StudentDatabase *(Java)*](https://github.com/nikolaychernov/StudentDatabase)
 
 * [Hexlet](https://ru.hexlet.io)
-  * [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)
+  * [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)*(адрес электронной почты указанный в задании не существует)*
   * [Тестовое задание для ментора *(any)*](https://hexlet-ru.notion.site/8b301b64d4834a3e91f709f8ada1187a)
 
 * [HRlink](https://hr-link.ru/)
