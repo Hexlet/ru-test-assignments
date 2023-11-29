@@ -448,14 +448,20 @@
   * [Тестовые задания на c# стажировку *(C#)*](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
   * [Тестовые задания на java *(Java)*](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
 
+* [Совкомбанк Страхование](https://sovcomins.ru/)
+  * [Тестовое задание для аналитика *(Python)*](https://drive.google.com/drive/folders/1sYeVs3_fY5vamQjgZ3KRvxQSeEkzr0gJ)
+
+* [Спортмастер](https://www.sportmaster.ru/)
+  * [Тестовое задание для аналитика *(SQL)*](https://drive.google.com/drive/folders/1pPuyOvBGgqosSfEvy3KCuv1FO1vED1cl)
+
 * [Сравни.ру](https://www.sravni.ru/)
   * [Тестовое задание для Продуктового Аналитика](https://drive.google.com/drive/folders/1CgmQ_OEW2GrOrDPZEJUIRCLVL0JAkdRC)
-  
+
 * [Студия Валерия Комягина](https://www.internet-design.ru/)
   * [Тестовое задание Веб-программист *(any, предпочтительно Laravel)*](https://drive.google.com/file/d/1ACBukx7UpnLztRnnCKID3K-DxX1UciMw/view)
 
 * [Табакон](https://tabakon.su/)
-  *[Тестовое для аналитика данных](https://drive.google.com/drive/folders/1FDHErQLGvPoJKECmRqijpwuVifnTaw8x)
+  * [Тестовое для аналитика данных](https://drive.google.com/drive/folders/1FDHErQLGvPoJKECmRqijpwuVifnTaw8x)
 
 * [Титан](https://spb.hh.ru/employer/1268355)
   * [Java разработчик](https://docs.google.com/document/d/1peoDqaNraEL5jW3kMWPSQevLvKNwyOjC0KNOigfQTNM/edit?usp=sharing)
