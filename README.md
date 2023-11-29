@@ -448,16 +448,24 @@
   * [Тестовые задания на c# стажировку *(C#)*](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
   * [Тестовые задания на java *(Java)*](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
 
+* [Сравни.ру](https://www.sravni.ru/)
+  * [Тестовое задание для Продуктового Аналитика](https://drive.google.com/drive/folders/1CgmQ_OEW2GrOrDPZEJUIRCLVL0JAkdRC)
+  
 * [Студия Валерия Комягина](https://www.internet-design.ru/)
   * [Тестовое задание Веб-программист *(any, предпочтительно Laravel)*](https://drive.google.com/file/d/1ACBukx7UpnLztRnnCKID3K-DxX1UciMw/view)
+
+* [Табакон](https://tabakon.su/)
+  *[Тестовое для аналитика данных](https://drive.google.com/drive/folders/1FDHErQLGvPoJKECmRqijpwuVifnTaw8x)
 
 * [Титан](https://spb.hh.ru/employer/1268355)
   * [Java разработчик](https://docs.google.com/document/d/1peoDqaNraEL5jW3kMWPSQevLvKNwyOjC0KNOigfQTNM/edit?usp=sharing)
 
 * [TMK](https://tmktools.ru/)
   * [Тестовое задание PHP-developer *(PHP, Symfony)*](https://docs.google.com/document/d/1ixExyddJG4V4jxpSuYH61rh0rZ-RFztfqWa3aApZnlI/)
+
 * [Учи.ру](https://uchi.ru/)
   * [Тестовое задание для Продуктового Аналитика](https://docs.google.com/document/d/1cPf_HR3cB4QgehJ13nMjYO1EQlWcqwmo/edit)
+
 * [ЭВРИКА](https://hr.eureca.ru)
   * [Fullstack разработчик (JS + Java)](https://docs.google.com/document/d/1fodUFtPCuHyP2Hn7ly3ZsSD_GsSR_wTf/edit?usp=sharing&ouid=115639618941993452518&rtpof=true&sd=true)
 
