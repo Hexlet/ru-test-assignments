@@ -441,6 +441,9 @@
 * [ПИКАССО](https://picasso-diagnostic.ru/)
   * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
 
+* [Росмэн](https://rosman.ru/)
+  * [Тестовое задание для аналитика *(Excel, SQL)*](https://drive.google.com/drive/folders/1aeFVwgsMCosQUBlne_WqochPwFJUXGtR)
+
 * [Роснефть](https://www.rosneft.ru/)
   * [Тестовое задание для HR аналитика](https://drive.google.com/drive/folders/124G-etb0MME9VIQYJD-DHKd-VgQGbZ2l)
 
@@ -512,3 +515,4 @@
   * [Front-End Developer *(HTML, CSS, JS)*](https://github.com/JediFE/trial-assignments)
   * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
   * [Тестовое задание *(Go, C++, Python)*](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
+  * [Сборник тестовых заданий для аналитиков](https://drive.google.com/drive/folders/1USRtuNu-BKAvQd6_AVDhIM22mddng86E)
