@@ -441,6 +441,13 @@
 * [ПИКАССО](https://picasso-diagnostic.ru/)
   * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
 
+* [Роснефть](https://www.rosneft.ru/)
+  * [Тестовое задание для HR аналитика](https://drive.google.com/drive/folders/124G-etb0MME9VIQYJD-DHKd-VgQGbZ2l)
+
+* [Самокат](https://samokat.ru/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/10OtwaqT0Hntjv8ClW2SrdBL0QKTs3TPX)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1-XyMfD-7co6rO9mXqpVL5c0JDwL2GpzN)
+
 * [Сбербанк](https://www.sberbank.ru/ru/person)
   * [Тестовое задание для инженера данных *(Python, SQL)*](https://drive.google.com/drive/folders/1EMRCcMT852e-rAxliXn-3eihjcS2SnP-)
 
