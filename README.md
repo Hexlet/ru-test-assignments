@@ -417,6 +417,9 @@
 * [Квартирка](https://kvartirka.com/)
   * [Frontend-разработчик,  Junior+ *(JS, React/Next.js/TypeScript)*](https://docs.google.com/document/d/1bSC3hgaYe69FJFKKNFHKokJ2Rs0bxkYQ9ixnBS8xn-M/edit)
 
+* [МТС](https://www.mts.ru/)
+  * [Тестовое задание для продуктового аналитика *(SQL, Python)*](https://drive.google.com/drive/folders/1Xbhp0ZDoHfwNQiP1aH2TXryod_qdEvrx)
+
 * [Маквес Групп](https://www.makves.ru/)
   * [Стажёр-разработчик Frontend *(JS, React)*](https://drive.google.com/file/d/1ZRKa2us1D49l8natOIpO5TYTirKdNssz/view?usp=sharing)
 
