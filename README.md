@@ -441,8 +441,14 @@
 * [ПИКАССО](https://picasso-diagnostic.ru/)
   * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
 
+* [Сбербанк](https://www.sberbank.ru/ru/person)
+  * [Тестовое задание для инженера данных *(Python, SQL)*](https://drive.google.com/drive/folders/1EMRCcMT852e-rAxliXn-3eihjcS2SnP-)
+
 * [СДК Гарант](https://www.sdkgarant.ru/index.php/ru/)
   * [Junior Front-End разработчик *(JS, ExtJS)*](https://github.com/georgy-p/SDK-Garant-test-task)
+
+* [Северсталь](https://severstal.com/rus/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1GEBYxCwKh_DdwnK_p-dsxuaC-gj_eVgM)
 
 * [СКБ Контур](https://kontur.ru/)
   * [Тестовые задания на c# стажировку *(C#)*](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
