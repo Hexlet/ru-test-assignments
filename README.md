@@ -134,6 +134,9 @@
 * [Detego](https://www.detego.com/en/)
   * [Тестовое задание на позицию React-Native developer *(React-Native CLI (iOS, Android))*](https://docs.google.com/document/d/1AKeJuZmhbLdv7PCMdJsQoCu60tT3OHyen7laa58aKMk/edit?usp=sharing)
 
+* [Delivery](https://market-delivery.yandex.ru/moscow?shippingType=delivery)
+  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1ytwdhsT11IxXGU7Jav9WhV2GqVBo2PJH)
+
 * [Development Systems](https://www.ds.do/)
   * [Стажер-программист *(C#)*](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
 
@@ -143,6 +146,10 @@
 
 * [Devs23](https://23devs.com/)
   * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
+
+* [Dodo Brands](https://dodobrands.io/)
+  * [Тестовое задание для Web-mobile Analyst](https://drive.google.com/drive/folders/18yjaMxWI9qpPa-9kTojYuNVcCj6iG8Pd)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1psIKzvNN3-vtvKHVi8SbCrg-jngtWgaS)
 
 * [Driveback](https://vc.ru/s/driveback/details/all)
   * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/11HFrOt2QF3h1swIe8lwuzhVjgwM0ksgT)
