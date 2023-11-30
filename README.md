@@ -102,12 +102,21 @@
 * [~~Bluesweater-studio~~](https://vk.com/bluesweaterstudio) *студия закрыта*
   * [Frontend task *(JS, React, React Hooks, JSS)*](https://github.com/some-yummy-nick/frontend-task)
 
+* [BOLT](https://bolt.eu/)
+  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/15O4odYKqRpmXSQtLgD0fbvjshIa1_TWX)
+
+* [BST Digital](https://bst.digital/)
+  * [Тестовое задание для Data Scientist](https://drive.google.com/drive/folders/1G0VwPL-6T0ThPdLstnZK07dy1q2Mgv2T)
+
 * [Byndyusoft](https://byndyusoft.com)
   * [Java/Kotlin developer](https://github.com/mondayish/SimpleConsoleCalculator/blob/master/README.md)
 
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend Engineer — тестовое задание *(any)*](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
+
+* [Chibbis](https://chibbis.ru/)
+  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1R_RgzWhcAb4l1XoMCHzuYM-JdH_PbWDn)
 
 * [Cian](https://cian.ru/)
   * [Тестовое задание для аналитика *(SQL)*](https://drive.google.com/drive/folders/1ziQs9oEab9eENnuArVTVVZWLsljKDQqO)
