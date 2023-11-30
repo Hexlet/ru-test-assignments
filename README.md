@@ -185,6 +185,9 @@
   * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
   * [Node.js Developer *(Node.js)*](https://github.com/fs/test-tasks/tree/master/nodejs)
 
+* [FriendsOnly](https://friendsonly.ru/)
+  * [Тестовое задание для продуктового аналитика *(SQL, PYTHON, R)*](https://drive.google.com/drive/folders/113sKiIAF3YMCcah1VSojHiW3YIRYILqe)
+
 * [FunBox](https://funbox.ru/)
   * [Ruby-разработчик *(Ruby, Rails, JS)*](https://dl.funbox.ru/qt-ruby.pdf)
   * [Elixir-разработчик *(Elixir)*](https://dl.funbox.ru/qt-elixir.pdf)
@@ -206,6 +209,9 @@
   * [Верстальщик 2 *(HTML, CSS, JS)*](https://github.com/fugr-ru/frontend-html-2)
   * [Верстальщик 3 *(Figma, HTML, CSS, JS)*](https://github.com/fugr-ru/frontend-html-3)
   * [Тестовое задание на позицию Менеджер проекта *(Figma, HTML, CSS, JS)*](https://github.com/fugr-ru/frontend-html-3)
+
+ * [Genius Sport](https://geniussports.com/)
+  * [Тестовое задание для аналитика, Reporting Analyst](https://drive.google.com/drive/folders/1aqfEfITwbt3aqzJ15Et7XD6uwwFXcy7M)
 
 * [Greensight](https://greensight.ru/)
   * [Тестовое задание для направления Backend разработка *(PHP)*](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
@@ -230,7 +236,7 @@
   * [Junior QA (SQL+Python)](https://docs.google.com/document/d/1ylGFf4_p4w9S8PvRsZF0UdyeokWol3KS/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
 
 * [Home Credit Bank](https://home.bank/)
-  * [Тестовое задание для аналитика *(PostgreSQL)*](https://drive.google.com/drive/folders/1pF55pb-o9pyIt-oiPsMAfPJeoojItvC4)
+  * [Тестовое задание для Руководителя отдела аналитики *(PostgreSQL, Python)*](https://drive.google.com/drive/folders/1pF55pb-o9pyIt-oiPsMAfPJeoojItvC4)
 
 * [Hommler OU](https://hommler.de/)
   * [Middle developer / PHP разработчик](https://github.com/dimalepel/test-assignments/blob/main/tasks/193305072023.md)
