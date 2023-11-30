@@ -317,6 +317,9 @@
 * [Redsoft](https://redsoft.ru)
   * [Frontend-разработчик *(JS, Vue.js, Node.js)*](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
 
+* [Rekor](https://www.rekor.ai/)
+  * [Тестовое задание для дата-инженера *(SQL)*](https://drive.google.com/drive/folders/1PHzuS3TWdLJBthV35Ra3q1oF9RzEuZ2u)
+
 * [REG.RU](https://www.reg.ru/)
   * [Тестовое задание для вакансии «Программист PHP» *(PHP)*](https://www.reg.ru/company/jobs/testtask-prog-php)
   * [Тестовое задание для вакансии «Инженер по автоматизации тестирования» *(any)*](https://www.reg.ru/company/jobs/testtask-qa-automator)
@@ -327,6 +330,9 @@
 * [Ruport](http://ruport.ru/)
   * [Middle Frontend Developer *(ECMAScript, SCSS)*](https://github.com/ruport-digital/middle-frontend-assignment)
   * [Junior Frontend Developer *(верстка)*](https://github.com/ruport-digital/junior-frontend-assignment)
+
+* [Samsung](https://www.samsung.com/ru/)
+  * [Тестовое задание для дата-менеджера](https://drive.google.com/drive/folders/1FS0GtB_DxK4ZgrI8s6zMSPCYiDhtETNY)
 
 * [Scandiweb](https://scandiweb.com/)
   * [GraphQL endpoint for Junior Developer position in Scandiweb *(ENG)* *(TS, GraphQL)*](https://github.com/scandiweb/junior-react-endpoint)
