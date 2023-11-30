@@ -380,6 +380,12 @@
 * [Wemake.services](https://wemake-services.github.io/)
   * [Github repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
 
+* [WhoIsBlogger](https://whoisblogger.com/)
+  *[Тестовое задание для junior аналитика данных *(SQL)*](https://drive.google.com/drive/folders/1vhEmlyL3HxY9HMybTXll6GGc7FPQ730h)
+
+* [Wolt](https://wolt.com/en)
+  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1a8RmVxSvqoJMUlajVxLTp5-WnSkG3MTN)
+
 * [Workle](https://www.workle.ru/)
   * [Тестовое задание для Workle *(Vue.js)*](https://github.com/mikhail-shamshurin/workle-test-task)
 
