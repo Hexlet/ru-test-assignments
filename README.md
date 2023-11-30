@@ -109,6 +109,9 @@
   * [Frontend Engineer — тестовое задание *(any)*](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
 
+* [Cian](https://cian.ru/)
+  * [Тестовое задание для аналитика *(SQL)*](https://drive.google.com/drive/folders/1ziQs9oEab9eENnuArVTVVZWLsljKDQqO)
+
 * [CLC Tech](https://clc-logistic.ru/)
   * [Junior PHP developer *(yii2)*](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
 
