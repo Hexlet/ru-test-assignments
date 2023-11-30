@@ -84,6 +84,9 @@
   * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
   * [Internship *(iOS)*](https://github.com/avito-tech/internship)
 
+* [Babbel](https://babbel.com/)
+  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1wNb27gq4JxrbSFBSkFCcrnb8Bjhs8WYM)
+
 * [BEBOSS](https://beboss.ru/)
   * [Web-разработчик *(PHP, jQuery, YII)*](https://github.com/funkylen/beboss-test-assignments)
 
@@ -104,6 +107,7 @@
 
 * [BOLT](https://bolt.eu/)
   * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/15O4odYKqRpmXSQtLgD0fbvjshIa1_TWX)
+  * [Тестовое задание для Fraud Analyst](https://drive.google.com/drive/folders/1JTMqKy8Kgmkh08vAW3wx8NcPfdyqXWuV)
 
 * [BST Digital](https://bst.digital/)
   * [Тестовое задание для Data Scientist](https://drive.google.com/drive/folders/1G0VwPL-6T0ThPdLstnZK07dy1q2Mgv2T)
