@@ -392,6 +392,9 @@
   * [Тестовое задание *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=16023682)
   * [developer's performance measurement tool *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=19694895)
 
+* [X5](https://www.x5.ru/en/)
+  * [Тестовое задание, стажировка для аналитика данных *(Python)*](https://drive.google.com/drive/folders/1W6ALYVV6jNhGzv3us8sKOuCvFY5ofD41)
+
 * [Youscan](https://youscan.io/ru/)
   * [Test Task for Intern / Junior Front-End Developer Position *(React)*](https://gist.github.com/krambertech/ecb3890824fd7ada0f4ec1ff55125758)
 
@@ -406,6 +409,7 @@
 
 * [Альфа-Банк](https://alfabank.ru/)
   * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1uCFwwQnihShdtwbwCLU47oiJanFa50HA)
+  * [Тестовое задание для аналитика данных *(SQL)*](https://drive.google.com/drive/folders/1vJxxik-PknPc7Gx-aSAP91Ll9eEZnAAo)
 
 * [Банк Открытие](https://www.open.ru/)
   * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1ThbDAnbCrQ21jqk7bF2l-wCpWlUvVT7N)
