@@ -144,6 +144,9 @@
 * [Devs23](https://23devs.com/)
   * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
 
+* [Driveback](https://vc.ru/s/driveback/details/all)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/11HFrOt2QF3h1swIe8lwuzhVjgwM0ksgT)
+
 * [eComCharge](https://ecomcharge.com/)
   * [Система решения математических уравнений *(CSS, JS/Ajax, TestUnit/RSpec/Cucumber, Sinatra)*](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798)
 
@@ -156,6 +159,9 @@
 
 * [Edstein](https://www.edstein.ru/)
   * [Тестовое задание Middle Backend-разработчик *(Ruby on Rails)*](https://docs.google.com/document/d/1uHtZQckkQXGA6occB6R9F8l9Nru1ELPFKWi7cO79dLc/edit?usp=sharing)
+
+* [Elfsight](https://elfsight.com/)
+  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1JkF9GW-El59XVcdpR-g6UfYO8sKwIssw)
 
 * [Eltex](https://eltex-co.ru/)
   * [Многопользовательский тайм-трекер *(Backend Java/Kotlin)*](backend/java_time_tracker.md)
