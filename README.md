@@ -407,6 +407,9 @@
 * [Газпромбанк](https://www.gazprombank.ru/)
   * [Тестовые задания по React *(React, React Router, Redux Saga, Mobx)*](https://github.com/GPB-COS/test-work-react)
 
+* [Делимобиль](https://delimobil.ru/)
+  *[Тестовое задание для аналитика](https://drive.google.com/drive/folders/1wYCaprk3AwfTdwqFB-ESDbz9hZRgRDKG)
+
 * [Домотехника](https://domotekhnika.ru/)
   * [Тестовое задание Frontend *(Vue.js)*](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
 
@@ -419,6 +422,9 @@
 
 * [Квартирка](https://kvartirka.com/)
   * [Frontend-разработчик,  Junior+ *(JS, React/Next.js/TypeScript)*](https://docs.google.com/document/d/1bSC3hgaYe69FJFKKNFHKokJ2Rs0bxkYQ9ixnBS8xn-M/edit)
+
+* [Контур](https://kontur.ru/) 
+  *[Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1hJ6E-YAtObNP0DtZRH2814WBcBEb0aHo)
 
 * [Красный Яр](https://www.krasyar.ru/)
   * [Тестовое задание для аналитика *(Excel)*](https://drive.google.com/drive/folders/1CiYVO0rTRqaxBTzuOXHAN180FR89ODns)
