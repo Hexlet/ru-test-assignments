@@ -112,6 +112,9 @@
 * [CLC Tech](https://clc-logistic.ru/)
   * [Junior PHP developer *(yii2)*](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
 
+* [CloudReports](https://cloudreports.ru/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/10oIsaqsZoOK49QO3uxw_8UuxaXfI6tl0)
+
 * [Cloud.ru](https://cloud.ru/ru)
   * [Тестовое задание для поступления в FrontCloudCamp](https://github.com/FrontCloudCamp/test-assignment)
 
@@ -120,6 +123,7 @@
 
 * [Crazy Panda](https://crazypanda.ru/)
   * [Тестовое задание C# *(C#)*](https://gist.github.com/Busyrev/cb89f309d2c32873449366023b8e0057)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/17VMzVwew-SkXdsbZXxaeDDGEUQXYhKxn)
 
 * [CS-Cart](https://cs-cart.com/)
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
