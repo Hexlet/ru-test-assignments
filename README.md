@@ -213,6 +213,9 @@
 * [Hammer Systems](https://hammer.systems/)
   * [Тестовое задание для Frontend разработчика](https://disk.yandex.ru/d/R74ptnVnK5xpPA)
 
+* [Happy Games Studio](https://www.hgstudio.ru/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1HNEZgaccltEHCEbC-fiiMuHzur5jFPxh)
+
 * [HardQode](https://hardqode.com/)
   * [Тестовое задание Junior Python(Django, Django DRF)](https://docs.google.com/document/d/1jIuNfvfv1AX99BzQX_cSmhXMSRnpk1ZUZW8C42j3UWM/edit?usp=sharing)
 
