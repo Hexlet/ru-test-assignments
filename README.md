@@ -257,6 +257,12 @@
 * [Jupiter soft](https://jupiter-soft.com/)
   * [Тестовое задание Junior Frontend Developer (React)](https://docs.google.com/document/d/1VgAhMunSuTNn0a6bjY5F1-qyARkelJcVj50RSC_Bu54/edit?usp=sharing)
 
+* [Kaspi.kz](https://kaspi.kz/)
+  * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1wZ9S0QHaCNvNrVNxgSYxptBSaeVUX74U)
+
+* [Lesta](https://lesta.ru/ru)
+  * [Тестовое задание для аналитика данных *(SQL)*](https://drive.google.com/drive/folders/1-8SRmxsZiezLvVtINR_VPgm5_908lpN3)
+
 * [Matic Insurance Services](https://matic.com/)
   * [Kittens Store - DevOps test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-kittens-store)
   * [Cats Shop - DevOps test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-cats-shop)
