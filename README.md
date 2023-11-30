@@ -226,6 +226,9 @@
 * [HRlink](https://hr-link.ru/)
   * [Junior QA (SQL+Python)](https://docs.google.com/document/d/1ylGFf4_p4w9S8PvRsZF0UdyeokWol3KS/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
 
+* [Home Credit Bank](https://home.bank/)
+  * [Тестовое задание для аналитика *(PostgreSQL)*](https://drive.google.com/drive/folders/1pF55pb-o9pyIt-oiPsMAfPJeoojItvC4)
+
 * [Hommler OU](https://hommler.de/)
   * [Middle developer / PHP разработчик](https://github.com/dimalepel/test-assignments/blob/main/tasks/193305072023.md)
 
@@ -256,6 +259,9 @@
 
 * [Jupiter soft](https://jupiter-soft.com/)
   * [Тестовое задание Junior Frontend Developer (React)](https://docs.google.com/document/d/1VgAhMunSuTNn0a6bjY5F1-qyARkelJcVj50RSC_Bu54/edit?usp=sharing)
+
+* [ivi](https://www.ivi.ru/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1t1YPyDecBiLLhLE6fwMwfBLgS7583x2i)
 
 * [Kaspi.kz](https://kaspi.kz/)
   * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1wZ9S0QHaCNvNrVNxgSYxptBSaeVUX74U)
