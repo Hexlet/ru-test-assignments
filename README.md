@@ -359,7 +359,7 @@
 * [Tinkoff](https://www.tinkoff.ru/)
    * [Тестовое задание аналитика Tinkoff *(Python)*](https://colab.research.google.com/drive/1sbq3bW7FSsqzPBsJu6lmX1cTaC_Oan6S?usp=sharing)
    * [Тестовое задание аналитика Tinkoff *(SQL)*](https://drive.google.com/drive/folders/1wioL44aMEbdIDg1rvglKx1IOFPyIfakJ)
-
+   * [Тестовое задание аналитика Tinkoff](https://drive.google.com/drive/folders/1SlMKX5jFnax5jyWmGQq6h5KWe9lSoQvC)
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание на позицию backend-разработчик *(PHP)*](https://github.com/tutu-ru/php-interview)
   * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](https://github.com/tutu-ru/frontend-javascript-test)
@@ -368,6 +368,9 @@
   * [Тестовое задание для кандидата на позицию QA](https://github.com/tutu-ru/tutu-ru.github.io)
 * [Versta](https://versta24.ru/)
   * [Тестовое задание на вакансию Junior Разработчика C# *(C#, ASP.NET Core, Entity Framework Core)*](https://versta24.ru/hr/testfordevjun)
+
+* [Vizor](https://vizor-games.com/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1T27FerfXXgNj033iqDumKjpbuWFSnZOl)
 
 * [Waliot](https://waliot.com/)
   * [Backend Developer *(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)*](https://github.com/waliot/test-tasks/blob/master/tasks/backend-1.md)
@@ -381,7 +384,7 @@
   * [Github repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
 
 * [WhoIsBlogger](https://whoisblogger.com/)
-  *[Тестовое задание для junior аналитика данных *(SQL)*](https://drive.google.com/drive/folders/1vhEmlyL3HxY9HMybTXll6GGc7FPQ730h)
+  * [Тестовое задание для junior аналитика данных *(SQL)*](https://drive.google.com/drive/folders/1vhEmlyL3HxY9HMybTXll6GGc7FPQ730h)
 
 * [Wolt](https://wolt.com/en)
   * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1a8RmVxSvqoJMUlajVxLTp5-WnSkG3MTN)
