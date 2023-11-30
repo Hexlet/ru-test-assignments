@@ -404,6 +404,12 @@
 * [Айтек](https://iqtek.ru/)
   * [Задание QA engineer](https://disk.yandex.ru/d/5FQXDeZP2BaPMQ)
 
+* [Альфа-Банк](https://alfabank.ru/)
+  * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1uCFwwQnihShdtwbwCLU47oiJanFa50HA)
+
+* [Банк Открытие](https://www.open.ru/)
+  * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1ThbDAnbCrQ21jqk7bF2l-wCpWlUvVT7N)
+
 * [ВК Одноклассники](https://vk.com/)
   * [Тестовое задание для продуктового аналитика *(Python, SQL)*](https://drive.google.com/drive/folders/1LUqYcKfwSSVtgoibiS4ngUHtg2o3axs1)
   * [Тестовое задание для аналитика данных *(Python)*](https://drive.google.com/drive/folders/1lZiv0cIUaPL1lV9Eg1T-tKvJJQ2u6nt5)
