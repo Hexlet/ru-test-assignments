@@ -25,6 +25,9 @@
 * [AFCStudio](https://afcstudio.ru/)
   * [Junior C# Developer *(C#, .NET, Angular, React, Razor)*](https://gist.github.com/paraekklisiarh/0621204ce249e9faf1aaa1e1b7d3f7ef)
 
+* [Amazon](https://www.amazon.com/)
+  * [Тестовое задание для аналитика *(Python, SQL)*](https://drive.google.com/drive/folders/1Om9a_KAL4GrZKsRvFlqhsfryjwrPYWZW)
+
 * [Appbooster](https://appbooster.com/)
   * [iOS Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/ios.md)
   * [Frontend Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
@@ -46,6 +49,7 @@
   * [Тестовое задание - Frontend Developer *(JS/TS)*](https://github.com/KosyanMedia/Front-end_TP_test)
   * [Тестовое задание Software Engineer *(Ruby, Ruby On Rails, ActiveRecord, Docker)*](https://github.com/KosyanMedia/travelpayouts_RoR_test)
   * [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](https://github.com/KosyanMedia/test-tasks/tree/master/DEPRECATED_aviasales)
+  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/19pwYCnUdS2tkiekHYKzpRIqCDgYUdqli)
 
 * [avito.tech](https://github.com/avito-tech)
   * [Тестовое задание на позицию стажёра в iOS 2022 *(Swift)*](https://github.com/avito-tech/internship_ios_2022)
@@ -83,6 +87,10 @@
   * [Тестовое задание стажера в юнит AvitoPRO *(Go)*](https://github.com/avito-tech/pro-backend-trainee-assignment)
   * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
   * [Internship *(iOS)*](https://github.com/avito-tech/internship)
+  * [Тестовое задания для аналитика](https://drive.google.com/drive/folders/1cBUI7Qsed_7wp-yYOxBd3NseVZZ5CEEi)
+
+* [Awem](https://awem.com/)
+  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1s4h4K29JEDYXIZXtIAmMjZbp9PHeV5ic)
 
 * [Babbel](https://babbel.com/)
   * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1wNb27gq4JxrbSFBSkFCcrnb8Bjhs8WYM)
