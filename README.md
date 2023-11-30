@@ -340,6 +340,8 @@
 * [Shopify](https://www.shopify.com/)
   * [Frontend Intern, Fall 2022 *(JS, OpenAI) (ENG)*](https://docs.google.com/document/d/16tMBx990qfnX2P1lTKTqaS4Ugp2RzqFrLIZ1TwWCVo4/edit?usp=sharing)
 
+* [Skypro](https://sky.pro/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/12Dk5mj04RR7ThE_ONd0CivF4r8ok2uqG)
 
 * [Smena](https://smena.space/)
   * [Тестовое задание DevOps разработчик *(Docker, minikube, Python)*](https://github.com/smenateam/assignments/tree/master/devops)
@@ -355,6 +357,9 @@
 
 * [Teamlead](https://www.teamlead.ru)
   * [Java разработчик](https://docs.google.com/document/d/1f5frd0d_sQk471oeznTnHpc-YSo9EfkQ3avHpxy4TtE/edit?usp=sharing)
+
+* [Teikametrics](https://www.teikametrics.com/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1uE_AM2IFSxP33393KYrNE8RQqoTREfvU)
 
 * [Tinkoff](https://www.tinkoff.ru/)
    * [Тестовое задание аналитика Tinkoff *(Python)*](https://colab.research.google.com/drive/1sbq3bW7FSsqzPBsJu6lmX1cTaC_Oan6S?usp=sharing)
