@@ -306,6 +306,9 @@
   * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
   * [Бэкенд-разработчик *(PHP)*](https://doc.clickup.com/p/h/2h539-778/840ce49e651e59a)
 
+* [Ozon](https://www.ozon.ru/)
+  * [Тестовое задание для аналитика *(SQL)*](https://drive.google.com/drive/folders/1IjyT-jC8VHKCkru2Wuq-0fCDZnMNtQBO)
+
 * [pixlpark](https://pixlpark.ru/)
   * [Frontend-разработка *(React, MobX)*](https://gist.github.com/paraekklisiarh/c03c97ae553a0038962fb945644392cf)
   * [Backend-разработка *(C#, ASP.NET, React/RazorPages)*](https://gist.github.com/paraekklisiarh/d64fbbc1de1028aaa7a47ff3fa0650a1)
@@ -313,6 +316,9 @@
 
 * [Purrweb](https://www.purrweb.com/ru/)
   * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
+
+* [Realweb Camp](https://realweb-camp.ru/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1vnIVQFrnPSXDD-YAiHfu1uc7se5x6ZMu)
 
 * [Redsoft](https://redsoft.ru)
   * [Frontend-разработчик *(JS, Vue.js, Node.js)*](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
