@@ -278,6 +278,9 @@
 * [MARS](https://rus.mars.com/)
   * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1e_OMZjTO3WA3s8Em7Df4rpjrllqZNmhP)
 
+* [Mediascope](https://mediascope.net/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/17MJaFDH5tj9oO8uBUTu33QTI7cJ64AWx)
+
 * [MediaSoft](https://mediasoft.team/)
   * [Тестовое задание.Mobile *(Swift/Kotlin/Flutter)*](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
   * [Тестовое задание.React *(React/Redux)*](https://drive.google.com/file/d/1LUlaX0-8MuZXOMbqsIt8tW3xPrBPWSHU/view?usp=sharing)
@@ -295,6 +298,9 @@
 
 * [NewGen Vision](https://www.unipage.net/)
   * [Junior Frontend Developer *(JS, Vue.js)*](https://newgen-it.github.io/tests/front)
+
+* Nortas Analitics
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1Y8qnmQunaCpIf-jzud9f-jnB_t74EVaC)
 
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/ostrovok-team/code-challenge/tree/master/js)
