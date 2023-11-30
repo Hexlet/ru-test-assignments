@@ -404,6 +404,10 @@
 * [Айтек](https://iqtek.ru/)
   * [Задание QA engineer](https://disk.yandex.ru/d/5FQXDeZP2BaPMQ)
 
+* [ВК Одноклассники](https://vk.com/)
+  * [Тестовое задание для продуктового аналитика *(Python, SQL)*](https://drive.google.com/drive/folders/1LUqYcKfwSSVtgoibiS4ngUHtg2o3axs1)
+  * [Тестовое задание для аналитика данных *(Python)*](https://drive.google.com/drive/folders/1lZiv0cIUaPL1lV9Eg1T-tKvJJQ2u6nt5)
+
 * [ВТБ](https://www.vtb.ru/)
   * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1w5xhj_ApzUJX-xf-cIBCYgGvy2t3PPML)
 
@@ -464,6 +468,9 @@
 
 * [ПИКАССО](https://picasso-diagnostic.ru/)
   * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
+
+* [Ренессанс Банк](https://rencredit.ru/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1UCuCV4i5hSEJkI6W6AKsYPKBy6Qpxcj9)
 
 * [Росмэн](https://rosman.ru/)
   * [Тестовое задание для аналитика *(Excel, SQL)*](https://drive.google.com/drive/folders/1aeFVwgsMCosQUBlne_WqochPwFJUXGtR)
