@@ -83,6 +83,10 @@
   * [Тестовое задание стажера в юнит AvitoPRO *(Go)*](https://github.com/avito-tech/pro-backend-trainee-assignment)
   * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
   * [Internship *(iOS)*](https://github.com/avito-tech/internship)
+  * [Тестовое задания для аналитика](https://drive.google.com/drive/folders/1cBUI7Qsed_7wp-yYOxBd3NseVZZ5CEEi)
+
+* [Awem](https://awem.com/)
+  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1s4h4K29JEDYXIZXtIAmMjZbp9PHeV5ic)
 
 * [Babbel](https://babbel.com/)
   * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1wNb27gq4JxrbSFBSkFCcrnb8Bjhs8WYM)
