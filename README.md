@@ -276,7 +276,7 @@
   * [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
 
 * [MARS](https://rus.mars.com/)
-  *[Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1e_OMZjTO3WA3s8Em7Df4rpjrllqZNmhP)
+  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1e_OMZjTO3WA3s8Em7Df4rpjrllqZNmhP)
 
 * [MediaSoft](https://mediasoft.team/)
   * [Тестовое задание.Mobile *(Swift/Kotlin/Flutter)*](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
@@ -419,6 +419,12 @@
 
 * [Квартирка](https://kvartirka.com/)
   * [Frontend-разработчик,  Junior+ *(JS, React/Next.js/TypeScript)*](https://docs.google.com/document/d/1bSC3hgaYe69FJFKKNFHKokJ2Rs0bxkYQ9ixnBS8xn-M/edit)
+
+* [Красный Яр](https://www.krasyar.ru/)
+  * [Тестовое задание для аналитика *(Excel)*](https://drive.google.com/drive/folders/1CiYVO0rTRqaxBTzuOXHAN180FR89ODns)
+
+* [Магнит](https://magnit.ru/)
+  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/16tRtN53FZ_FT3__Ay1biP3nb-CrkZ92I)
 
 * [МТС](https://www.mts.ru/)
   * [Тестовое задание для продуктового аналитика *(SQL, Python)*](https://drive.google.com/drive/folders/1Xbhp0ZDoHfwNQiP1aH2TXryod_qdEvrx)
