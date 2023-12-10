@@ -521,6 +521,9 @@
 * [Газпромбанк](https://www.gazprombank.ru/)
   * [Тестовые задания по React *(React, React Router, Redux Saga, Mobx)*](https://github.com/GPB-COS/test-work-react)
 
+* [Глобал Консалтинг](https://bth.su/)
+  * [Тестовое задание для Junior PHP-разработчик *(Laravel)*](https://docs.google.com/document/d/1fl4eCKdpSXUNyu899NCKaDy_fdHcVPDE-GoO9siZPX4/edit)
+
 * [Делимобиль](https://delimobil.ru/)
   * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1wYCaprk3AwfTdwqFB-ESDbz9hZRgRDKG)
 
