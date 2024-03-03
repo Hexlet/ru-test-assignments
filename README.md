@@ -508,6 +508,9 @@
 * [Банк Открытие](https://www.open.ru/)
   * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1ThbDAnbCrQ21jqk7bF2l-wCpWlUvVT7N)
 
+* [Валантис](https://juvelirnyj-lombard.ru/)
+  * [Frontend-разработчик *(React)*](https://github.com/ValantisJewelry/TestTaskValantis)
+
 * [ВК Одноклассники](https://vk.com/)
   * [Тестовое задание для продуктового аналитика *(Python, SQL)*](https://drive.google.com/drive/folders/1LUqYcKfwSSVtgoibiS4ngUHtg2o3axs1)
   * [Тестовое задание для аналитика данных *(Python)*](https://drive.google.com/drive/folders/1lZiv0cIUaPL1lV9Eg1T-tKvJJQ2u6nt5)
