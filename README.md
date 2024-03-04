@@ -142,9 +142,6 @@
 * [Cloud.ru](https://cloud.ru/ru)
   * [Тестовое задание для поступления в FrontCloudCamp](https://github.com/FrontCloudCamp/test-assignment)
 
-* [Cone Center](https://www.cone.ee)
-  * [Java/Scala developer](https://github.com/mondayish/ConeTestTask/blob/master/README.md)
-
 * [Crazy Panda](https://crazypanda.ru/)
   * [Тестовое задание C# *(C#)*](https://gist.github.com/Busyrev/cb89f309d2c32873449366023b8e0057)
   * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/17VMzVwew-SkXdsbZXxaeDDGEUQXYhKxn)
