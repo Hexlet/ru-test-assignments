@@ -120,9 +120,6 @@
 * [BST Digital](https://bst.digital/)
   * [Тестовое задание для Data Scientist](https://drive.google.com/drive/folders/1G0VwPL-6T0ThPdLstnZK07dy1q2Mgv2T)
 
-* [Byndyusoft](https://byndyusoft.com)
-  * [Java/Kotlin developer](https://github.com/mondayish/SimpleConsoleCalculator/blob/master/README.md)
-
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend Engineer — тестовое задание *(any)*](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
