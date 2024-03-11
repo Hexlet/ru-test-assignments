@@ -379,6 +379,9 @@
 * [Purrweb](https://www.purrweb.com/ru/)
   * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
 
+* [PyShop](https://pyshop.ru/)
+  * [Разработчик Python (стажировка)](https://jl.pyshop.ru/tasks/python-dev/)
+
 * [Realweb Camp](https://realweb-camp.ru/)
   * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1vnIVQFrnPSXDD-YAiHfu1uc7se5x6ZMu)
 
