@@ -509,7 +509,7 @@
   * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1ThbDAnbCrQ21jqk7bF2l-wCpWlUvVT7N)
 
 * [Валантис](https://juvelirnyj-lombard.ru/)
-  * [Frontend-разработчик *(React)*](https://github.com/ValantisJewelry/TestTaskValantis)
+  * [Frontend-разработчик *(React)*](https://github.com/Hexlet/ru-test-assignments/blob/main/frontend/valatris_api.md)
 
 * [ВК Одноклассники](https://vk.com/)
   * [Тестовое задание для продуктового аналитика *(Python, SQL)*](https://drive.google.com/drive/folders/1LUqYcKfwSSVtgoibiS4ngUHtg2o3axs1)
