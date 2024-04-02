@@ -653,4 +653,4 @@
   * [Front-End Developer *(HTML, CSS, JS)*](https://github.com/JediFE/trial-assignments)
   * [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
   * [Тестовое задание *(Go, C++, Python)*](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
-  * [Сборник тестовых заданий для аналитиков](https://drive.google.com/drive/folders/1USRtuNu-BKAvQd6_AVDhIM22mddng86E)
+  * [Сборник тестовых заданий для аналитиков](https://pavelbukhtik.notion.site/Product-Analyst-Data-Analyst-a5f7bea5a0064960bbdb7a3ee1e46e97)
