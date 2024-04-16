@@ -54,6 +54,7 @@
 * [avito.tech](https://github.com/avito-tech)
   * [Тестовое задание на позицию стажёра в iOS 2022 *(Swift)*](https://github.com/avito-tech/internship_ios_2022)
   * [Тестовое задание на позицию стажёра-фронтендера 2022 *(React, Redux, TS)*](https://github.com/avito-tech/internship_frontend_2022)
+  * [Тестовое задание на позицию стажёра-фронтендера 2024 *(React, React Router, TS)*](https://github.com/avito-tech/frontend-trainee-assignment-2024)
   * [Тестовое задание на позицию стажёра-бэкендера 2022 *(Go, MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/internship_backend_2022)
   * [Тестовое задание для стажёра Backend в команду Advertising *(Go/PHP)*](https://github.com/avito-tech/adv-backend-trainee-assignment)
   * [Тестовое задание для стажёра Android (archived) *(Kotlin/Java)*](https://github.com/avito-tech/android-trainee-task)
