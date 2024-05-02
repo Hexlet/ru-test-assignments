@@ -205,9 +205,6 @@
 * [FitnessKit](https://fitness-kit.ru/)
   * [Python разработчик на backend *(Python, Django)*](https://fitness-kit.ru/files/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B1%D1%8D%D0%BA.pdf)
 
-* [fundraiseup](https://fundraiseup.com/)
-  * [Backend test NodeJS](https://fundraiseup.notion.site/Backend-test-0e0e0961077e4e74bb6afc42dcf1759a)
-
 * [fuse8](https://hr.fuse8.ru/) [byte/minds](https://byteminds.co.uk/)
   * [Задания стажировки для backend-разработчиков *(.Net, C#, Postgres, gRPC)*](https://github.com/Fuse8/school2023)
 
