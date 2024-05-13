@@ -633,6 +633,7 @@
   * [Задание "найди ошибки" — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018 *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1-2)
   * [Задание по вёрстке — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](https://github.com/yandex-shri-2018/entrance-task-2-2)
   * [Задание "реализовать алгоритм" — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](https://github.com/yandex-shri-2018/entrance-task-3-2)
+  * [Задание на вакансию "Верстальщик лендингов", осень 2023](https://forms.yandex.ru/surveys/10033975.d66cde35b078199afc83f1e9f11cb58c5cdb22e9/?utm_source=hh&utm_medium=email&utm_content=3472582922)
 
 * [Hicaliber](https://www.hicaliber.com.au/)
   * [PHP Developer Test *(ENG)* *(PHP + Laravel, Vue.js)*](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ)
