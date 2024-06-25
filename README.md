@@ -20,6 +20,21 @@
 
 ## Задания
 
+<details>
+ <summary>PHP</summary>
+ TODO: add assignments
+</details>
+
+<details>
+ <summary>Java</summary>
+ TODO: add assignments
+</details>
+
+<details>
+ <summary>Manual QA</summary>
+ TODO: add assignments
+</details>
+
 * [abz.agency](https://abz.agency/)
   * [Junior Python Developer *(Python, Django/Flask, MySQL/PostgreSQL)*](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view?usp=sharing)
 * [AFCStudio](https://afcstudio.ru/)
