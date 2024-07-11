@@ -23,6 +23,13 @@
 <details>
 <summary>Python</summary>
 
+* [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
+
+* [Тестовое задание для Backend Python. Конвертер валют на FastAPI](https://docs.google.com/document/d/190wtDNCDUX826L_Tr0x_PsYNaxhBSBcdtbp7YSasYVQ/edit?usp=sharing)
+
+* [Сбербанк](https://www.sberbank.ru/ru/person)
+  * [Тестовое задание для инженера данных *(Python, SQL)*](https://drive.google.com/drive/folders/1EMRCcMT852e-rAxliXn-3eihjcS2SnP-)
+
 * [abz.agency](https://abz.agency/)
   * [Junior Python Developer *(Python, Django/Flask, MySQL/PostgreSQL)*](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view?usp=sharing)
 
@@ -80,10 +87,24 @@ assignments/blob/master/tasks/frontend-graphql.md)
   * [Тестовое задание для стажера Python [elasticsearch]](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
 
  * [Тестовое задание для Backend Python. Конвертер валют на FastAPI](https://docs.google.com/document/d/190wtDNCDUX826L_Tr0x_PsYNaxhBSBcdtbp7YSasYVQ/edit?usp=sharing)
+
+* [Django Developer *(в Контент)*](https://github.com/ostrovok-team/code-challenge/blob/master/python/content-tech-task.md)
+
+* [Python-разработчик *(Python)*](https://funbox.ru/q/python.pdf)
+
+* [Тестовое задание для стажера в Market Intelligence *(Python, Docker)*](https://github.com/avito-tech/mi-backend-trainee-assignment)
+
+* [Тестовое задание для стажера в Market Intelligence (archived) *(Python)*](https://github.com/avito-tech/mi-trainee-task)
+* 
 </details>
 
 <details>
  <summary>Java</summary>
+
+* [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](https://github.com/KazanExpress/backend-spring-test-task)
+
+* [Java разработчик](https://docs.google.com/document/d/1f5frd0d_sQk471oeznTnHpc-YSo9EfkQ3avHpxy4TtE/edit?usp=sharing)
+
 [Тестовое задание на позицию стажера-бекендера в юнит Авто (archived)](Go/Python/PHP/Java/JavaScript)
  *(https://github.com/avito-tech/auto-backend-trainee-assignment)
 
@@ -125,25 +146,6 @@ assignments/blob/master/tasks/frontend-graphql.md)
 <details>
  <summary>PHP</summary>
 
-* [avito.tech](https://github.com/avito-tech)
-[Тестовое задание для стажёра Backend в команду Advertising (Go/PHP)](https://github.com/avito-tech/adv-backend-trainee-assignment)
- 
-  * [Тестовое задание на позицию стажера-бекендера в юнит Авто (archived) *(Go/Python/PHP/Java/JavaScript)*](https://github.com/avito-tech/auto-backend-trainee-assignment)
-  * [Тестовое задание на позицию стажера-бекендера в юнит Buyer Experience (archived) *(Go/PHP)*](https://github.com/avito-tech/bx-backend-trainee-assignment)
-  
- * [Тестовое задание на позицию стажера-бекендера в юнит "Работа" *(Go/PHP, MySQL/PostgreSQL)*](https://github.com/avito-tech/job-backend-trainee-assignment)
- * [Тестовое задание для стажёра Backend *(PHP)*](https://github.com/avito-tech/safedeal-backend-trainee)
-
- * [Тестовое задание для стажёра Backend в команду Trade Marketing *(Go/PHP/Python, PostgreSQL/MySQl, Redis)*](https://github.com/avito-tech/tm-backend-trainee)
-
- * [Тестовое задание на позицию стажера-бекендера *(Go/PHP/Python,  MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/autumn-2021-intern-assignment)
-
-
-* [BEBOSS](https://beboss.ru/)
-  * [Web-разработчик *(PHP, jQuery, YII)*](https://github.com/funkylen/beboss-test-assignments)
- 
-* [BeeJee NINJA Developers](https://beejee.org/)
-  * [Web-разработчик *(PHP)*](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
  
 * [CLC Tech](https://clc-logistic.ru/)
   * [Junior PHP developer *(yii2)*](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
@@ -196,6 +198,11 @@ assignments/blob/master/tasks/frontend-graphql.md)
 
 <details>
  <summary>Backend</summary>
+
+* [Тестовое задание на позицию стажера-бекендера *(Go/PHP/Python,  MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/autumn-2021-intern-assignment)
+
+* [Тестовое задание на позицию стажера-бекендера в юнит "Работа" *(Go/PHP, MySQL/PostgreSQL)*](https://github.com/avito-tech/job-backend-trainee-assignment)
+
 * [Appbooster](https://appbooster.com/)
 * [Backend developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
 
@@ -268,10 +275,64 @@ assignments/blob/master/tasks/frontend-graphql.md)
 * [Тестовое задание на позицию стажера-бекендера (archived) *(any)*](https://github.com/avito-tech/msg-backend-trainee-assignment)
 
 * [Тестовое задание на позицию стажера-бекендера *(Go/PHP/Python,  MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/autumn-2021-intern-assignment)
+
+* [Тестовое задание для стажера в юнит Market Intelligence *(Go/Python)*](https://github.com/avito-tech/mi-trainee-task-2021)
+
+* [Тестовое задание *(Go, C++, Python)*](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
+
+* [Тестовое задание для стажёра Backend в команду Trade Marketing *(Go/PHP/Python, PostgreSQL/MySQl, Redis)*](https://github.com/avito-tech/tm-backend-trainee)
+
+* [Тестовое задание для стажёра Backend в команду Advertising *(Go/PHP)*](https://github.com/avito-tech/adv-backend-trainee-assignment)
+
+* [Тестовое задание на позицию стажера-бекендера (archived) *(any)*](https://github.com/avito-tech/msg-backend-trainee-assignment)
+
+* [Тестовое задание стажера в юнит AvitoPRO *(Go)*](https://github.com/avito-tech/pro-backend-trainee-assignment)
+
+* [Тестовое задание на позицию стажёра-бэкендера 2022 *(Go, MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/internship_backend_2022)
+
+* [Тестовое задание на позицию стажера backend в юнит Geo *(any)*](https://github.com/avito-tech/geo-backend-trainee-assignment)
+
+* [Тестовое задание для стажёра Backend *(PHP)*](https://github.com/avito-tech/safedeal-backend-trainee)
+
+* [avito.tech](https://github.com/avito-tech)
+[Тестовое задание для стажёра Backend в команду Advertising (Go/PHP)](https://github.com/avito-tech/adv-backend-trainee-assignment)
+ 
+* [Тестовое задание на позицию стажера-бекендера в юнит Авто (archived) *(Go/Python/PHP/Java/JavaScript)*](https://github.com/avito-tech/auto-backend-trainee-assignment)
+* [Тестовое задание на позицию стажера-бекендера в юнит Buyer Experience (archived) *(Go/PHP)*](https://github.com/avito-tech/bx-backend-trainee-assignment)
+  
+* [Тестовое задание на позицию стажера-бекендера в юнит "Работа" *(Go/PHP, MySQL/PostgreSQL)*](https://github.com/avito-tech/job-backend-trainee-assignment)
+* [Тестовое задание для стажёра Backend *(PHP)*](https://github.com/avito-tech/safedeal-backend-trainee)
+
+* [Тестовое задание для стажёра Backend в команду Trade Marketing *(Go/PHP/Python, PostgreSQL/MySQl, Redis)*](https://github.com/avito-tech/tm-backend-trainee)
+
+* [Тестовое задание на позицию стажера-бекендера *(Go/PHP/Python,  MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/autumn-2021-intern-assignment)
+
+* [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
+
 </details>
+
+
+
+
+
+
+
 
 <details>
  <summary>Frontend</summary>
+
+* [BEBOSS](https://beboss.ru/)
+  * [Web-разработчик *(PHP, jQuery, YII)*](https://github.com/funkylen/beboss-test-assignments)
+ 
+* [BeeJee NINJA Developers](https://beejee.org/)
+  * [Web-разработчик *(PHP)*](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
+
+ * [Задание на вакансию "Верстальщик лендингов", осень 2023](https://forms.yandex.ru/surveys/10033975.d66cde35b078199afc83f1e9f11cb58c5cdb22e9/?utm_source=hh&utm_medium=email&utm_content=3472582922)
+ 
+ * [HTML/CSS/JS-разработчик *(HTML/CSS, JS, Node.js, React)*](https://dl.funbox.ru/qt-htmlcss.zip)
+
+ * [Инфоматика](https://infomatika.ru/)
+  * [Верстка *(HTML, CSS)*](https://github.com/some-yummy-nick/infomatika-test)
 
 * [Appbooster](https://appbooster.com/)
   * [Frontend Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
@@ -302,6 +363,8 @@ assignments/blob/master/tasks/frontend-graphql.md)
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend Engineer — тестовое задание *(any)*](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
+
+* [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)*
 
 * [CS-Cart](https://cs-cart.com/)
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
@@ -411,10 +474,14 @@ assignments/blob/master/tasks/frontend-graphql.md)
   * [C32. Frontend JS test task 1 *(React)*](https://docs.google.com/document/d/1LQ7olXMcjNKF_vHoPqm8VsJc65K3PfW5M3s9D1EO8xs/edit)
   * [Тестовое задание Frontend-разработчик *(JS, React, Redux, React Router)*](https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FPg8Mn9b2nwRtbsd79GdjAOk0sK0J5vagJAQzR5a5H4HBf2B6dSCQGd5kCvgXaxdcq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5.docx)
 
+* [Matic Test assignment - Front-end test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-fetch-n-cache)
+
+* [Тестовое задание.React *(React/Redux)*](https://drive.google.com/file/d/1LUlaX0-8MuZXOMbqsIt8tW3xPrBPWSHU/view?usp=sharing)
+
 * [Тестовое задание для frontend web-разработчика [cloud-storage-client]
   (Vue.js)(https://spiky-sky-d11.notion.site/frontend-web-cloud-storage-client-fa687ddac81d4088a2e1e4ca6dd499f1)
 
-  * [Тестовое задание для стажера Python [elasticsearch](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
+* [Тестовое задание для стажера Python [elasticsearch](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
  
  * [Frontend test case *(React, TypeScript)*](https://drive.google.com/file/d/1GPYkayQVevwsPcipL76DsKBm3so3DihR/view?usp=share_link)
 
@@ -429,7 +496,34 @@ assignments/blob/master/tasks/frontend-graphql.md)
 
 * [Oxem Studio](https://oxem.ru)
   * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
+
+* [FunBox](https://funbox.ru/)
+  * [JS-разработчик *(JS, React)*](https://dl.funbox.ru/qt-js.pdf)
+
+* [Задание по вёрстке — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](https://github.com/yandex-shri-2018/entrance-task-2-2)
+
+* [Задание по вёрстке — ШРИ, Москва, весна 2018](https://github.com/yandex-shri-2018/entrance-task-2)
+
+* [Тестовое задание для вакансии web-технолог *(CSS)*](https://www.reg.ru/company/jobs/testtask-webtech)
+
+* [Тестовое задание для TypeScript/Vue.js разработчика *(TS, VueJS, HTML/CSS)*](https://github.com/Ecwid/new-job/blob/master/TypeScript.md)
+
+* [Тестовые задания по React *(React, React Router, Redux Saga, Mobx)*](https://github.com/GPB-COS/test-work-react)
+
+* [React Engineer *(JS, HTML, PHP)*](https://docs.google.com/document/d/1UL4FJrtzHamyOavu-VN9fH7Y05lkbmH5abtC2nnx2QY/edit)
+
+* [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)
+
+* [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](https://github.com/KosyanMedia/test-tasks/tree/master/DEPRECATED_aviasales)
+
+* [Front-End Developer *(HTML, CSS, JS)*](https://github.com/JediFE/trial-assignments)
+
+* [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
+
+* [Тестовое задание для frontend web-разработчика [cloud-storage-client] [*(Vue.js)*](https://spiky-sky-d11.notion.site/frontend-web-cloud-storage-client-fa687ddac81d4088a2e1e4ca6dd499f1)
+
 </details>
+
 
 
 <details>
@@ -602,13 +696,22 @@ assignments/blob/master/tasks/frontend-graphql.md)
 * [Учи.ру](https://uchi.ru/)
   * [Тестовое задание для Продуктового Аналитика](https://docs.google.com/document/d/1cPf_HR3cB4QgehJ13nMjYO1EQlWcqwmo/edit)
 
-* Без компании
-  * [Сборник тестовых заданий для аналитиков](https://pavelbukhtik.notion.site/Product-Analyst-Data-Analyst-a5f7bea5a0064960bbdb7a3ee1e46e97)
+* [Сборник тестовых заданий для аналитиков](https://pavelbukhtik.notion.site/Product-Analyst-Data-Analyst-a5f7bea5a0064960bbdb7a3ee1e46e97)
+
+* [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1q0OGFTUI58Gbar-rq3Dp4Zr9XuvqDkbs)
+
+
 </details>
+
+
 
 <details>
  <summary>Manual QA</summary>
- 
+
+ * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
+   
+ * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
+
 * [avito.tech](https://github.com/avito-tech)
  * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
  * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
@@ -658,28 +761,47 @@ assignments/blob/master/tasks/frontend-graphql.md)
 
 * [FunBox](https://funbox.ru/)
   * [iOS/Android-разработчик *(Xcode/Android Studio)*](https://dl.funbox.ru/qt-mobile.pdf)
+
+* [Хитрые задачки по iOS *(any)*](https://github.com/appKODE/test2019)*(сервер тестового задания не работает)*
+
+* [Internship *(iOS)*](https://github.com/avito-tech/internship)
+
 </details>
 
 <details>
  <summary>Android</summary>
+
+* [Android разработчик *(Kotlin, Single Activity, Retrofit, Jetpack Compose / XML, Kotlinx Serialization / Gson, RxJava / Coroutines)*](https://github.com/appKODE/trainee-test-android)
 
 * [avito.tech](https://github.com/avito-tech)
   * [Тестовое задание для стажёра Android (archived) *(Kotlin/Java)*](https://github.com/avito-tech/android-trainee-task)
   * [Тестовое задание для стажёра Android *(Kotlin)*](https://github.com/avito-tech/bx-android-trainee-assigment)
   * [Приложение прогноза погоды (Андроид) *(Kotlin)*](https://github.com/avito-tech/android-trainee-task-2021)
 
+* [Android Developer *(Kotlin, Java, C++)*](https://github.com/fs/test-tasks/tree/master/android)
+
 </details>
 
 <details>
  <summary>Ruby</summary>
 
+ * [Ruby Intern *(Ruby, Rails)*](https://github.com/fs/test-tasks/tree/master/ruby-intern)
+  
+ * [Cats Dealer - Ruby test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-cats-dealer)
+ 
+ * [Ruby-разработчик *(Ruby, Rails, JS)*](https://dl.funbox.ru/qt-ruby.pdf)
+
+* [Customer Import Platform - Ruby test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
+
 * [Appbooster](https://appbooster.com/)
   * [Ruby Developer *(Ruby)*](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-ruby-md)
-
 
 * [Aviasales](https://aviasales.ru)
   * [Тестовое задание Software Engineer *(Ruby, Ruby On Rails, ActiveRecord, Docker)*]
 </details>
+
+
+
 
 <details>
  <summary>SQL</summary>
@@ -687,7 +809,6 @@ assignments/blob/master/tasks/frontend-graphql.md)
 * [Appbooster](https://appbooster.com/)
   * [SQL *(any SQL DB)*](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-sql-md)
 </details>
-
 
 <details>
  <summary>full-stack</summary>
@@ -697,12 +818,33 @@ assignments/blob/master/tasks/frontend-graphql.md)
   * [Тестовое задание Aviasales Marketing (full-stack) *(JS, React, Redux, NodeJS, PostgreSQL)*](https://github.com/KosyanMedia/test-tasks/tree/master/marketing)
 </details>
 
+
+
 <details>
  <summary>C#</summary>
 
+* [[C# Dev] [Тестовое задание *(C#)*](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
+
+* [Тестовое задание на стажировку *(C#, SQL)*](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
+
+* [Тестовое задание C# *(C#)*](https://gist.github.com/Busyrev/cb89f309d2c32873449366023b8e0057)
+ 
+* [Тестовое задание на вакансию Junior Разработчика C# *(C#, ASP.NET Core, Entity Framework Core)*](https://versta24.ru/hr/testfordevjun)
+
 * [AFCStudio](https://afcstudio.ru/)
   * [Junior C# Developer *(C#, .NET, Angular, React, Razor)*](https://gist.github.com/paraekklisiarh/0621204ce249e9faf1aaa1e1b7d3f7ef)
+
+* [Стажер-программист *(C#)*](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
+
+* [Тестовое задание *(C#, ASP.NET Core, Entity Framework Core)*](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
+
+* [Тестовые задания на c# стажировку *(C#)*](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
+
+* [Тестовое на стажировку C#, зима 2019-2020 *(C#, ASP.NET)*](https://drive.google.com/drive/folders/1UCx7__WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
+
 </details>
+
+
 
 <details>
  <summary>Data Scientist</summary>
@@ -711,3 +853,104 @@ assignments/blob/master/tasks/frontend-graphql.md)
   * [Тестовое задание для Data Scientist](https://drive.google.com/drive/folders/1G0VwPL-6T0ThPdLstnZK07dy1q2Mgv2T)
 
 </details>
+
+
+
+
+<details>
+ <summary>DevOps</summary>
+ 
+* [Smena](https://smena.space/)
+  * [Тестовое задание DevOps разработчик *(Docker, minikube, Python)*](https://github.com/smenateam/assignments/tree/master/devops)
+
+* [Kittens Store - DevOps test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-kittens-store)
+
+* [Cats Shop - DevOps test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-cats-shop)
+
+* [DevOps engineer](https://github.com/ostrovok-team/code-challenge/tree/master/devops)
+
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* [Тестовое задание для FE стажера в Авито Pro (Команда ARPU) *(JS)*](https://github.com/avito-tech/pro-fe-trainee-task)
+
+* [Dodo Brands](https://dodobrands.io/)
+  * [Тестовое задание для Web-mobile Analyst](https://drive.google.com/drive/folders/18yjaMxWI9qpPa-9kTojYuNVcCj6iG8Pd)
+
+* [Тестовое задание на вакансию Perl-программист *(Perl)*](https://www.reg.ru/company/jobs/testtask-prog)
+
+* [BigData-разработчик *(Hadoop, Cassandra, Docker)*](https://dl.funbox.ru/qt-bigdata.pdf) 
+
+* [Тестовое задание для стажёра-автоматизатора в команду разработки Центра экспертизы по Обеспечению качества](https://github.com/avito-tech/qa-into-CoE-trainee-task)
+
+* [Mobile-разработка *(React Native, TS/JS)*](https://gist.github.com/paraekklisiarh/de6b38cc79be8e14f2c98d88028447c6)
+
+* [Тестовое задание для стажёра в команду VAS *(any)*](https://github.com/avito-tech/vas-frontend-trainee-assignment)
+
+* [Тестовое задание для дата-инженера *(SQL)*](https://drive.google.com/drive/folders/1PHzuS3TWdLJBthV35Ra3q1oF9RzEuZ2u)
+
+* [Система решения математических уравнений *(CSS, JS/Ajax, TestUnit/RSpec/Cucumber, Sinatra)*](https://gist.github.com/shiroginne/2cd4ade25d7c81f28798)
+
+* [Тестовое задание Веб-программист *(any, предпочтительно Laravel)*](https://drive.google.com/file/d/1ACBukx7UpnLztRnnCKID3K-DxX1UciMw/view)
+
+* [Тестовое задание на должность «Специалист службы технической поддержки хостинга»](https://www.reg.ru/company/jobs/testtask-hostingsupport)
+
+* [Erlang-разработчик *(Erlang)*](https://dl.funbox.ru/qt-erlang.pdf)
+
+* [Тестовое задание для вакансии «Инженер по автоматизации тестирования» *(any)*](https://www.reg.ru/company/jobs/testtask-qa-automator)
+
+* [Тестовое задание для Workle *(Vue.js)*](https://github.com/mikhail-shamshurin/workle-test-task)
+
+* [Тестовое задание для Fraud Analyst](https://drive.google.com/drive/folders/1JTMqKy8Kgmkh08vAW3wx8NcPfdyqXWuV)
+
+* [Задание "найди ошибки" — ШРИ, Москва, весна 2018 *(Node.js)*](https://github.com/yandex-shri-2018/entrance-task-1)
+
+* [Тестовое задание для дата-менеджера](https://drive.google.com/drive/folders/1FS0GtB_DxK4ZgrI8s6zMSPCYiDhtETNY)
+
+* [Тестовое задание.Mobile *(Swift/Kotlin/Flutter)*](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
+
+* [Node.js Developer *(Node.js)*](https://github.com/fs/test-tasks/tree/master/nodejs)
+
+* [Тестовое на стажировку Тестировщик, осень 2022 *(any)*](https://disk.yandex.kz/i/Aew3EEz3GNuxHA)
+
+* [Remote FS Explorer - Eclipse plugin *(ENG)* *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=22742624)
+
+* [Тестовое задание для стажёра-автоматизатора](https://github.com/avito-tech/qa-trainee-task)
+
+* [Тестовая задача для разработчика-стажёра в команду Информационной безопасности Авито для защиты сайта от ботов *(Go/Python)*](https://github.com/avito-tech/antibot-developer-trainee)
+
+* [Тестовое задание для ментора *(any)*](https://hexlet-ru.notion.site/8b301b64d4834a3e91f709f8ada1187a)
+
+* [GraphQL endpoint for Junior Developer position in Scandiweb *(ENG)* *(TS, GraphQL)*](https://github.com/scandiweb/junior-react-endpoint)
+
+* [Screen sharing + chat *(ENG)* *(any)*](https://docs.xored.com/display/XL/Test+task+Screen+sharing+with+chat)
+
+* [Тестовое задание на позицию React-Native developer *(React-Native CLI (iOS, Android))*](https://docs.google.com/document/d/1AKeJuZmhbLdv7PCMdJsQoCu60tT3OHyen7laa58aKMk/edit?usp=sharing)
+
+* [Тестовое задание для поступления в FrontCloudCamp](https://github.com/FrontCloudCamp/test-assignment)
+
+* [[Dev] Тестовое задание *(any)*](https://drive.google.com/file/d/1cbUD3ID1yyHJES9KQH12L_wGhKTn6Jrg/view)
+
+* [Задание "реализовать алгоритм" — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](https://github.com/yandex-shri-2018/entrance-task-3-2)
+
+* [Посчитать количество уникальных IP-адресов в простом текстовом файле *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
+
+* [Unity Developer *(Unity)*](https://github.com/fs/test-tasks/tree/master/unity)*(ссылка "тестовым проектом" нерабочая)*
+
+* [developer's performance measurement tool *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=19694895)
+
