@@ -907,6 +907,9 @@
 
 * [Dodo Brands](https://dodobrands.io/)
   * [Тестовое задание для Web-mobile Analyst](https://drive.google.com/drive/folders/18yjaMxWI9qpPa-9kTojYuNVcCj6iG8Pd)
+ 
+* [Ediweb](https://ediweb.com/ru-ru)
+  * [Тестовое задание на должность "Тестировщик" *Automation QA / Ruby*](https://github.com/avannim/Fedorenko_test/tree/59b6c1a395ad8123b102f7f4214db6840be9db01/candidate_test)  
 
 * [Тестовое задание на вакансию Perl-программист *(Perl)*](https://www.reg.ru/company/jobs/testtask-prog)
 
@@ -946,11 +949,20 @@
 
 * [Тестовое задание для стажёра-автоматизатора](https://github.com/avito-tech/qa-trainee-task)
 
+* [Тестовое задание для стажёра-тестировщика на знание Java и SQL *(any)*](https://github.com/Pammer/traineeTestTask)
+
+* [Задание для тестировщика *(any)*](https://github.com/AlexeyKashin1/Test1?tab=readme-ov-file)
+
 * [Тестовая задача для разработчика-стажёра в команду Информационной безопасности Авито для защиты сайта от ботов *(Go/Python)*](https://github.com/avito-tech/antibot-developer-trainee)
 
 * [Тестовое задание для ментора *(any)*](https://hexlet-ru.notion.site/8b301b64d4834a3e91f709f8ada1187a)
 
+* [QATestLab](https://qatestlab.com/company/contact-us/)
+  *  [Test task for position QA Specialist // *Java или C#*](https://github.com/n1mnull/QATestLab/blob/51b315d7d2ff011ce8255fb09a88bd6401891600/README.md)
+
 * [GraphQL endpoint for Junior Developer position in Scandiweb *(ENG)* *(TS, GraphQL)*](https://github.com/scandiweb/junior-react-endpoint)
+
+* [Тестовое задание по автоматизации действий в поисковой строке Яндекса для *tensor.ru*](https://github.com/warumbaum/Tensor-Yandex)
 
 * [Screen sharing + chat *(ENG)* *(any)*](https://docs.xored.com/display/XL/Test+task+Screen+sharing+with+chat)
 
