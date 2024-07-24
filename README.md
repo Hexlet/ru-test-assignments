@@ -213,9 +213,26 @@
 </details>
 
 <details>
+ <summary>Automation QA</summary>
+
+ * [Ediweb](https://ediweb.com/ru-ru)
+   * [Тестовое задание на должность "Тестировщик" *Automation QA / Ruby*](https://github.com/avannim/Fedorenko_test/tree/59b6c1a395ad8123b102f7f4214db6840be9db01/candidate_test)
+
+* [Тестовое задание для стажёра-автоматизатора](https://github.com/avito-tech/qa-trainee-task)
+
+* [Тестовое задание для стажёра-тестировщика на знание Java и SQL *(any)*](https://github.com/Pammer/traineeTestTask)
+
+* [QATestLab](https://qatestlab.com/company/contact-us/)
+  *  [Test task for position QA Specialist // *Java или C#*](https://github.com/n1mnull/QATestLab/blob/51b315d7d2ff011ce8255fb09a88bd6401891600/README.md)
+
+* [Тестовое задание по автоматизации действий в поисковой строке Яндекса для *tensor.ru*](https://github.com/warumbaum/Tensor-Yandex)
+ 
+</details>
+
+<details>
  <summary>Backend</summary>
 
- * [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
+* [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
 
 * [Тестовое задание на позицию стажера-бекендера *(Go/PHP/Python,  MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/autumn-2021-intern-assignment)
 
@@ -946,9 +963,9 @@
 
 * [Тестовое задание для стажёра-автоматизатора](https://github.com/avito-tech/qa-trainee-task)
 
-* [Тестовая задача для разработчика-стажёра в команду Информационной безопасности Авито для защиты сайта от ботов *(Go/Python)*](https://github.com/avito-tech/antibot-developer-trainee)
+* [Тестовое задание для стажёра-тестировщика на знание Java и SQL *(any)*](https://github.com/Pammer/traineeTestTask)
 
-* [Тестовое задание для ментора *(any)*](https://hexlet-ru.notion.site/8b301b64d4834a3e91f709f8ada1187a)
+* [Задание для тестировщика *(any)*](https://github.com/AlexeyKashin1/Test1?tab=readme-ov-file)
 
 * [GraphQL endpoint for Junior Developer position in Scandiweb *(ENG)* *(TS, GraphQL)*](https://github.com/scandiweb/junior-react-endpoint)
 
