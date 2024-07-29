@@ -675,8 +675,7 @@
   * [Парсер SQL запросов, *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/SQL-parser.md)
   * [Глубокое копирование, *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
   * [java.util.Map поверх Redis *(Kotlin/Java, Redis)*](https://github.com/Ecwid/new-job/blob/master/Redis-and-collections.md)
-
-* [Посчитать количество уникальных IP-адресов в простом текстовом файле *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
+  * [Посчитать количество уникальных IP-адресов в простом текстовом файле *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
 
 * [Eltex](https://eltex-co.ru/)
   * [Многопользовательский тайм-трекер *(Backend Java/Kotlin)*](backend/java_time_tracker.md)
