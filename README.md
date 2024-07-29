@@ -668,8 +668,8 @@
 * [Java разработчик](https://docs.google.com/document/d/1f5frd0d_sQk471oeznTnHpc-YSo9EfkQ3avHpxy4TtE/edit?usp=sharing)
 
 * [Ecwid](https://www.ecwid.com/)
-  * [Парсер SQL запросов, *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/SQL-parser.md)
-  * [Глубокое копирование, *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
+  * [Парсер SQL запросов *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/SQL-parser.md)
+  * [Глубокое копирование *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/Deep-clone.md)
   * [java.util.Map поверх Redis *(Kotlin/Java, Redis)*](https://github.com/Ecwid/new-job/blob/master/Redis-and-collections.md)
   * [Посчитать количество уникальных IP-адресов в простом текстовом файле *(Kotlin/Java)*](https://github.com/Ecwid/new-job/blob/master/IP-Addr-Counter.md)
 
@@ -677,7 +677,7 @@
   * [Многопользовательский тайм-трекер *(Backend Java/Kotlin)*](backend/java_time_tracker.md)
 
 * [FunBox](https://funbox.ru/)
-  * [Java-разработчик *(Java, )*](https://dl.funbox.ru/qt-java.pdf)
+  * [Java-разработчик *(Java)*](https://dl.funbox.ru/qt-java.pdf)
 
 * [Haulmont](https://www.haulmont.ru)
   * [StudentDatabase *(Java)*](https://github.com/nikolaychernov/StudentDatabase)
