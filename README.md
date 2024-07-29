@@ -667,8 +667,6 @@
 
 * [Тестовые задания на java *(Java)*](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
 
-* [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](https://github.com/KazanExpress/backend-spring-test-task)
-
 * [Java разработчик](https://docs.google.com/document/d/1f5frd0d_sQk471oeznTnHpc-YSo9EfkQ3avHpxy4TtE/edit?usp=sharing)
 
 * [Ecwid](https://www.ecwid.com/)
