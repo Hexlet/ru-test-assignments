@@ -677,6 +677,8 @@
 
 * [Eltex](https://eltex-co.ru/)
   * [Многопользовательский тайм-трекер *(Backend Java/Kotlin)*](backend/java_time_tracker.md)
+
+* [FunBox](https://funbox.ru/)
   * [Java-разработчик *(Java, )*](https://dl.funbox.ru/qt-java.pdf)
 
 * [Haulmont](https://www.haulmont.ru)
@@ -685,19 +687,22 @@
 * [Infomaximum](https://infomaximum.com)
   * [Java разработчик](https://drive.google.com/file/d/17g9-4HTkBtJln-3I-iavMqWkX9bBYcg2/view?usp=sharing)
 
- * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
-    * [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](https://github.com/KazanExpress/backend-spring-test-task)
+* [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
+  * [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](https://github.com/KazanExpress/backend-spring-test-task)
   * [Тестовое задание на Android разработку - поиск коктейлей *(Java, Kotlin)*](https://github.com/KazanExpress/android-test-task)
   * [Тестовое задание на Android разработку - просмотр статей *(Java, Kotlin)*](https://github.com/KazanExpress/ke-test-android)
 
+* [MediaSoft](https://mediasoft.team/)
   * [Тестовое задание.Java *(Java EE/Spring, Maven/Gradle)*](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
-
+ 
+* [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание на позицию Android-разработчика *(Kotlin/Java, Dagger, RxJava)*](https://github.com/tutu-ru/hire_android_test)
 
 * [Waliot](https://waliot.com/)
   * [Backend Developer *(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)*](https://github.com/waliot/test-tasks/blob/master/tasks/backend-1.md)
 
-* [Тестовые задания на java *(Java)*](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
+* [СКБ Контур](https://kontur.ru/)
+  * [Тестовые задания на java *(Java)*](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
 
 * [ЭВРИКА](https://hr.eureca.ru)
   * [Fullstack разработчик (JS + Java)](https://docs.google.com/document/d/1fodUFtPCuHyP2Hn7ly3ZsSD_GsSR_wTf/edit?usp=sharing&ouid=115639618941993452518&rtpof=true&sd=true)
