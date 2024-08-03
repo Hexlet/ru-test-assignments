@@ -230,6 +230,43 @@
 </details>
 
 <details>
+ <summary>Manual QA</summary>
+
+* [avito.tech](https://github.com/avito-tech)
+  * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
+  * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
+
+* [Flatstack](https://www.flatstack.com)
+  * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
+
+* [HRlink](https://hr-link.ru/)
+  * [Junior QA (SQL+Python)](https://docs.google.com/document/d/1ylGFf4_p4w9S8PvRsZF0UdyeokWol3KS/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+
+* [Matic Insurance Services](https://matic.com/)
+  * [Customer Import Platform MQA - MQA test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-test-import)
+  * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
+
+* [Purrweb](https://www.purrweb.com/ru/)
+  * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
+
+* [Sendsay](https://sendsay.ru/)
+  * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
+
+* [Tutu.ru](https://www.Tutu.ru/)
+  * [Тестовое задание для кандидата на позицию QA](https://github.com/tutu-ru/tutu-ru.github.io)
+
+* [Айтек](https://iqtek.ru/)
+  * [Задание QA engineer](https://disk.yandex.ru/d/5FQXDeZP2BaPMQ)
+
+* [ООО Крит](https://krit.pro/)
+  * [Стажер_QA](https://docs.google.com/document/d/1nwz_MlVTe30lKQ4kYKD4HVNco-IQFqQe/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+
+* [ООО Синтека](https://cynteka.ru/)
+  * [Junior_QA](https://docs.google.com/document/d/1VecQvPkyEyPrzQvce6BvWNnDn4SYw8jL/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+ 
+</details>
+
+<details>
  <summary>Backend</summary>
 
 * [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
@@ -704,48 +741,6 @@
   * [Fullstack разработчик (JS + Java)](https://docs.google.com/document/d/1fodUFtPCuHyP2Hn7ly3ZsSD_GsSR_wTf/edit?usp=sharing&ouid=115639618941993452518&rtpof=true&sd=true)
 
 </details>
-
-<details>
- <summary>Manual QA</summary>
-
- * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
-   
- * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
-
-* [avito.tech](https://github.com/avito-tech)
- * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
- * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
-
-* [Flatstack](https://www.flatstack.com)
-  * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
-
-* [HRlink](https://hr-link.ru/)
-  * [Junior QA (SQL+Python)](https://docs.google.com/document/d/1ylGFf4_p4w9S8PvRsZF0UdyeokWol3KS/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
-
-* [Matic Insurance Services](https://matic.com/)
-  * [Customer Import Platform MQA - MQA test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-test-import)
-  * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
-
-* [Purrweb](https://www.purrweb.com/ru/)
-  * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
-
-* [Sendsay](https://sendsay.ru/)
-  * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
-
-* [Tutu.ru](https://www.Tutu.ru/)
-  * [Тестовое задание для кандидата на позицию QA](https://github.com/tutu-ru/tutu-ru.github.io)
-
-* [Айтек](https://iqtek.ru/)
-  * [Задание QA engineer](https://disk.yandex.ru/d/5FQXDeZP2BaPMQ)
-
-* [ООО Крит](https://krit.pro/)
-  * [Стажер_QA](https://docs.google.com/document/d/1nwz_MlVTe30lKQ4kYKD4HVNco-IQFqQe/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
-
-* [ООО Синтека](https://cynteka.ru/)
-  * [Junior_QA](https://docs.google.com/document/d/1VecQvPkyEyPrzQvce6BvWNnDn4SYw8jL/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
- 
-</details>
-
 
 <details>
 <summary>Python</summary>
