@@ -230,9 +230,48 @@
 </details>
 
 <details>
- <summary>Backend</summary>
+ <summary>Manual QA</summary>
 
-* [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
+ * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
+   
+ * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
+
+* [avito.tech](https://github.com/avito-tech)
+ * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
+ * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
+
+* [Flatstack](https://www.flatstack.com)
+  * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
+
+* [HRlink](https://hr-link.ru/)
+  * [Junior QA (SQL+Python)](https://docs.google.com/document/d/1ylGFf4_p4w9S8PvRsZF0UdyeokWol3KS/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+
+* [Matic Insurance Services](https://matic.com/)
+  * [Customer Import Platform MQA - MQA test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-test-import)
+  * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
+
+* [Purrweb](https://www.purrweb.com/ru/)
+  * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
+
+* [Sendsay](https://sendsay.ru/)
+  * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
+
+* [Tutu.ru](https://www.Tutu.ru/)
+  * [Тестовое задание для кандидата на позицию QA](https://github.com/tutu-ru/tutu-ru.github.io)
+
+* [Айтек](https://iqtek.ru/)
+  * [Задание QA engineer](https://disk.yandex.ru/d/5FQXDeZP2BaPMQ)
+
+* [ООО Крит](https://krit.pro/)
+  * [Стажер_QA](https://docs.google.com/document/d/1nwz_MlVTe30lKQ4kYKD4HVNco-IQFqQe/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+
+* [ООО Синтека](https://cynteka.ru/)
+  * [Junior_QA](https://docs.google.com/document/d/1VecQvPkyEyPrzQvce6BvWNnDn4SYw8jL/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+ 
+</details>
+
+<details>
+ <summary>Backend</summary>
 
 * [Тестовое задание на позицию стажера-бекендера *(Go/PHP/Python,  MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/autumn-2021-intern-assignment)
 
@@ -245,24 +284,19 @@
   * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](https://catkin-gymnast-f1a.notion.site/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
 
 * [avito.tech](https://github.com/avito-tech)
- * [Тестовое задание для стажёра Backend в команду Advertising *(Go/PHP)*](https://github.com/avito-tech/adv-backend-trainee-assignment)
- * [Тестовое задание на позицию стажёра-бэкендера 2022 *(Go, MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/internship_backend_2022)
+  * [Тестовое задание для стажёра Backend в команду Advertising *(Go/PHP)*](https://github.com/avito-tech/adv-backend-trainee-assignment)
 
-* [Тестовое задание на позицию стажера-бекендера в юнит Авто (archived)](https://github.com/avito-tech/auto-backend-trainee-assignment)
+  * [Тестовое задание на позицию стажера-бекендера в юнит Авто (archived)](https://github.com/avito-tech/auto-backend-trainee-assignment)
 
-* [Тестовое задание на позицию стажера backend в юнит Geo *(any)*](https://github.com/avito-tech/geo-backend-trainee-assignment)
+  * [Тестовое задание на позицию стажера backend в юнит Geo *(any)*](https://github.com/avito-tech/geo-backend-trainee-assignment)
 
-* [Тестовое задание для стажёра Backend в команду Market Intelligence *(Python)*](https://github.com/avito-tech/mi-backend-trainee-assignment)
+  * [Тестовое задание для стажёра Backend в команду Market Intelligence *(Python)*](https://github.com/avito-tech/mi-backend-trainee-assignment)
 
-* [Тестовое задание на позицию стажера-бекендера (archived) *(any)*](https://github.com/avito-tech/msg-backend-trainee-assignment)
+  * [Тестовое задание на позицию стажера-бекендера (archived) *(any)*](https://github.com/avito-tech/msg-backend-trainee-assignment)
 
-* [Тестовое задание для стажера в юнит Merchant Experience *(Go, PostgreSQL)*](https://github.com/avito-tech/mx-backend-trainee-assignment)
+  * [Тестовое задание для стажёра Backend *(PHP)*](https://github.com/avito-tech/safedeal-backend-trainee)
 
-* [Тестовое задание для стажёра Backend *(PHP)*](https://github.com/avito-tech/safedeal-backend-trainee)
-
-* [Тестовое задание для стажёра Backend в команду Trade Marketing *(Go/PHP/Python, PostgreSQL/MySQl, Redis)*](https://github.com/avito-tech/tm-backend-trainee)
-
-* [Тестовое задание для стажера в юнит Merchant Experience *(Go, PostgreSQL)*](https://github.com/avito-tech/mx-backend-trainee-assignment)
+  * [Тестовое задание для стажёра Backend в команду Trade Marketing *(Go/PHP/Python, PostgreSQL/MySQl, Redis)*](https://github.com/avito-tech/tm-backend-trainee)
 
 * [Edstein](https://www.edstein.ru/)
   * [Тестовое задание Middle Backend-разработчик *(Ruby on Rails)*](https://docs.google.com/document/d/1uHtZQckkQXGA6occB6R9F8l9Nru1ELPFKWi7cO79dLc/edit?usp=sharing)
@@ -325,15 +359,11 @@
 
 * [Тестовое задание на позицию стажера-бекендера (archived) *(any)*](https://github.com/avito-tech/msg-backend-trainee-assignment)
 
-* [Тестовое задание стажера в юнит AvitoPRO *(Go)*](https://github.com/avito-tech/pro-backend-trainee-assignment)
-
-* [Тестовое задание на позицию стажёра-бэкендера 2022 *(Go, MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/internship_backend_2022)
-
 * [Тестовое задание на позицию стажера backend в юнит Geo *(any)*](https://github.com/avito-tech/geo-backend-trainee-assignment)
 
 * [Тестовое задание для стажёра Backend *(PHP)*](https://github.com/avito-tech/safedeal-backend-trainee)
 
-* [avito.tech](https://github.com/avito-tech)
+* [](https://github.com/avito-tech)
 [Тестовое задание для стажёра Backend в команду Advertising (Go/PHP)](https://github.com/avito-tech/adv-backend-trainee-assignment)
  
 * [Тестовое задание на позицию стажера-бекендера в юнит Авто (archived) *(Go/Python/PHP/Java/JavaScript)*](https://github.com/avito-tech/auto-backend-trainee-assignment)
@@ -345,8 +375,6 @@
 * [Тестовое задание для стажёра Backend в команду Trade Marketing *(Go/PHP/Python, PostgreSQL/MySQl, Redis)*](https://github.com/avito-tech/tm-backend-trainee)
 
 * [Тестовое задание на позицию стажера-бекендера *(Go/PHP/Python,  MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/autumn-2021-intern-assignment)
-
-* [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
 
 * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)
 
@@ -634,6 +662,24 @@
 </details>
 
 <details>
+ <summary>Go</summary>
+
+* [avito.tech](https://github.com/avito-tech)
+  * [Тестовое задание на позицию стажёра-бэкендера 2022 *(Go, MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/internship_backend_2022)
+
+  * [Тестовое задание для стажера в юнит Merchant Experience *(Go, PostgreSQL)*](https://github.com/avito-tech/mx-backend-trainee-assignment)
+
+  * [Тестовое задание на позицию стажёра-бэкендера 2022 *(Go, MySQL/PostgreSQL, Docker)*](https://github.com/avito-tech/internship_backend_2022)
+
+  * [Тестовое задание стажера в юнит AvitoPRO *(Go)*](https://github.com/avito-tech/pro-backend-trainee-assignment)
+  
+* [Тестовое задание для Golang разработчика *(Go)*](https://github.com/KazanExpress/golang-test-task)
+
+* [Test Task: In-memory cache *(eng)* *(Go)*](https://github.com/gojuno/test_tasks)
+
+</details>
+
+<details>
  <summary>iOS</summary>
 
 * [Задание для стажера на платформу iOS *(Swift)*](https://github.com/avito-tech/ios-trainee-problem-2021)
@@ -704,48 +750,6 @@
   * [Fullstack разработчик (JS + Java)](https://docs.google.com/document/d/1fodUFtPCuHyP2Hn7ly3ZsSD_GsSR_wTf/edit?usp=sharing&ouid=115639618941993452518&rtpof=true&sd=true)
 
 </details>
-
-<details>
- <summary>Manual QA</summary>
-
- * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
-   
- * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
-
-* [avito.tech](https://github.com/avito-tech)
- * [Тестовое задание для стажёра QA *(any)*](https://github.com/avito-tech/ShopX-QA-trainee)
- * [Тестовое задание для QA-стажёра *(Go/any)*](https://github.com/avito-tech/qa-trainee-general)
-
-* [Flatstack](https://www.flatstack.com)
-  * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
-
-* [HRlink](https://hr-link.ru/)
-  * [Junior QA (SQL+Python)](https://docs.google.com/document/d/1ylGFf4_p4w9S8PvRsZF0UdyeokWol3KS/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
-
-* [Matic Insurance Services](https://matic.com/)
-  * [Customer Import Platform MQA - MQA test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-test-import)
-  * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
-
-* [Purrweb](https://www.purrweb.com/ru/)
-  * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
-
-* [Sendsay](https://sendsay.ru/)
-  * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
-
-* [Tutu.ru](https://www.Tutu.ru/)
-  * [Тестовое задание для кандидата на позицию QA](https://github.com/tutu-ru/tutu-ru.github.io)
-
-* [Айтек](https://iqtek.ru/)
-  * [Задание QA engineer](https://disk.yandex.ru/d/5FQXDeZP2BaPMQ)
-
-* [ООО Крит](https://krit.pro/)
-  * [Стажер_QA](https://docs.google.com/document/d/1nwz_MlVTe30lKQ4kYKD4HVNco-IQFqQe/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
-
-* [ООО Синтека](https://cynteka.ru/)
-  * [Junior_QA](https://docs.google.com/document/d/1VecQvPkyEyPrzQvce6BvWNnDn4SYw8jL/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
- 
-</details>
-
 
 <details>
 <summary>Python</summary>
