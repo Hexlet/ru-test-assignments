@@ -1,0 +1,94 @@
+CREATE TABLE students (
+    id INT,
+    first_name VARCHAR(512),
+    middle_name VARCHAR(512),
+    last_name VARCHAR(512),
+    birthday DATE,
+    address VARCHAR(512)
+);
+
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (1, 'Nikolaj', 'Fedorovich', 'Sokolov', '2000-10-01T00:00:00.000Z', 'ul. Pushkina, d. 36, kv. 5');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (2, 'Vyacheslav', 'Evgenevich', 'Eliseev', '2000-11-21T00:00:00.000Z', 'ul. Pushkina, d. 40, kv. 7');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (3, 'Ivan', 'Antonovich', 'Efremov', '2000-09-19T00:00:00.000Z', 'ul. Pushkina, d. 58, kv. 16');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (4, 'Anatolij', 'Valentinovich', 'ZHdanov', '2007-07-15T00:00:00.000Z', 'ul. Pushkina, d. 21, kv. 7');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (5, 'Georgij', 'Dmitrievich', 'Noskov', '2000-03-03T00:00:00.000Z', 'ul. Pushkina, d. 45, kv. 65');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (6, 'Artyom', 'Borisovich', 'Sergeev', '2007-01-01T00:00:00.000Z', 'ul. Pushkina, d. 1, kv. 5');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (7, 'Arina', 'Fyodorovna', 'Evseeva', '2000-08-11T00:00:00.000Z', 'ul. Pushkina, d. 21, kv. 51');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (8, 'Angelina', 'Aleksandrovna', 'Voroncova', '2000-05-21T00:00:00.000Z', 'ul. Pervomajskaya, d. 121, kv. 5');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (9, 'Ekaterina', 'Alekseevna', 'Ustinova', '2000-01-04T00:00:00.000Z', 'ul. Pervomajskaya, d. 45, kv. 2');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (10, 'Raisa', 'Semyonovna', 'Lapina', '2000-02-05T00:00:00.000Z', 'ul. Pervomajskaya, d. 56, kv. 7');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (11, 'Leonid', 'Nikitich', 'Ignatov', '2007-12-30T00:00:00.000Z', 'ul. Pushkina, d. 78, kv. 9');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (12, 'Snezhana', 'YAkovlevna', 'Seliverstova', '2000-07-23T00:00:00.000Z', 'ul. Pushkina, d. 78, kv. 56');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (13, 'Semyon', 'Vladislavovich', 'Biryukov', '2000-09-11T00:00:00.000Z', 'ul. CHernova, d. 54, kv. 67');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (14, 'Georgij', 'Vyacheslavovich', 'Baranov', '2001-01-11T00:00:00.000Z', 'ul. CHernova, d. 56, kv. 89');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (15, 'YUliya', 'Rostislavovna', 'Vishnyakova', '2001-12-03T00:00:00.000Z', 'ul. Kuratova, d. 96, kv. 45');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (16, 'Valentina', 'Andreevna', 'Bolshakova', '2001-05-30T00:00:00.000Z', 'ul. Pervomajskaya, d. 89, kv. 67');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (17, 'Leonid', 'Romanovich', 'Kryukov', '2001-06-04T00:00:00.000Z', 'ul. Zapadnaya, d. 78, kv. 9');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (18, 'Vladislav', 'Sergeevich', 'Cvetkov', '2001-04-05T00:00:00.000Z', 'ul. Karla Marksa, d. 89, kv. 7');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (19, 'Snezhana', 'Ivanovna', 'Morozova', '2001-11-06T00:00:00.000Z', 'ul. Internacionalnaya, d. 7, kv. 9');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (20, 'Lyubov', 'Maksimovna', 'Borisova', '2001-07-12T00:00:00.000Z', 'ul. Kirova, d. 23, kv. 13');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (21, 'Anfisa', 'Antonovna', 'Kalashnikova', '2001-01-11T00:00:00.000Z', 'ul. Oplesnina, d. 4, kv. 4');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (22, 'Anna', 'Olegovna', 'Osipova', '2001-04-16T00:00:00.000Z', 'ul. CHernova, d. 32, kv. 56');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (23, 'Kristina', 'Fyodorovna', 'Myasnikova', '2001-02-03T00:00:00.000Z', 'ul. YUzhnaya, d. 45, kv. 56');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (24, 'Kristina', 'Glebovna', 'Smirnova', '2001-03-04T00:00:00.000Z', 'ul. Markova, d. 78, kv. 67');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (25, 'Boris', 'Innokentevich', 'Simonov', '2001-04-05T00:00:00.000Z', 'ul. Kuratova, d. 89, kv. 78');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (26, 'Dmitrij', 'Leonidovich', 'Trofimov', '2001-05-06T00:00:00.000Z', 'ul. Pushkina, d. 78, kv. 9');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (27, 'YAkov', 'Leonidovich', 'Rozhkov', '2001-06-07T00:00:00.000Z', 'ul. Karla Marksa, d. 45, kv. 7');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (28, 'Fyodor', 'Rostislavovich', 'Drozdov', '2001-07-08T00:00:00.000Z', 'ul. Pervomajskaya, d. 23, kv. 34');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (29, 'Gleb', 'Antonovich', 'Strelkov', '2001-08-09T00:00:00.000Z', 'ul. Zapadnaya, d. 23, kv. 13');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (30, 'Angelina', 'Aleksandrovna', 'Lukina', '2001-09-10T00:00:00.000Z', 'ul. Internacionalnaya, d. 45, kv. 7');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (31, 'Nina', 'Ilinichna', 'Odincova', '2001-10-11T00:00:00.000Z', 'ul. Kuratova, d. 4, kv. 76');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (32, 'Valeriya', 'Olegovna', 'Novikova', '2001-11-12T00:00:00.000Z', 'ul. Kirova, d. 3, kv. 56');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (33, 'Grigorij', 'Gennadevich', 'Kapustin', '2001-12-13T00:00:00.000Z', 'ul. Pervomajskaya, d. 45, kv. 6');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (34, 'Vitalij', 'Eduardovich', 'Panfilov', '2001-01-01T00:00:00.000Z', 'ul. CHernova, d. 34, kv. 87');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (35, 'Svyatoslav', 'Vyacheslavovich', 'Tarasov', '2002-01-14T00:00:00.000Z', 'ul. Pushkina, d. 5, kv. 6');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (36, 'Matvej', 'Vyacheslavovich', 'YAkushev', '2002-02-15T00:00:00.000Z', 'ul. Zapadnaya, d. 7, kv. 8');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (37, 'Ilya', 'Stepanovich', 'Alekseev', '2002-03-16T00:00:00.000Z', 'ul. Pervomajskaya, d. 9, kv. 12');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (38, 'Lyubov', 'Vyacheslavovna', 'Zaharova', '2002-04-17T00:00:00.000Z', 'ul. CHernova, d. 12, kv. 13');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (39, 'Polina', 'Kirillovna', 'Sidorova', '2002-05-18T00:00:00.000Z', 'ul. Kuratova, d. 13, kv. 14');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (40, 'Elizaveta', 'Fyodorovna', 'Samojlova', '2002-06-19T00:00:00.000Z', 'ul. Karla Marksa, d. 46, kv. 45');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (41, 'YUliya', 'Daniilovna', 'Avdeeva', '2002-07-20T00:00:00.000Z', 'ul. Internacionalnaya, d. 87, kv. 78');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (42, 'Matvej', 'Gennadevich', 'Bogdanov', '2002-08-21T00:00:00.000Z', 'ul. Pervomajskaya, d. 9, kv. 8');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (43, 'Ilya', 'Egorovich', 'Filippov', '2002-09-22T00:00:00.000Z', 'ul. CHernova, d. 100, kv. 90');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (44, 'Denis', 'Nikitich', 'Mel', '2002-10-23T00:00:00.000Z', 'ul. Kirova, d. 123, kv. 45');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (45, 'Svyatoslav', 'Valentinovich', 'Muravyov', '2002-11-24T00:00:00.000Z', 'ul. Pervomajskaya, d. 45, kv. 67');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (46, 'Anna', 'Denisovna', 'Kulagina', '2002-12-25T00:00:00.000Z', 'ul. CHernova, d. 7, kv. 78');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (47, 'ZHanna', 'Ilinichna', 'Fokina', '2002-01-26T00:00:00.000Z', 'ul. Karla Marksa, d. 8, kv. 9');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (48, 'Valeriya', 'YUrevna', 'Lapina', '2002-02-27T00:00:00.000Z', 'ul. Oplesnina, d. 78, kv. 56');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (49, 'Valentina', 'Andreevna', 'Sazonova', '2002-03-01T00:00:00.000Z', 'ul. Zapadnaya, d. 84, kv. 48');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (50, 'Nataliya', 'Igorevna', 'Myasnikova', '2002-04-02T00:00:00.000Z', 'ul. Pushkina, d. 1, kv. 23');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (51, 'Viktoriya', 'YAroslavovna', 'Makarova', '2002-05-03T00:00:00.000Z', 'ul. Kirova, d. 5, kv. 8');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (52, 'Stanislav', NULL, 'Lazarev', '2002-06-04T00:00:00.000Z', 'ul. Internacionalnaya, d. 6, kv. 9');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (53, 'Gennadij', 'Denisovich', 'Ovchinnikov', '2002-07-05T00:00:00.000Z', 'ul. Kuratova, d. 7, kv. 9');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (54, 'Roman', 'Nikolaevich', 'SHilov', '2003-08-06T00:00:00.000Z', 'ul. Pushkina, d. 56, kv. 80');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (55, 'Timur', 'Ilich', 'Subbotin', '2003-09-07T00:00:00.000Z', 'ul. Zapadnaya, d. 47, kv. 39');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (56, 'Danila', 'Ivanovich', 'Osipov', '2003-10-08T00:00:00.000Z', 'ul. CHernova, d. 78, kv. 69');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (57, 'Arina', 'Timofeevna', 'Silina', '2003-11-09T00:00:00.000Z', 'ul. CHernova, d. 75, kv. 39');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (58, 'Nadezhda', 'Ilinichna', 'Zaharova', '2003-12-10T00:00:00.000Z', 'ul. Internacionalnaya, d. 70, kv. 84');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (59, 'Larisa', 'Stanislavovna', 'SHCHerbakova', '2003-01-11T00:00:00.000Z', 'ul. Pervomajskaya, d. 94, kv. 4');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (60, 'Aleksandra', 'Andreevna', 'Belozyorova', '2003-02-12T00:00:00.000Z', 'ul. Pushkina, d. 3, kv. 21');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (61, 'Natalya', 'Nikolaevna', 'Davydova', '2003-03-13T00:00:00.000Z', 'ul. Zapadnaya, d. 4, kv. 2');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (62, 'Mariya', 'Valerievna', 'Fadeeva', '2003-04-14T00:00:00.000Z', 'ul. CHernova, d. 8, kv. 5');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (63, 'YUrij', 'Denisovich', 'Markov', '2003-05-15T00:00:00.000Z', 'ul. Kuratova, d. 9, kv. 5');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (64, 'Kirill', NULL, 'SHubin', '2003-06-16T00:00:00.000Z', 'ul. Zapadnaya, d. 6, kv. 3');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (65, 'Grigorij', 'Kirillovich', 'Kolobov', '2003-07-17T00:00:00.000Z', 'ul. CHernova, d. 9, kv. 34');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (66, 'Semyon', 'Semyonovich', 'Trofimov', '2003-08-18T00:00:00.000Z', 'ul. Karla Marksa, d. 11, kv. 56');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (67, 'Vasilij', 'Gennadevich', 'Ustinov', '2003-09-17T00:00:00.000Z', 'ul. Oplesnina, d. 11, kv. 13');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (68, 'Valentina', 'YAkovlevna', 'SHarova', '2003-10-04T00:00:00.000Z', 'ul. Pervomajskaya, d. 31, kv. 3');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (69, 'Larisa', 'Timurovna', 'Savina', '2004-11-05T00:00:00.000Z', 'ul. Zapadnaya, d. 22, kv. 33');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (70, 'Galina', 'YAroslavovna', 'Orekhova', '2004-12-07T00:00:00.000Z', 'ul. Internacionalnaya, d. 77, kv. 87');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (71, 'Arina', 'Ivanovna', 'SHarapova', '2004-01-08T00:00:00.000Z', 'ul. Kirova, d. 47, kv. 94');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (72, 'Viktoriya', 'YUrevna', 'Sergeeva', '2004-02-09T00:00:00.000Z', 'ul. Kuratova, d. 44, kv. 87');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (73, 'Vasilij', 'Glebovich', 'Krasilnikov', '2004-03-15T00:00:00.000Z', 'ul. Zapadnaya, d. 101, kv. 92');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (74, 'Timur', 'Filippovich', 'Rusakov', '2004-04-26T00:00:00.000Z', 'ul. CHernova, d. 197, kv. 56');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (75, 'Gleb', 'Timofeevich', 'Nesterov', '2004-05-05T00:00:00.000Z', 'ul. Pervomajskaya, d. 91, kv. 71');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (76, 'Denis', 'Matveevich', 'Makarov', '2004-05-09T00:00:00.000Z', 'ul. CHernova, d. 41, kv. 31');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (77, 'Elizaveta', 'Borisovna', 'SHilova', '2004-06-14T00:00:00.000Z', 'ul. Karla Marksa, d. 68, kv. 15');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (78, 'Vera', 'Lvovna', 'Evseeva', '2004-07-04T00:00:00.000Z', 'ul. Pushkina, d. 5, kv. 13');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (79, 'Margarita', 'Vladislavovna', 'Kabanova', '2004-08-08T00:00:00.000Z', 'ul. Kuratova, d. 98, kv. 67');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (80, 'Angelina', 'Danilovna', 'Lazareva', '2004-09-04T00:00:00.000Z', 'ul. Zapadnaya, d. 67, kv. 93');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (81, 'Semyon', 'Anatolevich', 'Voronov', '2004-10-05T00:00:00.000Z', 'ul. Oplesnina, d. 89, kv. 89');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (82, 'Innokentij', 'Vyacheslavovich', 'Nekrasov', '2004-01-06T00:00:00.000Z', 'ul. CHernova, d. 777, kv. 77');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (83, 'Artyom', 'Viktorovich', 'Nikitin', '2004-11-07T00:00:00.000Z', 'ul. Internacionalnaya, d. 666, kv. 7');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (84, 'Egor', 'Petrovich', 'Belyakov', '2004-12-08T00:00:00.000Z', 'ul. Zapadnaya, d. 87, kv. 9');
+INSERT INTO students (id, first_name, middle_name, last_name, birthday, address) VALUES (85, 'Elizaveta', NULL, 'Fadeeva', '2001-11-01T00:00:00.000Z', 'ul. Zapadnaya, d. 7, kv. 19');

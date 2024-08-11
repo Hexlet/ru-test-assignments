@@ -863,6 +863,9 @@
 
 * [Appbooster](https://appbooster.com/)
   * [SQL *(any SQL DB)*](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-sql-md)
+
+* [SQL Academy](https://sql-academy.org/ru/trainer)
+  * [SQL *(any SQL DB)*](/sql/sql_academy_tests.md). Задания располагаются тут `/sql/sql_academy_tests.md`.
  
 </details>
 
