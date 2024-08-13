@@ -414,6 +414,7 @@
 
 * [avito.tech](https://github.com/avito-tech)
   * [Тестовое задание на позицию стажёра-фронтендера 2022 *(React, Redux, TS)*](https://github.com/avito-tech/internship_frontend_2022)
+  * [Тестовое задание на позицию стажёра-фронтендера 2023 *(React, React Router, TS)*](https://github.com/avito-tech/frontend-trainee-assignment-2023)
   * [Тестовое задание на позицию стажёра-фронтендера 2024 *(React, React Router, TS)*](https://github.com/avito-tech/frontend-trainee-assignment-2024)
   * [Тестовое задание для стажёра frontend *(React)*](https://github.com/avito-tech/safedeal-frontend-trainee)*(отсутствует дизайн-макет по указанной ссылке)*
   * [Тестовое задание для стажёра Frontend в команду Seller Experience *(Node.JS, React, Redux)*](https://github.com/avito-tech/sx-frontend-trainee-assignment)
