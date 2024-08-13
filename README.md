@@ -515,8 +515,9 @@
   * [Frontend-разработчик](https://docs.google.com/document/d/1guSGNGsmd5JdKBTgeiik94dLIUVkVgElqOYvqO8ekZ0/edit?usp=sharing)
  
 * [Tutu.ru](https://www.Tutu.ru/)
-  * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](https://github.com/tutu-ru/frontend-javascript-test)
   * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](https://github.com/tutu-ru/fe-homework)
+  * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](https://github.com/tutu-ru/frontend-javascript-test)
+  * [Тестовое задание на позицию верстальщик *(JavaScript/jQuery, HTML, CSS)*](https://github.com/tutu-ru/frontend-html-test)
 
 * [Waliot](https://waliot.com/)
   * [Frontend Developer *(TypeScript/JavaScript, Angular/React/Vue)*](https://github.com/waliot/test-tasks/blob/master/tasks/frontend-1.md)
