@@ -388,6 +388,9 @@
 <details>
  <summary>Frontend</summary>
 
+* [23Devs](https://23devs.com/)
+  * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
+
 * [BEBOSS](https://beboss.ru/)
   * [Web-разработчик *(PHP, jQuery, YII)*](https://github.com/funkylen/beboss-test-assignments)
  
@@ -585,9 +588,6 @@
 * [Front-End Developer *(HTML, CSS, JS)*](https://github.com/JediFE/trial-assignments)
 
 * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
-
-* [Devs23](https://23devs.com/)
-  * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
  
 * [Frontend + graphql developer *(React, Github GraphQL API)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
 
