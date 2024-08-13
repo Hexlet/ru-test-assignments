@@ -396,8 +396,6 @@
 
  * [Задание на вакансию "Верстальщик лендингов", осень 2023](https://forms.yandex.ru/surveys/10033975.d66cde35b078199afc83f1e9f11cb58c5cdb22e9/?utm_source=hh&utm_medium=email&utm_content=3472582922)
  
- * [HTML/CSS/JS-разработчик *(HTML/CSS, JS, Node.js, React)*](https://dl.funbox.ru/qt-htmlcss.zip)
-
  * [Инфоматика](https://infomatika.ru/)
   * [Верстка *(HTML, CSS)*](https://github.com/some-yummy-nick/infomatika-test)
 
