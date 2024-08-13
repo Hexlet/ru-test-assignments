@@ -566,9 +566,6 @@
 * ЮТОР
   * [Стажер фронтенд разработчик, 1 этап отбора](https://docs.google.com/document/d/1BK6lOSnTEtI0V5K5idK_QJU6CC5Iv1-lhpGAGDqftkA/edit?usp=sharing)
 
-* [FunBox](https://funbox.ru/)
-  * [JS-разработчик *(JS, React)*](https://dl.funbox.ru/qt-js.pdf)
-
 * [Задание по вёрстке — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](https://github.com/yandex-shri-2018/entrance-task-2-2)
 
 * [Задание по вёрстке — ШРИ, Москва, весна 2018](https://github.com/yandex-shri-2018/entrance-task-2)
