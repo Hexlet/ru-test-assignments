@@ -401,11 +401,12 @@
 
 * [Appbooster](https://appbooster.com/)
   * [Frontend Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
- * [Frontend + graphql developer *(React, Github GraphQL API)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
- * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
+  * [Frontend + graphql developer *(React, Github GraphQL API)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
+  * [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)*
+
 
 * [Aviasales](https://aviasales.ru)
-   * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
+  * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
  * [Тестовое задание - Frontend Developer *(JS/TS)*](https://github.com/KosyanMedia/Front-end_TP_test)
  * [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](https://github.com/KosyanMedia/test-tasks/tree/master/DEPRECATED_aviasales)
 
@@ -432,8 +433,6 @@
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend Engineer — тестовое задание *(any)*](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
-
-* [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)*
 
 * [CS-Cart](https://cs-cart.com/)
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
