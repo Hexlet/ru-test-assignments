@@ -407,9 +407,6 @@
  * [Тестовое задание - Frontend Developer *(JS/TS)*](https://github.com/KosyanMedia/Front-end_TP_test)
  * [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](https://github.com/KosyanMedia/test-tasks/tree/master/DEPRECATED_aviasales)
 
-* [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
-  * [React-Native Mobile app *(React-Native CLI)*](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
-
 * [avito.tech](https://github.com/avito-tech)
   * [Тестовое задание на позицию стажёра-фронтендера 2022 *(React, Redux, TS)*](https://github.com/avito-tech/internship_frontend_2022)
   * [Тестовое задание на позицию стажёра-фронтендера 2023 *(React, React Router, TS)*](https://github.com/avito-tech/frontend-trainee-assignment-2023)
@@ -464,6 +461,9 @@
 
 * [Hammer Systems](https://hammer.systems/)
   * [Тестовое задание для Frontend разработчика](https://disk.yandex.ru/d/R74ptnVnK5xpPA)
+
+* [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
+  * [React-Native Mobile app *(React-Native CLI)*](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
 
 * [Ivelum](https://ivelum.com/)
   * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/frontend.md)
