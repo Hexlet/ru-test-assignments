@@ -484,6 +484,9 @@
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/ostrovok-team/code-challenge/tree/master/js)
 
+* [Oxem Studio](https://oxem.ru)
+  * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
+
 * [pixlpark](https://pixlpark.ru/)
   * [Frontend-разработка *(React, MobX)*](https://gist.github.com/paraekklisiarh/c03c97ae553a0038962fb945644392cf)
 
@@ -562,9 +565,6 @@
 
 * ЮТОР
   * [Стажер фронтенд разработчик, 1 этап отбора](https://docs.google.com/document/d/1BK6lOSnTEtI0V5K5idK_QJU6CC5Iv1-lhpGAGDqftkA/edit?usp=sharing)
-
-* [Oxem Studio](https://oxem.ru)
-  * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
 
 * [FunBox](https://funbox.ru/)
   * [JS-разработчик *(JS, React)*](https://dl.funbox.ru/qt-js.pdf)
