@@ -448,7 +448,7 @@
   * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](https://github.com/devjsru/react_test)*(отсутствует дизайн-макет по указанной ссылке)*
 
 * [Flatstack](https://www.flatstack.com)
-  * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/fs/test-tasks/tree/master/front-end)*(отсутствует дизайн-макет по указанным ссылкам)*
+  * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/fs/test-tasks/tree/master/front-end)
 
 * [Future](https://future-group.ru/)
   * [Фронтенд-разработчик 1 *(React, Docker, TS)*](https://github.com/fugr-ru/frontend-javascript-test)
