@@ -519,6 +519,7 @@
 
 * [Waliot](https://waliot.com/)
   * [Frontend Developer *(TypeScript/JavaScript, Angular/React/Vue)*](https://github.com/waliot/test-tasks/blob/master/tasks/frontend-1.md)
+  * [Angular Developer *(TypeScript, Angular, NgRX, NGXS)*](https://github.com/waliot/test-tasks/blob/master/tasks/frontend-2.md)
 
 * [Wargaming.net](https://wargaming.com)
   * [Тестовое задание WG Forge Platform Front-End *(JS, Node.js)*](https://github.com/wgnet/wg_forge_frontend)
