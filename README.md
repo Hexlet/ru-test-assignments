@@ -511,7 +511,7 @@
   * [JavaScript Developer *(JS, Vue.js)*](https://github.com/smenateam/assignments/blob/master/site-frontend/README.md)
   * [TypeScript Developer *(TS, React)*](https://github.com/smenateam/assignments/blob/master/erp-frontend/README.md)
 
-* [Studika](https://studika.ru/)
+* [~~Studika~~](https://studika.ru/) *студия закрыта*
   * [Frontend-разработчик](https://docs.google.com/document/d/1guSGNGsmd5JdKBTgeiik94dLIUVkVgElqOYvqO8ekZ0/edit?usp=sharing)
  
 * [Tutu.ru](https://www.Tutu.ru/)
