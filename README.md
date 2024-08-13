@@ -516,6 +516,7 @@
  
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](https://github.com/tutu-ru/frontend-javascript-test)
+  * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](https://github.com/tutu-ru/fe-homework)
 
 * [Waliot](https://waliot.com/)
   * [Frontend Developer *(TypeScript/JavaScript, Angular/React/Vue)*](https://github.com/waliot/test-tasks/blob/master/tasks/frontend-1.md)
@@ -560,9 +561,6 @@
 
 * [Yoldi](https://yoldi.agency/development)
   * [Тестовое задание для вакансии фронтенд разработчик в Yoldi](https://yoldi-agency.notion.site/Yoldi-7552752e30964431ab0ca03d54908148)
-
-* [Tutu.ru](https://www.Tutu.ru/)
-  * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](https://github.com/tutu-ru/fe-homework)
 
 * [Oxem Studio](https://oxem.ru)
   * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
