@@ -488,6 +488,9 @@
 
 * [pixlpark](https://pixlpark.ru/)
   * [Frontend-разработка *(React, MobX)*](https://gist.github.com/paraekklisiarh/c03c97ae553a0038962fb945644392cf)
+  
+* [Poizon api](https://pixlpark.ru/)
+  * [Frontend-разработчик *(React, TypeScript)*](https://almond-card-6a9.notion.site/7f304b11d2514f4d96ea4fb1be3776ac)
 
 * [Redsoft](https://redsoft.ru)
   * [Frontend-разработчик *(JS, Vue.js, Node.js)*](https://docs.google.com/document/d/1Vamqwl3MaXDFOMcEBTVsvoZhADblO-CcBVqVKs3Pij0)
