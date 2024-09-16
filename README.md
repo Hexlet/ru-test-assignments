@@ -388,38 +388,32 @@
 <details>
  <summary>Frontend</summary>
 
+* [23Devs](https://23devs.com/)
+  * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
+
+* [Appbooster](https://appbooster.com/)
+  * [Frontend Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
+  * [Frontend + graphql developer *(React, Github GraphQL API)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
+  * [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)*
+
+* [Aviasales](https://aviasales.ru)
+  * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
+ * [Тестовое задание - Frontend Developer *(JS/TS)*](https://github.com/KosyanMedia/Front-end_TP_test)
+ * [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](https://github.com/KosyanMedia/test-tasks/tree/master/DEPRECATED_aviasales)
+
+* [avito.tech](https://github.com/avito-tech)
+  * [Тестовое задание на позицию стажёра-фронтендера 2022 *(React, Redux, TS)*](https://github.com/avito-tech/internship_frontend_2022)
+  * [Тестовое задание на позицию стажёра-фронтендера 2023 *(React, React Router, TS)*](https://github.com/avito-tech/frontend-trainee-assignment-2023)
+  * [Тестовое задание на позицию стажёра-фронтендера 2024 *(React, React Router, TS)*](https://github.com/avito-tech/frontend-trainee-assignment-2024)
+  * [Тестовое задание для стажёра frontend *(React)*](https://github.com/avito-tech/safedeal-frontend-trainee)*(отсутствует дизайн-макет по указанной ссылке)*
+  * [Тестовое задание для стажёра Frontend в команду Seller Experience *(Node.JS, React, Redux)*](https://github.com/avito-tech/sx-frontend-trainee-assignment)
+  * [Тестовое задание для стажёра Frontend в команду Avito People *(React, MobX, TS, Node.JS)*](https://github.com/avito-tech/ap-frontend-trainee-assignment)
+
 * [BEBOSS](https://beboss.ru/)
   * [Web-разработчик *(PHP, jQuery, YII)*](https://github.com/funkylen/beboss-test-assignments)
  
 * [BeeJee NINJA Developers](https://beejee.org/)
   * [Web-разработчик *(PHP)*](https://docs.google.com/document/d/1Wn_BBhmrF8S5iwgqo5cH63GAM6XTXLi4glp7ZxammIM/edit?usp=sharing)
-
- * [Задание на вакансию "Верстальщик лендингов", осень 2023](https://forms.yandex.ru/surveys/10033975.d66cde35b078199afc83f1e9f11cb58c5cdb22e9/?utm_source=hh&utm_medium=email&utm_content=3472582922)
- 
- * [HTML/CSS/JS-разработчик *(HTML/CSS, JS, Node.js, React)*](https://dl.funbox.ru/qt-htmlcss.zip)
-
- * [Инфоматика](https://infomatika.ru/)
-  * [Верстка *(HTML, CSS)*](https://github.com/some-yummy-nick/infomatika-test)
-
-* [Appbooster](https://appbooster.com/)
-  * [Frontend Developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md)
- * [Frontend + graphql developer *(React, Github GraphQL API)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
- * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
-
-* [Aviasales](https://aviasales.ru)
-   * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
- * [Тестовое задание - Frontend Developer *(JS/TS)*](https://github.com/KosyanMedia/Front-end_TP_test)
- * [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](https://github.com/KosyanMedia/test-tasks/tree/master/DEPRECATED_aviasales)
-
-* [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
-  * [React-Native Mobile app *(React-Native CLI)*](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
-
-* [avito.tech](https://github.com/avito-tech)
-  * [Тестовое задание на позицию стажёра-фронтендера 2022 *(React, Redux, TS)*](https://github.com/avito-tech/internship_frontend_2022)
-  * [Тестовое задание на позицию стажёра-фронтендера 2024 *(React, React Router, TS)*](https://github.com/avito-tech/frontend-trainee-assignment-2024)
-  * [Тестовое задание для стажёра frontend *(React)*](https://github.com/avito-tech/safedeal-frontend-trainee)*(отсутствует дизайн-макет по указанной ссылке)*
-  * [Тестовое задание для стажёра Frontend в команду Seller Experience *(Node.JS, React, Redux)*](https://github.com/avito-tech/sx-frontend-trainee-assignment)
-  * [Тестовое задание для стажёра Frontend в команду Avito People *(React, MobX, TS, Node.JS)*](https://github.com/avito-tech/ap-frontend-trainee-assignment)
 
 * [BellIntegrator](http://www.bellintegrator.ru/)
   * [Тестовое задание Frontend JS *(JS, JQuery, HTML5, CSS3)*](https://docs.google.com/document/d/1YWJGDKB1pLrox6Y4CNm15Nuu_EVcAHIciYUHWYrDNDY/edit?usp=sharing)
@@ -433,8 +427,6 @@
 * [Chatfuel](https://chatfuel.com/)
   * [Frontend Engineer — тестовое задание *(any)*](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
   * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
-
-* [html-верстальщик *(JS, HTML/CSS)*](https://github.com/appbooster/test-assignments/blob/master/tasks/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)*
 
 * [CS-Cart](https://cs-cart.com/)
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/cscart/apply-for-job/tree/master/backend/developer)
@@ -450,7 +442,7 @@
   * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](https://github.com/devjsru/react_test)*(отсутствует дизайн-макет по указанной ссылке)*
 
 * [Flatstack](https://www.flatstack.com)
-  * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/fs/test-tasks/tree/master/front-end)*(отсутствует дизайн-макет по указанным ссылкам)*
+  * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/fs/test-tasks/tree/master/front-end)
 
 * [Future](https://future-group.ru/)
   * [Фронтенд-разработчик 1 *(React, Docker, TS)*](https://github.com/fugr-ru/frontend-javascript-test)
@@ -463,6 +455,9 @@
 
 * [Hammer Systems](https://hammer.systems/)
   * [Тестовое задание для Frontend разработчика](https://disk.yandex.ru/d/R74ptnVnK5xpPA)
+
+* [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
+  * [React-Native Mobile app *(React-Native CLI)*](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
 
 * [Ivelum](https://ivelum.com/)
   * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/frontend.md)
@@ -485,6 +480,9 @@
 
 * [Ostrovok.ru](https://ostrovok.ru)
   * [Frontend Developer *(JS, HTML, CSS)*](https://github.com/ostrovok-team/code-challenge/tree/master/js)
+
+* [Oxem Studio](https://oxem.ru)
+  * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
 
 * [pixlpark](https://pixlpark.ru/)
   * [Frontend-разработка *(React, MobX)*](https://gist.github.com/paraekklisiarh/c03c97ae553a0038962fb945644392cf)
@@ -513,17 +511,23 @@
   * [JavaScript Developer *(JS, Vue.js)*](https://github.com/smenateam/assignments/blob/master/site-frontend/README.md)
   * [TypeScript Developer *(TS, React)*](https://github.com/smenateam/assignments/blob/master/erp-frontend/README.md)
 
-* [Studika](https://studika.ru/)
+* [~~Studika~~](https://studika.ru/) *студия закрыта*
   * [Frontend-разработчик](https://docs.google.com/document/d/1guSGNGsmd5JdKBTgeiik94dLIUVkVgElqOYvqO8ekZ0/edit?usp=sharing)
  
 * [Tutu.ru](https://www.Tutu.ru/)
+  * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](https://github.com/tutu-ru/fe-homework)
   * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](https://github.com/tutu-ru/frontend-javascript-test)
+  * [Тестовое задание на позицию верстальщик *(JavaScript/jQuery, HTML, CSS)*](https://github.com/tutu-ru/frontend-html-test)
 
 * [Waliot](https://waliot.com/)
   * [Frontend Developer *(TypeScript/JavaScript, Angular/React/Vue)*](https://github.com/waliot/test-tasks/blob/master/tasks/frontend-1.md)
+  * [Angular Developer *(TypeScript, Angular, NgRX, NGXS)*](https://github.com/waliot/test-tasks/blob/master/tasks/frontend-2.md)
 
 * [Wargaming.net](https://wargaming.com)
   * [Тестовое задание WG Forge Platform Front-End *(JS, Node.js)*](https://github.com/wgnet/wg_forge_frontend)
+
+* [Yoldi](https://yoldi.agency/development)
+  * [Тестовое задание для вакансии фронтенд разработчик в Yoldi](https://yoldi-agency.notion.site/Yoldi-7552752e30964431ab0ca03d54908148)
 
 * [Армо](http://armo.ru/)
   * [Junior Frontend *(JSc+ Electron, Python + Tornado)*](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
@@ -533,6 +537,9 @@
 
 * [Домотехника](https://domotekhnika.ru/)
   * [Тестовое задание Frontend *(Vue.js)*](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
+
+* [Инфоматика](https://infomatika.ru/)
+  * [Верстка *(HTML, CSS)*](https://github.com/some-yummy-nick/infomatika-test)
 
 * [Квартирка](https://kvartirka.com/)
   * [Frontend-разработчик,  Junior+ *(JS, React/Next.js/TypeScript)*](https://docs.google.com/document/d/1bSC3hgaYe69FJFKKNFHKokJ2Rs0bxkYQ9ixnBS8xn-M/edit)
@@ -559,17 +566,7 @@
 * ЮТОР
   * [Стажер фронтенд разработчик, 1 этап отбора](https://docs.google.com/document/d/1BK6lOSnTEtI0V5K5idK_QJU6CC5Iv1-lhpGAGDqftkA/edit?usp=sharing)
 
-* [Yoldi](https://yoldi.agency/development)
-  * [Тестовое задание для вакансии фронтенд разработчик в Yoldi](https://yoldi-agency.notion.site/Yoldi-7552752e30964431ab0ca03d54908148)
-
-* [Tutu.ru](https://www.Tutu.ru/)
-  * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](https://github.com/tutu-ru/fe-homework)
-
-* [Oxem Studio](https://oxem.ru)
-  * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
-
-* [FunBox](https://funbox.ru/)
-  * [JS-разработчик *(JS, React)*](https://dl.funbox.ru/qt-js.pdf)
+* [Задание на вакансию "Верстальщик лендингов", осень 2023](https://forms.yandex.ru/surveys/10033975.d66cde35b078199afc83f1e9f11cb58c5cdb22e9/?utm_source=hh&utm_medium=email&utm_content=3472582922)
 
 * [Задание по вёрстке — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](https://github.com/yandex-shri-2018/entrance-task-2-2)
 
@@ -590,11 +587,6 @@
 * [Front-End Developer *(HTML, CSS, JS)*](https://github.com/JediFE/trial-assignments)
 
 * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend) *(сервер тестового задания не работает)*
-
-* [Тестовое задание для frontend web-разработчика [cloud-storage-client] [*(Vue.js)*](https://spiky-sky-d11.notion.site/frontend-web-cloud-storage-client-fa687ddac81d4088a2e1e4ca6dd499f1)
-
-* [Devs23](https://23devs.com/)
-  * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
  
 * [Frontend + graphql developer *(React, Github GraphQL API)*](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend-graphql.md)
 
