@@ -861,12 +861,27 @@
 <details>
  <summary>SQL</summary>
 
+* [Airbnb](https://sql-academy.org/ru/trainer)
+  * [SQL *(any SQL DB)*](sql/airbnb/airbnb_sql_tests.md)
+
+* [Alfabank](https://sql-academy.org/ru/trainer)
+  * [SQL *(any SQL DB)*](sql/alfabank/alfabank_sql_tasks.md)
+
 * [Appbooster](https://appbooster.com/)
   * [SQL *(any SQL DB)*](https://gist.github.com/KELiON/949731e077656ce036fa6114e7b47d2d#file-sql-md)
 
-* [SQL Academy](https://sql-academy.org/ru/trainer)
-  * [SQL *(any SQL DB)*](/sql/sql_academy_tests.md). Задания располагаются тут `/sql/sql_academy_tests.md`.
- 
+* [Domclick](https://sql-academy.org/ru/trainer)
+  * [SQL *(any SQL DB)*](sql/domclick/domclick_sql_tests.md)
+
+* [Samokat](https://sql-academy.org/ru/trainer)
+  * [SQL *(any SQL DB)*](sql/samokat/samokat_sql_tests.md)
+
+* [Sberbank](https://sql-academy.org/ru/trainer)
+  * [SQL *(any SQL DB)*](sql/sberbank/sberbank_sql_tests.md)
+
+* [VK](https://sql-academy.org/ru/trainer)
+  * [SQL *(any SQL DB)*](sql/vk/vk_sql_tests.md)
+
 </details>
 
 
