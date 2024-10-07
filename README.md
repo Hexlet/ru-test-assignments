@@ -774,6 +774,10 @@
 
 * [Тестовое задание для стажера Python elasticsearch](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
 
+* [Тестовое UpTrader](https://docs.google.com/document/d/1XTnbcXhejyGB-I2cHRiiSZqI3ElHzqDJeetwHkJbTa8)
+
+* [Тестовое Python Developer](https://drive.google.com/file/d/1ElH6YRA7f9dmKbT4e0HNeR1u4Cxq-rRX)
+
 </details>
 
 
