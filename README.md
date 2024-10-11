@@ -226,6 +226,8 @@
   *  [Test task for position QA Specialist // *Java или C#*](https://github.com/n1mnull/QATestLab/blob/51b315d7d2ff011ce8255fb09a88bd6401891600/README.md)
 
 * [Тестовое задание по автоматизации действий в поисковой строке Яндекса для *tensor.ru*](https://github.com/warumbaum/Tensor-Yandex)
+
+* [Тестовое задание QA Auto Python от Effective Mobile](https://docs.google.com/document/d/142ZofwnxhSAg5lzcfTAF6DM38kA4eI1IbmcRzl-A8sA)
  
 </details>
 
