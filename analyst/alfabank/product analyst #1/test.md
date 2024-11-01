@@ -76,7 +76,7 @@ insert into #segment values
 Партнерская витрина - это набор предложений партнеров банка, которые
 предоставляют различного рода скидки нашим клиентам.
 
-![test]([https://github.com/artengin/ru-test-assignments/analyst/alfabank//test.png](https://raw.githubusercontent.com/artengin/ru-test-assignments/refs/heads/main/analyst/alfabank/product%20analyst%20%231/test.png))
+![test](https://raw.githubusercontent.com/artengin/ru-test-assignments/refs/heads/main/analyst/alfabank/product%20analyst%20%231/test.png)
 
 На витрину можно перейти разными способами: через внешние и внутренние
 коммуникации (SMS, email, push, баннеры/уведомления внутри приложения).
