@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Weekend Offer для продуктовых аналитиков – тестовое задание </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b99d5131-1f1b-4a77-a3e1-9f797d680ebb" class="page sans"><header><h1 class="page-title">Weekend Offer для продуктовых аналитиков – тестовое задание </h1><p class="page-description"></p></header><div class="page-body"><nav id="8e7ab7ca-9441-47df-9d41-7b97fdc19b24" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#414e834d-1745-4753-955f-58fcdfca7977">Интро</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#bad01570-e05c-4088-ba41-bff01e15bccb">Блок 1: SQL</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6455ccc9-c4ca-459d-a920-7a2c22547ecb">Интро</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#9cbd5566-b95d-4195-b6cb-270aed5b30ec">Таблицы с данными</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d2dca2af-5513-4d69-9ffb-908f329ec919">Документация</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#6a08a74f-1698-4418-b8bd-cdb775693973">Описание таблиц</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a94b6eff-c44d-4ff0-a980-a493e9ea3bd2">Задания</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#ecd2ffbb-ad3e-4844-87af-5bb56abd7527">Задание 1</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#4db646af-2a82-4f08-9b5f-09d83cd8f64d">Задание 2</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d3094557-268e-42b1-a333-fda0dee54fb3">Задание 3</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3dc38be8-8e93-417f-b56c-a82cf09ebad2">Блок 2: Анализ результатов эксперимента</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#46b48585-576b-486c-af38-e3c5ae72cafe">Интро</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ae34002e-468c-4d44-85ec-4f8907d4a1e7">Задание 1</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#84566169-aac1-4e75-baa1-2d9788078556">Задание 2</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#87e7816d-be89-4c36-86d8-4258376d11d4">Блок 3: Продуктовые навыки</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5056e21f-d4ca-447e-8909-9b00f9662b37">Интро</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#01d7e3b2-0aed-4b2e-8fe5-2eb72abc1894">Задания</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#0a59cc9d-9b75-4e69-b015-75b4ec12d98c">Задание 1</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d3059dc5-685c-49f8-a42e-7f583292cbcb">Задание 2</a></div></nav><h1 id="414e834d-1745-4753-955f-58fcdfca7977" class="">Интро</h1><p id="3b4603b6-fff5-4144-bf9e-85c7ea9e8589" class="">Привет! В октябре мы впервые проводим Weekend Offer в команде продуктовой аналитики Kaspi.kz. Подробнее можно прочитать здесь: <a href="https://hr.kaspi.kz/weekendoffer">https://hr.kaspi.kz/weekendoffer</a></p><p id="25284851-dfcc-4fd5-b3ff-dd9a8862b760" class="">Чтобы участвовать в Weekend Offer, Вам нужно выполнить тестовое задание. Как выполнить тестовое задание:</p><ul id="2357398f-9865-4cbc-9bf6-75fa8cafa091" class="bulleted-list"><li style="list-style-type:disc">Обязательно пришлите нам на почту <a href="mailto:weekend_offer@kaspi.kz">weekend_offer@kaspi.kz</a> адрес своей почты на Gmail (и укажите ваши имя и фамилию) – мы дадим на этот адрес доступ к таблицам с данными в Google BigQuery для выполнения ТЗ. </li></ul><ul id="18474234-0481-4282-9471-41e60e399bc1" class="bulleted-list"><li style="list-style-type:disc">Выполните все задания, решение оформите в <a href="https://docs.google.com/">Google Docs</a> или Notion. Настройте доступ на просмотр Вашего файла с решением по ссылке.</li></ul><ul id="ed593898-9d09-4306-8316-12966a121428" class="bulleted-list"><li style="list-style-type:disc">Выполненное тестовое задание отправьте по ссылке: <a href="https://hr.kaspi.kz/productanalyst-weekendoffer/form_task">https://hr.kaspi.kz/productanalyst-weekendoffer/form_task</a></li></ul><ul id="802e244c-3853-424d-abf4-ef7a756418d1" class="bulleted-list"><li style="list-style-type:disc">Мы пришлем Вам сообщение с результатом на указанные в заявке телефон и email.</li></ul><h1 id="bad01570-e05c-4088-ba41-bff01e15bccb" class="">Блок 1: SQL</h1><h2 id="6455ccc9-c4ca-459d-a920-7a2c22547ecb" class="">Интро</h2><h3 id="9cbd5566-b95d-4195-b6cb-270aed5b30ec" class="">Таблицы с данными</h3><p id="982a5834-73e0-4131-91cc-3990bbbf216b" class="">Для выполнения задания мы подготовили 3 таблицы с данными. Таблицы хранятся в Google BigQuery, для написания запросов и обработки данных предлагаем воспользоваться встроенным редактором. BigQuery поддерживает диалект Standard SQL.</p><ul id="250aeed6-ceb7-408a-8dc6-3b943c07b1db" class="bulleted-list"><li style="list-style-type:disc">Чтобы начать работу в Google BigQuery, нужно войти в Google Cloud Platform, для этого перейдите по ссылке <a href="https://console.cloud.google.com/bigquery?project=kaspi-mobile">https://console.cloud.google.com/bigquery?project=kaspi-mobile</a>. </li></ul><ul id="937ac432-74a1-4980-8de4-3233244ecc42" class="bulleted-list"><li style="list-style-type:disc">В левом верхнем меню раскройте проект kaspi-mobile, где можно найти набор данных hiring_pa_task, в котором хранятся все нужные вам таблицы:</li></ul><figure id="6e6b24b5-5c24-440b-b4ec-232186c944f0" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-31_at_3.08.14_PM.png"><img style="width:288px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-31_at_3.08.14_PM.png"/></a></figure><ul id="f58c9913-8bb6-4bed-a01d-b7ff72fa64b5" class="bulleted-list"><li style="list-style-type:disc">При клике на название таблицы в информационном окне справа можно посмотреть детальные сведения о ней:<ul id="559ae993-6ace-4fba-ae0e-dfb06ec194c8" class="bulleted-list"><li style="list-style-type:circle">схему данных (названия полей, их тип и режим);</li></ul><ul id="67224fa8-990b-486f-a056-600f56f8a82d" class="bulleted-list"><li style="list-style-type:circle">общие сведения (размер таблицы, число строк, дата последнего изменения и пр.);</li></ul><ul id="e6770fe9-6c2f-4c2f-89e7-5785d64cf942" class="bulleted-list"><li style="list-style-type:circle">предварительный просмотр данных.</li></ul></li></ul><h3 id="d2dca2af-5513-4d69-9ffb-908f329ec919" class="">Документация</h3><ul id="2e1bc4ec-db1b-45d4-a9bb-5593d63c747e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://cloud.google.com/bigquery/docs">Здесь</a> можно ознакомиться с документацией по работе с Google BigQuery. </li></ul><ul id="82246d26-1e8f-4754-b393-33e9e948cded" class="bulleted-list"><li style="list-style-type:disc"><a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators">Здесь</a> можно ознакомиться с функциями и операторами, используемыми в Standard SQL.</li></ul><h3 id="6a08a74f-1698-4418-b8bd-cdb775693973" class="">Описание таблиц</h3><p id="a8844c5e-0630-43d3-ba5b-8f6767861d27" class="">У вас есть доступ к трем таблицам с данными (все данные приведены для примера, любые совпадения случайны):</p><ol type="1" id="c2ed2a49-b6ef-4ee6-8dc5-3b05f253b93f" class="numbered-list" start="1"><li>Таблица `kaspi-mobile.hiring_pa_task.pa_hiring_task` с данными по воронкам в Kaspi Travel (Авиа) c 3 по 14 июля 2022. <pre id="cda07394-b189-4be3-86c2-53efa437fdd3" class="code"><code>-- Пример простого запроса
+
+SELECT * FROM `kaspi-mobile.hiring_pa_task.pa_hiring_task`</code></pre><p id="2a8297c9-9b13-4b18-a4a4-56cf430311c7" class=""><strong>Описание таблицы</strong></p><p id="6bef994d-e180-461f-a5d0-b0c14c531163" class="">Таблица содержит данные о просмотрах экранов пользователями в виде событий (events). Ниже приведено описание событий:</p><table id="a61dce13-d7d5-41fc-98c3-beaeed7821f5" class="simple-table"><thead class="simple-table-header"><tr id="67104ae0-9213-4ecb-bbee-8f9a251ac3fe"><th id="}[Wl" class="simple-table-header-color simple-table-header" style="width:43px">№</th><th id="gPN:" class="simple-table-header-color simple-table-header" style="width:272px">Экран/действие</th><th id="GR}&gt;" class="simple-table-header-color simple-table-header" style="width:258.796875px">Название события</th><th id="M]p`" class="simple-table-header-color simple-table-header" style="width:192px">Комментарии</th></tr></thead><tbody><tr id="7a8a380e-bc3e-4759-8b28-f0c54a28975d"><td id="}[Wl" class="" style="width:43px">1</td><td id="gPN:" class="" style="width:272px">Просмотр формы поиска билета</td><td id="GR}&gt;" class="" style="width:258.796875px">travel_search_form</td><td id="M]p`" class="" style="width:192px"></td></tr><tr id="2e0437c8-5e80-48a8-9675-346303841cff"><td id="}[Wl" class="" style="width:43px">2</td><td id="gPN:" class="" style="width:272px">Просмотр экрана “Ищем билеты, пожалуйста, подождите”</td><td id="GR}&gt;" class="" style="width:258.796875px">travel_search_in_progress</td><td id="M]p`" class="" style="width:192px"></td></tr><tr id="3fbd0c33-2aad-4fcb-b51d-35e2d28c4591"><td id="}[Wl" class="" style="width:43px">3</td><td id="gPN:" class="" style="width:272px">Просмотр экрана с результатами поисковой выдачи</td><td id="GR}&gt;" class="" style="width:258.796875px">travel_search_results</td><td id="M]p`" class="" style="width:192px"></td></tr><tr id="8de2160a-ce5e-41eb-b67c-2b6b579f6fa2"><td id="}[Wl" class="" style="width:43px">4</td><td id="gPN:" class="" style="width:272px">Просмотр экрана с деталями перелета</td><td id="GR}&gt;" class="" style="width:258.796875px">travel_flight_details</td><td id="M]p`" class="" style="width:192px"></td></tr><tr id="0c7b8c6a-ef27-409c-873c-8400e1d37873"><td id="}[Wl" class="" style="width:43px">5</td><td id="gPN:" class="" style="width:272px">Просмотр экрана с подтверждением выбранного тарифа</td><td id="GR}&gt;" class="" style="width:258.796875px">travel_tariff_confirmation</td><td id="M]p`" class="" style="width:192px"></td></tr><tr id="9c427d49-b39a-42f3-a7cd-e790a8ed5fb5"><td id="}[Wl" class="" style="width:43px">6</td><td id="gPN:" class="" style="width:272px">Просмотр экрана выбора пассажиров</td><td id="GR}&gt;" class="" style="width:258.796875px">travel_select_passenger</td><td id="M]p`" class="" style="width:192px"></td></tr><tr id="dc115444-661b-492b-8ebe-4b23223f2fab"><td id="}[Wl" class="" style="width:43px">7</td><td id="gPN:" class="" style="width:272px">Просмотр экрана выбора способа оплаты</td><td id="GR}&gt;" class="" style="width:258.796875px">travel_payment_method</td><td id="M]p`" class="" style="width:192px"></td></tr><tr id="49663c6a-632f-4c6f-9140-38f22600bb7d"><td id="}[Wl" class="" style="width:43px">8</td><td id="gPN:" class="" style="width:272px">Просмотр финального экрана – успешной оплаты</td><td id="GR}&gt;" class="" style="width:258.796875px">1) travel_card_payment_approved, 
+2) travel_credit_approved</td><td id="M]p`" class="" style="width:192px">1) оплата с Kaspi Gold
+2) оплата в кредит</td></tr></tbody></table><p id="f2efe384-8d95-43e5-afef-a4725636e621" class="">Каждое событие содержит набор полей (event_properties). Ниже приведено описание полей:</p><table id="1f4c14a6-7dc3-4775-8305-f1ea4e3d22ea" class="simple-table"><thead class="simple-table-header"><tr id="39b950a0-60ab-4195-9b77-1a47439a3e4a"><th id="wa`]" class="simple-table-header-color simple-table-header" style="width:49px">№</th><th id="sY]M" class="simple-table-header-color simple-table-header" style="width:266.875px">Название поля</th><th id="YyAm" class="simple-table-header-color simple-table-header" style="width:332px">Описание</th></tr></thead><tbody><tr id="7e10ba9e-efa1-486b-9dcb-c615ddca316e"><td id="wa`]" class="" style="width:49px">1</td><td id="sY]M" class="" style="width:266.875px">date</td><td id="YyAm" class="" style="width:332px">дата совершения события</td></tr><tr id="e4811500-727e-44b9-8143-edcb9e92e525"><td id="wa`]" class="" style="width:49px">2</td><td id="sY]M" class="" style="width:266.875px">timestamp</td><td id="YyAm" class="" style="width:332px">дата и время совершения события</td></tr><tr id="c27cd234-2740-4ac7-a9e4-39be61596a4a"><td id="wa`]" class="" style="width:49px">3</td><td id="sY]M" class="" style="width:266.875px">u_id</td><td id="YyAm" class="" style="width:332px">уникальный идентификатор пользователя</td></tr><tr id="ce78f518-4479-44d6-b3fd-5f069737de0c"><td id="wa`]" class="" style="width:49px">4</td><td id="sY]M" class="" style="width:266.875px">event</td><td id="YyAm" class="" style="width:332px">название события, возможные значения мы перечислили выше</td></tr><tr id="84475120-adb1-43a1-9ca9-879db11c7cc4"><td id="wa`]" class="" style="width:49px">5</td><td id="sY]M" class="" style="width:266.875px">d_cty_name</td><td id="YyAm" class="" style="width:332px">название города отправления</td></tr><tr id="358b9c4e-a800-41b0-afdd-77335e97bdc0"><td id="wa`]" class="" style="width:49px">6</td><td id="sY]M" class="" style="width:266.875px">d_ctry_name</td><td id="YyAm" class="" style="width:332px">название страны отправления</td></tr><tr id="baa0d17e-e06c-41fc-966a-3ebd9989c4de"><td id="wa`]" class="" style="width:49px">7</td><td id="sY]M" class="" style="width:266.875px">d_cty_code</td><td id="YyAm" class="" style="width:332px">код города отправления</td></tr><tr id="b5344971-cec6-4035-9c1b-8df188d7ce6e"><td id="wa`]" class="" style="width:49px">8</td><td id="sY]M" class="" style="width:266.875px">a_ctry_name</td><td id="YyAm" class="" style="width:332px">название страны прибытия</td></tr><tr id="6bd13a8e-1b8b-4125-a59a-fc8bcbba2c11"><td id="wa`]" class="" style="width:49px">9</td><td id="sY]M" class="" style="width:266.875px">a_ctry_code</td><td id="YyAm" class="" style="width:332px">код страны прибытия</td></tr><tr id="4866d076-e986-4eba-99b7-7938f1e127c3"><td id="wa`]" class="" style="width:49px">10</td><td id="sY]M" class="" style="width:266.875px">a_cty_name</td><td id="YyAm" class="" style="width:332px">название города прибытия</td></tr><tr id="76de159f-81ed-441b-9b39-53bee07d8464"><td id="wa`]" class="" style="width:49px">11</td><td id="sY]M" class="" style="width:266.875px">a_cty_code</td><td id="YyAm" class="" style="width:332px">код города прибытия</td></tr></tbody></table></li></ol><ol type="1" id="8b3b30b4-2702-4e9e-87f1-efe9fa8ebd79" class="numbered-list" start="2"><li>Таблица `kaspi-mobile.hiring_pa_task.pa_hiring_task_experiment_data`, где хранятся данные по эксперименту в Kaspi Travel c 3 по 14 июля 2022:<pre id="db8ba44a-64a1-4e62-8715-4d0915bbdc7b" class="code"><code>-- Пример простого запроса
+
+SELECT * FROM `kaspi-mobile.hiring_pa_task.pa_hiring_task_experiment_data`</code></pre><p id="489dcb0a-ee6b-43ab-a1ca-1a963e0a3e2b" class=""><strong>Описание таблицы</strong></p><p id="1f0c90e8-0f50-4853-8e3d-dc5bdfd49bb0" class="">Таблица содержит данные о пользователях, которые участвовали в тесте в виде событий (events). Каждое событие содержит набор полей (event_properties). Ниже приведено описание полей:</p><table id="09d9a4bf-626c-44d6-b1b5-1df2619049ae" class="simple-table"><thead class="simple-table-header"><tr id="c4dad7f2-cc15-4c0e-8876-14eea9c6ba8c"><th id="s;rt" class="simple-table-header-color simple-table-header" style="width:40px">№</th><th id="pMpa" class="simple-table-header-color simple-table-header">Название поля</th><th id="CRmg" class="simple-table-header-color simple-table-header" style="width:371px">Описание</th></tr></thead><tbody><tr id="54bb59e6-78cc-4dee-b7c6-e9367dad277a"><td id="s;rt" class="" style="width:40px">1</td><td id="pMpa" class="">u_id</td><td id="CRmg" class="" style="width:371px">уникальный идентификатор пользователя</td></tr><tr id="5868e789-e893-4929-84f9-fb90c504281c"><td id="s;rt" class="" style="width:40px">2</td><td id="pMpa" class="">event</td><td id="CRmg" class="" style="width:371px">название события</td></tr><tr id="01df8bb2-95cf-488a-998c-9857100196f1"><td id="s;rt" class="" style="width:40px">3</td><td id="pMpa" class="">fork</td><td id="CRmg" class="" style="width:371px">признак ветки (контрольная, тестовая)</td></tr><tr id="0819a7a3-6414-4bd2-b13c-e725e5d885d6"><td id="s;rt" class="" style="width:40px">4</td><td id="pMpa" class="">date</td><td id="CRmg" class="" style="width:371px">дата совершения события</td></tr></tbody></table></li></ol><ol type="1" id="10f3dae2-598b-499d-9156-8f965b010214" class="numbered-list" start="3"><li>Таблица `kaspi-mobile.hiring_pa_task.has_avia_transactions`, где хранятся идентификаторы пользователей Kaspi, которые хотя бы раз совершали покупки билетов в Kaspi Travel:<pre id="9c357465-6d0d-4c51-934b-566e118ba135" class="code"><code>-- Пример простого запроса
+
+SELECT * FROM `kaspi-mobile.hiring_pa_task.has_avia_transactions`</code></pre><p id="070b81bf-5063-43e6-bd54-ebbaad7e62a1" class=""><strong>Поля таблицы</strong></p><table id="6c939acb-90fe-499f-86f0-2c023bad6cd2" class="simple-table"><thead class="simple-table-header"><tr id="15e1ccfa-7bb8-42f4-a8e6-96c9a0d4e452"><th id="s;rt" class="simple-table-header-color simple-table-header" style="width:36px">№</th><th id="rZss" class="simple-table-header-color simple-table-header">Название поля</th><th id="CRmg" class="simple-table-header-color simple-table-header" style="width:365px">Описание</th></tr></thead><tbody><tr id="bfe213e2-cc68-4a06-b0df-57e2e8761aa6"><td id="s;rt" class="" style="width:36px">1</td><td id="rZss" class="">u_id</td><td id="CRmg" class="" style="width:365px">уникальный идентификатор пользователя</td></tr></tbody></table></li></ol><h2 id="a94b6eff-c44d-4ff0-a980-a493e9ea3bd2" class="">Задания</h2><h3 id="ecd2ffbb-ad3e-4844-87af-5bb56abd7527" class="">Задание 1</h3><p id="58af3117-9b77-4aa1-af39-d1d5d1c178fb" class="">Посчитайте, сколько пользователей хотя бы раз купили билет в кредит за все время. </p><p id="8aa99ec2-8949-40a4-99eb-b7992f3f2846" class=""><strong>Ожидаемый результат: </strong></p><ul id="b5b8bc1f-8681-4bdc-ad51-88b7f4b89c49" class="bulleted-list"><li style="list-style-type:disc">Текст SQL-запроса, примерный вид:<pre id="84f29c60-235e-44c5-88e5-bb5ec2af0d78" class="code code-wrap"><code>SELECT column1, column2, column3, ...
+FROM `table_name`
+WHERE ...</code></pre></li></ul><ul id="32cfe167-e803-4633-bda5-6cd5bbc87edf" class="bulleted-list"><li style="list-style-type:disc">Полученный ответ, примерный формат:<figure id="4af68b1a-daf7-4fc5-8aa8-c5530bd19a6c" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/sql3-3.png"><img style="width:288px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/sql3-3.png"/></a></figure></li></ul><h3 id="4db646af-2a82-4f08-9b5f-09d83cd8f64d" class="">Задание 2</h3><p id="df4bb5b1-3af7-43a2-97fd-1af70f7368d1" class="">Посчитайте конверсию из просмотра результатов поисковой выдачи в покупку в выходные дни на международные направления в разрезе по сегментам новых/повторных за все время. </p><figure id="4643ab74-a397-4105-a995-26d40d593ad9" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-26_at_5.26.59_PM.png"><img style="width:773px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-26_at_5.26.59_PM.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="64cadc4c-32e0-4ae3-9b09-645f334906ec"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Обратите внимание:<ul id="01c392cf-52c9-4bd4-8503-1ffcffeb23fe" class="bulleted-list"><li style="list-style-type:disc">международный перелет – это перелет, в котором страна отправления и/или страна прилета – не Казахстан;</li></ul><ul id="ab137637-8cea-4e9d-9a03-c82048b277a2" class="bulleted-list"><li style="list-style-type:disc">мы делим клиентов на два сегмента: новые — еще ни разу не покупали билет, повторные — хотя бы раз покупали билет;</li></ul><ul id="a2bc6b6b-b881-4e7f-8b9b-cd32cd2c7409" class="bulleted-list"><li style="list-style-type:disc">идентификаторы клиентов, которые хотя бы раз покупали билет, и, соответсвенно, считаются повторными, хранятся в таблице: `kaspi-mobile.hiring_pa_task.has_avia_transactions`;</li></ul><ul id="d3ad5957-d6a3-4edb-b97d-c6be34f7445a" class="bulleted-list"><li style="list-style-type:disc">при подсчете числа пользователей на втором шаге (экран покупки) нужно учитывать только тех, кто был на первом шаге (экран с результатами);</li></ul><ul id="9c45a0b1-21df-4ca1-8564-e53608a97de0" class="bulleted-list"><li style="list-style-type:disc">значение конверсии нужно округлить до десятых.</li></ul></div></figure><p id="67982fad-2a79-4afd-af44-533b6bf5dcc2" class=""><strong>Ожидаемый результат</strong></p><ul id="139685e2-888f-4d23-999a-21917e7995a4" class="bulleted-list"><li style="list-style-type:disc">Текст SQL-запроса, примерный вид:<pre id="0675ccf5-6482-4be6-be0e-c721dfcad6f7" class="code code-wrap"><code>SELECT column1, column2, column3, ...
+FROM `table_name`
+WHERE ...</code></pre></li></ul><ul id="3e36146f-3ef3-4af0-8c9f-35ba701430ae" class="bulleted-list"><li style="list-style-type:disc">Полученный ответ, примерный формат:<figure id="6c568e9a-7578-4697-a850-1c449a822279" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Picture11111.png"><img style="width:1999px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Picture11111.png"/></a></figure></li></ul><h3 id="d3094557-268e-42b1-a333-fda0dee54fb3" class="">Задание 3</h3><p id="cd82b27c-1d14-4138-8bfb-d48a48e53d98" class="">Посчитайте конверсию из просмотра формы поиска в просмотр результатов поисковой выдачи, по дням c 3 по 14 июля 2022.</p><figure id="f7f5ca93-7111-4688-bbeb-608338b16042" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-27_at_10.29.55_AM.png"><img style="width:902px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-27_at_10.29.55_AM.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f170e83e-005a-4f4e-8f78-cd0a6e731533"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Обратите внимание:<ul id="228fff24-4715-4489-a78a-b6962d506c21" class="bulleted-list"><li style="list-style-type:disc">при подсчете числа пользователей на втором шаге (экран с результатами поисковой выдачи) нужно учитывать только тех, кто был на первом шаге (форма поиска);</li></ul><ul id="b759f57c-1b52-4e36-9fd2-641887761003" class="bulleted-list"><li style="list-style-type:disc">оба шага воронки клиент должен пройти в один день;</li></ul><ul id="410cb039-b502-442a-aeea-19447f08f4fa" class="bulleted-list"><li style="list-style-type:disc">значение конверсии нужно округлить до десятых.</li></ul></div></figure><p id="80bfaf7a-39cd-4908-a41c-8f554da98495" class=""><strong>Ожидаемый результат</strong></p><ul id="03ac04ec-e8e6-4f6c-a81a-a0409e1e6f46" class="bulleted-list"><li style="list-style-type:disc">Текст SQL-запроса, примерный вид:</li></ul><pre id="888ada74-ae03-449f-a477-e027f27a28db" class="code code-wrap"><code>SELECT column1, column2, column3, ...
+FROM `table_name`
+WHERE ...</code></pre><ul id="d9554431-f3d2-424d-b650-e10cce75cda7" class="bulleted-list"><li style="list-style-type:disc">Таблица с полученными данными. Примерный формат таблицы:<figure id="1c27df8f-48f5-446a-a20a-def0ce777582" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/slq2-1.png"><img style="width:1381px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/slq2-1.png"/></a></figure></li></ul><h1 id="3dc38be8-8e93-417f-b56c-a82cf09ebad2" class="">Блок 2: Анализ результатов эксперимента</h1><h2 id="46b48585-576b-486c-af38-e3c5ae72cafe" class="">Интро</h2><p id="89bf8388-667e-46f8-8826-198b257d14bd" class="">С 3 по 14 июля 2022 был запущен А/Б-тест в Kaspi Travel, в рамках которого в тестовой ветке добавили подпись о количестве оставшихся билетов по указанной цене:</p><figure id="9b507b86-a209-4b29-aea6-6a0a322ba8ad" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-25_at_3.00.52_PM.png"><img style="width:789px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-25_at_3.00.52_PM.png"/></a></figure><p id="4c15daa9-2b1a-4bb9-948d-7e8df7bc8b4b" class=""><strong>Клиентская история</strong>: Я смотрю билеты на будущую поездку, чтобы проверить наличие билетов, даты рейсов, авиаперевозчика, цены и т.д.</p><p id="88902d0d-cea7-4983-834d-23225f1315b2" class=""><strong>Проблема</strong>: Есть пользователи, которые смотрят билеты заранее, например, за 2 недели до путешествия, но откладывают покупку на пару дней. Через пару дней билеты могут закончиться.</p><p id="7e9760c5-fda0-4f70-b6d8-9445818c81c4" class=""><strong>Гипотеза</strong>: <em>Мы предполагаем, что добавление информации о количестве оставшихся билетов по текущей цене повысит конверсию в покупку на 5%, потому что пользователи будут понимать выгоду от покупки в текущем моменте. </em></p><p id="22576332-2d03-44e7-9abe-b9b313b9ce37" class=""><strong>Решение</strong>: Добавить в результаты поиска информацию о количестве оставшихся билетов по текущей цене на определенный рейс.  </p><p id="a64e5a0e-9d37-4d5f-848b-9857d439a2e4" class=""><strong>Целевая метрика</strong>: Конверсия из просмотра результатов поисковой выдачи в покупку.</p><p id="f972526c-6973-4cc1-a1ae-afd5d3c2ffbf" class=""><strong>Момент попадания в тест</strong>: Просмотр экрана с результатами поисковой выдачи. </p><p id="10c7db82-40ec-4fbf-80b9-55aafd93a4c7" class=""><strong>Базовая конверсия</strong>: 9%</p><figure id="a8ca6bec-71eb-4ab8-8f89-0bd0adc3b2b4" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-26_at_5.26.59_PM%201.png"><img style="width:773px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Screen_Shot_2022-08-26_at_5.26.59_PM%201.png"/></a></figure><p id="d6189f35-9705-4c27-8b94-887a2ac5cf81" class=""><strong>Описание теста</strong>: В момент попадания в тест отправляется событие ‘viewed_experiment’ с параметром fork (признак ветки теста).</p><p id="422acb00-eb4d-4e4e-af23-e7d4c2caeb66" class="">Контрольная ветка:</p><pre id="5ca66d9e-52b0-4036-ac93-8f341ddb01c6" class="code"><code>WHERE event = &#x27;viewed_experiment&#x27;
+  AND fork = &#x27;control&#x27;</code></pre><p id="4c2c6d53-f93a-4777-8f37-45e05c15bf2f" class="">Тестовая ветка:</p><pre id="a7c0648e-8b94-4975-9d38-89a709882332" class="code"><code>WHERE event = &#x27;viewed_experiment&#x27;
+  AND fork = &#x27;last-seats&#x27;</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1934c50e-6204-4149-92f0-29831c37fe3b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Обрати внимание:<ul id="cf39caa6-7e56-4ee3-a679-71d01486b604" class="bulleted-list"><li style="list-style-type:disc">все шаги воронки клиент должен пройти в один день;</li></ul><ul id="c5ba19d2-0ced-4db8-ab6b-3216bd02e11c" class="bulleted-list"><li style="list-style-type:disc">значение конверсии нужно округлить до десятых. </li></ul></div></figure><h2 id="ae34002e-468c-4d44-85ec-4f8907d4a1e7" class="">Задание 1</h2><p id="3d7b8fbc-7828-41db-beb7-b7516cce7e2a" class="">Напишите SQL-запросы:</p><ul id="a70f1425-03ec-4bd7-8ea9-42b594c8ee33" class="bulleted-list"><li style="list-style-type:disc">посчитайте и сравните конверсию в покупку в обеих ветках:<ul id="25805fc6-04dd-41c0-bdca-11c4f01dc616" class="bulleted-list"><li style="list-style-type:circle">по всем пользователям без разделения на сегменты,</li></ul><ul id="f8898891-2067-49b5-9042-075f8ac4b709" class="bulleted-list"><li style="list-style-type:circle">по сегментам:<ul id="52fe5c9b-ddb0-4b65-8f1a-d3ece322d351" class="bulleted-list"><li style="list-style-type:square">тип перелета (международный, внутренний),</li></ul><ul id="06a8c0f5-0732-45da-93fb-b173ee100c42" class="bulleted-list"><li style="list-style-type:square">по опыту прошлых покупок у пользователей (новые, повторные).</li></ul></li></ul><ul id="bc3064e9-b9a2-47fd-b1a4-a2a358b407e6" class="bulleted-list"><li style="list-style-type:circle">посчитайте дополнительные метрики, которые считаете важными для анализа результатов.</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1041ceb7-5dee-4e4e-af4f-ccf1196e7d6c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Обратите внимание:<p id="1b9056aa-529b-493d-85e0-74af59472336" class="">Идентификаторы клиентов, которые хотя бы раз покупали билет, и, соответсвенно, считаются повторными, хранятся в таблице:
+`kaspi-mobile.hiring_pa_task.has_avia_transactions`. </p></div></figure></li></ul><p id="3bf83ee4-be02-4bab-934a-0e068cbc3d30" class=""><strong>Ожидаемый результат</strong></p><ul id="10dc3bdd-4908-4017-8aa3-bc3265fb811e" class="bulleted-list"><li style="list-style-type:disc">Тексты всех SQL-запросов</li></ul><h2 id="84566169-aac1-4e75-baa1-2d9788078556" class="">Задание 2</h2><p id="5ce13188-50a3-46c8-b15b-1ec3721a3d86" class="">Вам нужно принять решение о раскатке данного функционала по итогам А/Б-теста. Как вы считаете, стоит ли нам его раскатить?</p><p id="a1ab8cc4-c54d-496f-a87b-9c6abac6168a" class="">Предлагаем при выполнении принять во внимание следующие пункты: </p><ol type="1" id="65f76aab-5be3-4456-95f0-254b281a6194" class="numbered-list" start="1"><li>Увеличилась ли конверсия в тестовой ветке? Если да, то насколько? </li></ol><ol type="1" id="954762c0-029b-4752-a5ad-af93bbbcf660" class="numbered-list" start="2"><li>Можем ли мы принять решение о раскатке на полученных данных? Хватает ли нам данных, чтобы заметить статистически значимые различия? </li></ol><ol type="1" id="f062c823-2b20-438d-b567-2bca3667cc97" class="numbered-list" start="3"><li>Отличаются ли результаты в зависимости от типа перелета?</li></ol><ol type="1" id="92f0e93c-11a7-40b2-a0e3-3671bbec4734" class="numbered-list" start="4"><li>Отличаются ли результаты в зависимости от опыта прошлых покупок?</li></ol><ol type="1" id="caa218c3-daa0-409b-96ae-1aebf517938d" class="numbered-list" start="5"><li>Есть ли дополнительные метрики, которые мы можем замерить и которые нам могут быть интересны в контексте анализа итогов?</li></ol><p id="7321eff9-6bdf-4003-8394-26c5e877064a" class=""><strong>Ожидаемый результат</strong><div class="indented"><ul id="dd371dbf-4dc8-4285-a91b-fcb356797bd7" class="bulleted-list"><li style="list-style-type:disc">Ответ по пунктам 1-5 в произвольной форме</li></ul></div></p><h1 id="87e7816d-be89-4c36-86d8-4258376d11d4" class="">Блок 3: Продуктовые навыки</h1><h2 id="5056e21f-d4ca-447e-8909-9b00f9662b37" class="">Интро</h2><p id="36f0ba6c-bd4c-43ee-a2d4-62cbfa244478" class="">В бэклоге продакт-менеджера авиабилетов в Kaspi Travel есть идеи по увеличению конверсии новых пользователей в покупку:</p><ul id="638cd046-bc55-45ab-993c-647d2f6b22b7" class="bulleted-list"><li style="list-style-type:disc">группировка прямых рейсов на странице результатов (ниже – пример реализации в Aviasales),</li></ul><figure id="6ba2582e-86d3-4c64-b8a8-c8dba84cdeb6" class="image" style="text-align:left"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Untitled.jpeg"><img style="width:240px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Untitled.jpeg"/></a></figure><ul id="8a10d8be-c2c9-471f-bcc0-ac19bbc25a6d" class="bulleted-list"><li style="list-style-type:disc">подписка на цены билетов на дату (ниже – пример реализации в Aviasales),</li></ul><figure id="905ed06a-a3ec-42e4-947e-fc3f62428316" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Untitled%201.jpeg"><img style="width:240px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Untitled%201.jpeg"/></a></figure><figure id="8791c9c7-bb2e-44a7-9606-099e3e7ff6ae" class="image"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Untitled%202.jpeg"><img style="width:240px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Untitled%202.jpeg"/></a></figure><ul id="503ffdb8-51a8-4ba1-a07a-01d46e770c4e" class="bulleted-list"><li style="list-style-type:disc">метки “Самый дешевый”, “Самый быстрый” на билетах в выдаче билетов (ниже – пример реализации в Aviasales).</li></ul><figure id="10b36e24-e66a-420b-aff4-91adba04c9f4" class="image" style="text-align:left"><a href="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Untitled%203.jpeg"><img style="width:240px" src="Weekend%20Offer%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%20%E2%80%93%20%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%20b99d51311f1b4a77a3e19f797d680ebb/Untitled%203.jpeg"/></a></figure><h2 id="01d7e3b2-0aed-4b2e-8fe5-2eb72abc1894" class="">Задания</h2><h3 id="0a59cc9d-9b75-4e69-b015-75b4ec12d98c" class="">Задание 1</h3><p id="577612ea-a99f-4462-86fa-a2e419e53c07" class="">Помогите продакт-менеджеру оценить потенциал каждой из идей и приоритизировать  бэклог. Для этого подумайте и опишите:</p><ul id="b20be528-573d-4099-be85-e412ecf5bbbd" class="bulleted-list"><li style="list-style-type:disc">Какая клиентская проблема или потребность может скрываться за каждой идеей? <ul id="2e1bac31-f496-4c01-a726-ea82992cef29" class="bulleted-list"><li style="list-style-type:circle">Как бы вы оценили, сколько пользователей может сталкиваться с этой проблемой? </li></ul><ul id="e7a332ff-d37e-46f2-b097-5bba85a6c84f" class="bulleted-list"><li style="list-style-type:circle">Как бы вы валидировали эту проблему / потребность (проверили и доказали, что она действительно есть у пользователей)? </li></ul></li></ul><ul id="22505df6-d36c-42c0-bc13-b910f8aecdfc" class="bulleted-list"><li style="list-style-type:disc">На какие показатели может повлиять предлагаемое решение (фича)? <ul id="3b829ce4-8d53-42ce-896f-12762bf37ea2" class="bulleted-list"><li style="list-style-type:circle">Как бы вы оценили, какое конкретно влияние на эти показатели она окажет?</li></ul></li></ul><ul id="e653b30b-0f3c-439e-af0b-13b8f49ebcca" class="bulleted-list"><li style="list-style-type:disc">Какой принцип вы бы предложили использовать, чтобы сравнить потенциал идей между собой и приоритизировать бэклог?</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="56783d4b-598a-4169-8990-78ead973b0eb"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Обратите внимание:<ul id="dc2c8d59-acbb-4e65-88bc-7b614708b20b" class="bulleted-list"><li style="list-style-type:disc">Можете исходить из того, что вам доступны любые данные о поведении пользователей в Travel.</li></ul></div></figure><h3 id="d3059dc5-685c-49f8-a42e-7f583292cbcb" class="">Задание 2</h3><p id="10eee9ef-fa7c-48d0-89b1-6f68e5d86b69" class="">Выберите из бэклога идею, получившую наибольший приоритет при выполнении предыдущего задания. Предположим, вы с продакт-менеджером решили запустить A/B-тест для проверки влияния предлагаемой фичи на показатели продукта. Опишите: </p><ul id="ed14db30-a27c-43e4-8c58-21df7337d030" class="bulleted-list"><li style="list-style-type:disc">Как бы вы подготовили А/Б-тест?</li></ul><ul id="9573e723-020f-493a-a832-6fff3c815222" class="bulleted-list"><li style="list-style-type:disc">Как бы анализировали результаты теста и какие решения принимали в зависимости от результатов?</li></ul></div></article></body></html>
