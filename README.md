@@ -361,7 +361,7 @@
 <details>
  <summary>C, C++</summary>
 
-* [C-разработчик *(C/C++)*](https://dl.funbox.ru/qt-c.pdf)
+* ~~[C-разработчик *(C/C++)*]~~ Ссылка удалена, нерабочая
 
 </details>
 
