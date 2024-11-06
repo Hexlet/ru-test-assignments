@@ -1,6 +1,3 @@
-> ![](media/image1.png){width="2.6979166666666665in"
-> height="0.5833333333333334in"}
-
 Case Study for Product Analytics Candidates
 ===========================================
 
@@ -99,51 +96,28 @@ The dataset “learning\_sessions.csv” contains learning session data of
 subscribers in their eight weeks with Babbel, starting with the time of
 subscription. Each row represents a unique learning session.[^1]
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------
-  > **Column name**               > **Definitions**
-  ------------------------------- ------------------------------------------------------------------------------------------------------------- -----
-  > uuid                          > String, user identifier
-
-  > subscription\_started\_at     > Timestamp of the start of the subscription (in UTC)
-
-  > age                           > String, age bracket of the user
-
-  > motivation                    > String, answer to question during registration: What is the main reason you want to learn a new language?
-
-  > subscription\_type            > String, type of the user’s subscription
-                                  
-                                  -   Core (Standard access to all experiences except Live)
-                                  
-                                  -   Live (Access to all experiences + Live)
-                                  
-
-  > geo\_area                     > String, indicates the geographic areas that the subscription purchased from
-                                  
-                                  -   ESM (English speaking other than U.S.A)
-                                  
-                                  -   GSM (German speaking)
-                                  
-                                  -   FIM (French speaking)
-                                  
-                                  -   SPM (Spanish speaking)
-                                  
-                                  -   USA
-                                  
-
-  > learning\_activity            > String, indicates the learning activity used in the session
-
-  > learning\_os                  > String, indicates the operating system of the user’s device
-
-  > learning\_language            > String, indicates the language the user is learning
-
-  > session\_ended\_as            > String, state in which the session was ended (completed, aborted, missing)
-
-  > session\_started\_at          > Timestamp of learning session start (in UTC)
-
-  > session\_local\_started\_at   > Timestamp of learning session start in user’s local timezone
-
-  > time\_spent                   > Float, minutes spent learning
-  ---------------------------------------------------------------------------------------------------------------------------------------------------
+| Column name             | Definitions                                                                                           |
+|-------------------------|-------------------------------------------------------------------------------------------------------|
+| `uuid`                  | `String`, user identifier                                                                             |
+| `subscription_started_at` | Timestamp of the start of the subscription (in UTC)                                                 |
+| `age`                   | `String`, age bracket of the user                                                                     |
+| `motivation`            | `String`, answer to question during registration: "What is the main reason you want to learn a new language?" |
+| `subscription_type`     | `String`, type of the user’s subscription                                                             |
+|                         | ● Core (Standard access to all experiences except Live)                                               |
+|                         | ● Live (Access to all experiences + Live)                                                             |
+| `geo_area`              | `String`, indicates the geographic areas that the subscription was purchased from                    |
+|                         | ● ESM (English speaking other than U.S.A)                                                             |
+|                         | ● GSM (German speaking)                                                                              |
+|                         | ● FIM (French speaking)                                                                              |
+|                         | ● SPM (Spanish speaking)                                                                             |
+|                         | ● USA                                                                                                |
+| `learning_activity`     | `String`, indicates the learning activity used in the session                                        |
+| `learning_os`           | `String`, indicates the operating system of the user’s device                                        |
+| `learning_language`     | `String`, indicates the language the user is learning                                                |
+| `session_ended_as`      | `String`, state in which the session was ended (completed, aborted, missing)                         |
+| `session_started_at`    | Timestamp of learning session start (in UTC)                                                         |
+| `session_local_started_at` | Timestamp of learning session start in user’s local timezone                                      |
+| `time_spent`            | `Float`, minutes spent learning    
 
 [^1]: This dataset originates from actual user behavior but we sampled,
     anonymised it, and changed some details here and there so as not to
