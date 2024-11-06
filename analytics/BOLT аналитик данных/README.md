@@ -2,23 +2,17 @@
 
 Attached is a report extract from our financial program for one month in 2017 (numbers modified).
 
-Please create a report or dashboard that:
+Please create a report or dashboard which:
 
-1. **Compares actuals to budgeted figures**:
-   - Monthly
-   - Year-to-date (YTD)
-2. **Displays monthly trends in actuals**
+1. **compares actuals to budgeted figures monthly and YTD,**:
+2. **shows ability to see monthly trends in actuals**
 
 ### Detail Level
 
-1. Group data by company and by country
-2. Cover a minimum period of 3 months
-3. Include the following metrics:
-   - Revenue
-   - Cost of Sales
-   - Total Expenses
-   - Profit
+1. Group company together and per countries
+2. 3 months period (min)
+3. Revenue, Cost of sales, Total expenses and Profit.
 
-Since you only have one month of actual data, feel free to generate the additional 2 months of actuals and 3 months of budgeted numbers using any logic you find appropriate.
+As you only have one month actuals then feel free to use whatever logic to generate those extra 2 months of actuals and 3 months of budgeted numbers.
 
-There are no right or wrong solutions—this task is designed to showcase your approach to finance data. If there are any ambiguities, feel free to make reasonable assumptions.
+There are no right or wrong solutions as this is meant to show your way of thinking and how you approach finance data.  Which also means that if you have questions then create your own truth.
