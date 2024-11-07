@@ -65,8 +65,8 @@ insert into #segment values
 
 <p float="left">
   <img src="media/1.png" width="200" />
-  <img src="media/1.png" width="200" />
-  <img src="media/1.png" width="200" />
+  <img src="media/2.png" width="200" />
+  <img src="media/3.png" width="200" />
 </p>
 
 На витрину можно перейти разными способами: через внешние и внутренние
