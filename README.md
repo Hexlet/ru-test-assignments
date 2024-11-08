@@ -359,13 +359,6 @@
 </details>
 
 <details>
- <summary>C, C++</summary>
-
-* [C-разработчик *(C/C++)*](https://dl.funbox.ru/qt-c.pdf)
-
-</details>
-
-<details>
  <summary>Data Scientist</summary>
 
 * [BST Digital](https://bst.digital/)
