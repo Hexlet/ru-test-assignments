@@ -359,13 +359,6 @@
 </details>
 
 <details>
- <summary>C, C++</summary>
-
-* ~~[C-разработчик *(C/C++)*]~~ Ссылка удалена, нерабочая
-
-</details>
-
-<details>
  <summary>Data Scientist</summary>
 
 * [BST Digital](https://bst.digital/)
