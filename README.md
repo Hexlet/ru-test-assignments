@@ -24,171 +24,171 @@
  <summary>Аналитик</summary>
  
 * [Amazon](https://www.amazon.com/)
-  * [Тестовое задание для аналитика *(Python, SQL)*](https://drive.google.com/drive/folders/1Om9a_KAL4GrZKsRvFlqhsfryjwrPYWZW)
+  * [Тестовое задание для аналитика *(Python, SQL)*](./analytics/Amazon/README.md)
 
 * [Aviasales](https://aviasales.ru)
-  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/19pwYCnUdS2tkiekHYKzpRIqCDgYUdqli)
+  * [Тестовое задание для продуктового аналитика](./analytics/Aviasales%20Продуктовый%20аналитик/README.md)
 
 * [avito.tech](https://github.com/avito-tech)
-  * [Тестовое задания для аналитика](https://drive.google.com/drive/folders/1cBUI7Qsed_7wp-yYOxBd3NseVZZ5CEEi)
+  * [Тестовое задания для аналитика](./analytics/Avito/)
 
 * [Awem](https://awem.com/)
-  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1s4h4K29JEDYXIZXtIAmMjZbp9PHeV5ic)
+  * [Тестовое задание для продуктового аналитика](./analytics/AWEM%20продуктовый%20аналитик/README.md)
 
 * [Babbel](https://babbel.com/)
-  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1wNb27gq4JxrbSFBSkFCcrnb8Bjhs8WYM)
+  * [Тестовое задание для продуктового аналитика](./analytics/Babbel%20Продуктовый%20Аналитик/README.md)
 
 * [BOLT](https://bolt.eu/)
-  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/15O4odYKqRpmXSQtLgD0fbvjshIa1_TWX)
+  * [Тестовое задание для аналитика данных](./analytics/BOLT%20аналитик%20данных/README.md)
 
 * [Chibbis](https://chibbis.ru/)
-  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1R_RgzWhcAb4l1XoMCHzuYM-JdH_PbWDn)
+  * [Тестовое задание для продуктового аналитика](./analytics/Chibbis%20Продуктовый%20аналитик/README.md)
 
 * [Cian](https://cian.ru/)
-  * [Тестовое задание для аналитика *(SQL)*](https://drive.google.com/drive/folders/1ziQs9oEab9eENnuArVTVVZWLsljKDQqO)
+  * [Тестовое задание для аналитика *(SQL)*](./analytics/Cian%20Аналитик/README.md)
 
 * [CloudReports](https://cloudreports.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/10oIsaqsZoOK49QO3uxw_8UuxaXfI6tl0)
+  * [Тестовое задание для аналитика](./analytics/CloudReports%20Аналитик%20данных/README.md)
 
 * [Crazy Panda](https://crazypanda.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/17VMzVwew-SkXdsbZXxaeDDGEUQXYhKxn)
+  * [Тестовое задание для аналитика](./analytics/Crazy%20Panda%20Аналитик%20Данных/README.md)
 
 * [Delivery](https://market-delivery.yandex.ru/moscow?shippingType=delivery)
-  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1ytwdhsT11IxXGU7Jav9WhV2GqVBo2PJH)
+  * [Тестовое задание для аналитика данных](./analytics/Delivery%20Аналитик%20Данных/)
 
 * [Dodo Brands](https://dodobrands.io/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1psIKzvNN3-vtvKHVi8SbCrg-jngtWgaS)
+  * [Тестовое задание для аналитика](./analytics/Dodo%20Brands%20Data%20Analyst/README.md)
 
 * [Driveback](https://vc.ru/s/driveback/details/all)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/11HFrOt2QF3h1swIe8lwuzhVjgwM0ksgT)
+  * [Тестовое задание для аналитика](./analytics/Driveback%20Аналитик/README.md)
 
 * [Elfsight](https://elfsight.com/)
-  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1JkF9GW-El59XVcdpR-g6UfYO8sKwIssw)
+  * [Тестовое задание для продуктового аналитика](./analytics/Elfsight%20Product%20Analyst/README.md)
 
 * [FriendsOnly](https://friendsonly.ru/)
-  * [Тестовое задание для продуктового аналитика *(SQL, PYTHON, R)*](https://drive.google.com/drive/folders/113sKiIAF3YMCcah1VSojHiW3YIRYILqe)
+  * [Тестовое задание для продуктового аналитика *(SQL, PYTHON, R)*](./analytics/FriendsOnly%20Продуктовый%20Аналитик/README.md)
 
  * [Genius Sport](https://geniussports.com/)
-  * [Тестовое задание для аналитика, Reporting Analyst](https://drive.google.com/drive/folders/1aqfEfITwbt3aqzJ15Et7XD6uwwFXcy7M)
+  * [Тестовое задание для аналитика, Reporting Analyst](./analytics/Genius%20Sport%20Reporting%20Analyst/)
 
 * [Happy Games Studio](https://www.hgstudio.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1HNEZgaccltEHCEbC-fiiMuHzur5jFPxh)
+  * [Тестовое задание для аналитика](./analytics/Happy%20Games%20Studio%20Аналитик%20Данных/README.md)
 
 * [Home Credit Bank](https://home.bank/)
-  * [Тестовое задание для Руководителя отдела аналитики *(PostgreSQL, Python)*](https://drive.google.com/drive/folders/1pF55pb-o9pyIt-oiPsMAfPJeoojItvC4)
+  * [Тестовое задание для Руководителя отдела аналитики *(PostgreSQL, Python)*](./analytics/Home%20Credit%20Bank%20Руководитель%20Отдела%20Аналитики%20/README.md)
 
 * [ivi](https://www.ivi.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1t1YPyDecBiLLhLE6fwMwfBLgS7583x2i)
+  * [Тестовое задание для аналитика](./analytics/ivi/README.md)
 
 * [Kaspi.kz](https://kaspi.kz/)
-  * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1wZ9S0QHaCNvNrVNxgSYxptBSaeVUX74U)
+  * [Тестовое задание для продуктового аналитика *(SQL)*](./analytics/Kaspi.kz%20продуктовый%20аналитик/Weekend%20Offer%20для%20продуктовых%20аналитиков%20–%20тестово%20b99d51311f1b4a77a3e19f797d680ebb.html)
 
 * [Lesta](https://lesta.ru/ru)
-  * [Тестовое задание для аналитика данных *(SQL)*](https://drive.google.com/drive/folders/1-8SRmxsZiezLvVtINR_VPgm5_908lpN3)
+  * [Тестовое задание для аналитика данных *(SQL)*](./analytics/LESTA%20Аналитик%20Данных/README.md)
 
 * [MARS](https://rus.mars.com/)
-  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1e_OMZjTO3WA3s8Em7Df4rpjrllqZNmhP)
+  * [Тестовое задание для аналитика данных](./analytics/Марс%20Аналитик%20данных/)
 
 * [Mediascope](https://mediascope.net/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/17MJaFDH5tj9oO8uBUTu33QTI7cJ64AWx)
+  * [Тестовое задание для аналитика](./analytics/MediaScope%20Аналитик%20Данных/README.md)
  
 * [MediaSoft](https://mediasoft.team/)
   * [Тестовое задание. Системный / Бизнес-аналитик *(any)*](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
 
 * Nortas Analitics
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1Y8qnmQunaCpIf-jzud9f-jnB_t74EVaC)
+  * [Тестовое задание для аналитика](./analytics/Nortas%20Analitics%20Аналитик%20данных/README.md)
 
 * [Ozon](https://www.ozon.ru/)
   * [Тестовое задание для аналитика *(SQL)*](https://drive.google.com/drive/folders/1IjyT-jC8VHKCkru2Wuq-0fCDZnMNtQBO)
 
 * [Realweb Camp](https://realweb-camp.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1vnIVQFrnPSXDD-YAiHfu1uc7se5x6ZMu)
+  * [Тестовое задание для аналитика](./analytics/Realweb%20Camp%20Analytics/README.md)
 
 * [Skypro](https://sky.pro/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/12Dk5mj04RR7ThE_ONd0CivF4r8ok2uqG)
+  * [Тестовое задание для аналитика](./analytics/Skypro%20Data%20Analyst/README.md)
  
 * [Teikametrics](https://www.teikametrics.com/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1uE_AM2IFSxP33393KYrNE8RQqoTREfvU)
+  * [Тестовое задание для аналитика](./analytics/Teikametrics%20Analyst/README.md)
 
 * [Tinkoff](https://www.tinkoff.ru/)
    * [Тестовое задание аналитика Tinkoff *(Python)*](https://colab.research.google.com/drive/1sbq3bW7FSsqzPBsJu6lmX1cTaC_Oan6S?usp=sharing)
-   * [Тестовое задание аналитика Tinkoff *(SQL)*](https://drive.google.com/drive/folders/1wioL44aMEbdIDg1rvglKx1IOFPyIfakJ)
-   * [Тестовое задание аналитика Tinkoff](https://drive.google.com/drive/folders/1SlMKX5jFnax5jyWmGQq6h5KWe9lSoQvC)
+   * [Тестовое задание аналитика Tinkoff *(SQL)*](./analytics/Тинькофф%20Аналитик%20SQL/Тинькофф%20Аналитик%20SQL.jpeg)
+   * [Тестовое задание аналитика Tinkoff](./analytics/Tinkoff%20Product%20Analyst/README.md)
 
 * [Vizor](https://vizor-games.com/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1T27FerfXXgNj033iqDumKjpbuWFSnZOl)
+  * [Тестовое задание для аналитика](./analytics/Vizor%20Data%20Analytics/README.md)
 
 * [WhoIsBlogger](https://whoisblogger.com/)
-  * [Тестовое задание для junior аналитика данных *(SQL)*](https://drive.google.com/drive/folders/1vhEmlyL3HxY9HMybTXll6GGc7FPQ730h)
+  * [Тестовое задание для junior аналитика данных *(SQL)*](./analytics/WhoIsBlogger%20(WIB),%20junior%20data%20analyst/README.md)
 
 * [Wolt](https://wolt.com/en)
-  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1a8RmVxSvqoJMUlajVxLTp5-WnSkG3MTN)
+  * [Тестовое задание для аналитика данных](./analytics/Wolt%20Аналитик%20Данных/README.md)
 
 * [X5](https://www.x5.ru/en/)
-  * [Тестовое задание, стажировка для аналитика данных *(Python)*](https://drive.google.com/drive/folders/1W6ALYVV6jNhGzv3us8sKOuCvFY5ofD41)
+  * [Тестовое задание, стажировка для аналитика данных *(Python)*](./analytics/X5%20Аналитик%20Данных%20(стажировка)/README.md)
 
 * [Альфа-Банк](https://alfabank.ru/)
-  * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1uCFwwQnihShdtwbwCLU47oiJanFa50HA)
-  * [Тестовое задание для аналитика данных *(SQL)*](https://drive.google.com/drive/folders/1vJxxik-PknPc7Gx-aSAP91Ll9eEZnAAo)
+  * [Тестовое задание для продуктового аналитика *(SQL)*](./analytics/Альфабанк%20продуктовый%20аналитик/README.md)
+  * [Тестовое задание для аналитика данных *(SQL)*](./analytics/Альфа%20Банк%20Продуктовый%20Аналитик/README.md)
 
 * [Банк Открытие](https://www.open.ru/)
-  * [Тестовое задание для продуктового аналитика *(SQL)*](https://drive.google.com/drive/folders/1ThbDAnbCrQ21jqk7bF2l-wCpWlUvVT7N)
+  * [Тестовое задание для продуктового аналитика *(SQL)*](./analytics/Банк%20Открытие%20Продуктовый%20Аналитик/README.md)
 
 * [ВК Одноклассники](https://vk.com/)
-  * [Тестовое задание для продуктового аналитика *(Python, SQL)*](https://drive.google.com/drive/folders/1LUqYcKfwSSVtgoibiS4ngUHtg2o3axs1)
-  * [Тестовое задание для аналитика данных *(Python)*](https://drive.google.com/drive/folders/1lZiv0cIUaPL1lV9Eg1T-tKvJJQ2u6nt5)
+  * [Тестовое задание для продуктового аналитика *(Python, SQL)*](./analytics/ВК%20Одноклассники%20Продуктовая%20аналитика%20/README.md)
+  * [Тестовое задание для аналитика данных *(Python)*](./analytics/ВК%20Аналитик%20данных/README.md)
 
 * [ВТБ](https://www.vtb.ru/)
-  * [Тестовое задание для аналитика данных](https://drive.google.com/drive/folders/1w5xhj_ApzUJX-xf-cIBCYgGvy2t3PPML)
+  * [Тестовое задание для аналитика данных](./analytics/ВТБ%20Аналитик%20данных/README.md)
 
 * [Газпром](https://www.gazprom.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1q0OGFTUI58Gbar-rq3Dp4Zr9XuvqDkbs)
+  * [Тестовое задание для аналитика](./analytics/Газпром/README.md)
 
 * [Делимобиль](https://delimobil.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1wYCaprk3AwfTdwqFB-ESDbz9hZRgRDKG)
+  * [Тестовое задание для аналитика](./analytics/Делимобиль/README.md)
 
 * [Красный Яр](https://www.krasyar.ru/)
-  * [Тестовое задание для аналитика *(Excel)*](https://drive.google.com/drive/folders/1CiYVO0rTRqaxBTzuOXHAN180FR89ODns)
+  * [Тестовое задание для аналитика *(Excel)*](./analytics/Красный%20Яр%20Аналитик%20Данных/README.md)
 
 * [Магнит](https://magnit.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/16tRtN53FZ_FT3__Ay1biP3nb-CrkZ92I)
+  * [Тестовое задание для аналитика](./analytics/Магнит/README.md)
 
 * [МТС](https://www.mts.ru/)
-  * [Тестовое задание для продуктового аналитика *(SQL, Python)*](https://drive.google.com/drive/folders/1Xbhp0ZDoHfwNQiP1aH2TXryod_qdEvrx)
+  * [Тестовое задание для продуктового аналитика *(SQL, Python)*](./analytics/МТС%20Продуктовый%20аналитик/README.md)
 
 * [Ренессанс Банк](https://rencredit.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1UCuCV4i5hSEJkI6W6AKsYPKBy6Qpxcj9)
+  * [Тестовое задание для аналитика](./analytics/Банк%20ренессанс%20кредит%20Аналитик/README.md)
 
 * [Росмэн](https://rosman.ru/)
-  * [Тестовое задание для аналитика *(Excel, SQL)*](https://drive.google.com/drive/folders/1aeFVwgsMCosQUBlne_WqochPwFJUXGtR)
+  * [Тестовое задание для аналитика *(Excel, SQL)*](./analytics/Росмэн/)
 
 * [Роснефть](https://www.rosneft.ru/)
-  * [Тестовое задание для HR аналитика](https://drive.google.com/drive/folders/124G-etb0MME9VIQYJD-DHKd-VgQGbZ2l)
+  * [Тестовое задание для HR аналитика](./analytics/Роснефть%20HR%20аналитик/)
 
 * [Самокат](https://samokat.ru/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/10OtwaqT0Hntjv8ClW2SrdBL0QKTs3TPX)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1-XyMfD-7co6rO9mXqpVL5c0JDwL2GpzN)
+  * [Тестовое задание для аналитика](./analytics/Самокат%20Аналитик%20Данных/README.md)
+  * [Тестовое задание для аналитика](./analytics/Самокат%20Аналитик/)
 
 * [Северсталь](https://severstal.com/rus/)
-  * [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1GEBYxCwKh_DdwnK_p-dsxuaC-gj_eVgM)
+  * [Тестовое задание для аналитика](./analytics/Северсталь/)
 
 * [СКБ Контур](https://kontur.ru/)
-  * [Тестовое задание для продуктового аналитика](https://drive.google.com/drive/folders/1hJ6E-YAtObNP0DtZRH2814WBcBEb0aHo)
+  * [Тестовое задание для продуктового аналитика](./analytics/Контур%20Продуктовый%20аналитик/README.md)
 
 * [Совкомбанк Страхование](https://sovcomins.ru/)
-  * [Тестовое задание для аналитика *(Python)*](https://drive.google.com/drive/folders/1sYeVs3_fY5vamQjgZ3KRvxQSeEkzr0gJ)
+  * [Тестовое задание для аналитика *(Python)*](./analytics/Совкомбанк%20Страхование/README.md)
 
 * [Спортмастер](https://www.sportmaster.ru/)
-  * [Тестовое задание для аналитика *(SQL)*](https://drive.google.com/drive/folders/1pPuyOvBGgqosSfEvy3KCuv1FO1vED1cl)
+  * [Тестовое задание для аналитика *(SQL)*](./analytics/Спортмастер/)
 
 * [Сравни.ру](https://www.sravni.ru/)
-  * [Тестовое задание для Продуктового Аналитика](https://drive.google.com/drive/folders/1CgmQ_OEW2GrOrDPZEJUIRCLVL0JAkdRC)
+  * [Тестовое задание для Продуктового Аналитика](./analytics/Сравниру%20Product%20Analyst/README.md)
 
 * [Табакон](https://tabakon.su/)
   * [Тестовое для аналитика данных](https://drive.google.com/drive/folders/1FDHErQLGvPoJKECmRqijpwuVifnTaw8x)
 
 * [Учи.ру](https://uchi.ru/)
-  * [Тестовое задание для Продуктового Аналитика](https://docs.google.com/document/d/1cPf_HR3cB4QgehJ13nMjYO1EQlWcqwmo/edit)
+  * [Тестовое задание для Продуктового Аналитика](./analytics/Учи%20ру%20Продуктовый%20аналитк/README.md)
 
 * [Сборник тестовых заданий для аналитиков](https://pavelbukhtik.notion.site/Product-Analyst-Data-Analyst-a5f7bea5a0064960bbdb7a3ee1e46e97)
 
