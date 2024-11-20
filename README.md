@@ -93,13 +93,13 @@
   * [Тестовое задание для аналитика](./analytics/MediaScope%20Аналитик%20Данных/README.md)
  
 * [MediaSoft](https://mediasoft.team/)
-  * [Тестовое задание. Системный / Бизнес-аналитик *(any)*](https://drive.google.com/file/d/13y4cVoQP6IlmWxxTXjZJT4d2rZ3Qo9qx/view?usp=sharing)
+  * [Тестовое задание. Системный / Бизнес-аналитик *(any)*](./analytics/MediaSoft/README.md)
 
 * Nortas Analitics
   * [Тестовое задание для аналитика](./analytics/Nortas%20Analitics%20Аналитик%20данных/README.md)
 
 * [Ozon](https://www.ozon.ru/)
-  * [Тестовое задание для аналитика *(SQL)*](https://drive.google.com/drive/folders/1IjyT-jC8VHKCkru2Wuq-0fCDZnMNtQBO)
+  * [Тестовое задание для аналитика *(SQL)*](./analytics/Ozon/)
 
 * [Realweb Camp](https://realweb-camp.ru/)
   * [Тестовое задание для аналитика](./analytics/Realweb%20Camp%20Analytics/README.md)
@@ -192,8 +192,6 @@
 
 * [Сборник тестовых заданий для аналитиков](https://pavelbukhtik.notion.site/Product-Analyst-Data-Analyst-a5f7bea5a0064960bbdb7a3ee1e46e97)
 
-* [Тестовое задание для аналитика](https://drive.google.com/drive/folders/1q0OGFTUI58Gbar-rq3Dp4Zr9XuvqDkbs)
-
 * [Тестовое задание для FE стажера в Авито Pro (Команда ARPU) *(JS)*](https://github.com/avito-tech/pro-fe-trainee-task)
 
 </details>
@@ -227,7 +225,7 @@
 
 * [Тестовое задание по автоматизации действий в поисковой строке Яндекса для *tensor.ru*](https://github.com/warumbaum/Tensor-Yandex)
 
-* [Тестовое задание QA Auto Python от Effective Mobile](https://docs.google.com/document/d/142ZofwnxhSAg5lzcfTAF6DM38kA4eI1IbmcRzl-A8sA)
+* [Тестовое задание QA Auto Python от Effective Mobile](./QA/Effective%20Mobile/README.md)
  
 </details>
 
@@ -242,7 +240,7 @@
   * [QA engineer](https://github.com/fs/test-tasks/tree/master/qa)
 
 * [HRlink](https://hr-link.ru/)
-  * [Junior QA (SQL+Python)](https://docs.google.com/document/d/1ylGFf4_p4w9S8PvRsZF0UdyeokWol3KS/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+  * [Junior QA (SQL+Python)](./QA/HRlink/README.md)
 
 * [Matic Insurance Services](https://matic.com/)
   * [Customer Import Platform MQA - MQA test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-test-import)
@@ -252,19 +250,16 @@
   * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
 
 * [Sendsay](https://sendsay.ru/)
-  * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
+  * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](./QA/Sendsay/README.md)
 
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание для кандидата на позицию QA](https://github.com/tutu-ru/tutu-ru.github.io)
 
-* [Айтек](https://iqtek.ru/)
-  * [Задание QA engineer](https://disk.yandex.ru/d/5FQXDeZP2BaPMQ)
-
 * [ООО Крит](https://krit.pro/)
-  * [Стажер_QA](https://docs.google.com/document/d/1nwz_MlVTe30lKQ4kYKD4HVNco-IQFqQe/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+  * [Стажер_QA](./QA/ООО%20Крит/README.md)
 
 * [ООО Синтека](https://cynteka.ru/)
-  * [Junior_QA](https://docs.google.com/document/d/1VecQvPkyEyPrzQvce6BvWNnDn4SYw8jL/edit?usp=sharing&ouid=101017098481742943251&rtpof=true&sd=true)
+  * [Junior_QA](./QA/ООО%20Синтека/README.md)
  
 </details>
 
@@ -275,7 +270,7 @@
   * [Backend developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
 
 * [Appstorespy](https://appstorespy.com/)
-  * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](https://catkin-gymnast-f1a.notion.site/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
+  * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](./backend/Appstorespy/README.md)
 
 * [avito.tech](https://github.com/avito-tech)
   * [Тестовое задание для стажёра Backend в команду Advertising *(Go/PHP)*](https://github.com/avito-tech/adv-backend-trainee-assignment)
@@ -290,17 +285,14 @@
   * [Тестовое задание для стажера в юнит Market Intelligence *(Go/Python)*](https://github.com/avito-tech/mi-trainee-task-2021)
 
 * [Edstein](https://www.edstein.ru/)
-  * [Тестовое задание Middle Backend-разработчик *(Ruby on Rails)*](https://docs.google.com/document/d/1uHtZQckkQXGA6occB6R9F8l9Nru1ELPFKWi7cO79dLc/edit?usp=sharing)
+  * [Тестовое задание Middle Backend-разработчик *(Ruby on Rails)*](./backend/Edstein/README.md)
 
 * [fuse8](https://hr.fuse8.ru/) [byte/minds](https://byteminds.co.uk/)
   * [Задания стажировки для backend-разработчиков *(.Net, C#, Postgres, gRPC)*](https://github.com/Fuse8/school2023)
 
 * [Greensight](https://greensight.ru/)
-  * [Тестовое задание для направления Backend разработка *(PHP)*](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
+  * [Тестовое задание для направления Backend разработка *(PHP)*](./backend/Greensight/README.md)
 
-* [House](https://housevl.ru/)
-  * [Тестовое задание backend (junior) 2.1 *(Laravel)*](https://docs.google.com/document/d/16M_jtHkbrHgI_gUj9vq6p_uIQVQTFuW2kXUsK-S4RSk)
- 
 * [KODE](https://kode.ru/)
    * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)*(изображение не найдено)*
 
@@ -317,7 +309,7 @@
   * [Тестовое задание WG Forge (Backend) *(Python 3/Ruby/Go/Erlang/Elixir/Java/Scala/C#/F#, PostgreSQL, Docker)*](https://github.com/wgnet/wg_forge_backend)
 
 * [ООО "МСтрой"](https://mstroy.tech/)
-   * [Тестовое задание Backend developer / Python](https://docs.google.com/document/d/1pUECHmEijyal6aFHrBN5oweKCmSZsjTGhtE-mqIqj6U/edit?usp=sharing)
+   * [Тестовое задание Backend developer / Python](./backend/ООО%20МСтрой/README.md)
 
 * [ПИКАССО](https://picasso-diagnostic.ru/)
   * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
@@ -326,10 +318,10 @@
   * [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](https://github.com/KazanExpress/backend-spring-test-task)
 
 * [Oxem Studio](https://oxem.ru)
-  * [Бэкенд-разработчик *(PHP)*](https://doc.clickup.com/p/h/2h539-778/840ce49e651e59a)
+  * [Бэкенд-разработчик *(PHP)*](./backend/Oxem%20Studio/README.md)
 
 * SoftPro
-  * [Тестовое задание *(Go, C++, Python)*](https://drive.google.com/drive/folders/151UdoZGZZtdv5-KP_51yx3CzT1kgIBQn?usp=sharing)
+  * [Тестовое задание *(Go, C++, Python)*](./backend/SoftPro/)
 
 </details>
 
