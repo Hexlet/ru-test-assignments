@@ -1,0 +1,11 @@
+analytics/Wolt[[:space:]]Аналитик[[:space:]]Данных/dataset_for_analyst_assignment_20201120.csv filter=lfs diff=lfs merge=lfs -text
+analytics/Delivery[[:space:]]Аналитик[[:space:]]Данных/оценка_категорий.csv.zip filter=lfs diff=lfs merge=lfs -text
+analytics/Самокат[[:space:]]Аналитик[[:space:]]Данных/orders.csv filter=lfs diff=lfs merge=lfs -text
+analytics/Самокат[[:space:]]Аналитик[[:space:]]Данных/order_lines.txt filter=lfs diff=lfs merge=lfs -text
+analytics/Делимобиль/test_senior_data.csv filter=lfs diff=lfs merge=lfs -text
+analytics/ВТБ[[:space:]]Аналитик[[:space:]]данных/database.db filter=lfs diff=lfs merge=lfs -text
+analytics/Babbel[[:space:]]Продуктовый[[:space:]]Аналитик/learning_sessions.csv filter=lfs diff=lfs merge=lfs -text
+analytics/Dodo[[:space:]]Brands[[:space:]]Data[[:space:]]Analyst/DA_sql_sample[[:space:]]-[[:space:]]sql_task.csv filter=lfs diff=lfs merge=lfs -text
+analytics/Dodo[[:space:]]Brands[[:space:]]Data[[:space:]]Analyst/оценка_категорий_4.csv filter=lfs diff=lfs merge=lfs -text
+analytics/Bolt[[:space:]]Fraud[[:space:]]Analyst/1st_adyen_rides-success-and-fail.csv.zip filter=lfs diff=lfs merge=lfs -text
+analytics/MediaScope[[:space:]]Аналитик[[:space:]]Данных/MediaScope[[:space:]]–[[:space:]]дата[[:space:]]аналитик[[:space:]]-[[:space:]]Тестовое[[:space:]]xn--80aalfgj8a.xlsx filter=lfs diff=lfs merge=lfs -text

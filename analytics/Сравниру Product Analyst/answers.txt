@@ -1,0 +1,75 @@
+Задача 1.1
+
+SELECT COUNT(ID) AS total_id, COUNT(DISTINCT ID) AS total_id_distinct
+FROM task_1
+
+Задача 1.2
+
+SELECT education, ROUND(SUM(target) / COUNT(target), 2) AS target_ratio
+FROM task_1
+GROUP BY education
+
+Задача 1.3
+
+SELECT ROUND(
+  		     AVG(CASE WHEN id %2 = 0  THEN profit_family END) - 
+	   	     AVG(CASE WHEN id %2 != 0 THEN profit_family END),
+             2) AS fam_diff
+FROM task_1
+
+Задача 2
+
+SELECT name, ROW_NUMBER() OVER() AS rn
+FROM task_2
+ORDER BY rn DESC
+
+Задача 3.1
+
+SELECT DATE_TRUNC('day', date::date) as date, SUM(amount) AS day_sum
+FROM task_3
+GROUP BY date
+
+Задача 3.2
+
+WITH daily_sum AS (
+  SELECT DATE_TRUNC('day', date::date) as date, SUM(amount) AS day_sum
+  FROM task_3
+  GROUP BY date)
+SELECT *,
+		SUM(day_sum) OVER(ORDER BY date) AS CUMULATIVE_AMOUNT
+FROM daily_sum
+
+Задача 4
+
+Нижняя граница - среднее - 2 * стандартное отклонение (10 - 2 * 10 = -10)
+Верхняя границы - среднее + 2 * стандартное отклонение (10 + 2 * 10 = 30)
+Границы в Фаренгейтах: [14; 86]
+
+Задача 5
+
+import math
+import numpy as np
+
+# время на решение заданий
+R_A = [11, 15, 17, 9, 18, 23]
+
+# оценки максимального правдоподобия
+theta_A = R_A / np.sum(R_A)
+
+print("MLE: ", np.round(theta_A, 3))
+
+def f(n):
+  return math.factorial(n)
+  
+def mle(R, theta):
+  return (f(np.sum(R)) / (np.prod([f(r) for r in R]))) * \
+         np.prod([theta[i]**R[i] for i in range(len(R))])
+
+# максимальное правдоподобие
+ml_A = mle(R_A, theta_A)
+
+print("ML:{:.7f}".format(ml_A))
+
+Вывод кода:
+MLE:  [0.118 0.161 0.183 0.097 0.194 0.247]
+ML:0.0000291
