@@ -293,6 +293,9 @@
 * [Greensight](https://greensight.ru/)
   * [Тестовое задание для направления Backend разработка *(PHP)*](./backend/Greensight/README.md)
 
+* [ItGlobal](https://itglobal.com/ru-ru/)
+  * [Тестовое задание для Junior Backend разработка *(PHP)*](./backend/ItGlobal/README.md)
+
 * [KODE](https://kode.ru/)
    * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)*(изображение не найдено)*
 
