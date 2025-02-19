@@ -692,8 +692,6 @@
 
 * [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
 
-* [Тестовое задание для Backend Python. Конвертер валют на FastAPI](https://docs.google.com/document/d/190wtDNCDUX826L_Tr0x_PsYNaxhBSBcdtbp7YSasYVQ/edit?usp=sharing)
-
 * [Сбербанк](https://www.sberbank.ru/ru/person)
   * [Тестовое задание для инженера данных *(Python, SQL)*](https://drive.google.com/drive/folders/1EMRCcMT852e-rAxliXn-3eihjcS2SnP-)
 
@@ -711,10 +709,6 @@
 * [Тестовое задание в команду гейтов *(Python)*](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team)
 
   * [Тестовое задание на позицию стажера-бекендера в юнит Авто (archived) *(Go/Python/PHP/Java/JavaScript)*](https://github.com/avito-tech/auto-backend-trainee-assignment)
-
-  * [Тестовое задание для стажёра Backend в команду Market Intelligence *(Python)*](https://github.com/avito-tech/mi-backend-trainee-assignment)
-
-* [Тестовое задание для стажера в Market Intelligence (archived) *(Python)*](https://github.com/avito-tech/mi-trainee-task)
 
 * [Тестовое задание по python *(Python)*](https://github.com/avito-tech/python-trainee-assignment)
 
@@ -735,8 +729,6 @@
 
  * [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
 
-  * [Тестовое задание.Python *(Python)*](https://drive.google.com/file/d/1DU2-MSCNN-FzCa8ksB3rx2GQy23LSt5T/view?usp=sharing)
-
 * [Python Developer *(Python)*](https://github.com/ostrovok-team/code-challenge/tree/master/python)
 
 * [PyShop](https://pyshop.ru/)
@@ -747,28 +739,11 @@
 * [Очень Интересно](https://www.interesnee.ru/)
   * [Python-разработчик на позицию стажера](https://github.com/David-Roklem/django-test-task/blob/main/Task-itself.md)
 
-* [ПИКАССО](https://picasso-diagnostic.ru/)
-  * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
-
-  * [Тестовое задание для стажера Python [elasticsearch]](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
-
- * [Тестовое задание для Backend Python. Конвертер валют на FastAPI](https://docs.google.com/document/d/190wtDNCDUX826L_Tr0x_PsYNaxhBSBcdtbp7YSasYVQ/edit?usp=sharing)
-
 * [Django Developer *(в Контент)*](https://github.com/ostrovok-team/code-challenge/blob/master/python/content-tech-task.md)
 
 * [Python-разработчик *(Python)*](https://funbox.ru/q/python.pdf)
 
-* [Тестовое задание для стажера в Market Intelligence *(Python, Docker)*](https://github.com/avito-tech/mi-backend-trainee-assignment)
-
-* [Тестовое задание для стажера в Market Intelligence (archived) *(Python)*](https://github.com/avito-tech/mi-trainee-task)
-
-* [Github repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
-
-* [Тестовое задание для стажера Python elasticsearch](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
-
 * [Тестовое UpTrader](https://docs.google.com/document/d/1XTnbcXhejyGB-I2cHRiiSZqI3ElHzqDJeetwHkJbTa8)
-
-* [Тестовое Python Developer](https://drive.google.com/file/d/1ElH6YRA7f9dmKbT4e0HNeR1u4Cxq-rRX)
 
 </details>
 
