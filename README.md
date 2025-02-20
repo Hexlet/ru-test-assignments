@@ -711,7 +711,7 @@
 
   * [Тестовое задание по python *(Python)*](./backend/Python/AvitoTech/README1.md)
 
-* [Github repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
+* [GitHub repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
 
 * [Bewise](https://bewise.ai/)
   * [Тестовое задание на позицию Python Junior](./backend/Python/Bewise/test_python.md)
@@ -737,11 +737,11 @@
 * [Очень Интересно](https://www.interesnee.ru/)
   * [Python-разработчик на позицию стажера](https://github.com/David-Roklem/django-test-task/blob/main/Task-itself.md)
 
-* [Python-разработчик *(Python)*](./backend/Python/FunBox/python.pdf)
+* [FunBox *(Python)*](./backend/Python/FunBox/python.pdf)
 
-  * [Тестовое задание для стажера в Market Intelligence *(Python, Docker)*](./backend/Python/MarketIntelligence/README.md)
+* [Market Intelligence *(Python, Docker)*](./backend/Python/MarketIntelligence/README.md)
 
-* [Тестовое задание для стажера в Market Intelligence (archived) *(Python)*](./backend/Python/MarketIntelligence/README1.md)
+* [Market Intelligence (archived) *(Python)*](./backend/Python/MarketIntelligence/README1.md)
 
 * [Тестовое UpTrader](./backend/Python/UpTrader/test_python.md)
 
