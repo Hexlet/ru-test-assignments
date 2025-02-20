@@ -686,7 +686,7 @@
 <summary>Python</summary>
 
 * [FitnessKit](https://fitness-kit.ru/)
-  * [Python разработчик на backend *(Python, Django)*](https://fitness-kit.ru/files/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B1%D1%8D%D0%BA.pdf)
+  * [Python разработчик на backend *(Python, Django)*](./backend/Python/FitnessKit/тестовое%20бэк.pdf)
 
 * [Тестовое задание в команду гейтов *(Python)*](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team)
 
@@ -712,6 +712,8 @@
 
 * [Тестовое задание по python *(Python)*](https://github.com/avito-tech/python-trainee-assignment)
 
+* [Github repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
+
 * [Bewise](https://bewise.ai/)
   * [Тестовое задание на позицию Python Junior](https://docs.google.com/document/d/1lZ6nzX6Bt855aYpP9Z0ca6h0jc28Qn0w048UdsnLoLY/edit?usp=sharing)
 
@@ -727,8 +729,6 @@
 * [KODE](https://kode.ru/)
  * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)*(изображение не найдено)*
 
- * [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
-
 * [Python Developer *(Python)*](https://github.com/ostrovok-team/code-challenge/tree/master/python)
 
 * [PyShop](https://pyshop.ru/)
@@ -742,6 +742,10 @@
 * [Django Developer *(в Контент)*](https://github.com/ostrovok-team/code-challenge/blob/master/python/content-tech-task.md)
 
 * [Python-разработчик *(Python)*](https://funbox.ru/q/python.pdf)
+
+* [Тестовое задание для стажера в Market Intelligence *(Python, Docker)*](https://github.com/avito-tech/mi-backend-trainee-assignment)
+
+* [Тестовое задание для стажера в Market Intelligence (archived) *(Python)*](https://github.com/avito-tech/mi-trainee-task)
 
 * [Тестовое UpTrader](https://docs.google.com/document/d/1XTnbcXhejyGB-I2cHRiiSZqI3ElHzqDJeetwHkJbTa8)
 
