@@ -717,7 +717,7 @@
   * [Тестовое задание на позицию Python Junior](./backend/Python/Bewise/test_python.md)
 
 * [Escape Tech](https://escape-team.tech/)
-  * [Python разработчик (стажер), *Python*](https://github.com/brain4power/software_tester)
+  * [Software Tester (стажер), *Python*](./backend/Python/SoftwareTester/readme.md)
 
 * [Ivelum](https://ivelum.com/)
   * [Python-разработчик *(Python)*](./backend/Python/Ivelum/python.md)
@@ -735,7 +735,7 @@
   * [Python Developer *(Python, Django, PostgreSQL, Docker)*](./backend/Python/PyShop/README.md)
 
 * [Очень Интересно](https://www.interesnee.ru/)
-  * [Python-разработчик на позицию стажера](https://github.com/David-Roklem/django-test-task/blob/main/Task-itself.md)
+  * [Python-разработчик на позицию стажера](./backend/Python/DjangoTestTask/Task-itself.md)
 
 * [FunBox *(Python)*](./backend/Python/FunBox/python.pdf)
 
