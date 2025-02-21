@@ -686,89 +686,64 @@
 <summary>Python</summary>
 
 * [FitnessKit](https://fitness-kit.ru/)
-  * [Python разработчик на backend *(Python, Django)*](https://fitness-kit.ru/files/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B1%D1%8D%D0%BA.pdf)
+  * [Python разработчик на backend *(Python, Django)*](./backend/Python/FitnessKit/тестовое%20бэк.pdf)
 
-* [Тестовое задание в команду гейтов *(Python)*](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team)
+* [KosyanMedia *(Python)*](./backend/Python/KosyanMedia/README.md)
 
-* [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
-
-* [Тестовое задание для Backend Python. Конвертер валют на FastAPI](https://docs.google.com/document/d/190wtDNCDUX826L_Tr0x_PsYNaxhBSBcdtbp7YSasYVQ/edit?usp=sharing)
+* [KazanExpress *(eng)* *(Python, Django)*](./backend/Python/KazanExpress/README.md)
 
 * [Сбербанк](https://www.sberbank.ru/ru/person)
-  * [Тестовое задание для инженера данных *(Python, SQL)*](https://drive.google.com/drive/folders/1EMRCcMT852e-rAxliXn-3eihjcS2SnP-)
+  * [Тестовое задание для инженера данных *(Python, SQL)*](./backend/Python/Sberbank/DE_task_solution.docx)
 
 * [abz.agency](https://abz.agency/)
-  * [Junior Python Developer *(Python, Django/Flask, MySQL/PostgreSQL)*](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view?usp=sharing)
+  * [Junior Python Developer *(Python, Django/Flask, MySQL/PostgreSQL)*](./backend/Python/ABZ.agency/Тестовое%20задание%20на%20позицию%20Junior%20Python%20Developer.pdf)
 
-* [Backend developer *(any)*](https://github.com/appbooster/test-assignments/blob/master/tasks/backend.md)
+* [AppBooster *(any)*](./backend/Python/AppBooster/backend.md)
 
 * [Appstorespy](https://appstorespy.com/)
-  * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](https://catkin-gymnast-f1a.notion.site/junior-backend-developer-2022-2f4803705cb84485a81a1d716bdf0a8c)
+  * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](./backend/Python/Appstorespy/test_backend.md)
 
 * [Aviasales](https://aviasales.ru)
-  * [Тестовое задание в команду ассистеда *(Python, Go)*](https://github.com/KosyanMedia/test-tasks/tree/master/assisted_team)
+  * [Тестовое задание в команду ассистеда *(Python, Go)*](./backend/Python/Aviasales/README.md)
 
-* [Тестовое задание в команду гейтов *(Python)*](https://github.com/KosyanMedia/test-tasks/tree/master/gates_team)
+* [Avito Tech](https://www.avito.tech/)
+  * [Avito Tech (archived) *(Go/Python/PHP/Java/JavaScript)*](./backend/Python/AvitoTech/README.md)
 
-  * [Тестовое задание на позицию стажера-бекендера в юнит Авто (archived) *(Go/Python/PHP/Java/JavaScript)*](https://github.com/avito-tech/auto-backend-trainee-assignment)
+  * [Тестовое задание по python *(Python)*](./backend/Python/AvitoTech/README1.md)
 
-  * [Тестовое задание для стажёра Backend в команду Market Intelligence *(Python)*](https://github.com/avito-tech/mi-backend-trainee-assignment)
-
-* [Тестовое задание для стажера в Market Intelligence (archived) *(Python)*](https://github.com/avito-tech/mi-trainee-task)
-
-* [Тестовое задание по python *(Python)*](https://github.com/avito-tech/python-trainee-assignment)
+* [GitHub repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
 
 * [Bewise](https://bewise.ai/)
-  * [Тестовое задание на позицию Python Junior](https://docs.google.com/document/d/1lZ6nzX6Bt855aYpP9Z0ca6h0jc28Qn0w048UdsnLoLY/edit?usp=sharing)
+  * [Тестовое задание на позицию Python Junior](./backend/Python/Bewise/test_python.md)
 
 * [Escape Tech](https://escape-team.tech/)
-  * [Python разработчик (стажер), *Python*](https://github.com/brain4power/software_tester)
-
-* [HardQode](https://hardqode.com/)
-  * [Тестовое задание Junior Python(Django, Django DRF)](https://docs.google.com/document/d/1jIuNfvfv1AX99BzQX_cSmhXMSRnpk1ZUZW8C42j3UWM/edit?usp=sharing)
+  * [Software Tester (стажер), *Python*](./backend/Python/SoftwareTester/readme.md)
 
 * [Ivelum](https://ivelum.com/)
-  * [Python-разработчик *(Python)*](https://github.com/ivelum/job/blob/master/challenges/python.md)
+  * [Python-разработчик *(Python)*](./backend/Python/Ivelum/python.md)
 
 * [KODE](https://kode.ru/)
- * [Backend разработчик *(Python)*](https://github.com/appKODE/2018-internship-backend)*(изображение не найдено)*
+ * [Backend разработчик *(Python)*](./backend/Python/KODE/README.md)*(изображение не найдено)*
 
- * [KazanExpress test for Python developer *(eng)* *(Python, Django)*](https://github.com/KazanExpress/django-test-task)
+* [Ostrovok Tech Python Developer *(Python)*](./backend/Python/OstrovokTech/README.md)
 
-  * [Тестовое задание.Python *(Python)*](https://drive.google.com/file/d/1DU2-MSCNN-FzCa8ksB3rx2GQy23LSt5T/view?usp=sharing)
-
-* [Python Developer *(Python)*](https://github.com/ostrovok-team/code-challenge/tree/master/python)
+* [Ostrovok Tech Django Developer *(в Контент)*](./backend/Python/OstrovokTech/content-tech-task.md)
 
 * [PyShop](https://pyshop.ru/)
-  * [Разработчик Python (стажировка)](https://jl.pyshop.ru/tasks/python-dev/) Задание также можно найти в `backend/PyShop_python_trainee.md`
+  * [Разработчик Python (стажировка)](./backend/Python/PyShop/PyShop_python_trainee.md)
 
-  * [Python Developer *(Python, Django, PostgreSQL, Docker)*](https://github.com/smenateam/assignments/blob/master/backend/README.md)
+  * [Python Developer *(Python, Django, PostgreSQL, Docker)*](./backend/Python/PyShop/README.md)
 
 * [Очень Интересно](https://www.interesnee.ru/)
-  * [Python-разработчик на позицию стажера](https://github.com/David-Roklem/django-test-task/blob/main/Task-itself.md)
+  * [Python-разработчик на позицию стажера](./backend/Python/DjangoTestTask/Task-itself.md)
 
-* [ПИКАССО](https://picasso-diagnostic.ru/)
-  * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
+* [FunBox *(Python)*](./backend/Python/FunBox/python.pdf)
 
-  * [Тестовое задание для стажера Python [elasticsearch]](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
+* [Market Intelligence *(Python, Docker)*](./backend/Python/MarketIntelligence/README.md)
 
- * [Тестовое задание для Backend Python. Конвертер валют на FastAPI](https://docs.google.com/document/d/190wtDNCDUX826L_Tr0x_PsYNaxhBSBcdtbp7YSasYVQ/edit?usp=sharing)
+* [Market Intelligence (archived) *(Python)*](./backend/Python/MarketIntelligence/README1.md)
 
-* [Django Developer *(в Контент)*](https://github.com/ostrovok-team/code-challenge/blob/master/python/content-tech-task.md)
-
-* [Python-разработчик *(Python)*](https://funbox.ru/q/python.pdf)
-
-* [Тестовое задание для стажера в Market Intelligence *(Python, Docker)*](https://github.com/avito-tech/mi-backend-trainee-assignment)
-
-* [Тестовое задание для стажера в Market Intelligence (archived) *(Python)*](https://github.com/avito-tech/mi-trainee-task)
-
-* [Github repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
-
-* [Тестовое задание для стажера Python elasticsearch](https://karpovilia.notion.site/Python-67777c95bdbe4e59856c59b707349f2d)
-
-* [Тестовое UpTrader](https://docs.google.com/document/d/1XTnbcXhejyGB-I2cHRiiSZqI3ElHzqDJeetwHkJbTa8)
-
-* [Тестовое Python Developer](https://drive.google.com/file/d/1ElH6YRA7f9dmKbT4e0HNeR1u4Cxq-rRX)
+* [Тестовое UpTrader](./backend/Python/UpTrader/test_python.md)
 
 </details>
 
