@@ -770,9 +770,6 @@
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/devjsru/php_test)
 
-* [FEIP](https://feip.co/)
-  * [PHP-разработчик *(PHP)*](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
-
 * [Future](https://future-group.ru/)
   * [PHP-разработчик *(PHP, MySQL)*](https://github.com/fugr-ru/php-comments)
 
