@@ -287,9 +287,6 @@
 * [Edstein](https://www.edstein.ru/)
   * [Тестовое задание Middle Backend-разработчик *(Ruby on Rails)*](./backend/Edstein/README.md)
 
-* [fuse8](https://hr.fuse8.ru/) [byte/minds](https://byteminds.co.uk/)
-  * [Задания стажировки для backend-разработчиков *(.Net, C#, Postgres, gRPC)*](https://github.com/Fuse8/school2023)
-
 * [Greensight](https://greensight.ru/)
   * [Тестовое задание для направления Backend разработка *(PHP)*](./backend/Greensight/README.md)
 
@@ -308,14 +305,8 @@
 * [Waliot](https://waliot.com/)
   * [Backend Developer *(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)*](https://github.com/waliot/test-tasks/blob/master/tasks/backend-1.md)
 
-* [Wargaming.net](https://wargaming.com)
-  * [Тестовое задание WG Forge (Backend) *(Python 3/Ruby/Go/Erlang/Elixir/Java/Scala/C#/F#, PostgreSQL, Docker)*](https://github.com/wgnet/wg_forge_backend)
-
 * [ООО "МСтрой"](https://mstroy.tech/)
    * [Тестовое задание Backend developer / Python](./backend/ООО%20МСтрой/README.md)
-
-* [ПИКАССО](https://picasso-diagnostic.ru/)
-  * [Backend-разработчик (Python)](https://gist.github.com/NikolayZemelko/f1dfcb9b75a7241f5e552b8761e70027)
 
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
   * [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](https://github.com/KazanExpress/backend-spring-test-task)
@@ -769,9 +760,6 @@
 
 * [DevJS](https://devjs.ru/)
   * [Тестовое задание для PHP разработчиков *(PHP)*](https://github.com/devjsru/php_test)
-
-* [FEIP](https://feip.co/)
-  * [PHP-разработчик *(PHP)*](https://docs.google.com/document/d/1SLvbJ1hs3X3my3-gZJ7LsNtTa31IEVF0p6seTML-Efo)
 
 * [Future](https://future-group.ru/)
   * [PHP-разработчик *(PHP, MySQL)*](https://github.com/fugr-ru/php-comments)
