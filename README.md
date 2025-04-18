@@ -314,6 +314,9 @@
 * [Oxem Studio](https://oxem.ru)
   * [Бэкенд-разработчик *(PHP)*](./backend/Oxem%20Studio/README.md)
 
+* [Social Media Holding](https://socialmediaholding.com/)
+  * [PHP разработчик Junior +](./backend/SocialMediaHolding/README.md)
+
 * SoftPro
   * [Тестовое задание *(Go, C++, Python)*](./backend/SoftPro/)
 
@@ -783,6 +786,9 @@
   * [Тестовое задание для вакансии «Программист PHP» *(PHP)*](https://www.reg.ru/company/jobs/testtask-prog-php)
 
   * [Тестовое задание на позицию backend-разработчик *(PHP)*](https://github.com/tutu-ru/php-interview)
+
+* [Social Media Holding](https://socialmediaholding.com/)
+  * [PHP разработчик Junior +](./backend/SocialMediaHolding/README.md)
 
 * [Глобал Консалтинг](https://bth.su/)
   * [Тестовое задание для Junior PHP-разработчик *(Laravel)*](https://docs.google.com/document/d/1fl4eCKdpSXUNyu899NCKaDy_fdHcVPDE-GoO9siZPX4/edit)
