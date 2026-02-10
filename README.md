@@ -459,7 +459,7 @@
 * [Mindbox](https://mindbox.ru/)
   * [Тестовое задание на стажировку Frontend *(JS, React)*](https://docs.google.com/document/d/1jq5yCrQJRHaRG4TabGhDITDMteYuLWG_LjlR9HmB5ac/edit?usp=sharing)
 
-* Modulbank
+* [Modulbank](https://modulbank.ru/)
   * [Тестовое на Frontend](./frontend/modulbank.md)
 
 * [NewGen Vision](https://www.unipage.net/)

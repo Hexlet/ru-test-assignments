@@ -4,8 +4,7 @@
 
 https://www.youtube.com/watch?v=3wZBSeLxVEw
 
-Реализуйте такой же функционал, используя [React](https://stately.ai/docs/xstate-react)  (
-) или [Vue](https://stately.ai/docs/xstate-vue)
+Реализуйте такой же функционал, используя [React](https://stately.ai/docs/xstate-react) или [Vue](https://stately.ai/docs/xstate-vue)
 
 В видео с примером используется старая версия XState 4. Вы можете использовать версию 4 или 5.
 
