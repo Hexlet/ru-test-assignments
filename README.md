@@ -459,6 +459,9 @@
 * [Mindbox](https://mindbox.ru/)
   * [Тестовое задание на стажировку Frontend *(JS, React)*](https://docs.google.com/document/d/1jq5yCrQJRHaRG4TabGhDITDMteYuLWG_LjlR9HmB5ac/edit?usp=sharing)
 
+* Modulbank
+  * [Тестовое на Frontend](./frontend/modulbank.md)
+
 * [NewGen Vision](https://www.unipage.net/)
   * [Junior Frontend Developer *(JS, Vue.js)*](https://newgen-it.github.io/tests/front)
 
@@ -661,7 +664,7 @@
 
 * [MediaSoft](https://mediasoft.team/)
   * [Тестовое задание.Java *(Java EE/Spring, Maven/Gradle)*](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
- 
+
 * [Tutu.ru](https://www.Tutu.ru/)
   * [Тестовое задание на позицию Android-разработчика *(Kotlin/Java, Dagger, RxJava)*](https://github.com/tutu-ru/hire_android_test)
 
