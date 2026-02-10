@@ -7,7 +7,7 @@ Please create a report or dashboard which:
 1. **compares actuals to budgeted figures monthly and YTD,**:
 2. **shows ability to see monthly trends in actuals**
 
-### Detail Level
+## Detail Level
 
 1. Group company together and per countries
 2. 3 months period (min)

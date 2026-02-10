@@ -1,6 +1,7 @@
 ## Python
 
 ## Задача 1
+
 Дан целочисленный массив. Необходимо вывести true, если есть повторения и false, если нет.
 
 Input: [1, 2, 3, 1]
@@ -10,7 +11,8 @@ Input: [1, 2, 3, 4]
 Output: False
 
 **Решение:**
-```
+
+```text
 nums = [1, 2, 3, 4, 4]
 def reps(nums):
     if len(set(nums)) != len(nums):
@@ -20,6 +22,7 @@ def reps(nums):
 ```
 
 ## Задача 2
+
 Дано число n. Вернуть факториал этого числа. Вызвать -1, если n не целочисленно, а так же если n отрицательно.
 
 Input: n = 5
@@ -29,7 +32,8 @@ Input: n = 0
 Output: 1
 
 **Решение:**
-```
+
+```text
 def factorial(n):
     if isinstance(n, float) or n < 0:
         return -1
@@ -42,6 +46,3 @@ def factorial(n):
             i + 1
     return result
 ```
-
-
-

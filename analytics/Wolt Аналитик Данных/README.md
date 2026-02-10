@@ -5,6 +5,7 @@ We’ve prepared a task for you so that you can prove your skills and to let us 
 you are approaching problems in general. Good luck!
 
 ## Task
+
 Attached to this message you’ll find a CSV file with some machine-generated user data of a
 service like Wolt. Every row of the dataset represents one customer who has registered to use
 the service during September 2019 and either has or hasn’t made orders during the time from
@@ -13,15 +14,16 @@ then and October 2020.
 Your assignment is to
 
 1) Familiarise yourself with the dataset. Here you should show us your excellent exploratory
-data analysis skills.
+   data analysis skills.
 
 2) Provide us with a user segmentation that could be utilised by our marketing team to
-reactivate different kinds of users. Provide also recommendations on how to use the
-segmentation for this purpose. Remember to justify your segmentation approach so that we
-understand why the way you did it is better than an arbitrary solution by a non-data analyst
-who can do some slicing-and-dicing with the data.
+   reactivate different kinds of users. Provide also recommendations on how to use the
+   segmentation for this purpose. Remember to justify your segmentation approach so that we
+   understand why the way you did it is better than an arbitrary solution by a non-data analyst
+   who can do some slicing-and-dicing with the data.
 
 ## Our expectations
+
 At Wolt we use Python or R for notebooks and we expect you to return the rendered notebook
 alongside the code used for the analysis. Make sure we can run and view your solution on
 MacOS and Linux.

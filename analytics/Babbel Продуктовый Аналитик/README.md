@@ -1,8 +1,6 @@
-Case Study for Product Analytics Candidates
-===========================================
+# Case Study for Product Analytics Candidates
 
-Instructions
-------------
+## Instructions
 
 This case study is based on actual data and business problems from
 Babbel. It is confidential and should not be shared.
@@ -31,8 +29,7 @@ visualize the data attached, may it be Excel, Python or anything else.
 In case you do not manage to work through all questions, just let us
 know what you’d like to do.
 
-Learning Engagement in the Babbel Ecosystem
--------------------------------------------
+## Learning Engagement in the Babbel Ecosystem
 
 Babbel is a quality leader when it comes to learning a language via
 digital self-study. We build our product for those who are aiming to
@@ -43,17 +40,17 @@ Our products offer a portfolio of Learning Experiences – different
 features offering learning activities with a stand-alone learning value
 proposition. Our main learning experiences are:
 
--   **Lessons** – short units that introduce vocabulary and grammar via
+* **Lessons** – short units that introduce vocabulary and grammar via
     contextual content, including exercises
 
--   **Review** – vocabulary review to practice previously introduced
+* **Review** – vocabulary review to practice previously introduced
     words and phrases
 
--   **Audio experiences** such as Podcasts
+* **Audio experiences** such as Podcasts
 
--   **Games** – fun and casual ways to practice vocabulary
+* **Games** – fun and casual ways to practice vocabulary
 
--   **Live Classes** – Digital live classroom (\~60 min) with a teacher
+* **Live Classes** – Digital live classroom (\~60 min) with a teacher
     and a small group of students
 
 The respective learning content for these is designed by our team of
@@ -72,17 +69,17 @@ Please use the attached dataset and the following guiding questions to
 analyse the early learning engagement journey, and point out
 optimisation potential:
 
-1.  Given the data you have available, how would you operationalise user
+1. Given the data you have available, how would you operationalise user
     behavior that marks successful activation?
 
-2.  How does the early engagement journey differ across learner
+2. How does the early engagement journey differ across learner
     segments?
 
-3.  How are live classes being used in conjunction with other learning
+3. How are live classes being used in conjunction with other learning
     experiences? Do Live subscribers behave differently than other
     subscribers?
 
-4.  Assume that the team is planning to build an experimental learning
+4. Assume that the team is planning to build an experimental learning
     path aimed at activating new learners in their first three weeks
     after subscribing. The team wants to A/B test and iterate on the
     feature every 2 weeks so they cannot optimize based on three week
@@ -117,7 +114,7 @@ subscription. Each row represents a unique learning session.[^1]
 | `session_ended_as`      | `String`, state in which the session was ended (completed, aborted, missing)                         |
 | `session_started_at`    | Timestamp of learning session start (in UTC)                                                         |
 | `session_local_started_at` | Timestamp of learning session start in user’s local timezone                                      |
-| `time_spent`            | `Float`, minutes spent learning    
+| `time_spent`            | `Float`, minutes spent learning |
 
 [^1]: This dataset originates from actual user behavior but we sampled,
     anonymised it, and changed some details here and there so as not to

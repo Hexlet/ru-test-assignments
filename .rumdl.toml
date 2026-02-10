@@ -1,0 +1,59 @@
+# rumdl configuration file
+
+# Global configuration options
+[global]
+# List of rules to disable (uncomment and modify as needed)
+disable = ["MD013", "MD033", "MD041", "MD036", "MD045"]
+
+# List of rules to enable exclusively (if provided, only these rules will run)
+# enable = ["MD001", "MD003", "MD004"]
+
+# List of file/directory patterns to include for linting (if provided, only these will be linted)
+# include = [
+#    "docs/*.md",
+#    "src/**/*.md",
+#    "README.md"
+# ]
+
+# List of file/directory patterns to exclude from linting
+exclude = [
+    # Common directories to exclude
+    ".git",
+    ".github",
+    "node_modules",
+    "vendor",
+    "dist",
+    "build",
+
+    # Specific files or patterns
+    "CHANGELOG.md",
+    "LICENSE.md",
+]
+
+# Respect .gitignore files when scanning directories (default: true)
+respect-gitignore = true
+
+# Markdown flavor/dialect (uncomment to enable)
+# Options: mkdocs, gfm, commonmark
+# flavor = "mkdocs"
+
+# Rule-specific configurations (uncomment and modify as needed)
+
+[MD003]
+style = "atx"  # Heading style (atx, atx_closed, setext)
+
+[MD004]
+style = "asterisk"  # Unordered list style (asterisk, plus, dash, consistent)
+
+[MD007]
+indent = 4  # Unordered list indentation
+
+# [MD013]
+# line-length = 100  # Line length
+# code-blocks = false  # Exclude code blocks from line length check
+# tables = false  # Exclude tables from line length check
+# headings = true  # Include headings in line length check
+
+# [MD044]
+# names = ["rumdl", "Markdown", "GitHub"]  # Proper names that should be capitalized correctly
+# code-blocks = false  # Check code blocks for proper names (default: false, skips code blocks)
