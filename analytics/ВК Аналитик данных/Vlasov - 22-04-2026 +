@@ -1,0 +1,139 @@
+Решение – Vlasov – 22-04-2026 
+
+Разберу задачу пошагово: подготовлю код на Python для анализа данных и сформулирую рекомендации для рекламодателя.
+Код на Python
+python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
+
+# Загрузка данных
+df = pd.read_csv('ad_data.csv')  # замените на путь к вашему файлу
+
+# Предварительный анализ данных
+print("Первые 5 строк данных:")
+print(df.head())
+print("\nИнформация о данных:")
+print(df.info())
+print("\nПропуски в данных:")
+print(df.isnull().sum())
+
+# Преобразование времени
+df['Datetime'] = pd.to_datetime(df['Datetime'])
+df['Hour'] = df['Datetime'].dt.hour
+df['DayOfWeek'] = df['Datetime'].dt.dayofweek
+
+# Расчёт CTR по регионам
+ctrs_by_region = df.groupby('Region_id').apply(
+    lambda x: x[x['Ev_type'] == 1].shape[0] / x[x['Ev_type'] == 0].shape[0] if x[x['Ev_type'] == 0].shape[0] > 0 else 0
+).reset_index(name='CTR')
+print("\nCTR по регионам:")
+print(ctrs_by_region)
+
+# Визуализация CTR по регионам
+plt.figure(figsize=(10, 6))
+sns.barplot(data=ctrs_by_region, x='Region_id', y='CTR')
+plt.title('CTR по регионам')
+plt.ylabel('CTR')
+plt.show()
+
+# Анализ по демографическим группам
+demographic_analysis = df.groupby(['Region_id', 'Age', 'Gender']).apply(
+    lambda x: pd.Series({
+        'Impressions': x[x['Ev_type'] == 0].shape[0],
+        'Clicks': x[x['Ev_type'] == 1].shape[0],
+        'CTR': x[x['Ev_type'] == 1].shape[0] / x[x['Ev_type'] == 0].shape[0] if x[x['Ev_type'] == 0].shape[0] > 0 else 0
+    })
+).reset_index()
+print("\nАнализ по демографическим группам:")
+print(demographic_analysis.head(10))
+
+# Визуализация CTR по возрасту и полу
+plt.figure(figsize=(12, 8))
+sns.heatmap(
+    demographic_analysis.pivot_table(index='Age', columns='Gender', values='CTR', aggfunc='mean'),
+    annot=True, cmap='Blues', fmt='.3f'
+)
+plt.title('CTR по возрасту и полу')
+plt.show()
+
+# Кластеризация пользователей
+features = ['Age', 'Gender', 'Hour', 'DayOfWeek', 'Region_id']
+X = df[features].dropna()
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+kmeans = KMeans(n_clusters=4, random_state=42)
+clusters = kmeans.fit_predict(X_scaled)
+X['Cluster'] = clusters
+
+# Анализ кластеров
+cluster_analysis = X.groupby('Cluster').agg({
+    'Age': ['mean', 'min', 'max'],
+    'Gender': 'mean',
+    'Hour': 'mean',
+    'DayOfWeek': 'mean',
+    'Region_id': 'mean'
+}).round(2)
+print("\nАнализ кластеров:")
+print(cluster_analysis)
+
+# Обучение классификатора для предсказания кликов
+df_model = df.copy()
+df_model['IsClick'] = (df_model['Ev_type'] == 1).astype(int)
+
+features_model = ['Age', 'Gender', 'Hour', 'DayOfWeek', 'Region_id', 'Device_type']
+X_model = pd.get_dummies(df_model[features_model], columns=['Device_type'])
+y_model = df_model['IsClick']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X_model, y_model, test_size=0.2, random_state=42, stratify=y_model
+)
+
+clf = RandomForestClassifier(n_estimators=100, random_state=42)
+clf.fit(X_train, y_train)
+
+y_pred = clf.predict(X_test)
+print("\nОтчёт по классификации:")
+print(classification_report(y_test, y_pred))
+
+# Важность признаков
+feature_importance = pd.DataFrame({
+    'Feature': X_train.columns,
+    'Importance': clf.feature_importances_
+}).sort_values('Importance', ascending=False)
+print("\nВажность признаков:")
+print(feature_importance)
+
+# Визуализация важности признаков
+plt.figure(figsize=(10, 6))
+sns.barplot(data=feature_importance.head(10), x='Importance', y='Feature')
+plt.title('Важность признаков для предсказания кликов')
+plt.show()
+
+# Анализ времени показа рекламы
+time_analysis = df.groupby('Hour').apply(
+    lambda x: pd.Series({
+        'Impressions': x[x['Ev_type'] == 0].shape[0],
+        'Clicks': x[x['Ev_type'] == 1].shape[0],
+        'CTR': x[x['Ev_type'] == 1].shape[0] / x[x['Ev_type'] == 0].shape[0] if x[x['Ev_type'] == 0].shape[0] > 0 else 0
+    })
+).reset_index()
+
+print("\nАнализ времени показа рекламы:")
+print(time_analysis)
+
+# Визуализация CTR по часам
+plt.figure(figsize=(12, 6))
+plt.plot(time_analysis['Hour'], time_analysis['CTR'], marker='o')
+plt.title('CTR по часам суток')
+plt.xlabel('Час суток')
+plt.ylabel('CTR')
+plt.grid(True)
+plt.show()
