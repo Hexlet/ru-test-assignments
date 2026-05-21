@@ -339,8 +339,6 @@
 
 * [Стажер-программист *(C#)*](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
 
-* [Тестовое задание *(C#, ASP.NET Core, Entity Framework Core)*](https://disk.yandex.ru/d/Gu5V8FgsEobwzA)
-
 * [Тестовые задания на c# стажировку *(C#)*](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
 
 * [Тестовое на стажировку C#, зима 2019-2020 *(C#, ASP.NET)*](https://drive.google.com/drive/folders/1UCx7__WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
