@@ -1,0 +1,208 @@
+openapi: 3.0.2
+
+info:
+  title: Printer API
+  description: API для сервиса печати чеков
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000/
+    description: Dev
+
+tags:
+  - name: erp
+    description: Методы API для ERP
+  - name: app
+    description: Методы API для приложения
+
+paths:
+  /create_checks/:
+    post:
+      tags:
+        - erp
+
+      summary: Создание чеков для заказа
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+
+      responses:
+        '200':
+          description: Чеки успешно созданы
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OkResponse'
+              example:
+                ok: Чеки успешно созданы
+        '400':
+          description: |
+            При создании чеков произошла одна из ошибок:
+            1. Для данного заказа уже созданы чеки
+            2. Для данной точки не настроено ни одного принтера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /new_checks/:
+    get:
+      tags:
+        - app
+
+      summary: Список доступных чеков для печати
+
+      parameters:
+        - $ref: '#/components/parameters/APIKey'
+
+      responses:
+        '200':
+          description: Список чеков
+          content:
+            application/json:
+              schema:
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Check'
+        '401':
+          description: Не существует принтера с таким api_key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: Ошибка авторизации
+
+  /check/:
+    get:
+      tags:
+        - app
+
+      summary: PDF-файл чека
+
+      parameters:
+        - $ref: '#/components/parameters/APIKey'
+        - name: check_id
+          in: query
+          required: true
+          description: ID чека
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: PDF-файл чека
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Не существует принтера с таким api_key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: Ошибка авторизации
+        '400':
+          description: |
+            При создании чеков произошла одна из ошибок:
+            1. Данного чека не существует
+            2. Для данного чека не сгенерирован PDF-файл
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  parameters:
+    APIKey:
+      name: api_key
+      in: query
+      required: true
+      description: Ключ доступа к API
+      schema:
+        type: string
+
+  schemas:
+    Order:
+      properties:
+        id:
+          type: integer
+          description: ID заказа
+        items:
+          type: array
+          description: Список позиций
+          items:
+            $ref: '#/components/schemas/Item'
+        price:
+          type: integer
+          description: Стоимость
+        address:
+          type: string
+          description: Адрес доставки
+        client:
+          type: object
+          description: Информация о клиенте
+          $ref: '#/components/schemas/Client'
+        point_id:
+          type: string
+          description: Точка на которой готовится заказ
+      example:
+        id: 123456
+        price: 780
+        items:
+          - name: Вкусная пицца
+            quantity: 2
+            unit_price: 250
+          - name: Не менее вкусные роллы
+            quantity: 1
+            unit_price: 280
+        address: г. Уфа, ул. Ленина, д. 42
+        client:
+          name: Иван
+          phone: 9173332222
+        point_id: 1
+
+    Item:
+      properties:
+        name:
+          type: string
+          description: Название
+        quantity:
+          type: integer
+          description: Количество
+        unit_price:
+          type: integer
+          description: Цена за единицу
+
+    Client:
+      properties:
+        name:
+          type: string
+          description: Имя клиента
+        phone:
+          type: string
+          description: Номер телефона
+
+    Check:
+      properties:
+        id:
+          type: integer
+          description: ID чека
+
+    OkResponse:
+      properties:
+        ok:
+          type: string
+
+    ErrorResponse:
+      properties:
+        error:
+          type: string

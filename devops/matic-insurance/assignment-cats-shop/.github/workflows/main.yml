@@ -1,0 +1,57 @@
+name: ci
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      database:
+        image: postgres:12.1-alpine
+        env:
+          POSTGRES_USER: app
+          POSTGRES_PASSWORD: pass
+        ports:
+          - '5432:5432'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.OS }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: ${{ runner.OS }}-gems-
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7.x'
+      - name: Install PostgreSQL dependencies
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Set up Bundler
+        run: |
+          gem install bundler:2.1.4
+          bundle config set path 'vendor/bundle'
+      - name: Set up Dependencies
+        run: bundle install
+
+      - name: Set up Database
+        env:
+          DATABASE_URL: postgresql://app:pass@localhost:5432/cats_shop_test
+          RACK_ENV: test
+        run: |
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+
+      - name: Run Unit Tests
+        env:
+          DATABASE_URL: postgresql://app:pass@localhost:5432/cats_shop_test
+          RACK_ENV: test
+        run: bundle exec rspec
+
