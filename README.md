@@ -214,9 +214,6 @@
 <details>
  <summary>Automation QA</summary>
 
-* [Ediweb](https://ediweb.com/ru-ru)
-    * [Тестовое задание на должность "Тестировщик" *Automation QA / Ruby*](https://github.com/avannim/Fedorenko_test/tree/59b6c1a395ad8123b102f7f4214db6840be9db01/candidate_test)
-
 * [Тестовое задание для стажёра-автоматизатора](./qa/avito-tech/qa-trainee-task.md)
 
 * [Тестовое задание для стажёра-тестировщика на знание Java и SQL *(any)*](./qa/pammer/traineetesttask.md)
@@ -248,7 +245,7 @@
     * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
 
 * [Purrweb](https://www.purrweb.com/ru/)
-    * [Тестовое задание на позицию QA](https://github.com/Hexlet/ru-test-assignments/blob/main/QA/Test%20task%20Purrweb.md)
+    * [Тестовое задание на позицию QA](./qa/test-task-purrweb.md)
 
 * [Sendsay](https://sendsay.ru/)
     * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](./qa/sendsay/README.md)
@@ -376,7 +373,6 @@
 * [Appbooster](https://appbooster.com/)
     * [Frontend Developer *(any)*](./frontend/appbooster/frontend.md)
     * [Frontend + graphql developer *(React, Github GraphQL API)*](./frontend/appbooster/frontend-graphql.md)
-    * [html-верстальщик *(JS, HTML/CSS)*](./frontend/appbooster/html-css.md)*(отсутствует дизайн-макет по указанной ссылке)*
 
 * [Aviasales](https://aviasales.ru)
     * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](./frontend/aviasales/aviasales-frontend.md) *(сервер тестового задания не работает)*
@@ -386,8 +382,6 @@
 * [avito.tech](https://github.com/avito-tech)
     * [Тестовое задание на позицию стажёра-фронтендера 2022 *(React, Redux, TS)*](./frontend/avito-tech/internship-frontend-2022.md)
     * [Тестовое задание на позицию стажёра-фронтендера 2023 *(React, React Router, TS)*](./frontend/avito-tech/frontend-trainee-assignment-2023.md)
-    * [Тестовое задание на позицию стажёра-фронтендера 2024 *(React, React Router, TS)*](https://github.com/avito-tech/frontend-trainee-assignment-2024)
-    * [Тестовое задание для стажёра frontend *(React)*](./frontend/avito-tech/safedeal-frontend-trainee.md)*(отсутствует дизайн-макет по указанной ссылке)*
     * [Тестовое задание для стажёра Frontend в команду Seller Experience *(Node.JS, React, Redux)*](./frontend/avito-tech/sx-frontend-trainee-assignment.md)
     * [Тестовое задание для стажёра Frontend в команду Avito People *(React, MobX, TS, Node.JS)*](./frontend/avito-tech/ap-frontend-trainee-assignment.md)
 
@@ -417,9 +411,6 @@
 * [DAO TECH](https://daotech.ru/)
     * [Тестовое задание на вакансию "Frontend Developer" *(JS, React, Docker)*](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
 
-* [Dapplets Project](https://dapplets.org/)
-    * [Тестовое задание на вакансию "Frontend Developer" *(TS, React)*](./frontend/dapplets-project/1a67hvef5fb6uk1y341p.md)
-
 * [DevJS](https://devjs.ru/)
     * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](./frontend/devjs/react-test.md)*(отсутствует дизайн-макет по указанной ссылке)*
 
@@ -437,12 +428,6 @@
 
 * [Hammer Systems](https://hammer.systems/)
     * [Тестовое задание для Frontend разработчика](https://disk.yandex.ru/d/R74ptnVnK5xpPA)
-
-* [Hyundai Mobility Lab](https://mobility.hyundai.ru/)
-    * [React-Native Mobile app *(React-Native CLI)*](https://docs.google.com/document/d/1VtzfiPK0FyEG5DDdsr1y3Ahh_T0eOIGHcV0m4Xi943U/edit?usp=sharing)
-
-* [Ivelum](https://ivelum.com/)
-    * [frontend-разработчик *(React)*](https://github.com/ivelum/job/blob/master/challenges/frontend.md)
 
 * [KODE](https://kode.ru/)
     * [Frontend разработчик *(Create React App, React Router, Axios)*](./frontend/kode/trainee-test-frontend.md)
@@ -496,9 +481,6 @@
     * [JavaScript Developer *(JS, Vue.js)*](./frontend/smena/assignments.md)
     * [TypeScript Developer *(TS, React)*](./frontend/smena/assignments.md)
 
-* [~~Studika~~](https://studika.ru/) *студия закрыта*
-    * [Frontend-разработчик](./frontend/studika/1gusgngsmd5jdkbtgeii.md)
-
 * [Tutu.ru](https://www.Tutu.ru/)
     * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](./frontend/tutu-ru/fe-homework.md)
     * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](./frontend/tutu-ru/frontend-javascript-test.md)
@@ -508,9 +490,6 @@
     * [Frontend Developer *(TypeScript/JavaScript, Angular/React/Vue)*](./frontend/waliot/frontend-1.md)
     * [Angular Developer *(TypeScript, Angular, NgRX, NGXS)*](./frontend/waliot/frontend-2.md)
 
-* [Wargaming.net](https://wargaming.com)
-    * [Тестовое задание WG Forge Platform Front-End *(JS, Node.js)*](https://github.com/wgnet/wg_forge_frontend)
-
 * [Yoldi](https://yoldi.agency/development)
     * [Тестовое задание для вакансии фронтенд разработчик в Yoldi](https://yoldi-agency.notion.site/Yoldi-7552752e30964431ab0ca03d54908148)
 
@@ -518,7 +497,7 @@
     * [Junior Frontend *(JSc+ Electron, Python + Tornado)*](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
 
 * [Валантис](https://juvelirnyj-lombard.ru/)
-    * [Frontend-разработчик *(React)*](https://github.com/Hexlet/ru-test-assignments/blob/main/frontend/valatris_api.md)
+    * [Frontend-разработчик *(React)*](./frontend/valatris-api.md)
 
 * [Домотехника](https://domotekhnika.ru/)
     * [Тестовое задание Frontend *(Vue.js)*](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
@@ -606,8 +585,6 @@
  <summary>iOS</summary>
 
 * [Задание для стажера на платформу iOS *(Swift)*](./ios/avito-tech/ios-trainee-problem-2021.md)
-
-* [iOS разработчик *(Swift 5, UIKit, iOS 13+, Зависимости через SPM или Cocoapods)*](https://github.com/appKODE/trainee-test-ios)
 
 * [Appbooster](https://appbooster.com/)
     * [iOS Developer *(any)*](./ios/appbooster/ios.md)
@@ -744,7 +721,7 @@
 <summary>Clojure</summary>
 
 * [Health Samurai](https://health-samurai.ru/how-to-become)
-    * [Clojure Developer](backend/HealthSamurai/HealthSamurai_clojure.md)
+    * [Clojure Developer](./backend/healthsamurai/healthsamurai-clojure.md)
 
 </details>
 
@@ -771,9 +748,6 @@
 
 * [is.Digital](https://isdigi.ru/)
     * [Тестовое задание для веб разработчика *(PHP, MySQL)*](https://isdigi.ru/is/job/web-programmer-2/test-web-dev-junior/)
-
-* [Ivelum](https://ivelum.com/)
-    * [PHP-разработчик *(PHP)*](https://github.com/ivelum/job/blob/master/challenges/php.md)
 
 * [Oxem Studio](https://oxem.ru)
     * [Бэкенд-разработчик *(PHP)*](https://doc.clickup.com/p/h/2h539-778/840ce49e651e59a)
