@@ -1,0 +1,103 @@
+{
+	"params": [{
+		"id": 34,
+		"title": "testcaseId",
+		"value": "",
+	}, {
+		"id": 146,
+		"title": "Testcase name",
+		"value": "",
+	}, {
+		"id": 73,
+		"title": "unitId",
+		"value": "",
+		"values": [{
+			"id": 345,
+			"title": "SellerX",
+			"params": [ {
+				"id": 230,
+				"title": "Feature",
+				"value": "",
+				"values": [{
+					"id": 4931,
+					"title": "Publish item",
+				}, {
+					"id": 4932,
+					"title": "Edit item",
+				}]
+			}]
+		}, {
+			"id": 346,
+			"title": "Trust&Safety",
+			"params": [ {
+				"id": 261,
+				"title": "Feature",
+				"value": "",
+				"values": [{
+					"id": 4894,
+					"title": "Authorize user",
+				}, {
+					"id": 4896,
+					"title": "Restore password",
+				}]
+			}]
+		}]
+	}, {
+		"id": 122,
+		"title": "Platform",
+		"value": "",
+		"values": [{
+			"id": 644,
+			"title": "Android",
+			"params": [{
+				"id": 1271,
+				"title": "Test type",
+				"value": "",
+				"values": [{
+					"id": 7197,
+					"title": "UI"
+				}, {
+					"id": 7199,
+					"title": "Business"
+				}]
+			}]
+			}, {
+			"id": 646,
+			"title": "iOS",
+			"params": [{
+				"id": 1373,
+				"title": "Test type",
+				"value": "",
+				"values": [{
+					"id": 7201,
+					"title": "UI"
+				}, {
+					"id": 7204,
+					"title": "Business"
+				}]
+			}]
+		}]
+	}, {
+		"id": 421,
+		"title": "Priority",
+		"value": "",
+		"values": [{
+			"id": 877,
+			"title": "High"
+		}, {
+			"id": 879,
+			"title": "Low"
+		}]
+	}, {
+		"id": 2128,
+		"title": "Tags",
+		"value": "",
+		"values": [{
+			"id": 3624,
+			"title": "develop"
+		}, {
+			"id": 3627,
+			"title": "production"
+		}]
+	}]
+}
