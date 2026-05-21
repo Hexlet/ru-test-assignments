@@ -15,4 +15,4 @@ Please create a report or dashboard which:
 
 As you only have one month actuals then feel free to use whatever logic to generate those extra 2 months of actuals and 3 months of budgeted numbers.
 
-There are no right or wrong solutions as this is meant to show your way of thinking and how you approach finance data.  Which also means that if you have questions then create your own truth.
+There are no right or wrong solutions as this is meant to show your way of thinking and how you approach finance data. Which also means that if you have questions then create your own truth.

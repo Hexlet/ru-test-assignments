@@ -53,9 +53,9 @@ and left(a1.account,3) != ‘408’
 
 1. Есть csv файл размером 20 gb. Первые 3 строки из него выглядят следующим образом.
 
-"Letter",   "Frequency",    "Percentage"
+"Letter", "Frequency",    "Percentage"
 
-"A",    24373121,   8.1
+"A",    24373121, 8.1
 
 "B",    4762938,    1.6
 

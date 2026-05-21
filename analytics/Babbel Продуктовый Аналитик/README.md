@@ -41,17 +41,17 @@ features offering learning activities with a stand-alone learning value
 proposition. Our main learning experiences are:
 
 * **Lessons** – short units that introduce vocabulary and grammar via
-    contextual content, including exercises
+  contextual content, including exercises
 
 * **Review** – vocabulary review to practice previously introduced
-    words and phrases
+  words and phrases
 
 * **Audio experiences** such as Podcasts
 
 * **Games** – fun and casual ways to practice vocabulary
 
 * **Live Classes** – Digital live classroom (\~60 min) with a teacher
-    and a small group of students
+  and a small group of students
 
 The respective learning content for these is designed by our team of
 linguistic experts and language teachers, and specifically tailored but
@@ -70,22 +70,22 @@ analyse the early learning engagement journey, and point out
 optimisation potential:
 
 1. Given the data you have available, how would you operationalise user
-    behavior that marks successful activation?
+   behavior that marks successful activation?
 
 2. How does the early engagement journey differ across learner
-    segments?
+   segments?
 
 3. How are live classes being used in conjunction with other learning
-    experiences? Do Live subscribers behave differently than other
-    subscribers?
+   experiences? Do Live subscribers behave differently than other
+   subscribers?
 
 4. Assume that the team is planning to build an experimental learning
-    path aimed at activating new learners in their first three weeks
-    after subscribing. The team wants to A/B test and iterate on the
-    feature every 2 weeks so they cannot optimize based on three week
-    lagged behavior. Based on your experience and the dataset provided,
-    what would you advise the team to do? Are there any risks they
-    should be aware of?
+   path aimed at activating new learners in their first three weeks
+   after subscribing. The team wants to A/B test and iterate on the
+   feature every 2 weeks so they cannot optimize based on three week
+   lagged behavior. Based on your experience and the dataset provided,
+   what would you advise the team to do? Are there any risks they
+   should be aware of?
 
 ### Data
 
