@@ -789,6 +789,8 @@
 * [Appbooster](https://appbooster.com/)
     * [Ruby Developer *(Ruby)*](./ruby/appbooster/949731e077656ce036fa6114e7b47d2d.md)
 
+* [MEDODS - Junior+ Ruby разработчик *(Ruby, Ruby On Rails)*](./ruby/medods/ror_junior_plus.md)
+
 * [Тестовое задание Software Engineer *(Ruby, Ruby On Rails, ActiveRecord, Docker)*](./ruby/kosyanmedia/travelpayouts-ror-test.md)
 
 </details>
