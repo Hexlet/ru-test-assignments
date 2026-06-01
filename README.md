@@ -309,9 +309,6 @@
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
     * [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](./backend/marketplace-technologies-kazanexpress/backend-spring-test-task.md)
 
-* [MEDODS](http://medods.ru/)
-    * [Junior+ Ruby разработчик *(Ruby, Ruby On Rails)*](./ruby/medods/ror_junior_plus.md)
-
 * [Oxem Studio](https://oxem.ru)
     * [Бэкенд-разработчик *(PHP)*](./backend/oxem-studio/README.md)
 
