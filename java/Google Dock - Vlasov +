@@ -1,0 +1,140 @@
+Выполнение – Vlasov – 01-06-2026 (Help to Giga Chat)
+Below is a detailed description of a UML Class Diagram for a basic Library Management System, designed with Object-Oriented Programming (OOP) and SOLID principles in mind. Since I cannot generate an actual image, the diagram is presented in a structured text format that can be easily translated into a visual UML tool.
+
+### **1. Class Diagram Structure**
+
+**Key Entities:**
+*   **Book:** Represents a physical or digital item in the library.
+*   **Member:** Represents a registered user of the library.
+*   **BorrowingTransaction:** Represents the act of a member taking a book.
+*   **NotificationService:** Handles sending reminders (adheres to Dependency Inversion).
+*   **Genre:** Represents a category for books (e.g., Science Fiction, History).
+
+**Relationships:**
+*   A **Book** has one or more **Genres** (Aggregation).
+*   A **Member** can have many **BorrowingTransactions** (Composition).
+*   A **BorrowingTransaction** is associated with exactly one **Member** and one **Book** (Association).
+*   The system uses a **NotificationService** to send reminders (Dependency Inversion).
+
+### **2. Detailed Class Specifications**
+
+#### **Class: Book**
+*   **Attributes:**
+    *   `- isbn: String` (Private)
+    *   `- title: String` (Private)
+    *   `- author: String` (Private)
+    *   `- publicationDate: Date` (Private)
+    *   `- genres: List<Genre>` (Private)
+    *   `- isAvailable: boolean` (Private)
+*   **Methods:**
+    *   `+ getIsbn(): String`
+    *   `+ getTitle(): String`
+    *   `+ getAuthor(): String`
+    *   `+ getPublicationDate(): Date`
+    *   `+ getGenres(): List<Genre>`
+    *   `+ isAvailable(): boolean`
+    *   `+ setAvailability(status: boolean): void`
+
+#### **Class: Genre**
+*   **Attributes:**
+    *   `- name: String` (Private)
+*   **Methods:**
+    *   `+ getName(): String`
+
+#### **Class: Member**
+*   **Attributes:**
+    *   `- memberId: String` (Private)
+    *   `- name: String` (Private)
+    *   `- contactInfo: ContactInfo` (Private - Aggregation/Composition)
+    *   `- transactions: List<BorrowingTransaction>` (Private)
+*   **Methods:**
+    *   `+ getMemberId(): String`
+    *   `+ getName(): String`
+    *   `+ getContactInfo(): ContactInfo`
+    *   `+ getTransactions(): List<BorrowingTransaction>`
+
+#### **Class: ContactInfo**
+*(Extracted for Single Responsibility Principle)*
+*   **Attributes:**
+    *   `- email: String` (Private)
+    *   `- phoneNumber: String` (Private)
+*   **Methods:**
+    *   `+ getEmail(): String`
+    *   `+ getPhoneNumber(): String`
+
+#### **Class: BorrowingTransaction**
+*(Extracted for Single Responsibility Principle)*
+*   **Attributes:**
+    *   `- transactionId: String` (Private)
+    *   `- book: Book` (Private)
+    *   `- member: Member` (Private)
+    *   `- borrowDate: Date` (Private)
+    *   `- dueDate: Date` (Private)
+    *   `- returnDate: Date` (Private, nullable)
+*   **Methods:**
+    *   `+ getTransactionId(): String`
+    *   `+ getBook(): Book`
+    *   `+ getMember(): Member`
+    *   `+ getBorrowDate(): Date`
+    *   `+ getDueDate(): Date`
+    *   `+ markAsReturned(dateReturned): void`
+
+#### **Interface/Abstract Class: NotificationService**
+*(Dependency Inversion Principle)*
+To allow for different notification methods (Email, SMS), we define an interface.
+*   **Methods:**
+    *   `+ sendReminder(member, book, dueDate): void`
+
+#### **Class: EmailNotificationService implements NotificationService**
+*   Implements the logic to send an email.
+
+#### **Class: LibrarySystem (Facade/Orchestrator)**
+*(Single Responsibility Principle - manages workflow)*
+This class coordinates the business logic.
+*   **Attributes:**
+    *   `- booksCatalogue: List<Book>` (Private)
+    *   `- membersRegistry: List<Member>` (Private)
+    *   `- notificationService: NotificationService` (Private - Dependency Injection)
+*   **Methods:**
+    *   `+ addBook(book): void`
+    *   `+ registerMember(member): void`
+    *   `+ borrowBook(memberId, isbn): BorrowingTransaction`
+        *   Checks if the book is available.
+        *   Creates a new BorrowingTransaction.
+        *   Sets the book's availability to false.
+        *   Adds the transaction to the member's history.
+        *   Schedules a reminder via the injected NotificationService.
+
+### **3. Visual Representation of Relationships and Multiplicity**
+
+| Relationship | From | To | Type | Multiplicity | Description |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Association | Member | BorrowingTransaction | Association | 1 --- 0..* | A Member has many transactions. |
+| Association | Book | BorrowingTransaction | Association | 1 --- 0..1 | A Book can be in at most one active transaction. |
+| Aggregation | Book | Genre | Aggregation | 1 --- 0..* | A Book can belong to multiple genres. |
+| Composition | Member | ContactInfo | Composition | 1 --- 1 | A Member has one ContactInfo. |
+| Dependency / DI| LibrarySystem | NotificationService | Dependency Injection / Interface Implementation | 1 --- 1 | The system uses a service to send notifications. |
+
+### **4. Explanation of SOLID Principles in this Design**
+
+**S — Single Responsibility Principle (SRP)**
+Each class has one primary responsibility:
+*   `Book` manages its own data and availability status.
+*   `BorrowingTransaction` encapsulates the data and state of a single loan.
+*   `NotificationService` is solely responsible for sending messages.
+By extracting transaction logic from the Member or LibrarySystem classes, we ensure that changes in borrowing logic do not affect member data management.
+
+**O — Open/Closed Principle (OCP)**
+The system is open for extension but closed for modification.
+If we want to add a new way to notify members (e.g., push notifications), we simply create a new class like `PushNotificationService` that implements the `NotificationService` interface. The core logic in `LibrarySystem` does not need to change; it just uses the new implementation.
+
+**L — Liskov Substitution Principle (LSP)**
+Any implementation of the `NotificationService` interface can be substituted for another without altering the correctness of the program. For example, replacing an `EmailNotificationService` with an `SmsNotificationService` will not break the borrowing logic because both adhere to the same contract defined by the interface.
+
+**I — Interface Segregation Principle (ISP)**
+The client (`LibrarySystem`) depends on a small, specific interface (`NotificationService`) rather than a large, monolithic "God" class that handles all library functions. This prevents the system from being forced to depend on methods it does not use.
+
+**D — Dependency Inversion Principle (DIP)**
+High-level modules (`LibrarySystem`) do not depend on low-level modules (`EmailNotificationService`) directly. Instead, both depend on abstractions (`NotificationService`). The concrete service is provided to the system at runtime via dependency injection, making the system highly decoupled and testable.
+
+This design ensures that as the library grows—adding features like fines, reservations, or different media types—the core structure remains stable a
