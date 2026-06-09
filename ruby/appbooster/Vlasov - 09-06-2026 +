@@ -1,0 +1,67 @@
+Текст программы на языке Ruby - Help Giga Chat
+
+# server.rb
+require 'async'
+require 'async/http/server'
+require 'async/http/endpoint'
+require 'falcon'
+require 'rack'
+require 'time'
+require 'tzinfo'
+
+# Обработчик Rack-приложения
+class TimeApp
+  # Метод call - точка входа для Rack
+  def call(env)
+    request = Rack::Request.new(env)
+
+    # Получаем список городов из параметра 'cities' и разделяем его по запятым
+    cities_param = request.params['cities']
+    cities = cities_param ? CGI.unescape(cities_param).split(',') : []
+
+    # Текущее время в UTC
+    utc_time = Time.now.utc.strftime("%Y-%m-%d %H:%M:%S")
+
+    # Формируем тело ответа
+    body = ["UTC: #{utc_time}"]
+
+    # Для каждого города пытаемся найти часовой пояс и получить локальное время
+    cities.each do |city|
+      # Нормализуем название города для TZInfo (заменяем пробелы на подчеркивания)
+      normalized_city = city.strip.gsub(' ', '_')
+      begin
+        # Находим часовой пояс. Метод `find_timezone!` вызовет исключение, если зона не найдена.
+        tz = TZInfo::Timezone.find_timezone!(normalized_city)
+        local_time = tz.utc_to_local(Time.now.utc).strftime("%Y-%m-%d %H:%M:%S")
+        body << "#{city}: #{local_time}"
+      rescue TZInfo::InvalidTimezoneIdentifier, TZInfo::UnknownTimezone
+        # Если город не найден, добавляем сообщение об ошибке
+        body << "#{city}: Unknown timezone"
+      end
+    end
+
+    # Возвращаем стандартный Rack-ответ: [статус, заголовки, тело]
+    # Тело должно быть массивом строк или объектом, отвечающим на `each`
+    [200, { 'Content-Type' => 'text/plain' }, body]
+  end
+end
+
+# Настройка конечной точки (endpoint)
+endpoint = Async::HTTP::Endpoint.parse("http://localhost:9292")
+
+# Запуск сервера в асинхронном контексте Async::Reactor
+Async do |task|
+  server = Falcon::Server.new(
+    Falcon::Adapter::Rack.new(TimeApp.new), # Оборачиваем наше приложение в адаптер Falcon
+    endpoint,
+    protocol: Async::HTTP::Protocol::HTTP11 # Можно использовать HTTP2 для еще большей производительности
+  )
+  puts "Сервер запущен на http://localhost:9292"
+  puts "Примеры запросов:"
+  puts "  curl http://localhost:9292/time"
+  puts "  curl http://localhost:9292/time?Moscow,New%20York"
+  task.run(server)
+end
+
+# Для корректной работы на Windows с Ctrl+C
+at_exit { Async::Reactor.run { |task| task.stop } }
