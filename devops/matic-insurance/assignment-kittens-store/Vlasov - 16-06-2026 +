@@ -1,0 +1,254 @@
+Для реализации автоматизированного конвейера (CI/CD), который будет собирать приложение, запускать автотесты и предоставлять временную среду для ручного тестирования при каждом коммите или слиянии, предлагается использовать связку GitHub Actions, Docker, Terraform и сервисов AWS. Такой подход полностью соответствует требованиям: он автоматизирует процесс, легко конфигурируется под другие проекты и реализует принцип «инфраструктура как код».
+
+Ниже представлено подробное описание архитектуры и необходимых файлов.
+
+1. Архитектура решения
+
+Процесс выглядит следующим образом:
+
+Событие: Разработчик отправляет коммит в репозиторий или создает Pull Request/Merge Request в основную ветку (main).
+Сборка и тестирование (CI):
+GitHub Actions автоматически запускает рабочий процесс (workflow).
+Устанавливается Ruby 2.4.9, зависимости (bundle install), создается и мигрируется тестовая база данных.
+Выполняются команды docker build на основе предоставленного Dockerfile.
+Образ приложения публикуется в реестре контейнеров (Amazon ECR — Elastic Container Registry). Это безопаснее и удобнее для AWS-инфраструктуры, чем Docker Hub.
+Внутри контейнера запускаются автоматические тесты (bundle exec rspec).
+Развертывание и ручное тестирование (CD):
+При успешном прохождении тестов Terraform, запущенный из того же workflow, применяет изменения к инфраструктуре.
+В AWS с помощью Terraform создается временная инфраструктура: EC2-инстанс, Security Group и целевая группа (Target Group) для балансировщика нагрузки.
+На инстансе развертывается свежий образ из ECR, и приложение становится доступным по публичному IP-адресу или через Application Load Balancer (ALB).
+QA-инженер получает ссылку на развернутое окружение и проводит ручное тестирование.
+Очистка (Cleanup):
+После завершения тестирования (вручную или по таймауту) Terraform уничтожает созданную инфраструктуру, чтобы не генерировать лишние затраты.
+2. Ключевые файлы проекта
+A. Dockerfile
+
+Этот файл описывает, как собрать образ вашего приложения.
+
+dockerfile
+Копировать
+# Используйте официальный базовый образ Ruby нужной версии
+FROM ruby:2.4.9-slim
+
+# Установите системные зависимости
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+      build-essential \
+      libpq-dev \
+      nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+# Создайте каталог для приложения
+WORKDIR /app
+
+# Копируем Gemfile и устанавливаем зависимости до остального кода для кэширования слоев
+COPY Gemfile Gemfile.lock ./
+RUN bundle config set without 'development test' && bundle install --jobs 20 --retry 5
+
+# Копируем остальной код приложения
+COPY . .
+
+# Задаем переменные окружения по умолчанию
+ENV RACK_ENV=production
+ENV PORT=1234
+
+# Открываем порт, на котором работает приложение
+EXPOSE $PORT
+
+# Команда для запуска приложения
+CMD ["bundle", "exec", "rackup", "--port", "$PORT", "--host", "0.0.0.0"]
+B. Конфигурация CI/CD (.github/workflows/main.yml)
+
+Это основной файл, описывающий пайплайн в GitHub Actions.
+
+yaml
+Копировать
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  # Имя нашего образа в ECR
+  IMAGE_REPO_NAME: my-app-repo
+  # Регион AWS
+  AWS_REGION: us-east-1
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Настройка AWS credentials для публикации в ECR и деплоя
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # Вход в Amazon ECR
+      - name: Login to Amazon ECR
+        id: ecr-login
+        uses: aws-actions/amazon-ecr-login@v1
+
+      # Установка Ruby и зависимостей
+      - name: Set up Ruby and dependencies
+        run: |
+          sudo apt-get update
+          gem install bundler
+          bundle install --path vendor/bundle
+
+      # Создание тестовой БД и прогон тестов
+      - name: Run tests in container
+        run: |
+          docker build -t $IMAGE_REPO_NAME .
+          # Запускаем контейнер с линковкой тестовой БД
+          docker run --rm --network ci-network $IMAGE_REPO_NAME bundle exec rake db:create db:migrate db:seed && bundle exec rspec
+
+      # Публикация образа в ECR
+      - name: Tag and push image to ECR
+        run: |
+          echo "${{ steps.ecr-login.outputs.docker-login-command }}"
+          eval $(echo "${{ steps.ecr-login.outputs.docker-login-command }}")
+          docker tag $IMAGE_REPO_NAME:latest ${{ steps.ecr-login.outputs.account }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$IMAGE_REPO_NAME:$(date +%s)
+          docker push ${{ steps.ecr-login.outputs.account }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$IMAGE_REPO_NAME:$(date +%s)
+        env:
+          IMAGE_TAG: latest
+
+  deploy-for-testing:
+    needs: build-and-test
+    if: github.event_name == 'push' # Развертываем только после мержа в main
+    runs-on: ubuntu-latest
+    outputs:
+      instance_ip: ${{ steps.deploy.outputs.instance_ip }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Настройка AWS credentials для Terraform
+      - name: Configure AWS Credentials for Terraform
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.ASS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # Настройка Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      # Получение имени образа из предыдущего шага
+      - name: Get Image URI from previous step
+        id: get-image-tag
+        run: echo "::set-output name=image_tag::$(date +%s)"
+
+      # Применение инфраструктуры Terraform
+      - name: Terraform Init and Apply
+        id: deploy
+        working-directory: ./infrastructure
+        env:
+          TF_VAR_image_uri: ${{ steps.ecr-login.outputs.account }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.IMAGE_REPO_NAME }}:${{ steps.get-image-tag.outputs.image_tag }}
+        run: |
+          terraform init
+          terraform apply -auto-approve
+          # Извлекаем публичный IP инстанса для вывода в логи
+          INSTANCE_IP=$(terraform output -raw instance_public_ip)
+          echo "::set-output name=instance_ip::$INSTANCE_IP"
+
+      # Вывести URL для ручного тестирования
+      - name: Output Testing URL
+        run: echo "Application deployed for manual testing at http://${{ steps.deploy.outputs.instance_ip }}:1234"
+C. Инфраструктура как код (Terraform)
+
+Файлы Terraform описывают временные ресурсы AWS. Они должны находиться в папке ./infrastructure.
+
+provider.tf
+
+hcl
+Копировать
+provider "aws" {
+  region = var.aws_region
+}
+
+variables.tf
+
+hcl
+Копировать
+variable "image_uri" {
+  description = "URI of the Docker image in ECR"
+  type        = string
+}
+variable "aws_region" {
+  description = "AWS Region"
+  type        = string
+  default     = "us-east-1"
+}
+
+main.tf (создает EC2-инстанс)
+
+hcl
+Копировать
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
+  owners = ["099720109477"] # Canonical
+}
+
+resource "aws_security_group" "allow_http" {
+  name        = "allow-http-temporary"
+  description = "Allow HTTP traffic for temporary testing"
+
+  ingress {
+    from_port   = 1234
+    to_port     = 1234
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_instance" "test_server" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t3.micro" # Минимальный тип для бесплатного tier
+
+  security_groups = [aws_security_group.allow_http.name]
+
+  user_data = <<-EOF
+          #!/bin/bash
+          yum install -y docker || apt-get update && apt-get install -y docker.io
+          systemctl start docker
+          docker pull ${var.image_uri}
+          docker run -d -p 1234:1234 ${var.image_uri}
+          EOF
+
+  tags = {
+    Name = "Temporary-Test-Instance"
+  }
+}
+
+output "instance_public_ip" {
+  value       = aws_instance.test_server.public_ip
+  description = "Public IP address of the deployed instance"
+}
+Вопросы для уточнения
+
+Для финализации и адаптации этого решения под ваш проект мне потребуется следующая информация:
+
+База данных: Текущий пайплайн предполагает использование базы данных внутри контейнера. Использует ли ваше приложение внешнюю базу данных (например, PostgreSQL)? Если да, нужно ли создавать временный экземпляр БД в AWS для целей тестирования?
+Окружение для ручного тестирования: Вы предпочитаете получить доступ к приложению напрямую по публичному IP-адресу EC2-инстанса или вам нужен более надежный вариант с использованием Application Load Balancer (ALB)?
+Автоматизация очистки: Как долго должно жить временное окружение? Предлагаю настроить его на самоуничтожение через 1 час после создания, если не будет произведено ручных действий. Это можно реализовать через отдельный шаг в GitHub Actions или используя TTL-политики в AWS.
+Конфиденциальность: Есть ли у вас уже настроенные секреты в GitHub Repository Secrets (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)? Если нет, их необходимо создать с правами, достаточными для работы с ECR, EC2 и (при необходимости) RDS.
