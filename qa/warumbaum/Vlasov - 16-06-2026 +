@@ -1,0 +1,199 @@
+Vlasov - 16-06-2026 - help alica AI
+Разберу задание пошагово и предоставлю готовые скрипты с пояснениями.
+
+## Часть 1. Поиск в Яндексе
+
+**yandex_script_1.py**
+
+```python
+import unittest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+class YandexSearchTest(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.get("https://yandex.ru")
+        self.wait = WebDriverWait(self.driver, 10)
+
+    def test_yandex_search(self):
+        # Проверяем наличие поля поиска
+        search_field = self.wait.until(
+            EC.presence_of_element_located((By.ID, "text"))
+        )
+        self.assertTrue(search_field.is_displayed())
+
+        # Вводим поисковый запрос
+        search_field.send_keys("Тензор tensor.ru")
+
+        # Проверяем появление таблицы подсказок
+        suggest_table = self.wait.until(
+            EC.presence_of_element_located((By.CLASS_NAME, "mini-suggest__popup"))
+        )
+        self.assertTrue(suggest_table.is_displayed())
+
+        # Нажимаем Enter
+        search_field.send_keys(Keys.ENTER)
+
+        # Ждём результатов поиска
+        results = self.wait.until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".serp-item a"))
+        )
+
+        # Проверяем, что первая ссылка ведёт на tensor.ru
+        first_link = results[0].get_attribute("href")
+        self.assertIn("tensor.ru", first_link)
+
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == "__main__":
+    unittest.main()
+```
+
+## Часть 2. Картинки в Яндексе
+
+**yandex_script_2.py**
+
+```python
+import unittest
+import requests
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+class YandexImagesTest(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.get("https://yandex.ru")
+        self.wait = WebDriverWait(self.driver, 10)
+
+    def test_yandex_images(self):
+        # Ищем и кликаем на ссылку «Картинки»
+        images_link = self.wait.until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Картинки"))
+        )
+        images_link.click()
+
+        # Проверяем переход на страницу картинок
+        self.assertIn("yandex.ru/images", self.driver.current_url)
+
+        # Открываем первую картинку
+        first_image = self.wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, ".serp-item__link"))
+        )
+        first_image.click()
+
+        # Ждём загрузки модального окна с картинкой
+        image_modal = self.wait.until(
+            EC.presence_of_element_located((By.CLASS_NAME, "MMImage-Origin"))
+        )
+
+        # Получаем URL текущей картинки
+        current_image_url = image_modal.get_attribute("src")
+
+        # Проверяем доступность картинки через requests
+        response = requests.get(current_image_url)
+        self.assertEqual(response.status_code, 200)
+
+        # Кликаем «Вперёд»
+        next_button = self.wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, ".MediaViewer-ButtonNext"))
+        )
+        next_button.click()
+
+        # Ждём смены картинки
+        self.wait.until(
+            lambda driver: image_modal.get_attribute("src") != current_image_url
+        )
+
+        # Сохраняем URL следующей картинки
+        next_image_url = image_modal.get_attribute("src")
+
+        # Кликаем «Назад»
+        prev_button = self.wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, ".MediaViewer-ButtonPrev"))
+        )
+        prev_button.click()
+
+        # Ждём возврата к первой картинке
+        self.wait.until(
+            lambda driver: image_modal.get_attribute("src") == current_image_url
+        )
+
+        # Повторно проверяем доступность первой картинки
+        response_back = requests.get(current_image_url)
+        self.assertEqual(response_back.status_code, 200)
+
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == "__main__":
+    unittest.main()
+```
+
+## Инструкция по установке и запуску
+
+### Шаг 1. Установка зависимостей
+
+Создайте файл `requirements.txt`:
+
+```txt
+selenium==3.9.0
+requests==2.25.1
+```
+
+Установите зависимости:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Шаг 2. Настройка WebDriver
+
+1. Скачайте ChromeDriver версии 74.0 с официального сайта: https://chromedriver.chromium.org/
+2. Поместите `chromedriver.exe` в папку с скриптами или добавьте путь к нему в переменную окружения `PATH`.
+
+### Шаг 3. Запуск тестов
+
+Откройте терминал в папке с файлами и выполните:
+
+```bash
+python yandex_script_1.py
+python yandex_script_2.py
+```
+
+### Шаг 4. Просмотр результатов
+
+Результаты тестов будут выведены в консоль:
+* `OK` — тест пройден успешно;
+* `FAIL` — тест не пройден, будет показан стек ошибок.
+
+---
+
+## Пояснения к реализации
+
+**Для поиска:**
+* Использован `WebDriverWait` с `expected_conditions` для надёжного ожидания элементов.
+* Поиск поля ввода по ID `text` (стандартный ID на yandex.ru).
+* Подсказки проверяются по классу `mini-suggest__popup`.
+* Первая ссылка проверяется на наличие `tensor.ru` в `href`.
+
+**Для картинок:**
+* Переход по ссылке «Картинки» через `LINK_TEXT`.
+* Открытие первой картинки по классу `serp-item__link`.
+* Проверка доступности картинки через библиотеку `requests` (статус 200).
+* Навигация кнопками «Вперёд»/«Назад» по классам `MediaViewer-ButtonNext` и `MediaViewer-ButtonPrev`.
+* Возврат к исходной картинке проверяется сравнением `src`.
+
+**Преимущества подхода:**
+* Надёжность за счёт явного ожидания элементов.
+* Читаемость кода благодаря структурированию в классы.
+* Возможность повторного использования кода (например, `setUp`/`tearDown`).
+* Чёткие проверки через `assertIn` и `assertEqual`.
+
+Хотите, я уточню какой‑то блок подробнее или помогу адаптировать скрипты под другие сценарии?
