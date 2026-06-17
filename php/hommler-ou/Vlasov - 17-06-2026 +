@@ -1,0 +1,270 @@
+Вариант решения задачи - помощь ИИ 
+Разберу задачу пошагово — дам полный план реализации админки для каталога товаров на Yii2 и укажу, как развернуть проект.
+
+
+## Шаг 1. Подготовка окружения
+
+1. Установите Yii2 Advanced Template:
+```bash
+composer create-project --prefer-dist yiisoft/yii2-app-advanced yii2-catalog
+```
+2. Настройте БД в `common/config/main-local.php`.
+3. Создайте миграцию для таблицы товаров:
+```php
+<?php
+
+use yii\db\Migration;
+
+class m240101_000001_create_product_table extends Migration
+{
+    public function up()
+    {
+        $this->createTable('{{%product}}', [
+            'id' => $this->primaryKey(),
+            'image' => $this->string(255),
+            'article' => $this->string(100)->notNull()->unique(),
+            'name' => $this->string(255)->notNull(),
+            'stock_quantity' => $this->integer()->defaultValue(0),
+            'type' => $this->string(100),
+            'created_at' => $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
+            'updated_at' => $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
+        ]);
+    }
+
+    public function down()
+    {
+        $this->dropTable('{{%product}}');
+    }
+}
+```
+4. Выполните миграцию:
+```bash
+php yii migrate
+```
+
+## Шаг 2. Модель товара (Product)
+
+Создайте модель `common\models\Product`:
+```php
+<?php
+
+namespace common\models;
+
+use yii\db\ActiveRecord;
+
+class Product extends ActiveRecord
+{
+    public static function tableName()
+    {
+        return '{{%product}}';
+    }
+
+    public function rules()
+    {
+        return [
+            [['article', 'name'], 'required'],
+            [['stock_quantity'], 'integer'],
+            [['article'], 'unique'],
+            [['image', 'article', 'name', 'type'], 'string', 'max' => 255],
+        ];
+    }
+}
+```
+
+## Шаг 3. Контроллер для админки
+
+Создайте контроллер `backend\controllers\ProductController`:
+```php
+<?php
+
+namespace backend\controllers;
+
+use Yii;
+use yii\web\Controller;
+use yii\filters\AccessControl;
+use common\models\Product;
+use yii\data\ActiveDataProvider;
+use yii\web\NotFoundHttpException;
+
+class ProductController extends Controller
+{
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'], // Только авторизованные пользователи
+                    ],
+                ],
+            ],
+        ];
+    }
+
+    public function actionIndex($search = null, $columns = null)
+    {
+        $query = Product::find();
+
+        // Поиск по артикулу и названию
+        if (!empty($search)) {
+            $query->andWhere(['or',
+                ['like', 'article', $search],
+                ['like', 'name', $search]
+            ]);
+        }
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+        // Настраиваемые столбцы
+        $availableColumns = ['image', 'article', 'name', 'stock_quantity', 'type'];
+        $selectedColumns = $columns ? explode(',', $columns) : $availableColumns;
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'search' => $search,
+            'selectedColumns' => $selectedColumns,
+            'availableColumns' => $availableColumns,
+        ]);
+    }
+
+    // Остальные действия (create, update, delete, bulkDelete)
+}
+```
+
+## Шаг 4. Представление списка товаров (index)
+
+Файл `backend\views\product\index.php`:
+```php
+<?php
+
+use yii\grid\GridView;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+$this->title = 'Каталог товаров';
+?>
+
+<h1><?= Html::encode($this->title) ?></h1>
+
+<!-- Форма поиска -->
+<?php $form = ActiveForm::begin(['method' => 'get']); ?>
+<?= $form->field($searchModel, 'search')->textInput(['placeholder' => 'Поиск по артикулу или названию'])->label(false) ?>
+<div class="form-group">
+    <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>
+</div>
+<?php ActiveForm::end(); ?>
+
+<!-- Настройка видимости столбцов -->
+<div class="mb-3">
+    <strong>Видимость столбцов:</strong>
+    <?php foreach ($availableColumns as $column): ?>
+        <label>
+            <input type="checkbox" name="columns[]" value="<?= $column ?>"
+                <?= in_array($column, $selectedColumns) ? 'checked' : '' ?>>
+            <?= ucfirst($column) ?>
+        </label>
+    <?php endforeach; ?>
+    <button type="submit" class="btn btn-secondary btn-sm">Применить</button>
+</div>
+
+<!-- Таблица товаров -->
+<?= GridView::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => array_map(function($column) use ($selectedColumns) {
+        if (!in_array($column, $selectedColumns)) return null;
+
+        if ($column === 'image') {
+            return [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::img($model->image, ['width' => 50]) ?: 'Нет изображения';
+                },
+            ];
+        }
+        return $column;
+    }, array_filter($selectedColumns)),
+    'rowOptions' => function ($model, $key, $index, $grid) {
+        return ['data-id' => $model->id];
+    },
+]); ?>
+
+<!-- Кнопки действий -->
+<div class="mt-3">
+    <?= Html::a('Создать товар', ['create'], ['class' => 'btn btn-success']) ?>
+    <?= Html::button('Удалить выбранные', [
+        'class' => 'btn btn-danger',
+        'onclick' => 'bulkDelete()'
+    ]) ?>
+</div>
+```
+
+## Шаг 5. Формы создания и редактирования
+
+Форма создания (`backend\views\product\_form.php`):
+```php
+<?php
+
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\Product */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<?php $form = ActiveForm::begin(); ?>
+
+<?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'article')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'stock_quantity')->textInput() ?>
+<?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
+
+<div class="form-group">
+    <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+</div>
+
+<?php ActiveForm::end(); ?>
+```
+
+## Шаг 6. JavaScript для массовых операций
+
+Добавьте скрипт для удаления нескольких товаров:
+```javascript
+function bulkDelete() {
+    const selectedIds = [];
+    $('input[type="checkbox"]:checked').each(function() {
+        selectedIds.push($(this).data('id'));
+    });
+
+    if (selectedIds.length === 0) {
+        alert('Выберите товары для удаления');
+        return;
+    }
+
+    if (confirm('Удалить выбранные товары?')) {
+        $.post('/product/bulk-delete', {ids: selectedIds}, function() {
+            location.reload();
+        });
+    }
+}
+```
+
+## Шаг 7. Развёртывание на бесплатном хостинге
+
+**Варианты хостингов:**
+* **Heroku** — бесплатный тариф с ограничениями;
+* **Render** — бесплатный хостинг для PHP-приложений;
+* **Railway** — бесплатный план с возможностью развёртывания.
+
+**Порядок развёртывания:**
+1. Создайте репозиторий на GitHub.
+2. Загрузите код в репозиторий.
