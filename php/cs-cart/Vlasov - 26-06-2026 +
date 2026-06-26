@@ -1,0 +1,218 @@
+Выполнение задания - Власов - Помощь GigaChat +
+
+Это классическое тестовое задание для разработчика CS-Cart, направленное на проверку знания архитектуры движка, работы с базой данных, хуками и системой событий. Ниже представлен подробный план реализации, структура модуля и примеры кода.
+
+1. Структура модуля
+
+Создайте папку order_status_history в директории app/addons/.
+
+Внутри неё должна быть следующая структура:
+
+Копировать
+order_status_history/
+├── func.php
+├── lang/
+│   └── ru/
+│       └── order_status_history.php
+├── schemas/
+│   └── order_status_history.php
+├── templates/
+│   └── blocks/
+│       └── admin/
+│           └── orders/
+│               └── order_status_history.tpl
+└── views/
+    └── orders/
+        └── order_status_history.tpl
+2. Создание таблицы (Схема)
+
+В файле schemas/order_status_history.php опишите структуру таблицы для хранения логов. Это обеспечит миграцию при установке модуля.
+
+php
+Копировать
+<?php
+
+use Tygh\Addons\OrderStatusHistory\OrderStatusHistory;
+use Tygh\Enum\ObjectStatuses;
+use Tygh\Enum\YesNo;
+
+return [
+    'order_status_history' => [
+        'id' => [
+            'type' => 'int',
+            'primary' => true,
+            'auto_increment' => true,
+        ],
+        'order_id' => [
+            'type' => 'int',
+            'required' => true,
+        ],
+        'old_status' => [
+            'type' => 'varchar(32)',
+            'required' => true,
+        ],
+        'new_status' => [
+            'type' => 'varchar(32)',
+            'required' => true,
+        ],
+        'user_id' => [
+            'type' => 'int',
+            'required' => true,
+        ],
+        'timestamp' => [
+            ' 'type' => 'int',
+            'required' => true,
+        ],
+    ],
+];
+
+Примечание: В современных версиях CS-Cart (4.14+) используется формат YAML, но для теста достаточно PHP-массива.
+
+3. Логика и Хуки (func.php)
+
+Основная логика модуля. Здесь мы будем слушать событие изменения статуса заказа.
+
+php
+Копировать
+<?php
+
+use Tygh\Addons\OrderStatusHistory\HookHandlers\OrdersHookHandler;
+use Tygh\Registry;
+
+if (!defined('AREA')) {
+    die('Access denied');
+}
+
+// Регистрация хука на изменение статуса заказа
+function fn_order_status_history_change_status_post(&$order_id, &$status_to, &$status_from, &$force_notification, &$place_order, &$order_info, &$order_statuses)
+{
+    // Проверяем, что мы в админке или на фронте, и статус действительно изменился
+    if ($status_to !== $status_from) {
+        $user_id = Registry::get('runtime.user_data.user_id'); // ID пользователя, совершившего действие
+
+        // Получаем формат даты из настроек магазина
+        $date_format = Registry::get('settings.Appearance.date_format');
+
+        // Записываем лог в БД
+        db_query(
+            "INSERT INTO ?:order_status_history ?e",
+            [
+                'order_id'   => $order_id,
+                'old_status' => $status_from,
+                'new_status' => $status_to,
+                'user_id'    => $user_id,
+                'timestamp'  => TIME,
+            ]
+        );
+    }
+}
+
+Важные моменты:
+
+Хук change_status_post вызывается после успешного изменения статуса.
+Мы используем db_query с плейсхолдером ?e для безопасной вставки данных.
+Мы не модифицируем ядро, а лишь расширяем его поведение через хук.
+4. Языковые переменные (lang/ru/order_status_history.php)
+php
+Копировать
+<?php
+
+return [
+    'order_status_history_title' => 'История изменения статусов заказов',
+    'order_status_history_order_id' => 'ID заказа',
+    'order_status_history_old_status' => 'Старый статус',
+    'order_status_history_new_status' => 'Новый статус',
+    'order_status_history_changed_by' => 'Кем изменен',
+    'order_status_history_date_changed' => 'Дата изменения',
+];
+5. Шаблон таблицы (views/orders/order_status_history.tpl)
+
+Этот файл отвечает за отображение данных в админке.
+
+html
+Копировать
+<div class="ty-control-group">
+    <div class="ty-table-responsive">
+        <table class="ty-table">
+            <thead>
+                <tr>
+                    <th>{$lang.order_status_history_order_id}</th>
+                    <th>{$lang.order_status_history_old_status}</th>
+                    <th>{$lang.order_status_history_new_status}</th>
+                    <th>{$lang.order_status_history_changed_by}</th>
+                    <th>{$lang.order_status_history_date_changed}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach from=$data.items item=row}
+                <tr>
+                    <td>{$row.order_id}</td>
+                    <td>{$row.old_status}</td>
+                    <td>{$row.new_status}</td>
+                    <td>
+                        {if $row.user_id}
+                            <a href="?dispatch=users.update&user_id={$row.user_id}">{$row.user_name}</a>
+                        {else}
+                            Система
+                        {/if}
+                    </td>
+                    <td>{$row.timestamp|date_format:$data.date_format}</td>
+                </tr>
+                {/foreach}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+Примечание: В этом шаблоне используется переменная $data.date_format, которая будет передана из контроллера.
+
+6. Контроллер (встроенный в CS-Cart)
+
+Вам не нужно создавать отдельный файл контроллера. В CS-Cart для этого используются "схемы" (schemas) и регистрация пункта меню.
+В файле schemas/order_status_history.php добавьте секцию menu:
+
+php
+Копировать
+<?php
+
+// ... (предыдущий код схемы)
+return [
+    // ... (описание таблицы)
+    'menu' => [
+        'orders_order_status_history' => [
+            'parent' => 'orders',
+            'title' => 'order_status_history_title',
+            'priority' => 100,
+            'items' => [
+                'orders_order_status_history_list' => [
+                    'title' => 'order_status_history_title',
+                    'href' => 'orders.order_status_history',
+                    'priority' => 10,
+                ],
+            ],
+        ],
+    ],
+];
+
+Эта схема автоматически зарегистрирует пункт меню в разделе "Заказы".
+Сам контроллер orders.order_status_history является стандартным и будет искать шаблон по пути app/addons/order_status_history/views/orders/order_status_history.tpl.
+Внутри этого шаблона вы можете использовать стандартные функции CS-Cart для получения данных из БД, например:
+
+php
+Копировать
+$data['items'] = db_get_array("SELECT osh.*, u.firstname, u.lastname FROM ?:order_status_history AS osh LEFT JOIN ?:users AS u ON osh.user_id = u.user_id ORDER BY osh.timestamp DESC");
+$data['date_format'] = fn_date_format(Registry::get('settings.Appearance.date_format'), TIME);
+
+Этот код можно разместить в файле func.php или непосредственно в шаблоне, если логика простая.
+
+7. Оформление результата
+Репозиторий на Github: Создайте приватный или публичный репозиторий.
+Структура: Убедитесь, что структура папок и файлов в точности соответствует описанной выше.
+README.md: Обязательно добавьте файл README.md с инструкциями:
+Как установить модуль (копирование папки в app/addons/).
+Как обновить базу данных (bin/console.php migrate).
+Краткое описание функционала.
+Коммиты: Сделайте несколько осмысленных коммитов (например: "Initial structure", "Add database schema", "Implement hook logic", "Create admin view").
+Архив: В качестве финального шага можно приложить ссылку на архив (main.zip или .tar.gz) с кодом модуля.
+
+Этот план демонстрирует полное понимание архитектуры CS-Cart и способность решать задачи без вмешательства в ядро системы.
