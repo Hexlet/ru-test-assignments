@@ -1,0 +1,160 @@
+1. Архитектура и структура проекта
+Для реализации API-сервера будет использована архитектура RESTful API. Основной подход — API-First (сначала API, потом фронтенд).
+
+Связи в БД:
+
+User имеет много subscriptions.
+Program имеет много subscriptions.
+Subscription принадлежит и User, и Program. Это модель-связка (Join Model), которая позволяет хранить дополнительные атрибуты (например, флаг бана).
+Модели:
+
+User: id, email, name, password_digest (для аутентификации).
+Program: id, title, description, popularity (кешированное поле для оптимизации, опционально).
+Subscription: id, user_id, program_id, banned (boolean, по умолчанию false).
+2. Технологический стек и инструменты
+Для выполнения задания будут использованы следующие библиотеки:
+
+Ruby on Rails (>= 5.0): Фреймворк для построения API.
+Ruby MRI 2.5+: Версия интерпретатора.
+ActiveRecord: ORM для работы с базой данных.
+Docker / Docker Compose: Для изоляции окружения и запуска.
+Rack CORS: Для обработки кросс-доменных запросов от мобильных/веб-клиентов.
+Devise: Для быстрой реализации регистрации и аутентификации пользователей (JWT). Это стандарт де-факто для RoR, экономит десятки часов разработки.
+RSpec: Для написания тестов.
+FactoryBot: Для генерации тестовых данных.
+3. Реализация API
+API будет находиться в пространстве имен api/v1.
+
+Маршруты (config/routes.rb):
+
+ruby
+Копировать
+namespace :api do
+  namespace :v1 do
+    # Регистрация пользователя
+    post 'users', to: 'users#create'
+
+    # Аутентификация (создание токена)
+    post 'auth', to: 'authentication#create'
+
+    # Ресурсы, требующие авторизации
+    resources :users, only: [:show] do
+      # Программы, на которые подписан пользователь
+      get 'programs', to: 'user_programs#index'
+      # Подписка на программу
+      post 'programs/:program_id/subscribe', to: 'user_programs#subscribe'
+      # Бонус: Бан подписки
+      post 'programs/:program_id/ban', to: 'user_programs#ban'
+    end
+
+    # Публичные ресурсы программ
+    resources :programs, only: [:index, :show] do
+      # Автокомплит
+      get 'search', on: :collection
+    end
+  end
+end
+Контроллеры и логика:
+
+Создание пользователя (UsersController#create)
+Принимает JSON с полями email, password, password_confirmation, name. Возвращает статус 201 при успехе или ошибки валидации.
+Список программ (ProgramsController#index)
+Возвращает все программы из базы данных. Для загрузки исходных данных используется Rake-таск:
+bash
+Копировать
+rails data:load[db/data.json]
+Автокомплит (ProgramsController#search)
+ruby
+Копировать
+def search
+  term = params[:term]
+  # Используем SQL LIKE для поиска подстроки в title.
+  # Группируем по program_id, чтобы избежать дублей при джойнах.
+  # Сортируем по количеству подписок (популярности) по убыванию.
+  programs = Program.joins(:subscriptions)
+                   .where('title ILIKE ?', "%#{term}%")
+                   .group('programs.id')
+                   .order('COUNT(subscriptions.id) DESC')
+                   .select('programs.*, COUNT(subscriptions.id) as subscribers_count')
+
+  render json: programs, each_serializer: ProgramSerializer
+end
+Подписка (UserProgramsController#subscribe)
+Создает запись в таблице subscriptions. Проверяет, не подписан ли пользователь уже.
+Список подписок пользователя (UserProgramsController#index)
+Возвращает программы, на которые подписан текущий пользователь. Важно отфильтровать программы с banned: true.
+Бонус: Бан подписки (UserProgramsController#ban)
+Находит конкретную подписку пользователя к программе и устанавливает поле banned = true.
+4. Docker
+Будет использоваться два сервиса: приложение (web) и база данных (db).
+
+docker-compose.yml:
+
+yaml
+Копировать
+version: '3.8'
+services:
+  db:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: travelpayouts_api_development
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  pg_data:
+Dockerfile:
+
+dockerfile
+Копировать
+# Используем официальный образ Ruby нужной версии
+FROM ruby:2.7
+
+# Устанавливаем зависимости системы (Node.js нужен для Webpacker/Asset Pipeline)
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+
+# Устанавливаем Bundler версии ~2.2 (совместимость с Rails)
+RUN gem install bundler -v '~>2.2'
+
+# Создаем рабочую директорию приложения
+WORKDIR /app
+
+# Копируем файлы проекта и устанавливаем гемы
+COPY Gemfile Gemfile.lock ./
+RUN bundle install --jobs=4 --retry=3
+
+# Копируем остальной код приложения
+COPY . .
+
+# Предкомпилируем ассеты (опционально для API)
+RUN bundle exec rails assets:precompile
+
+EXPOSE 3000
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
+Инструкция по запуску в README.md:
+
+Копировать
+# Инструкция по запуску
+
+1. Установите Docker и Docker Compose.
+2. Клонируйте репозиторий.
+3. Запустите контейнеры:
+   docker-compose up --build -d
+4. Инициализируйте базу данных и загрузите данные программ:
+   docker-compose exec web rails data:load[db/data.json]
+5. API доступно по адресу http://localhost:3000/api/v1/
