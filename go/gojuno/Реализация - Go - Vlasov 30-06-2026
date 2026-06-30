@@ -1,0 +1,182 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"net"
+	"strconv"
+	"strings"
+	"sync"
+	"time"
+)
+
+type cacheValue struct {
+	data  interface{}
+	exp   time.Time // время истечения
+}
+
+type InMemoryCache struct {
+	mu    sync.RWMutex
+	store map[string]*cacheValue
+}
+
+func NewInMemoryCache() *InMemoryCache {
+	return &InMemoryCache{
+		store: make(map[string]*cacheValue),
+	}
+}
+
+// Set устанавливает значение с необязательным TTL (в секундах)
+func (c *InMemoryCache) Set(key string, value interface{}, ttlSeconds int64) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	var exp time.Time
+	if ttlSeconds > 0 {
+		exp = time.Now().Add(time.Duration(ttlSeconds) * time.Second)
+	} else {
+		exp = time.Time{} // никогда не истекает
+	}
+	c.store[key] = &cacheValue{data: value, exp: exp}
+}
+
+// Get возвращает значение и флаг существования (с учётом TTL)
+func (c *InMemoryCache) Get(key string) (interface{}, bool) {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	v, ok := c.store[key]
+	if !ok {
+		return nil, false
+	}
+	if !v.exp.IsZero() && time.Now().After(v.exp) {
+		// логически истёк, но не удаляем сразу (lazy expiration)
+		return nil, false
+	}
+	return v.data, true
+}
+
+// Del удаляет ключ
+func (c *InMemoryCache) Del(key string) bool {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	_, ok := c.store[key]
+	if ok {
+		delete(c.store, key)
+		return true
+	}
+	return false
+}
+
+// Keys возвращает список ключей (без истёкших)
+func (c *InMemoryCache) Keys() []string {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	now := time.Now()
+	res := make([]string, 0, len(c.store))
+	for k, v := range c.store {
+		if v.exp.IsZero() || !now.After(v.exp) {
+			res = append(res, k)
+		}
+	}
+	return res
+}
+
+// Простой текстовый протокол:
+// SET key value [ttl]
+// GET key
+// DEL key
+// KEYS
+// Ответы: OK, NIL, или значение
+func handleConn(cache *InMemoryCache, conn net.Conn) {
+	defer conn.Close()
+	r := bufio.NewReader(conn)
+	for {
+		line, err := r.ReadString('\n')
+		if err != nil {
+			return
+		}
+		line = strings.TrimSpace(line)
+		if line == "" {
+			continue
+		}
+
+		parts := strings.Fields(line)
+		cmd := strings.ToUpper(parts[0])
+
+		var resp string
+		switch cmd {
+		case "SET":
+			if len(parts) < 3 {
+				resp = "ERROR invalid SET usage: SET key value [ttl]"
+				break
+			}
+			key := parts[1]
+			value := parts[2]
+			ttl := int64(0)
+			if len(parts) >= 4 {
+				t, err := strconv.ParseInt(parts[3], 10, 64)
+				if err != nil || t < 0 {
+					resp = "ERROR TTL must be non-negative integer"
+					conn.Write([]byte(resp + "\r\n"))
+					continue
+				}
+				ttl = t
+			}
+			cache.Set(key, value, ttl)
+			resp = "OK"
+
+		case "GET":
+			if len(parts) != 2 {
+				resp = "ERROR GET requires key"
+				break
+			}
+			key := parts[1]
+			val, ok := cache.Get(key)
+			if !ok {
+				resp = "NIL"
+			} else {
+				// для простоты выводим как строку; для списков/map можно усложнить
+				resp = fmt.Sprintf("%v", val)
+			}
+
+		case "DEL":
+			if len(parts) != 2 {
+				resp = "ERROR DEL requires key"
+				break
+			}
+			ok := cache.Del(parts[1])
+			if ok {
+				resp = "OK"
+			} else {
+				resp = "NIL"
+			}
+
+		case "KEYS":
+			keys := cache.Keys()
+			resp = strings.Join(keys, " ")
+
+		default:
+			resp = "ERROR unknown command"
+		}
+
+		conn.Write([]byte(resp + "\r\n"))
+	}
+}
+
+func main() {
+	cache := NewInMemoryCache()
+
+	ln, err := net.Listen("tcp", ":6379") // порт как у Redis
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Cache server listening on :6379")
+
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			fmt.Println("accept error:", err)
+			continue
+		}
+		go handleConn(cache, conn)
+	}
+}
