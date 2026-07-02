@@ -1,0 +1,243 @@
+решение задания №1 - gates team fullstack 
+help - gigachat
+Для выполнения тестового задания необходимо реализовать фронтенд и бэкенд, которые вместе формируют упрощенную версию главного дашборда. Ниже представлен подробный план реализации, структура проекта и примеры кода для обеих частей.
+
+1. Структура проекта
+
+Для удобства разработки и демонстрации проект следует разделить на две основные части:
+
+frontend (React-приложение)
+backend (Python веб-сервер)
+
+Общая структура:
+
+Копировать
+/project-dashboard
+|-- backend/
+|   |-- app.py
+|   |-- dashboard_data.json
+|-- frontend/
+|   |-- public/
+|   |-- src/
+|   |   |-- components/ (атомарные и составные компоненты: Header, Card, Chart, Table)
+|   |   |-- pages/ (страницы: DashboardPage)
+|   |   |-- store/ (Redux: actions, reducers, sagas)
+|   |   |-- App.jsx
+|   |   |-- index.js
+|   |-- package.json
+|-- README.md
+2. Реализация бэкенда (Python)
+
+Задача бэкенда — поднять HTTP-сервер и отдавать статический JSON-файл с данными дашборда по API.
+
+Рекомендация: Использовать FastAPI для простоты и высокой производительности. Если в требованиях строго указан "python", можно использовать Flask или aiohttp.
+
+Пример на FastAPI (backend/app.py):
+
+python
+Копировать
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+import json
+
+app = FastAPI()
+
+# Разрешаем запросы с фронтенда (в продакшене нужно ограничить домены)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Загрузка данных из файла
+try:
+    with open("dashboard_data.json", "r", encoding="utf-8") as f:
+        DASHBOARD_DATA = json.load(f)
+except FileNotFoundError:
+    DASHBOARD_DATA = {"error": "Файл данных не найден"}
+
+@app.get("/api/v1/dashboard")
+async def get_dashboard_data():
+    """
+    Эндпоинт для получения данных дашборда.
+    """
+    return DASHBOARD_DATA
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+Запуск сервера:
+
+Установите зависимости: pip install fastapi uvicorn
+Запустите сервер: uvicorn backend.app:app --reload
+Данные будут доступны по адресу http://localhost:8000/api/v1/dashboard.
+3. Реализация фронтенда (React)
+
+Фронтенд должен быть реализован на стеке React/Redux/Redux-Saga. Основная логика — асинхронная загрузка данных при входе на страницу.
+
+3.1. Redux Store
+
+src/store/actions.js
+
+javascript
+Копировать
+export const FETCH_DATA_REQUEST = 'dashboard/FETCH_DATA_REQUEST';
+export const FETCH_DATA_SUCCESS = 'dashboard/FETCH_DATA_SUCCESS';
+export const FETCH_DATA_FAILURE = 'dashboard/FETCH_DATA_FAILURE';
+
+src/store/reducer.js
+
+javascript
+Копировать
+import {
+  FETCH_DATA_REQUEST,
+  FETCH_DATA_SUCCESS,
+  FETCH_DATA_FAILURE,
+} from './actions';
+
+const initialState = {
+  data: null,
+  loading: false,
+  error: null,
+};
+
+export default function dashboardReducer(state = initialState, action) {
+  switch (action.type) {
+    case FETCH_DATA_REQUEST:
+      return { ...state, loading: true, error: null };
+    case FETCH_DATA_SUCCESS:
+      return { ...state, data: action.payload, loading: false };
+    case FETCH_DATA_FAILURE:
+      return { ...state, error: action.payload, loading: false };
+    default:
+      return state;
+  }
+}
+3.2. Redux Saga
+
+src/store/sagas.js
+
+javascript
+Копировать
+import { call, put, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
+import {
+  FETCH_DATA_REQUEST,
+  FETCH_DATA_SUCCESS,
+  FETCH_DATA_FAILURE,
+} from './actions';
+
+// Worker Saga: выполняет запрос к API
+function* fetchDashboardData() {
+  try {
+    const response = yield call(axios.get, '/api/v1/dashboard');
+    yield put({ type: FETCH_DATA_SUCCESS, payload: response.data });
+  } catch (error) {
+    yield put({ type: FETCH_DATA_FAILURE, payload: error.message });
+  }
+}
+
+// Watcher Saga: слушает действия и запускает воркеры
+export default function* rootSaga() {
+  yield takeLatest(FETCH_DATA_REQUEST, fetchDashboardData);
+}
+
+(Примечание: В реальном проекте URL /api/v1/dashboard должен быть проксирован на бэкенд через конфиг vite или webpack-dev-server, чтобы избежать ошибок CORS).
+
+3.3. Компоненты и Страница Дашборда
+
+src/components/LoadingSpinner.jsx
+Простой компонент для отображения загрузки.
+
+javascript
+Копировать
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center h-screen">
+    <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
+  </div>
+);
+
+src/components/ErrorMessage.jsx
+Компонент для отображения ошибок.
+
+javascript
+Копировать
+const ErrorMessage = ({ message }) => (
+  <div className="flex items-center justify-center h-screen text-red-600">
+    <p>Ошибка загрузки данных: {message}</p>
+  </div>
+);
+
+src/pages/DashboardPage.jsx
+Главная страница дашборда.
+
+javascript
+Копировать
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { FETCH_DATA_REQUEST } from '../store/actions';
+import LoadingSpinner from '../components/LoadingSpinner';
+import ErrorMessage from '../components/ErrorMessage';
+import Card from '../components/Card'; // Пример компонента карточки KPI
+
+const DashboardPage = () => {
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector((state) => state.dashboard);
+
+  useEffect(() => {
+    dispatch({ type: FETCH_DATA_REQUEST });
+  }, [dispatch]);
+
+  if (loading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error} />;
+  if (!data) return null;
+
+  return (
+    <div className="container mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* Пример рендера карточек из данных */}
+      {data.cards.map((card) => (
+        <Card key={card.id} title={card.title} value={card.value} icon={card.icon} />
+      ))}
+      {/* Здесь будут рендериться графики и таблицы согласно макету */}
+      {/* <Chart data={data.chartData} /> */}
+      {/* <Table data={data.tableData} /> */}
+    </div>
+  );
+};
+export default DashboardPage;
+
+(В коде выше data.cards, data.chartData — это структура вашего dashboard_data.json. Вы должны адаптировать рендер под реальную структуру данных).
+
+3.4. Сборка и запуск фронтенда
+Инициализация: npx create-react-app frontend --template redux или npm create vite@latest frontend -- --template react-redux.
+Установка зависимостей: cd frontend && npm install axios redux-saga
+Конфигурация проксирования (для Vite):
+В файле frontend/vite.config.js добавьте:
+javascript
+Копировать
+server: {
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8000',
+      changeOrigin: true,
+      secure: false,
+    },
+  },
+},
+Запуск: В разных терминалах запустите обе части:
+cd backend && python app.py
+cd frontend && npm run dev
+Откройте браузер по адресу, указанному в консоли фронтенда (обычно http://localhost:5173).
+Оценка решения
+
+При проверке такого тестового задания будут оцениваться следующие аспекты:
+
+Архитектура и структура кода: Разделение на компоненты, правильная организация Redux-стора и саг.
+Обработка состояний: Наличие корректных состояний загрузки (loading), успеха (data) и ошибки (error).
+Качество верстки: Соответствие макету (цвета, отступы), адаптивность под разные экраны.
+Самостоятельность: Способность работать с неполными данными (вам придется самостоятельно определить структуру JSON-файла и API).
+Качество кода: Читаемость, наличие комментариев в ключевых местах, использование осмысленных имен переменных.
+Интеграция: Корректная работа связки Frontend <-> Backend через API.
