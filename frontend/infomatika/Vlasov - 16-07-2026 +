@@ -1,0 +1,404 @@
+Для реализации описанной интерактивной страницы потребуется комбинация HTML, CSS (с использованием Flexbox и clip-path для гексагонов) и JavaScript. 
+Логика работы будет строиться на массиве данных с матчами. При прокрутке или клике этот массив циклически сдвигается, а DOM-элементы перерисовываются с добавлением классов анимации.
+Ниже представлен полный код страницы.
+1. HTML-разметка
+htmlКопировать
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Матчи</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="nav-link">Главная</a>
+            <a href="#" class="nav-link">Расписание</a>
+            <a href="#" class="nav-link">Команды</a>
+            <a href="#" class="nav-link">Билеты</a>
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <!-- Центральный элемент (активный матч) -->
+        <div id="center-card" class="hexagon center active-view">
+            <div class="hex-content">
+                <h2 id="center-title"></h2>
+                <p id="center-desc"></p>
+                <button class="btn-buy">Купить билет</button>
+            </div>
+        </div>
+
+        <!-- Боковые элементы -->
+        <div class="side-cards-container">
+            <div id="left-card" class="hexagon side left"></div>
+            <div id="right-card" class="hexagon side right"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+2. CSS-стили (styles.css)
+Для создания формы шестиугольника используется свойство clip-path. Анимация цвета в шапке реализована через transition.
+cssКопировать
+:root {
+    --primary-color: #0d47a1;
+    --secondary-color: #1565c0;
+    --text-light: #ffffff;
+    --accent-gold: #ffb300;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- ШАПКА И ССЫЛКИ --- */
+.header {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--accent-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- ОСНОВНОЙ КОНТЕНТ --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    perspective: 1000px;
+    min-height: calc(100vh - 70px); /* Высота контента без учета хедера */
+}
+
+/* --- ГЕКСАГОНЫ --- */
+.hexagon {
+    width: 200px;
+    height: 230px; /* Высота рассчитывается как ширина * sqrt(3)/2 + отступы */
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.2;
+    padding: 0 20px;
+}
+
+.hexagon.side {
+    filter: brightness(0.9);
+    width: 180px;
+    height: 205px;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.hexagon.center {
+    width: 280px;
+    height: 320px;
+    font-size: 28px;
+    z-index: 10;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Состояние активного центрального блока */
+.hexagon.active-view .hex-content {
+    display: block;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.hexagon:not(.active-view) .hex-content {
+    display: none;
+}
+
+/* Контент внутри центрального гексагона */
+.hex-content {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.btn-buy {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: var(--accent-gold);
+    color: #000;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-buy:hover {
+    transform: scale(1.05);
+    background-color: #e6a000;
+}
+
+/* Позиционирование боковых элементов */
+#left-card {
+    left: calc(50% - 280px - 50px); /* Центр минус половина центра минус зазор */
+    transform: translateX(-10%) rotate(10deg) perspective(1000px) rotateY(-15deg);
+    opacity: 0.7;
+}
+
+#right-card {
+    right: calc(50% - 280px - 50px);
+    transform: translateX(10%) rotate(-10deg) perspective(1000px) rotateY(15deg);
+    opacity: 0.7;
+}
+
+/* Центральная позиция */
+.center-position {
+    left: 50%;
+    transform: translateX(-50%) !important;
+    opacity: 1 !important;
+}
+
+/* Ключевые кадры для появления контента */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Для отладки позиций (можно удалить) */
+.debug-indicator {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 999;
+}
+3. Логика на JavaScript (script.js)
+Скрипт управляет данными, анимацией перемещения по сету из 5 элементов и реакцией на события мыши.
+javascriptКопировать
+document.addEventListener('DOMContentLoaded', () => {
+    const data = [
+        { date: '26 ИЮНЯ', title: 'Финал конференции', desc: 'Начало в 19:00. Стадион "Арена"', opponent: 'Команда A' },
+        { date: '16 ИЮЛЯ', title: 'Полуфинал', desc: 'Начало в 18:30. Стадион "Центральный"', opponent: 'Команда B' },
+        { date: '30 СЕНТЯБРЯ', title: 'Групповой этап', desc: 'Начало в 20:00. Стадион "Зенит"', opponent: 'Команда C' },
+        { date: '17 ИЮНЯ', title: 'Квалификация', desc: 'Начало в 17:00. Манеж "Динамо"', opponent: 'Команда D' },
+        { date: '05 АВГУСТА', title: 'Отборочный тур', desc: 'Начало в 19:30. СК "Олимпийский"', opponent: 'Команда E' }
+    ];
+
+    let currentIndex = 2; // Начинаем с индекса 2 (30 сентября), чтобы были данные слева и справа
+
+    const refs = {
+        centerCard: document.getElementById('center-card'),
+        leftCard: document.getElementById('left-card'),
+        rightCard: document.getElementById('right-card'),
+        centerTitle: document.getElementById('center-title'),
+        centerDesc: document.getElementById('center-desc')
+    };
+
+    function render() {
+        // Добавляем классы задержки, чтобы анимация была видна при быстрой прокрутке
+        refs.leftCard.classList.add('animating');
+        refs.rightCard.classList.add('animating');
+        refs.centerCard.classList.add('animating');
+
+        // Небольшая задержка перед сменой позиции, чтобы браузер успел применить класс animating
+        setTimeout(() => {
+            updatePositions();
+            
+            // Убираем классы задержки после завершения перехода CSS
+            setTimeout(() => {
+                refs.leftCard.classList.remove('animating');
+                refs.rightCard.classList.remove('animating');
+                refs.centerCard.classList.remove('animating');
+            }, 650); // Должно совпадать с длительностью transition в CSS
+        }, 50);
+    }
+
+    function updatePositions() {
+        // Индексы относительно текущего центра
+        const leftIdx = (currentIndex - 1 + data.length) % data.length;
+        const rightIdx = (currentIndex + 1) % data.length;
+
+        // Обновляем текст центральной карточки
+        refs.centerCard.innerHTML = `
+            <div class="hex-content">
+                <h2>${data[currentIndex].date}</h2>
+                <div style="display:none;" class="full-info">
+                    <h2>${data[currentIndex].title}</h2>
+                    <p>${data[currentIndex].desc}</p>
+                    <p><strong>Соперник:</strong> ${data[currentIndex].opponent}</p>
+                    <button class="btn-buy">Купить билет</button>
+                </div>
+            </div>
+        `;
+        
+        // Устанавливаем только дату для боковых
+        refs.leftCard.innerText = data[leftIdx].date;
+        refs.rightCard.innerText = data[rightIdx].date;
+
+        // Назначаем обработчики кликов заново (делегирование здесь было бы лучше, но для наглядности так)
+        refs.leftCard.onclick = () => moveToLeft();
+        refs.rightCard.onclick = () => moveToRight();
+        refs.centerCard.onclick = () => toggleCenterView();
+
+        applyPositionClasses();
+    }
+
+    function applyPositionClasses() {
+        refs.centerCard.className = 'hexagon center center-position';
+        refs.leftCard.className = 'hexagon side left';
+        refs.rightCard.className = 'hexagon side right';
+    }
+
+    function moveToLeft() {
+        if (isAnimating()) return;
+        // Индекс элемента, который был самым левым (ушел за экран)
+        const exitingLeftIdx = (currentIndex - 2 + data.length) % data.length;
+        
+        // Цикличный сдвиг массива логики влево
+        currentIndex = (currentIndex - 1 + data.length) % data.length;
+        
+        render();
+    }
+
+    function moveToRight() {
+        if (isAnimating()) return;
+        currentIndex = (currentIndex + 1) % data.length;
+        render();
+    }
+
+    function isAnimating() {
+        return refs.leftCard.classList.contains('animating') || 
+               refs.rightCard.classList.contains('animating') ||
+               refs.centerCard.classList.contains('animating');
+    }
+
+    // Переключение между видом "только дата" и "полная информация"
+    function toggleCenterView() {
+        if (!refs.centerCard.classList.contains('active-view')) {
+            refs.centerCard.classList.add('active-view');
+            // Принудительно запускаем анимацию для скрытого блока
+            requestAnimationFrame(() => {
+                const info = refs.centerCard.querySelector('.full-info');
+                if (info) info.style.display = 'block';
+            });
+        } else {
+            refs.centerCard.classList.remove('active-view');
+        }
+    }
+
+    // Прокрутка колесом мыши
+    let lastWheelTime = 0;
+    window.addEventListener('wheel', (e) => {
+        const now = Date.now();
+        // Ограничение частоты срабатывания (защита от слишком быстрого колеса)
+        if (now - lastWheelTime < 500) return;
+        lastWheelTime = now;
+
+        if (e.deltaY > 0) {
+            moveToRight(); // Вниз — вперед по времени
+        } else {
+            moveToLeft(); // Вверх — назад по времени
+        }
+    });
+
+    // Свайп на тач-устройствах
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    });
+
+    window.addEventListener('touchend', (e) => {
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+        
+        if (Math.abs(diff) > 50) { // Порог чувствительности свайпа
+            if (diff > 0) {
+                moveToRight();
+            } else {
+                moveToLeft();
+            }
+        }
+    });
+
+    // Начальная отрисовка
+    render();
+});
+Как это работает:
+1.	Шапка: Ссылки имеют href="#" и стилизованы через transition для плавного изменения цвета нижней линии-подчеркивания и положения (transform) при наведении.
+2.	Гексагоны: Создаются обычными блоками div, которым задается форма через clip-path: polygon(...). 
+3.	Позиционирование: Используется абсолютное позиционирование. Левый и правый блоки сдвинуты в стороны и повернуты с помощью transform: perspective... rotateY, создавая эффект глубины.
+4.	Прокрутка и клик: JS отслеживает событие wheel (колесико мыши) и touchend (свайп). При событии меняется индекс currentIndex в массиве данных. Функция render() обновляет содержимое блоков. За счет того, что мы просто меняем innerText и даем CSS-свойству left/transform измениться, браузер автоматически анимирует их перемещение благодаря заданному transition.
+5.	Ограничение движения: Логически крайние элементы не «замораживаются», а начинают дублировать цикл (так как список матчей обычно круговой). Если же требуется строго ограничить движение (не давать листать дальше последнего матча), нужно убрать оператор % data.length в функциях moveToLeft и moveToRight и добавить проверки границ индекса if (currentIndex === 0) return; или if (currentIndex === data.length - 1) return;.
+6.	Раскрытие центра: Центральной карточке добавляется класс .active-view, который меняет её размер в CSS и переключает видимость внутреннего блока .full-info с полной информацией о матче.
+
