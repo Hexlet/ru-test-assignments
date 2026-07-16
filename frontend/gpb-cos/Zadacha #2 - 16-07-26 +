@@ -1,0 +1,227 @@
+GBS Cos – Задание №2 – Vlasov – 16-07-2026
+Решим задачу по шагам
+Ниже — готовое решение на стеке React + React Router + MobX (выбран MobX как более лаконичный вариант для такой задачи; при необходимости могу адаптировать под Redux Saga). Проект реализует все требования: загрузку списка и деталей, индикаторы загрузки, обработку ошибок и кнопку «Повторить запрос».
+________________________________________
+Шаг 1. Установка зависимостей
+bash
+npm install react react-dom react-router-dom mobx mobx-react-lite axios
+# или
+yarn add react react-dom react-router-dom mobx mobx-react-lite axios
+________________________________________
+Шаг 2. Структура проекта (минимальная)
+text
+src/
+  api.js
+  stores/
+    servicesStore.js
+  components/
+    ServicesList.jsx
+    ServiceDetails.jsx
+    Loader.jsx
+    ErrorBlock.jsx
+  App.jsx
+  main.jsx
+________________________________________
+Шаг 3. API-слой (src/api.js)
+js
+import axios from 'axios';
+
+const API_BASE = 'http://localhost:7070/api';
+
+export const getServices = () => axios.get(`\${API_BASE}/services`);
+
+export const getServiceById = (id) => axios.get(`${API_BASE}/services/${id}`);
+________________________________________
+Шаг 4. Store для управления состоянием (src/stores/servicesStore.js)
+js
+import { makeAutoObservable } from 'mobx';
+import { getServices, getServiceById } from '../api';
+
+class ServicesStore {
+  services = [];
+  service = null;
+  loading = false;
+  error = null;
+
+  constructor() {
+    makeAutoObservable(this);
+  }
+
+  // Загрузка списка услуг
+  async fetchServices() {
+    this.loading = true;
+    this.error = null;
+    try {
+      const response = await getServices();
+      this.services = response.data;
+    } catch (err) {
+      this.error = err.message || 'Не удалось загрузить список услуг';
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  // Загрузка деталей услуги
+  async fetchServiceById(id) {
+    this.loading = true;
+    this.error = null;
+    try {
+      const response = await getServiceById(id);
+      this.service = response.data;
+    } catch (err) {
+      this.error = err.message || 'Не удалось загрузить детали услуги';
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  // Сброс ошибки (для кнопки «Повторить запрос»)
+  clearError() {
+    this.error = null;
+  }
+}
+
+const servicesStore = new ServicesStore();
+export default servicesStore;
+________________________________________
+Шаг 5. Компоненты
+Индикатор загрузки (src/components/Loader.jsx)
+jsx
+const Loader = () => <div>Загрузка...</div>;
+
+export default Loader;
+Блок ошибки с кнопкой повтора (src/components/ErrorBlock.jsx)
+jsx
+import { observer } from 'mobx-react-lite';
+import { servicesStore } from '../stores/servicesStore';
+
+const ErrorBlock = ({ onRetry }) => (
+  <div style={{ color: 'red', marginBottom: '1rem' }}>
+    <p>Произошла ошибка! {servicesStore.error}</p>
+    <button onClick={onRetry}>Повторить запрос</button>
+  </div>
+);
+
+export default observer(ErrorBlock);
+Список услуг (src/components/ServicesList.jsx)
+jsx
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import Loader from './Loader';
+import ErrorBlock from './ErrorBlock';
+import { servicesStore } from '../stores/servicesStore';
+
+const ServicesList = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    servicesStore.fetchServices();
+  }, []);
+
+  if (servicesStore.loading && !servicesStore.services.length) {
+    return <Loader />;
+  }
+
+  return (
+    <div>
+      <h1>Список услуг</h1>
+      {servicesStore.error && (
+        <ErrorBlock onRetry={() => servicesStore.fetchServices()} />
+      )}
+      <ul>
+        {servicesStore.services.map((service) => (
+          <li key={service.id}>
+            <Link to={`/services/\${service.id}/details`}>
+              {service.name || service.title || `Услуга \${service.id}`}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default observer(ServicesList);
+Детали услуги (src/components/ServiceDetails.jsx)
+jsx
+import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import Loader from './Loader';
+import ErrorBlock from './ErrorBlock';
+import { servicesStore } from '../stores/servicesStore';
+
+const ServiceDetails = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    servicesStore.fetchServiceById(id);
+  }, [id]);
+
+  if (servicesStore.loading && !servicesStore.service) {
+    return <Loader />;
+  }
+
+  if (servicesStore.error) {
+    return (
+      <ErrorBlock onRetry={() => servicesStore.fetchServiceById(id)} />
+    );
+  }
+
+  const service = servicesStore.service;
+  if (!service) {
+    return <p>Услуга не найдена</p>;
+  }
+
+  return (
+    <div>
+      <h1>{service.name || service.title || `Услуга \${service.id}`}</h1>
+      <p>{service.description || 'Нет описания'}</p>
+      <button onClick={() => navigate(-1)}>Назад к списку</button>
+    </div>
+  );
+};
+
+export default observer(ServiceDetails);
+________________________________________
+Шаг 6. Настройка роутинга и приложения (src/App.jsx)
+jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ServicesList from './components/ServicesList';
+import ServiceDetails from './components/ServiceDetails';
+
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<ServicesList />} />
+      <Route path="/services/:id/details" element={<ServiceDetails />} />
+    </Routes>
+  </BrowserRouter>
+);
+
+export default App;
+________________________________________
+Шаг 7. Точка входа (src/main.jsx)
+jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+________________________________________
+Шаг 8. Проверка работы
+1.	Запустите бэкенд из папки backend (как указано в задании).
+2.	Запустите фронтенд: npm start или yarn start.
+3.	Откройте http://localhost:3000 (или другой порт, если настроен иначе).
+4.	Проверьте:
+o	На главной — список услуг с ссылками.
+o	При переходе на /services/:id/details — загрузка деталей.
+o	Индикаторы загрузки отображаются во время запроса.
+o	При ошибке — сообщение и кнопка «Повторить запрос».
+
