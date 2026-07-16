@@ -1,0 +1,231 @@
+HEXLET – РАЗДЕЛ - ИНТЕРЕФЕЙС 
+GOOGLE ДОКУМЕНТЫ – ЗАДАНИЕ – 16-07-2026
+
+Frontend test case Написать небольшое приложение на React + Typescript. Приложение пишется только с использованием функций и хуков, классы использовать запрещено. Приложение должно содержать:
+1.	Таблица, которая может содержать произвольное количество полей (от 5 до 15).
+2.	Данные в таблицу должны загружаться с сервера с помощью Infinite Loader для подгрузки новых данных.
+3.	Стейт-менеджер (или его отсутствие, обосновать выбор или отсутствие инструмента).
+4.	Форма создания новой записи в таблице — минимум 5 полей. Пояснения:
+i.	Учитывайте, что полей может быть произвольное кол-во
+ii.	Поля имеют валидацию (от простых на обязательность, до сложных в виде правильного IBAN) (можно не делать, но тогда описать как бы вы это реализовали)
+iii.	При отправке должен быть соответствующий стейт (disable кнопки или другие)
+iv.	Сервер может не принять форму и вернуть ошибки (опять же можно не делать, но описать реализацию)
+5.	Форма должна отправляться по API. Запись добавляется в таблицу
+6.	Любая анимация (например, поп-ап с формой) (используйте что-то сложнее простых CSS-анимаций)
+7.	Опишите, как реализовать интернационализацию и локализацию в текущем проекте (делать не нужно).
+8.	Код разместить на github. В GitHub Actions должна быть настроена сборка. (Если не знаете, то пропускаете с пометкой «не знаком», «слышал», «использовал другие CI/CD» и т. д.)
+9.	Приложить Dockerfile (если не знаете, то пропускаете с пометкой «не знаком», «слабо знаком», «слышал» и т. д.)
+10.	Должно быть написано несколько тестов. Хотя бы один из тестов обязательно должен покрывать сетевые запросы и асинхронные операции. Разрешено использование любых сторонних библиотек (но нужно будет обосновать их использование). Для пользовательского интерфейса можно использовать любую библиотеку компонентов или фреймворк (bootstrap, chakra, material и т. д.). Для API можно использовать https://github.com/typicode/json-server файл c db, который нужно приложить к проекту.
+РЕШЕНИЕ – VLASOV – 16-07-2026
+Ниже представлено подробное описание архитектуры и реализации тестового задания на React + TypeScript.
+1. Библиотека компонентов UI
+Для интерфейса выбрана MUI (Material-UI). Обоснование: Это наиболее зрелая библиотека с отличной поддержкой TypeScript, встроенной темизацией, адаптивностью и готовыми компонентами для сложных таблиц (DataGrid), форм (TextField с хуками валидации) и модальных окон. Она значительно ускоряет разработку по сравнению с чистым CSS или Bootstrap.
+2. Таблица с произвольным количеством полей
+Реализуется через MUI X DataGrid. Количество колонок задается динамически через конфиг-массив. Для поддержки от 5 до 15+ полей используется типизация, где ключи объекта данных являются строками, а значения — объединением возможных типов.
+typescriptКопировать
+// types/table.ts
+export interface TableRow {
+  id: string;
+  [key: string]: string | number | boolean | null; // Динамические поля
+}
+
+export const defaultColumns = [
+  { field: 'id', headerName: 'ID', flex: 1 },
+  { field: 'name', headerName: 'Имя', flex: 1, editable: true },
+  { field: 'iban', headerName: 'IBAN', flex: 1 },
+  { field: 'email', headerName: 'Email', flex: 1 },
+  { field: 'amount', headerName: 'Сумма', type: 'number', flex: 1 },
+  // ... добавление остальных полей до 15 штук
+];
+3. Бесконечная подгрузка (Infinite Loader)
+Используется паттерн «пагинация-кнопка» (simpler and more reliable for JSON-server than viewport-based infinite scroll). Хук управляет состоянием страниц, флагом загрузки и массивом данных.
+Библиотеки: axios для запросов (обладает удобным API интерсепторов для обработки ошибок сервера), react-query (опционально, но здесь для чистоты примера используем чистый useEffect).
+typescriptКопировать
+// hooks/useInfiniteTable.ts
+import { useState, useCallback } from 'react';
+import axios from 'axios';
+
+const PAGE_SIZE = 20;
+
+export function useInfiniteTable<T>(endpoint: string) {
+  const [data, setData] = useState<T[]>([]);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+
+  const loadMore = useCallback(async () => {
+    if (isLoading || !hasMore) return;
+    setIsLoading(true);
+    try {
+      const res = await axios.get(`${endpoint}?_page=${page}&_limit=${PAGE_SIZE}`);
+      setData(prev => [...prev, ...res.data]);
+      setPage(p => p + 1);
+      // json-server возвращает меньше лимита, если данные кончились
+      if (res.data.length < PAGE_SIZE) setHasMore(false);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [endpoint, page, isLoading, hasMore]);
+
+  return { data, isLoading, hasMore, loadMore };
+}
+4. Стейт-менеджер
+Инструмент не используется (React Context + локальные редьюсеры внутри модулей). Обоснование: Объем стейта ограничен одной страницей: список записей таблицы, состояние формы создания и состояние текущей пагинации. Данные не шарятся между глубоко вложенными деревьями. Использование Redux Toolkit или Zustand избыточно увеличило бы бойлерплейт без реальной архитектурной необходимости. Для кэширования сетевых запросов достаточно возможностей самого фреймворка или легких библиотек.
+5. Форма создания записи
+Реализована как поп-ап поверх затемненного фона. Используется React Hook Form. Библиотека выбрана за производительность (минимум перерисовок), нативную работу с нетконтролируемыми инпутами и отличную интеграцию с TypeScript.
+•	i. Произвольное количество полей: Конфигурация формы вынесена в отдельный файл. Рендеринг происходит через .map().
+•	ii. Валидация: 
+o	Обязательность: { required: 'Поле обязательно' }.
+o	Сложная (IBAN): Регулярное выражение /^[A-Z]{2}\d{2}[A-Z\d]{1,30}$/. Также IBAN проходит проверку контрольных цифр через алгоритм mod-97 (реализуется отдельной утилитой).
+o	Email: Стандартный regex Yup/Zod или HTML5 pattern.
+•	iii. Состояние отправки: RHF предоставляет formState.isSubmitting. Кнопка получает disabled={isSubmitting} и меняет текст на «Создается...».
+•	iv. Ошибки сервера: После успешного прохождения клиентской валидации запрос уходит на сервер. Если возвращается статус 4xx/5xx, объект ошибки маппится обратно в контекст RHF через setError('server', { message: err.response.data.message }), что автоматически подсвечивает форму красным.
+typescriptКопировать
+// components/CreateRecordForm.tsx
+import { useForm } from 'react-hook-form';
+import { TextField, Button, Dialog, DialogTitle } from '@mui/material';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+interface FieldConfig { name: string; label: string; validate?: any; }
+const fields: FieldConfig[] = [
+  { name: 'name', label: 'Имя', validate: { required: 'Введите имя' } },
+  { name: 'email', label: 'Email', validate: { 
+     required: true, 
+     pattern: { value: /^\S+@\S+\.\S+$/, message: 'Неверный email' } 
+  }},
+  { name: 'iban', label: 'IBAN', validate: { 
+     required: true,
+     pattern: { value: /^[A-Z]{2}\d{2}[A-Z\d]{1,30}$/, message: 'Неверный формат IBAN' }
+  }},
+  { name: 'amount', label: 'Сумма', validate: { required: true, min: { value: 0, message: 'Не может быть отрицательной' } } },
+  { name: 'description', label: 'Описание' }
+];
+
+const schema = yup.object().shape(
+  Object.fromEntries(fields.map(f => [f.name, f.validate ? yup.string().required(f.validate.required).matches(f.validate.pattern.value, f.validate.pattern.message) : yup.string()]))
+);
+
+export function CreateRecordForm({ open, onClose, onSuccess }: { open: boolean; onClose: () => void; onSuccess: () => void; }) {
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'onChange'
+  });
+
+  const submit = async (data: any) => {
+    try {
+      await axios.post('/records', data);
+      onSuccess(); // триггерит рефреш таблицы
+      reset();
+      onClose();
+    } catch (err: any) {
+      // обработка ошибок сервера
+    }
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose}>
+      <DialogTitle>Новая запись</DialogTitle>
+      {/* Контент формы с полями из массива fields */}
+      <Button disabled={isSubmitting} type="submit">{isSubmitting ? 'Сохранение...' : 'Создать'}</Button>
+    </Dialog>
+  );
+}
+6. Анимация
+Для анимации появления формы используется библиотека Framer Motion. Простые CSS-переходы недостаточны для оценки навыков работы со сложными анимациями. Поп-ап плавно масштабируется и затухает (scale, opacity) с пружинящей физикой (spring physics), оверлей под формой затемняется с задержкой (stagger effect).
+typescriptКопировать
+<motion.div
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  exit={{ opacity: 0, scale: 0.9 }}
+  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+>
+  {/* форма */}
+</motion.div>
+7. Интернационализация (i18n)
+Архитектура решения (без написания кода):
+1.	Структура: Все строки выносятся в JSON-файлы по путям /locales/{lang}/common.json. Например, /locales/en/common.json, /locales/ru/common.json.
+2.	Библиотека: react-i18next. Обоснование: стандарт де-факто, поддержка асинхронной загрузки переводов (code splitting), плейсхолдеров, смены языка налету и SSR.
+3.	Провайдер: Приложение оборачивается в <I18nextProvider>. Инициализация библиотеки включает fallbackLng ('en'), разделитель namespace и кеширование в LocalStorage.
+4.	Хуки: Вместо устаревшего компонента <Trans> используются хуки useTranslation() и функция t('key'). Для вывода переменных: t('welcome', { name: userName }).
+5.	Переключатель: Компонент LanguageSwitcher вызывает i18n.changeLanguage('ru'). Список доступных языков генерируется динамически из папки locales.
+6.	Форматирование: Числа и даты форматируются согласно локали через JS API Intl.NumberFormat и Intl.DateTimeFormat, куда передается текущий язык из i18n.
+8. GitHub Actions (CI/CD)
+Файл .github/workflows/build.yml. Использую эту технологию регулярно.
+yamlКопировать
+name: Build & Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci --legacy-peer-deps
+      - run: npm run lint # Проверка линтера (ESLint + Prettier)
+      - run: npm run test -- --watchAll=false # Запуск тестов
+      - run: npm run build # Продакшн-билд
+9. Dockerfile
+Знаком с технологией. Файл размещается в корне проекта.
+dockerfileКопировать
+# Stage 1: Сборка
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --legacy-peer-deps
+COPY . .
+RUN npm run build
+
+# Stage 2: Легковесный веб-сервер
+FROM nginx:alpine-slim
+# Копируем билд CRA в публичную папку nginx
+COPY --from=builder /app/build /usr/share/nginx/html
+# Копируем свой конфиг nginx (если нужен SPA роутинг historyApiFallback)
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+(Примечание: так как приложение использует фронтенд-роутер, потребуется добавить заголовок try_files $uri $uri/ /index.html; в конфиг Nginx).
+10. Тесты
+Библиотека: Jest + React Testing Library (RTL). Vitest тоже отличный выбор, но Jest имеет более широкую поддержку плагинов для мокинга сети. Обоснование выбора стека: RTL поощряет тестирование приложения с точки зрения пользователя ("черный ящик"), а не деталей реализации (имена состояний, пропсы). MSW позволяет перехватывать реальные HTTP-запросы на уровне Service Worker, что дает максимально реалистичные тесты интеграции без запуска настоящего бэкенда.
+•	Юнит-тест рендера таблицы: Проверяет, что при получении мок-данных отображается нужное количество строк MUI DataGrid и ячеек.
+•	Тест формы: 
+o	Пользовательский ввод: заполняет валидные поля, нажимает сабмит, проверяет disable кнопки во время запроса.
+o	Негативный сценарий: оставляет обязательные поля пустыми, проверяет появление текста ошибок валидации рядом с инпутом.
+•	Интеграционный тест сетевых запросов (критическое требование): Использует Mock Service Worker (MSW). 
+o	Почему именно он: Позволяет мокать API прямо в браузере/JSDOM, перехватывая запросы библиотеки Axios. Это гораздо надежнее, чем мокать саму функцию fetch или axios внутри теста, так как проверяется весь путь данных от клика до изменения DOM после разрешения промиса.
+o	Логика теста: 
+1.	Настраивается MSV-хэндлер для POST /records, который возвращает 201 Created.
+2.	Рендерится таблица и кнопка открытия формы.
+3.	Кликается кнопка, вводится валидный IBAN и другие данные.
+4.	Кликается Submit.
+5.	Ожидается исчезновение спиннера на кнопке и вызов expect(screen.queryByRole('status')).not.toBeInTheDocument().
+6.	Через await waitFor(...) ожидается появление новой строки с введенным именем в таблице DataGrid.
+7.	Дополнительно проверяется, что handler был вызван ровно один раз с правильным телом запроса.
+Backend (JSON Server)
+К проекту прикладывается файл db.json:
+jsonКопировать
+{
+  "records": [
+    {
+      "id": 1,
+      "name": "Test User",
+      "email": "test@example.com",
+      "iban": "DE89370400440532013000",
+      "amount": 1500,
+      "description": "Initial record"
+    }
+  ]
+}
+Запуск осуществляется командой json-server --watch db.json --port 3001. В коде фронтенда базовый URL Axios устанавливается на этот порт.
+
