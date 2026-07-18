@@ -1,0 +1,59 @@
+1. Создаём таблицу сотрудников
+sql
+CREATE TABLE employees (
+    id INT,
+    name VARCHAR(255),
+    salary INT,
+    manager_id INT,          -- ID непосредственного руководителя
+    department_id INT
+);
+2. Заполняем тестовыми данными
+sql
+INSERT INTO employees (id, name, salary, manager_id, department_id) VALUES
+    (1, 'Джонатан Холл', 120000, NULL, 1),      -- директор, нет руководителя
+    (2, 'Дэвид Дженкинс', 95000, 1, 1),         -- подчиняется Джонатану
+    (3, 'Анна Смит', 80000, 2, 1),             -- подчиняется Дэвиду
+    (4, 'Роберт Ли', 110000, 1, 2),             -- в другом отделе, зарплата выше своего руководителя? проверим
+    (5, 'Мария Гонсалес', 90000, 4, 2),         -- подчиняется Роберту
+    (6, 'Томас Уайт', 70000, 5, 2);             -- подчиняется Марии
+В этом примере:
+
+Джонатан — руководитель без начальника.
+Дэвид получает меньше Джонатана, поэтому не попадёт в результат.
+Роберт получает 110 000, а его руководитель — Джонатан (120 000), значит, тоже не подходит.
+Если хочешь, чтобы кто-то попадал в выборку, можно, например, поднять зарплату Дэвиду до 125 000 — тогда он будет получать больше руководителя.
+3. Запрос: сотрудники, чья зарплата выше, чем у непосредственного руководителя
+sql
+SELECT
+    e.name AS name
+FROM employees e
+JOIN employees m ON e.manager_id = m.id
+WHERE e.salary > m.salary
+ORDER BY e.name;
+Этот запрос вернёт только тех, у кого есть руководитель (manager_id IS NOT NULL) и чья зарплата строго больше зарплаты этого руководителя.
+
+4. Если нужна нумерация в формате «1 Джонатан Холл»
+Для PostgreSQL
+sql
+SELECT
+    (ROW_NUMBER() OVER (ORDER BY e.name)) || ' ' || e.name AS result
+FROM employees e
+JOIN employees m ON e.manager_id = m.id
+WHERE e.salary > m.salary
+ORDER BY e.name;
+Для MySQL 8+ / MariaDB 10.2+
+sql
+SELECT
+    CONCAT(ROW_NUMBER() OVER (ORDER BY e.name), ' ', e.name) AS result
+FROM employees e
+JOIN employees m ON e.manager_id = m.id
+WHERE e.salary > m.salary
+ORDER BY e.name;
+Для SQL Server
+sql
+SELECT
+    CONCAT(ROW_NUMBER() OVER (ORDER BY e.name), ' ', e.name) AS result
+FROM employees e
+JOIN employees m ON e.manager_id = m.id
+WHERE e.salary > m.salary
+ORDER BY e.name;
