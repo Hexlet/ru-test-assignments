@@ -1,0 +1,160 @@
+Это классическое тестовое задание на позицию Clojure-разработчика. Оно проверяет не столько знание синтаксиса (который у языка минимален), сколько архитектурное мышление, понимание философии «библиотеки вместо фреймворков» и владение экосистемой.
+
+Ниже представлен полный проект стека, архитектуры и реализации с обоснованием каждого шага в рамках заданных ограничений.
+
+1. Выбор библиотек и архитектура стека
+
+Поскольку Luminus и аналоги запрещены, сборка будет производиться из атомарных, проверенных временем библиотек:
+
+Бэкенд: ring (абстракция HTTP-запроса/ответа), reitit (роутинг — один из самых быстрых и функциональных роутеров для Ring, отлично работает с данными), next.jdbc (низкоуровневый JDBC-клиент для PostgreSQL, преемник классического clojure.java.jdbc).
+Валидация: clojure.spec.alpha или malli. Для этого задания выберем malli: она декларативна, быстрее spec при работе во время выполнения программы, имеет встроенную генерацию JSON Schema (что критично для фронтенда) и отличные сообщения об ошибках.
+Фронтенд (ClojureScript): shadow-cljs (сборщик), reagent (тонкая прослойка над React), re-frame (фреймворк управления состоянием, основанный на данных). Re-frame идеально ложится на философию Clojure: всё приложение — это данные (app-db), а изменения происходят через чистые функции-преобразователи.
+Миграции БД: ragtime (простая библиотека миграций, работающая напрямую с SQL-файлами).
+CI / Сборка: GitHub Actions (или GitLab CI). Использование официального Docker-образа clojure:temurin для сборки jar, отдельного этапа тестирования и публикации образа.
+Развертывание: K8s manifests (Deployment, Service, ConfigMap, Secret). Stateless-приложение, подключение к БД через переменные окружения.
+2. Модель данных и схема базы
+
+Таблица patients в PostgreSQL:
+
+sql
+Копировать
+CREATE TABLE patients (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    full_name TEXT NOT NULL,
+    gender VARCHAR(10) CHECK (gender IN ('male', 'female', 'other')),
+    birth_date DATE NOT NULL,
+    address TEXT,
+    oms_policy_number TEXT UNIQUE NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+Обоснование: Используем нативный UUID, ограничение CHECK для поля пола гарантирует целостность данных на уровне СУБД. Индекс по полю oms_policy_number создается автоматически благодаря ограничению UNIQUE.
+
+3. Серверная часть (Ring + Reitit + next.jdbc)
+
+API делится на два пространства имен: одно отвечает за чистую работу с базой, другое — за HTTP-слой.
+
+Пример обработчика создания пациента (handler.clj):
+
+clojure
+Копировать
+(defn create-patient [{:keys [body-params db]}]
+  (let [validation-errors (m/explain patient-schema body-params)]
+    (if validation-errors
+      {:status 400 :body {:errors (me/humanize validation-errors)}}
+      (try
+        (let [patient (db/create-patient! db body-params)]
+          {:status 201 :body patient})
+        (catch java.sql.SQLIntegrityConstraintViolationException e
+          ;; Обработка дубликата полиса ОМС
+          {:status 409 :body {:error "Patient with this OMS policy already exists"}})))))
+
+Здесь используется подход Data-driven routing от reitit, где спецификация запроса может быть описана прямо в маршруте, что позволяет генерировать автодокументацию (Swagger/OpenAPI) без дополнительных усилий.
+
+4. Валидация (Malli)
+
+Схема пациента выносится в отдельное пространство имен. Это позволяет переиспользовать её как на бэкенде, так и на фронтенде (через экспорт в JSON Schema).
+
+clojure
+Копировать
+(ns hospital.schema)
+(require '[malli.core :as m])
+(require '[malli.error :as me])
+
+(def Gender [:enum "male" "female" "other"])
+
+(def Patient
+  [:map
+   [:full-name {:optional true} string?] ;; optional для патчинга
+   [:gender {:optional true} Gender]
+   [:birth-date {:optional true} :string {:format "date"}]
+   [:address {:optional true} string?]
+   [:oms-policy-number {:optional true} 
+    [:and string? [:fn #(re-matches #"\d{16}" %)]]]])
+    
+;; Валидатор создается один раз при загрузке модуля
+(def validate-patient (m/validator Patient))
+(def explain-patient (m/explainer Patient))
+
+Обоснование: Malli позволяет описать сложную бизнес-логику (например, номер полиса должен состоять ровно из 16 цифр) декларативно. Та же самая схема передается на фронтенд, исключая рассинхронизацию правил валидации.
+
+5. Клиентская часть (Re-frame)
+
+Архитектура строится вокруг событий (events) и подписок (subscriptions).
+
+Состояние (app-db): Хранит список пациентов, параметры пагинации, фильтры, состояние формы редактирования и очередь ошибок.
+События: [:load-patients params], [:create-patient data], [:update-patient id data], [:delete-patient id], [:set-filter key value].
+Эффекты: Все HTTP-вызовы инкапсулированы в эффект :http-xhrio. Декоратор-обработчик ответов стандартизирует логику успеха и ошибок.
+Компоненты (Reagent): Чистые функции, возвращающие Hiccup. Таблица со списком, форма пациента (использует те же правила валидации Malli, сериализованные в JSON Schema), строка поиска и панель фильтров (пол, дата рождения).
+6. Стратегия тестирования (Критически важный пункт)
+
+Тесты пишутся параллельно с кодом в REPL.
+
+Unit-тесты чистых функций (cljc): Если логика (например, расчет возраста или форматирование адреса) вынесена в .cljc файлы, они покрываются clojure.test на 100%. Проверяются краевые случаи (nil, пустые строки, високосные года).
+Интеграционные тесты бэкенда (clj): Используется test-containers. На каждый запуск тестов поднимается временный контейнер с PostgreSQL. Тестируется весь путь: HTTP-запрос -> маппинг -> валидация -> SQL-запрос -> ответ. Обязательно проверяются сценарии падения: битый JSON, нарушение уникальности полиса, неверный тип данных.
+Спецификации (clojure.spec или malli generative testing): Генерация случайных валидных и невалидных пациентов для прогонки через функции сохранения и валидации (property-based testing).
+E2E тесты фронтенда (cljs/node): Используется Playwright. Скрипт проходит сценарий: открыть страницу -> заполнить форму некорректными данными (проверить UI-ошибки) -> создать пациента -> найти его в таблице через поиск -> отредактировать -> удалить. Поиск и фильтрация также автоматизируются отдельным набором проверок.
+7. Разработка в REPL (Emacs/CIDER)
+
+Это ядро методологии. Процесс разработки выглядит так:
+
+Пишется чистая функция работы с БД (defn find-patient-by-id [ds id] ...). Она сразу исполняется в буфере результатов REPL на живом подключении к локальной базе.
+Функция декорируется middleware [wrap-coercion wrap-exception] прямо в REPL, чтобы проверить трансформацию данных.
+Роутер reitit является обычным EDN-данным. Маршруты можно менять горячей перезагрузкой (cider-refresh или Component Reload), не рестартуя JVM.
+На фронтенде запущено Figwheel Main (внутри shadow-cljs). Изменение компонента в редакторе мгновенно перерисовывает его в браузере с сохранением текущего состояния app-db.
+Ссылка на Parens of the Dead уместна: именно такой workflow непрерывного взаимодействия с живой системой демонстрируется там как эталонный.
+8. CI/CD и деплой в Kubernetes
+
+.github/workflows/ci.yml (упрощенно):
+
+yaml
+Копировать
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: password
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - name: Run tests
+        run: make test # Запускает интеграционные тесты с testcontainers
+      - name: Build jars
+        run: clj -T:build uberjar
+      - name: Build and push docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.REGISTRY }}/hospital-app:${{ github.sha }}
+          
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to k8s
+        run: kubectl apply -f k8s/
+
+Подготовка к K8s:
+
+Приложение упаковывается в тонкий Distroless/Dockerfile (JDK + только скопированный Uberjar).
+Health-check'и: реализация эндпоинтов /healthz (liveness — просто статус ответа сервера) и /readyz (readiness — проверка успешного пула коннекта к PG перед отдачей трафика).
+Конфигурация выносится в ConfigMap (параметры API URL), секреты (пароли БД) — в Secret.
+Ресурсы CPU/Memory задаются явно (requests/limits).
+Readiness Probe настроен на ожидание установления соединения с базой, чтобы под не получал трафик до полной инициализации.
+9. План демо-презентации
+Запуск среды: Демонстрация одного Makefile-правила (make dev), которое поднимает локальный Postgres в Docker, запускает backend REPL, frontend Figwheel и открывает браузер.
+REPL-driven разработка: Создание нового поля (например, ИНН). Прямо в Emacs определяется spec, добавляется колонка в SQL-миграцию, обновляется хендлер. Через CIDER транзакция применяется к живой базе. Показывается, как изменился Swagger-документ.
+Логика приложения: Быстрый просмотр ключевых файлов: схемы malli, роутера reitit (как данных), основного reg-event-fx на фронте.
+Тесты: Запуск make test. Показ зеленой сборки. Открытие отчета о покрытии кода (codecov/cloverage), акцент на том, что покрыты не только счастливые пути, но и граничные условия E2E-сценариев.
+Инфраструктура: Просмотр YAML манифестов K8s, демонстрация собранного Docker-образа и успешный деплой в тестовый кластер (minikube/kind).
+Обоснование решений: Почему не взят Luminus (лишние зависимости, черный ящик), почему выбран malli поверх spec (производительность и JSON Schema), почему re-frame (прогнозируемость stateful-части SPA).
+
+Этот стек полностью соответствует идеологии Clojure-экосистемы: легковесность, композиция простых частей, неизменяемость данных и максимальная интерактивность разработки.
