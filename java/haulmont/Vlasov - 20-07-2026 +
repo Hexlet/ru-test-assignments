@@ -1,0 +1,272 @@
+Данное тестовое задание должно в результате содержать работающую программу, удовлетворяющую всем нижеописанным требованиям, и качественный исходный код. Постарайтесь создать грамотную композицию классов и форматировать код в соответствии со стандартами Java. Описание задачи Релизовать систему ввода и отображения информации о студентах института, включающую следующие сущности и их атрибуты: Студент ◦ Имя ◦ Фамилия ◦ Отчество ◦ Дата рождения ◦ Группа Группа ◦ Номер ◦ Название факультета 
+Система должна иметь следующие функции: Отображение списка групп Добавление новой группы, редактирование и удаление существующей Отображение списка студентов Фильтрация списка студентов по фамилии и по номеру группы Добавление нового студента, редактирование и удаление существующего Требования к реализации Используемые технологии: Java 6 SE Пользовательский интерфейс на Swing Доступ к данным через JDBC Сервер баз данных: любая встроенная Java-RDBMS, например H2, HSQLDB, Derby. Требования к пользовательскому интерфейсу: Экраны системы: ◦ Список групп – таблица, кнопки «Добавить», «Изменить», «Удалить» ◦ Редактирование группы — поля ввода атрибутов, кнопки «ОК», «Отменить» ◦ Список студентов с фильтром - таблица, кнопки «Добавить», «Изменить», «Удалить», фильтр с полями «Фамилия», «Номер группы» ◦ Редактирование студента - поля ввода атрибутов, кнопки «ОК», «Отменить» Экраны редактирования должны быть модальными Другие требования: Код доступа к данным должен быть изолирован в классах DAO Каждая таблица должна иметь первичный ключ типа Long Система должна иметь защиту на уровне БД от удаления группы, содержащей студентов Готовое приложение должно содержать: ◦ 
+Каталог с исходными текстами, классами и используемыми библиотеками ◦ SQL-скрипт создания таблиц в базе данных ◦ Командный файл, запускающий приложение вместе со встроенной базой данных При реализации системы запрещается использовать визуальные дизайнеры интерфейса для Swing
+
+Задача сформулирована четко, но реализация требует значительных усилий и времени. Для начала предлагаю разбить работу на этапы:
+Этапы выполнения задания:
+1.	Проектирование структуры базы данных (создание SQL-скрипта).
+2.	Реализация модели данных (классы Student, Group).
+3.	Создание слоя доступа к данным (DAO классы).
+4.	Разработка графического интерфейса на основе Swing.
+5.	Тестирование приложения.
+Что нужно сделать следующим шагом?
+Предлагаю начать с проектирования структуры базы данных. 
+
+Проектированию структуры базы данных.
+Структура базы данных:
+CREATE TABLE groups (
+    id LONG PRIMARY KEY AUTO_INCREMENT,
+    number VARCHAR(10),
+    faculty_name VARCHAR(100)
+);
+
+CREATE TABLE students (
+    id LONG PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    middle_name VARCHAR(50),
+    birth_date DATE,
+    group_id LONG REFERENCES groups(id)
+);
+Эта структура включает две таблицы: groups и students. Таблица students связана с таблицей groups посредством внешнего ключа group_id.
+
+Следующий шаг — создание моделей данных и слоя доступа к данным (DAO). Вот как это можно реализовать:
+Модели данных
+Класс Group.java:
+public class Group {
+    private long id;
+    private String number;
+    private String facultyName;
+    
+    // Конструкторы, геттеры и сеттеры...
+}
+Класс Student.java:
+public class Student {
+    private long id;
+    private String firstName;
+    private String lastName;
+    private String middleName;
+    private Date birthDate;
+    private long groupId;
+    
+    // Конструкторы, геттеры и сеттеры...
+}
+Слой доступа к данным (DAO)
+Интерфейс GroupDao.java:
+import java.util.List;
+
+public interface GroupDao {
+    void add(Group group);
+    List<Group> getAll();
+    Group findById(long id);
+    void update(Group group);
+    void delete(long id);
+}
+Реализация GroupDaoImpl.java:
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GroupDaoImpl implements GroupDao {
+    @Override
+    public void add(Group group) { /* ... */ }
+    @Override
+    public List<Group> getAll() { /* ... */ }
+    @Override
+    public Group findById(long id) { /* ... */ }
+    @Override
+    public void update(Group group) { /* ... */ }
+    @Override
+    public void delete(long id) { /* ... */ }
+}
+Аналогично реализуем DAO для студентов.
+
+Тогда приступаем к первому этапу — проектированию структуры базы данных.
+Структура базы данных:
+CREATE TABLE groups (
+    id LONG PRIMARY KEY AUTO_INCREMENT,
+    number VARCHAR(10),
+    faculty_name VARCHAR(100)
+);
+
+CREATE TABLE students (
+    id LONG PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    middle_name VARCHAR(50),
+    birth_date DATE,
+    group_id LONG REFERENCES groups(id)
+);
+Эта структура включает две таблицы: groups и students. Таблица students связана с таблицей groups посредством внешнего ключа group_id.
+Продолжим далее созданием моделей данных и слоев доступа к данным?
+
+Следующий шаг — создание моделей данных и слоя доступа к данным (DAO). Вот как это можно реализовать:
+Модели данных
+Класс Group.java:
+public class Group {
+    private long id;
+    private String number;
+    private String facultyName;
+    
+    // Конструкторы, геттеры и сеттеры...
+}
+Класс Student.java:
+public class Student {
+    private long id;
+    private String firstName;
+    private String lastName;
+    private String middleName;
+    private Date birthDate;
+    private long groupId;
+    
+    // Конструкторы, геттеры и сеттеры...
+}
+Слой доступа к данным (DAO)
+Интерфейс GroupDao.java:
+import java.util.List;
+
+public interface GroupDao {
+    void add(Group group);
+    List<Group> getAll();
+    Group findById(long id);
+    void update(Group group);
+    void delete(long id);
+}
+Реализация GroupDaoImpl.java:
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GroupDaoImpl implements GroupDao {
+    @Override
+    public void add(Group group) { /* ... */ }
+    @Override
+    public List<Group> getAll() { /* ... */ }
+    @Override
+    public Group findById(long id) { /* ... */ }
+    @Override
+    public void update(Group group) { /* ... */ }
+    @Override
+    public void delete(long id) { /* ... */ }
+}
+Аналогично реализуем DAO для студентов.
+
+Теперь перейдем к созданию графического интерфейса на Swing.
+Основные экраны:
+1.	Список групп
+o	Таблица с группами.
+o	Кнопки "Добавить", "Редактировать", "Удалить".
+2.	Экран редактирования группы
+o	Поля ввода номера группы и названия факультета.
+o	Кнопки "OK" и "Отмена".
+3.	Список студентов с фильтрацией
+o	Таблица со списком студентов.
+o	Поле поиска по фамилии и группе.
+o	Кнопки "Добавить", "Редактировать", "Удалить".
+4.	Экран редактирования студента
+o	Поля ввода имени, фамилии, отчества, даты рождения и выбора группы.
+o	Кнопки "OK" и "Отмена".
+Пример кода окна списка групп:
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class GroupsFrame extends JFrame {
+    private JButton btnAdd = new JButton("Добавить");
+    private JButton btnEdit = new JButton("Редактировать");
+    private JButton btnDelete = new JButton("Удалить");
+    private JTable tableGroups;
+
+    public GroupsFrame() {
+        setTitle("Список групп");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 400);
+        
+        JPanel panelButtons = new JPanel();
+        panelButtons.add(btnAdd);
+        panelButtons.add(btnEdit);
+        panelButtons.add(btnDelete);
+        
+        add(panelButtons, BorderLayout.SOUTH);
+        
+        // Инициализация таблицы и других компонентов...
+        
+        btnAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editGroup(null); // Вызываем окно добавления группы
+            }
+        });
+        
+        btnEdit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = tableGroups.getSelectedRow();
+                if (selectedRow != -1) {
+                    editGroup((Group)tableGroups.getValueAt(selectedRow, 0));
+                } else {
+                    JOptionPane.showMessageDialog(GroupsFrame.this, "Выберите группу!");
+                }
+            }
+        });
+        
+        btnDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = tableGroups.getSelectedRow();
+                if (selectedRow != -1) {
+                    deleteGroup((Group)tableGroups.getValueAt(selectedRow, 0));
+                } else {
+                    JOptionPane.showMessageDialog(GroupsFrame.this, "Выберите группу!");
+                }
+            }
+        });
+    }
+
+    private void editGroup(Group group) {
+        EditGroupDialog dialog = new EditGroupDialog(this, group);
+        dialog.setVisible(true);
+    }
+
+    private void deleteGroup(Group group) {
+        try {
+            dao.delete(group.getId());
+            refreshTable(); // Обновляем таблицу после удаления
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Ошибка удаления группы.");
+        }
+    }
+
+    private void refreshTable() {
+        // Метод обновления таблицы
+    }
+}
+Далее необходимо разработать остальные компоненты интерфейса и логику работы с данными.
+
+Последний важный этап — тестирование готового приложения.
+План тестирования:
+1.	
+Проверка корректности сохранения и загрузки данных из базы.
+2.	
+Проверка функционала фильтров (поиск студентов по фамилии и группе).
+3.	
+Проверка возможности изменения и удаления записей без ошибок.
+4.	
+Проверка защиты от удаления группы, содержащей студентов.
+5.	
+Проверка работоспособности всех кнопок и элементов интерфейса.
+
+Примеры тестов:
+1.	Создание группы и добавление студента
+•	Создаем новую группу.
+•	Добавляем студента в эту группу.
+•	Проверяем наличие записи в таблице.
+2.	Проверка фильтра
+•	Заполняем базу несколькими студентами разных групп.
+•	Применяем фильтры по фамилии и номеру группы.
+•	Проверяем правильность результатов.
+3.	Попытка удалить группу с привязанными студентами
+•	Пробуем удалить группу, в которой есть студенты.
+•	Ожидаемый результат: вывод ошибки и сохранение целостности данных.
+После успешного прохождения тестов готовое приложение будет полностью функциональным и готовым к использованию.
+
