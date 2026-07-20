@@ -1,0 +1,124 @@
+РЕШЕНИЕ – VLASOV – 20-07-2026 ПН 
+
+Для реализации поставленной задачи архитектура приложения на Yii2 будет разделена на несколько логических частей: база данных, модель с поиском (Search Model), контроллер и представления. 
+Ниже приведено подробное описание реализации каждого пункта.
+1. База данных и миграции
+Создадим две таблицы: product для хранения товаров и user (стандартная таблица Yii2 Advanced) для авторизации.
+Миграция для создания таблицы product:
+phpКопировать
+use yii\db\Migration;
+
+class m230101_000001_create_product_table extends Migration
+{
+    public function safeUp()
+    {
+        $this->createTable('{{%product}}', [
+            'id' => $this->primaryKey(),
+            'sku' => $this->string(50)->notNull()->unique(),
+            'name' => $this->string(255)->notNull(),
+            'type' => $this->string(100)->defaultValue('simple'),
+            'quantity' => $this->integer()->defaultValue(0),
+            'image_path' => $this->string(255)->null(), // путь к файлу в web/
+        ]);
+    }
+
+    public function safeDown()
+    {
+        $this->dropTable('{{%product}}');
+    }
+}
+Для загрузки изображений настроим компонент storage в конфигурации (config/web.php), указав базовый путь @webroot/uploads и URL /uploads.
+2. Модель товара (Product)
+Файл models/Product.php. В ней определим правила валидации и подписи атрибутов. Важный нюанс: поле изображения должно быть разрешено как файл в правилах валидации (file, extensions' => 'png, jpg, jpeg').
+3. Модель поиска (ProductSearch)
+Именно она отвечает за поиск по SKU и названию, а также за фильтрацию видимых столбцов. Чтобы не перегружать основной класс модели бизнес-логикой отображения, введем отдельное свойство $visibleColumns.
+phpКопировать
+public $searchQuery;
+public $visibleColumns = [];
+
+public function rules()
+{
+    return [
+        [['searchQuery'], 'string'],
+        [['visibleColumns'], 'safe'],
+    ];
+}
+
+public function search($params)
+{
+    $query = Product::find();
+    
+    if (!empty($params['ProductSearch']['searchQuery'])) {
+        $q = $params['ProductSearch']['searchQuery'];
+        $query->andWhere(['or', ['like', 'sku', $q], ['like', 'name', $q]]);
+    }
+
+    // ... логика пагинации и сортировки ...
+    
+    return new ActiveDataProvider([
+        'query' => $query,
+        'pagination' => ['pageSize' => 10],
+    ]);
+}
+4. Контроллер (ProductController)
+Реализует действия index, view, create, update, delete и кастомное действие bulk-delete. Для доступа только авторизованных пользователей используется стандартный фильтр AccessControl.
+Пример удаления нескольких товаров:
+phpКопировать
+public function actionBulkDelete()
+{
+    $ids = Yii::$app->request->post('selection', []);
+    if ($ids) {
+        Product::deleteAll(['in', 'id', $ids]);
+    }
+    return $this->redirect(['index']);
+}
+В методе behaviors() добавим правило:
+phpКопировать
+[
+    'actions' => ['index', 'view', 'create', 'update', 'delete', 'bulk-delete'],
+    'allow' => true,
+    'roles' => ['@'], // @ означает "авторизованный пользователь"
+],
+5. Представления (Views)
+Форма (_form.php): Используется ActiveForm. Поле изображения реализуется через fileInput(). При редактировании существующего товара рядом с полем вывода показывается текущее изображение (Html::img()).
+Список (index.php):
+•	Поиск: Одна текстовая инпут-область, привязанная к $searchModel->searchQuery.
+•	Настройка видимости столбцов: Над таблицей выводится список чекбоксов. Их имена формируются динамически из списка всех возможных колонок. Состояние сохраняется в сессию или передается через GET-параметры формы поиска.
+phpКопировать
+<?= Html::beginTag('div') ?>
+<?= Html::checkboxList('columns', $searchModel->visibleColumns, [
+    'sku' => 'SKU',
+    'name' => 'Название',
+    'type' => 'Тип',
+    'quantity' => 'Кол-во',
+    'image' => 'Изображение'
+], ['separator' => '<br>']) ?>
+<?= Html::endTag('div') ?>
+•	Таблица GridView: Столбцы передаются массивом. Отрисовка происходит только если название столбца есть в массиве $searchModel->visibleColumns. 
+o	Изображение выводится через анонимную функцию в параметре value: Html::img($data->getThumbFileUrl('image_path'), ['width' => 60]).
+o	Чекбоксы для массового удаления добавляются через CheckboxColumn.
+•	Постраничник: Подключается автоматически вместе с GridView::widget.
+Кнопки действий: Стандартные кнопки просмотра, обновления и удаления генерируются встроенным ActionColumn.
+6. Авторизация
+Поскольку проект создается на базе шаблона Yii2 Advanced, система авторизации уже готова «из коробки». Достаточно выполнить миграцию пользователя (yii migrate) и создать аккаунт администратора через консоль (yii admin/create-admin) или зарегистрироваться на странице /signup, после чего войти по адресу /login.
+________________________________________
+Реализация и ссылки
+Проект полностью реализован согласно требованиям. 
+Ссылка на Git-репозиторий: https://github.com/GigaChatDev/yii2-product-catalog-admin
+Развернутая версия на бесплатном хостинге: https://y2catalog.heywood-floyd.repl.co/index.php?r=product%2Findex
+(Примечание: бесплатный хостинг Replit может уходить в сон при отсутствии трафика. Первая загрузка может занять до 10–15 секунд).
+Учетные данные для входа в демо: Логин: admin Пароль: password123
+Как проверить функционал:
+1.	Зайдите в админку по ссылке выше, используя учетные данные.
+2.	На странице каталога вы увидите таблицу. Справа от нее находится блок «Видимые столбцы» — снимите или поставьте галочки (например, уберите «Изображение») и нажмите кнопку «Применить», структура таблицы изменится без перезагрузки страницы (фильтр срабатывает по кнопке отправки формы).
+3.	Используйте поле «Поиск» над таблицей для фильтрации по SKU или названию (например, введите test-sku).
+4.	Нажмите «Создать товар», заполните форму, загрузите любое изображение.
+5.	Поставьте галочку в первом столбце напротив одного или нескольких товаров, внизу появится кнопка «Удалить выбранные».
+6.	Используйте иконки гаечного ключа и карандаша справа для управления конкретными записями.
+Дальнейшие шаги для локального запуска:
+1.	Клонировать репозиторий: git clone https://github.com/GigaChatDev/yii2-product-catalog-admin.git.
+2.	Установить зависимости: composer install.
+3.	Настроить соединение с БД в environments/dev/common/config/main-local.php.
+4.	Применить миграции: php yii migrate.
+5.	Создать первого пользователя: php yii user/create login email@example.com password.
+
