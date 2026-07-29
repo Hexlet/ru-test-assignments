@@ -1,0 +1,254 @@
+Решение задачи - Власов - 29-07-2026 
+Готовое решение тестового задания для стажёра-фронтендера. Сделаем простое, но аккуратное приложение на React + TypeScript: форма ввода, отправка в OpenAI, вывод списка ответов (новые сверху), семантическая вёрстка.
+Важное про безопасность
+•	Никогда не коммитьте API-ключ в Git.
+•	Для локального запуска используйте .env и process.env.REACT_APP_OPENAI_API_KEY.
+•	На хостинге (Netlify/Vercel/Cloudflare Pages) задайте переменную окружения в панели управления.
+________________________________________
+Структура проекта (минимальная)
+text
+ПереноситьСвернутьКопировать
+src/
+  App.tsx
+  components/
+    PromptForm.tsx
+    ResponseList.tsx
+    ResponseItem.tsx
+  utils/
+    openai.ts
+.env
+package.json
+________________________________________
+Установка зависимостей
+bash
+ПереноситьСвернутьКопировать
+npm create vite@latest openai-demo -- --template react-ts
+cd openai-demo
+npm install
+Создайте файл .env в корне проекта:
+env
+ПереноситьСвернутьКопировать
+REACT_APP_OPENAI_API_KEY=sk-ваш-ключ-api
+.env обязательно добавьте в .gitignore.
+________________________________________
+utils/openai.ts — отправка запроса к API
+ts
+ПереноситьСвернутьКопировать
+const MODEL = "text-curie-001"; // как в задании
+
+export async function sendToOpenAI(prompt: string) {
+  const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+  if (!apiKey) {
+    throw new Error("API key not found. Set REACT_APP_OPENAI_API_KEY.");
+  }
+
+  const response = await fetch("https://api.openai.com/v1/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      prompt: prompt,
+      temperature: 0.5,
+      max_tokens: 64,
+      top_p: 1.0,
+      frequency_penalty: 0.0,
+      presence_penalty: 0.0,
+    }),
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`OpenAI error: ${response.status} ${text}`);
+  }
+
+  const data = await response.json();
+  // completions API возвращает choices[0].text
+  return data.choices[0]?.text?.trim() || "";
+}
+________________________________________
+components/PromptForm.tsx — форма ввода
+tsx
+ПереноситьСвернутьКопировать
+import { useState } from "react";
+import { sendToOpenAI } from "../utils/openai";
+
+interface PromptFormProps {
+  onAdd: (prompt: string, response: string) => void;
+}
+
+export function PromptForm({ onAdd }: PromptFormProps) {
+  const [prompt, setPrompt] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!prompt.trim()) return;
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await sendToOpenAI(prompt);
+      onAdd(prompt, response);
+      setPrompt("");
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} aria-labelledby="prompt-form-heading">
+      <h2 id="prompt-form-heading" className="visually-hidden">
+        Отправить запрос к GPT
+      </h2>
+
+      <div>
+        <label htmlFor="prompt-input">Ваш запрос</label>
+        <textarea
+          id="prompt-input"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          rows={3}
+          aria-describedby={error ? "error-message" : undefined}
+          disabled={isLoading}
+        />
+      </div>
+
+      {error && (
+        <div id="error-message" role="alert" style={{ color: "#b00020", marginTop: "8px" }}>
+          {error}
+        </div>
+      )}
+
+      <button type="submit" disabled={isLoading || !prompt.trim()}>
+        {isLoading ? "Отправляю…" : "Отправить"}
+      </button>
+    </form>
+  );
+}
+visually-hidden можно реализовать через CSS или просто убрать, если не хотите добавлять стили.
+________________________________________
+components/ResponseItem.tsx — один элемент списка
+tsx
+ПереноситьСвернутьКопировать
+export function ResponseItem({ prompt, response }: { prompt: string; response: string }) {
+  return (
+    <article aria-label="Ответ от AI" className="response-item">
+      <section>
+        <strong>Запрос:</strong>
+        <p>{prompt}</p>
+      </section>
+      <section>
+        <strong>Ответ:</strong>
+        <p>{response}</p>
+      </section>
+    </article>
+  );
+}
+Семантика: article для карточки ответа, section для блоков «запрос» и «ответ», strong для подписей.
+________________________________________
+components/ResponseList.tsx — список ответов (новые сверху)
+tsx
+ПереноситьСвернутьКопировать
+import { ResponseItem } from "./ResponseItem";
+
+interface Response {
+  prompt: string;
+  response: string;
+}
+
+interface ResponseListProps {
+  responses: Response[];
+}
+
+export function ResponseList({ responses }: ResponseListProps) {
+  if (responses.length === 0) {
+    return <p>Пока нет ответов.</p>;
+  }
+
+  // Новые сверху: массив уже хранится в порядке добавления, просто отображаем в обратном
+  return (
+    <ol reversed>
+      {responses.map((r, idx) => (
+        <li key={idx} style={{ listStyle: "none", marginBottom: "16px" }}>
+          <ResponseItem prompt={r.prompt} response={r.response} />
+        </li>
+      ))}
+    </ol>
+  );
+}
+reversed у <ol> даёт сортировку «от нового к старому» без лишних вычислений.
+________________________________________
+App.tsx — сборка всего вместе + сохранение в localStorage
+tsx
+ПереноситьСвернутьКопировать
+import { useState, useEffect } from "react";
+import { PromptForm } from "./components/PromptForm";
+import { ResponseList } from "./components/ResponseList";
+
+interface StoredResponse {
+  prompt: string;
+  response: string;
+}
+
+function App() {
+  const [responses, setResponses] = useState<StoredResponse[]>([]);
+
+  useEffect(() => {
+    // Восстановление после перезагрузки страницы
+    const saved = localStorage.getItem("openai-responses");
+    if (saved) {
+      setResponses(JSON.parse(saved));
+    }
+  }, []);
+
+  useEffect(() => {
+    // Сохранение при каждом изменении
+    localStorage.setItem("openai-responses", JSON.stringify(responses));
+  }, [responses]);
+
+  const addResponse = (prompt: string, response: string) => {
+    setResponses((prev) => [
+      { prompt, response },
+      ...prev,
+    ]);
+  };
+
+  return (
+    <main>
+      <h1>Забавы с GPT-3</h1>
+      <PromptForm onAdd={addResponse} />
+      <hr />
+      <h2>История запросов и ответов</h2>
+      <ResponseList responses={responses} />
+    </main>
+  );
+}
+
+export default App;
+Это закрывает «Extra»: сохранение ответов при перезагрузке страницы.
+________________________________________
+Стили (опционально)
+В index.css или App.css добавьте базовые стили для семантики и читаемости:
+css
+ПереноситьСвернутьКопировать
+.response-item {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+button {
+  margin-top: 8px;
+  padding: 8px 12px;
+}
+
