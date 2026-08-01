@@ -1,0 +1,326 @@
+Решение задачи - Vlasov - 01-08-2026 +
+
+Ниже представлены решения предложенных задач на языке PHP (для полулогических и практических задач) и Python (для распределенного cron и Telegram-бота). 
+Полулогические задачи
+1. Распределение смузи Задача сводится к целочисленному делению общего количества смузи на количество хипстеров.
+phpКопировать
+function distributeSmoothies(int $m, int $n): int
+{
+    // Если хипстеров нет или смузи нет/меньше хипстеров, каждый выпьет 0 штук
+    if ($n <= 0 || $m <= 0) {
+        return 0;
+    }
+    
+    return intdiv($m, $n);
+}
+Обоснование: Вежливость здесь интерпретируется как строгое равенство порций без дробления объектов. Выбрасывание лишних смузи — это взятие остатка от деления по модулю ($m % $n), который в данной задаче игнорируется.
+2. Клад с камнями
+Вариант А: не более одного камня каждого типа Это классическая задача о рюкзаке 0-1 для двух предметов. Достаточно проверить все возможные комбинации выбора (ничего не брать, взять только первый, только второй, оба).
+phpКопировать
+function maxValueUniqueStones(int $m1, int $p1, int $m2, int $p2, int $maxM): int
+{
+    $maxPrice = 0;
+
+    // Варианты: ничего не берем (уже покрыто инициализацией), берем один из камней или оба
+    if ($m1 <= $maxM) {
+        $maxPrice = max($maxPrice, $p1);
+    }
+    if ($m2 <= $maxM) {
+        $maxPrice = max($maxPrice, $p2);
+    }
+    if (($m1 + $m2) <= $maxM) {
+        $maxPrice = max($maxPrice, $p1 + $p2);
+    }
+
+    return $maxPrice;
+}
+Вариант Б: сколько угодно камней каждого типа (Рюкзачная задача / Unbounded Knapsack) Поскольку типов всего два, оптимальное решение всегда будет лежать на границе вместимости. Можно перебрать количество камней первого типа и вычислить максимально возможное количество второго.
+phpКопировать
+function maxValueUnlimitedStones(int $m1, int $p1, int $m2, int $p2, int $maxM): int
+{
+    $maxPrice = 0;
+    
+    // Перебираем количество камней первого типа от 0 до максимума, который влезает в рюкзак
+    for ($count1 = 0; $count1 * $m1 <= $maxM; $count1++) {
+        $remainingMass = $maxM - ($count1 * $m1);
+        
+        // На оставшиеся место кладем максимум возможных камней второго типа
+        $count2 = intdiv($remainingMass, $m2);
+        
+        $currentPrice = ($count1 * $p1) + ($count2 * $p2);
+        $maxPrice = max($maxPrice, $currentPrice);
+    }
+
+    return $maxPrice;
+}
+3. Злой клоун и смайлики Необходимо найти последовательности из двух и более одинаковых скобок подряд и заменить их на одну.
+phpКопировать
+function fixSmileys(string $text): string
+{
+    // Убираем повторяющиеся открывающие скобки
+    $text = preg_replace('/${2,}/', ')', $text);
+    // Убираем повторяющиеся закрывающие скобки
+    $text = preg_replace('/${2,}/', '(', $text);
+    
+    return $text;
+}
+
+// Пример:
+echo fixSmileys("Привет))) Как дела(( Всё нормуль))))"); 
+// Результат: "Привет) Как дела( Всё нормуль)"
+________________________________________
+Практические задачи
+1. Расчет скидки и ее распределение между товарами Для корректного распределения скидок (особенно процентных) используется метод наибольшего остатка (Largest Remainder Method) или пропорциональное распределение с последующей корректировкой копеек. Это позволяет избежать накопления ошибок округления при работе с валютой (все расчеты ведутся в копейках).
+phpКопировать
+class CartItem 
+{
+    public function __construct(
+        public readonly string $id,
+        public readonly int $priceCents, // Цена в копейках
+        public readonly int $quantity
+    ) {}
+    
+    public function getTotal(): int 
+    {
+        return $this->priceCents * $this->quantity;
+    }
+}
+
+class DiscountRule 
+{
+    const FIRST_ORDER_FIXED = 'first_order_fixed';
+    const PENSIONER_PERCENT = 'pensioner_percent';
+    const OVER_10K_FIXED = 'over_10k_fixed';
+
+    public function __construct(
+        public readonly string $type,
+        public readonly ?int $value = null // Для фиксированных сумм в копейках или процентов
+    ) {}
+}
+
+class CartDiscountService 
+{
+    /**
+     * @param CartItem[] $items
+     * @param DiscountRule[] $rules
+     */
+    public function calculate(array $items, array $rules, bool $isPensioner, bool $isFirstOrder): int
+    {
+        $subtotal = array_reduce($items, fn($sum, $item) => $sum + $item->getTotal(), 0);
+        $totalDiscount = 0;
+
+        foreach ($rules as $rule) {
+            switch ($rule->type) {
+                case DiscountRule::FIRST_ORDER_FIXED:
+                    if ($isFirstOrder && $rule->value !== null) {
+                        $totalDiscount += $rule->value;
+                    }
+                    break;
+                case DiscountRule::PENSIONER_PERCENT:
+                    if ($isPensioner && $rule->value !== null) {
+                        $totalDiscount += intdiv($subtotal * $rule->value, 100);
+                    }
+                    break;
+                case DiscountRule::OVER_10K_FIXED:
+                    if ($rule->value !== null && $subtotal > 1000000) { // 10000р = 1000000 коп
+                        $totalDiscount += $rule->value;
+                    }
+                    break;
+            }
+        }
+
+        // Скидка не может быть больше суммы заказа и меньше нуля
+        return min(max($totalDiscount, 0), $subtotal);
+    }
+
+    /**
+     * Распределяет скидку между позициями корзины пропорционально их стоимости.
+     * Возвращает массив [itemId => скидкаВКопейках]
+     */
+    public function distribute(array $items, int $totalDiscountCents): array
+    {
+        if ($totalDiscountCents === 0) {
+            return [];
+        }
+
+        $subtotal = array_reduce($items, fn($sum, $item) => $sum + $item->getTotal(), 0);
+        if ($subtotal === 0) {
+            return [];
+        }
+
+        $distribution = [];
+        $remainders = [];
+        
+        // Шаг 1: Пропорциональное распределение (с отбрасыванием дробной части)
+        foreach ($items as $item) {
+            $share = intdiv($item->getTotal() * $totalDiscountCents, $subtotal);
+            $distribution[$item->id] = $share;
+            
+            // Запоминаем остаток для справедливого распределения копеек
+            $remainders[$item->id] = ($item->getTotal() * $totalDiscountCents) % $subtotal;
+        }
+
+        // Шаг 2: Корректировка накопленной ошибки округления
+        $distributedSum = array_sum($distribution);
+        $diff = $totalDiscountCents - $distributedSum;
+
+        if ($diff > 0) {
+            // Если недодали скидку (округлили вниз), раздаем недостающие копейки
+            // тем, у кого был самый большой остаток после запятой
+            arsort($remainders);
+            $keys = array_keys($remainders);
+            for ($i = 0; $i < $diff; $i++) {
+                $distribution[$keys[$i]]++;
+            }
+        } elseif ($diff < 0) {
+            // Если перебрали со скидкой (редкий случай float-погрешностей), забираем лишнее
+            // у тех же кандидатов (чтобы сохранить принцип справедливости)
+            arsort($remainders);
+            $keys = array_keys($remainders);
+            for ($i = 0; $i < abs($diff); $i++) {
+                if ($distribution[$keys[$i]] > 0) {
+                    $distribution[$keys[$i]]--;
+                }
+            }
+        }
+
+        return $distribution;
+    }
+}
+2. Распределенный cron* Для гарантии однократного выполнения задачи в условиях конкуренции нескольких машин используется паттерн распределенной блокировки (Distributed Lock). Самый надежный способ реализации без единой точки отказа — использование алгоритма консенсуса вроде Raft (встроен в etcd, Consul) или Zab (ZooKeeper). 
+Более простой и производительный вариант для большинства кейсов — блокировка через Redis с использованием RedLock. Машина-исполнитель пытается установить ключ с коротким TTL (Time To Live). Если получилось — она выполняет задачу и постоянно обновляет TTL ключа (heartbeat), пока работает. Если машина упадет, TTL истечет, и другая машина сможет забрать задачу.
+Пример реализации координатора-планировщика на Go (как наиболее подходящем языке для системной инфраструктуры):
+goКопировать
+package main
+
+import (
+	"context"
+	"fmt"
+	"time"
+
+	"github.com/go-redis/redis/v8"
+)
+
+const lockKey = "scheduled_job:critical_cleanup"
+const taskDuration = 5 * time.Minute
+const heartbeatInterval = 30 * time.Second
+
+func worker(ctx context.Context, client *redis.Client, workerID string) {
+	for {
+		// Пытаемся захватить блокировку (SET NX PX = Set if Not eXists with eXpire)
+		ok, err := client.SetNX(ctx, lockKey, workerID, taskDuration).Result()
+		if err != nil {
+			fmt.Printf("[%s] Redis error: %v\n", workerID, err)
+			time.Sleep(time.Second)
+			continue
+		}
+
+		if ok {
+			fmt.Printf("[%s] Захватил замок. Выполняю тяжелую работу...\n", workerID)
+			
+			// Запускаем горутину для поддержания жизни замка (heartbeat)
+			done := make(chan struct{})
+			go func() {
+				ticker := time.NewTicker(heartbeatInterval)
+				defer ticker.Stop()
+				for {
+					select {
+					case <-ticker.C:
+						client.Expire(ctx, lockKey, taskDuration)
+					case <-done:
+						return
+					}
+				}
+			}()
+
+			// Имитация долгой работы
+			time.Sleep(taskDuration + 1*time.Second) 
+			
+			close(done) // Останавливаем heartbeat
+			fmt.Printf("[%s] Работа завершена.\n", workerID)
+			break
+		} else {
+			// Замок занят, ждем следующей попытки
+			fmt.Printf("[%s] Замок занят, жду...\n", workerID)
+			time.Sleep(10 * time.Second)
+		}
+	}
+}
+
+func main() {
+	rdb := redis.NewClient(&redis.Options{
+		Addr: "localhost:6379",
+	})
+	ctx := context.Background()
+	
+	// Запустим трех конкурирующих воркеров
+	for i := 1; i <= 3; i++ {
+		id := fmt.Sprintf("worker-%d", i)
+		go worker(ctx, rdb, id)
+	}
+
+	// Ждем завершения (в реальности нужен WaitGroup)
+	select {}
+}
+Важный нюанс: Использование базы данных с конструкцией INSERT ... ON CONFLICT DO NOTHING также решает проблему, но требует наличия самой БД в качестве единой точки координации, что не всегда применимо для инфраструктурных задач вне приложения.
+3. Telegram-бот на флаг страны и ссылку на Википедию* Бот использует библиотеку aiogram. Название страны нормализуется (приводится к Title Case), затем код флага генерируется программно через Unicode-символы региональных индикаторов, а ссылка формируется заменой пробелов на подчеркивания согласно правилам URL-адресации MediaWiki.
+pythonКопировать
+import logging
+from aiogram import Bot, Dispatcher, types
+from aiogram.filters import CommandStart
+from aiogram.types import Message
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+
+# Вместо хардкода используйте переменную окружения export BOT_TOKEN="..."
+BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN" 
+
+logging.basicConfig(level=logging.INFO)
+bot = Bot(token=BOT_TOKEN)
+dp = Dispatcher()
+
+def country_to_flag(country_name: str) -> str:
+    """Генерирует emoji флага из названия страны."""
+    # Словарь исключений для стран со сложным названием кода
+    exceptions = {"США": "🇺🇸", "Великобритания": "🇬🇧"}
+    if country_name in exceptions:
+        return exceptions[country_name]
+        
+    try:
+        alpha2 = pycountry.countries.lookup(country_name).alpha_2.upper()
+    except LookupError:
+        return ""
+        
+    base = ord('\U0001F1E6')  # Код буквы A в Regional Indicator Symbols
+    return chr(base + ord(alpha2[0]) - ord('A')) + chr(base + ord(alpha2[1]) - ord('A'))
+
+@dp.message(CommandStart())
+async def handle_start(message: Message):
+    await message.answer("Привет! Отправь мне название страны, и я пришлю её флаг и ссылку на Википедию.")
+
+@dp.message()
+async def handle_country(message: Message):
+    country_input = message.text.strip()
+    if not country_input:
+        return
+
+    # Нормализация названия
+    normalized_title = country_input.title()
+    
+    wiki_url = f"https://ru.wikipedia.org/wiki/{normalized_title.replace(' ', '_')}"
+    flag_emoji = country_to_flag(normalized_title)
+
+    kb_builder = InlineKeyboardBuilder()
+    kb_builder.button(text="Открыть в Википедии", url=wiki_url)
+    
+    response_text = f"{flag_emoji} {normalized_title}\n{wiki_url}" if flag_emoji else normalized_title
+
+    await message.answer(response_text, reply_markup=kb_builder.as_markup())
+
+if __name__ == "__main__":
+    import asyncio
+    import pycountry
+    asyncio.run(dp.start_polling(bot))
+Примечание: В продакшене необходимо добавить обработку HTTP-ошибок при формировании ссылки (страница может отсутствовать) и кэширование результатов поиска pycountry, так как библиотека делает линейный поиск по списку всех стран мира.
+
+
+
