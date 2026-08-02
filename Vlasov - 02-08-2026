@@ -1,0 +1,169 @@
+Решение задачи- Раздел PHP 
+Ostovok Tech - Vlasov 02-08-2026 + 
+Help Giga Chat
+Это два классических тестовых задания, проверяющих разные стеки навыков: знание SQL и умение работать с веб-скрейпингом через Python. 
+Ниже представлен разбор логики решения обеих задач.
+Задача 1: Что может быть проще SQL?
+В предоставленном описании уже содержатся оптимальные решения для PostgreSQL. Разберем их механику:
+Вариант А: Все сотрудники с максимальной зарплатой (при наличии дублей)
+sqlКопировать
+SELECT m.name, m.department, t.mx 
+FROM (
+    SELECT department, max(salary) as mx 
+    FROM employee 
+    GROUP BY department
+) t 
+JOIN employee m ON m.department = t.department AND t.mx = m.salary;
+•	Как это работает: Внутренний подзапрос t группирует таблицу по отделам и находит одно число — максимальную зарплату (mx) в каждом из них. Затем происходит соединение этой компактной таблицы с исходной таблицей employee. Условие ON ... t.mx = m.salary отфильтровывает только те строки сотрудников, чья зарплата совпала с найденным максимумом. Если в отделе три человека получают одинаково много, будут выведены все трое.
+•	Оптимизация: Для больших таблиц критически важно наличие составного индекса по полям (department, salary), иначе операция соединения потребует полного сканирования данных при каждом выполнении.
+Вариант Б: Любой один сотрудник с максимальной зарплатой
+sqlКопировать
+SELECT DISTINCT ON (department) department, name, salary 
+FROM employee 
+ORDER BY department, salary DESC;
+•	Как это работает: Конструкция DISTINCT ON (department) — специфичная для PostgreSQL фича. Она говорит базе выбрать первую уникальную строку для каждого значения в скобках. Порядок выбора определяется конструкцией ORDER BY: сначала данные сортируются по отделу, а внутри отдела — по зарплате по убыванию. Таким образом, первой строкой для каждого отдела окажется как раз самый высокооплачиваемый сотрудник. Остальные коллеги из этого же отдела будут отброшены как дубликаты по критерию department.
+•	Альтернатива для других СУБД: В базах без поддержки DISTINCT ON (например, MySQL или старые версии MSSQL) этот паттерн реализуется через оконные функции: ROW_NUMBER() OVER(PARTITION BY department ORDER BY salary DESC) = 1.
+Типичные ошибки на собеседовании:
+•	Использование вложенных запросов вида WHERE salary = (SELECT MAX...) внутри цикла или без правильной группировки — такой подход часто приводит к N+1N+1N+1 проблеме на уровне базы.
+•	Забытый GROUP BY во внутреннем запросе, что приведет к ошибке выполнения.
+•	Попытка решить задачу через курсоры или процедурную логику вместо декларативного SQL.
+________________________________________
+Задача 2: Smashing Wallpaper Downloader
+Это задача на написание CLI-инструмента (Command Line Interface). Главная сложность здесь не в самом скачивании файлов, а в парсинге HTML целевой страницы для поиска правильных ссылок.
+Архитектура скрипта getwallpapers.py:
+1.	Аргументы командной строки. Используем библиотеку argparse (входит в стандартную библиотеку).
+o	Первый позиционный аргумент: период в формате MMYYYY (например, 022018).
+o	Второй позиционный аргумент: разрешение в формате WIDTHxHEIGHT (например, 640x480).
+o	Опциональный флаг --calendars (по умолчанию True), чтобы отключать загрузку версий с календарями, если они не нужны.
+o	Опциональный флаг --output-dir для смены директории назначения.
+2.	Сбор URL-адресов. Страницы обоев Smashing Magazine имеют предсказуемую структуру. Например, архив за февраль 2018 года находится по адресу https://www.smashingmagazine.com/2018/02/freebie-wallpaper-calendar-february-2018/. Парсинг можно реализовать двумя путями:
+o	HTML-парсеры: С помощью requests загружается страница, а библиотеки BeautifulSoup4 или lxml ищут в DOM-дереве теги <a>, содержащие нужное разрешение в тексте ссылки или ведущие на подстраницы загрузки.
+o	API эндпоинты: Часто такие сайты используют JS-бандлы. Нужно проверить вкладку Network в DevTools браузера: возможно, разрешения подгружаются через JSON-эндпоинт, что гораздо надежнее и быстрее парсинга HTML.
+3.	Логика обработки разрешений и вариантов. 
+o	Из аргумента 640x480 извлекаются ширина и высота.
+o	При обходе найденных ссылок скрипт фильтрует те, где в URL или анкоре встречается искомая строка.
+o	Если ссылка ведет на промежуточную страницу (где предлагается выбор «with calendar» / «without calendar»), скрипт должен сделать дополнительный GET-запрос к этой странице и рекурсивно найти там прямые ссылки на файлы .zip или .jpg.
+4.	Скачивание. Используется библиотека requests с включенным потоковым режимом (stream=True). Это позволяет писать файл на диск чанками, избегая загрузки всего тяжелого файла в оперативную память:
+pythonКопировать
+with requests.get(file_url, stream=True) as r:
+    r.raise_for_status()
+    with open(filename, 'wb') as f:
+        for chunk in r.iter_content(chunk_size=8192):
+            if chunk:
+                f.write(chunk)
+5.	Обработка ошибок. Скрипт должен устойчиво обрабатывать:
+o	Несуществующий месяц/год (ошибка 404).
+o	Отсутствие указанного разрешения (просто вывести сообщение Resolution 640x480 not found for some wallpapers, skipping... и продолжить работу).
+o	Проблемы сети (таймауты requests.exceptions.Timeout).
+o	Ошибки записи на диск.
+Пример реализации основной части кода:
+pythonКопировать
+import argparse
+import os
+import re
+import sys
+from urllib.parse import urljoin
+
+import requests
+from bs4 import BeautifulSoup
+
+BASE_URL = "https://www.smashingmagazine.com"
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Download Smashing Magazine wallpapers")
+    parser.add_argument("period", help="Month and year in MMYYYY format")
+    parser.add_argument("resolution", help="Resolution in WxH format")
+    parser.add_argument("--no-calendars", action="store_true", help="Skip versions with calendars")
+    return parser.parse_args()
+
+def build_archive_url(period):
+    # Упрощенная логика формирования URL архива
+    month_str = period[:2]
+    year_str = period[2:]
+    months = {
+        '01': 'january', '02': 'february', '03': 'march', '04': 'april',
+        '05': 'may', '06': 'june', '07': 'july', '08': 'august',
+        '09': 'september', '10': 'october', '11': 'november', '12': 'december'
+    }
+    if month_str not in months:
+        raise ValueError("Invalid month")
+    
+    month_name = months[month_str]
+    # Пример реального URL: https://www.smashingmagazine.com/2018/02/freebie-wallpaper-calendar-february-2018/
+    return f"{BASE_URL}/{year_str}/{month_str}/freebie-wallpaper-calendar-{month_name}-{year_str}/"
+
+def find_wallpaper_links(page_url, resolution, skip_calendars):
+    try:
+        response = requests.get(page_url, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print(f"Failed to fetch archive page {page_url}: {e}", file=sys.stderr)
+        return []
+
+    soup = BeautifulSoup(response.content, 'html.parser')
+    links = []
+    
+    # Ищем ссылки на конкретные разрешения. 
+    # На сайте структура может меняться, поэтому регулярное выражение должно быть гибким.
+    pattern = re.compile(rf".*{re.escape(resolution)}.*\.(zip|jpg)$", re.IGNORECASE)
+    
+    for a_tag in soup.find_all('a', href=pattern):
+        href = a_tag['href']
+        
+        # Пропускаем календари, если нужно
+        if skip_calendars and 'calendar' in href.lower():
+            continue
+            
+        # Преобразуем относительные ссылки в абсолютные
+        full_url = urljoin(BASE_URL, href)
+        links.append(full_url)
+        
+    return links
+
+def download_file(url, output_dir):
+    local_filename = os.path.join(output_dir, url.split('/')[-1])
+    print(f"Downloading {url} -> {local_filename}")
+    try:
+        with requests.get(url, stream=True, timeout=30) as r:
+            r.raise_for_status()
+            with open(local_filename, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=8192): 
+                    f.write(chunk)
+    except Exception as e:
+        print(f"Error downloading {url}: {e}", file=sys.stderr)
+        if os.path.exists(local_filename):
+            os.remove(local_filename)
+
+def main():
+    args = parse_args()
+    
+    try:
+        archive_url = build_archive_url(args.period)
+    except ValueError as e:
+        print(e, file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Looking for wallpapers at {archive_url}...")
+    files_to_download = find_wallpaper_links(archive_url, args.resolution, args.no_calendars)
+
+    if not files_to_download:
+        print(f"No wallpapers found for resolution {args.resolution}.")
+        return
+
+    for file_url in files_to_download:
+        download_file(file_url, '.')
+
+if __name__ == '__main__':
+    main()
+Покрытие тестами (pytest): Тестировать следует сетевое взаимодействие через мокирование (библиотека responses или стандартный unittest.mock):
+•	Тест на корректный парсер: подсунуть сохраненный локально HTML-файл типичной страницы майских обоев и проверить, что функция возвращает ровно N ожидаемых прямых ссылок.
+•	Тест на отсутствие разрешения: убедиться, что при запросе несуществующего разрешения возвращается пустой список.
+•	Тест на ошибку сети: симулировать таймаут и проверить, что скрипт не падает с необработанным исключением.
+•	Тест на создание файла: проверить, что после успешного мока скачивания файл создается в нужной директории.
+Проверка PEP8: Для проверки стиля используется линтер flake8 или форматировщик black:
+bashКопировать
+pip install flake8 black
+flake8 getwallpapers.py
+black getwallpapers.py --check
+
+
