@@ -1,0 +1,140 @@
+Решение Vlasov - 03-08-26 
+## Решение задачи по разработке веб-приложения для учета ссылок
+
+### Архитектура решения
+
+**Используемые технологии:**
+* Python 3.7+
+* Flask для создания API
+* Redis для хранения данных
+* PyTest для тестирования
+
+### Структура проекта
+
+```
+visited_links/
+├── app.py            # основное приложение
+├── models.py         # работа с Redis
+├── tests/            # тесты
+│   └── test_app.py
+├── requirements.txt  # зависимости
+└── README.md         # инструкции
+```
+
+### Реализация
+
+**models.py** - работа с Redis:
+```python
+import redis
+from urllib.parse import urlparse
+
+class LinkStorage:
+    def __init__(self):
+        self.client = redis.Redis(host='localhost', port=6379, db=0)
+    
+    def save_links(self, links, timestamp):
+        for link in links:
+            domain = self._extract_domain(link)
+            self.client.sadd(f'timestamp:{timestamp}', domain)
+    
+    def get_domains(self, from_ts, to_ts):
+        domains = set()
+        for ts in range(from_ts, to_ts + 1):
+            domains.update(self.client.smembers(f'timestamp:{ts}'))
+        return list(domains)
+    
+    def _extract_domain(self, url):
+        parsed = urlparse(url)
+        return parsed.netloc.replace('www.', '')
+```
+
+**app.py** - основное приложение:
+```python
+from flask import Flask, request, jsonify
+from models import LinkStorage
+import time
+
+app = Flask(__name__)
+storage = LinkStorage()
+
+@app.route('/visited_links', methods=['POST'])
+def save_links():
+    data = request.json
+    if not data.get('links'):
+        return jsonify({'status': 'error', 'message': 'No links provided'}), 400
+    
+    timestamp = int(time.time())
+    storage.save_links(data['links'], timestamp)
+    return jsonify({'status': 'ok'})
+
+@app.route('/visited_domains', methods=['GET'])
+def get_domains():
+    try:
+        from_ts = int(request.args.get('from'))
+        to_ts = int(request.args.get('to'))
+    except (TypeError, ValueError):
+        return jsonify({'status': 'error', 'message': 'Invalid timestamp'}), 400
+    
+    domains = storage.get_domains(from_ts, to_ts)
+    return jsonify({'domains': domains, 'status': 'ok'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+### Тестирование
+
+**tests/test_app.py**
+```python
+import pytest
+from app import app, storage
+
+@pytest.fixture
+def client():
+    app.config['TESTING'] = True
+    with app.test_client() as client:
+        yield client
+
+def test_save_links(client):
+    response = client.post('/visited_links', json={
+        'links': ['https://ya.ru', 'https://google.com']
+    })
+    assert response.json['status'] == 'ok'
+
+def test_get_domains(client):
+    # Предварительно сохраняем ссылки
+    storage.save_links(['https://ya.ru'], int(time.time()))
+    response = client.get('/visited_domains', query_string={
+        'from': 0,
+        'to': int(time.time())
+    })
+    assert 'ya.ru' in response.json['domains']
+```
+
+### Инструкции по запуску (README.md)
+
+1. Установите зависимости:
+```bash
+pip install -r requirements.txt
+```
+
+2. Запустите Redis сервер
+
+3. Запустите приложение:
+```bash
+python app.py
+```
+
+4. Для запуска тестов:
+```bash
+pytest
+```
+
+### Особенности реализации
+
+* **Хранение данных** в Redis организовано через множества (sets) для автоматического обеспечения уникальности доменов
+* **Временные метки** используются как ключи для группировки посещений
+* **Извлечение доменов** происходит с помощью urlparse для корректной обработки URL
+* **Валидация входных данных** реализована на уровне API
+
+Приложение готово к развертыванию и масштабированию с учетом требований к производительности Redis.
