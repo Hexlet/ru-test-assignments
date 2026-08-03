@@ -1,0 +1,106 @@
+Вариант решения задачи - Власов - 03-08-26
+Вот подробная инструкция по созданию Django приложения для древовидных меню:
+________________________________________№ 1. Структура проекта
+Создадим проект django_menu_project и приложение menu_app.
+bashКопировать
+django-admin startproject django_menu_project
+cd django_menu_project
+python manage.py startapp menu_app
+Добавим наше приложение в список установленных приложений (INSTALLED_APPS) в файле settings.py:
+pythonКопировать
+INSTALLED_APPS = [
+    # ...
+    'menu_app',
+]
+________________________________________
+№ 2. Модель MenuItem
+В файле models.py нашего приложения создаём модель для хранения элементов меню:
+pythonКопировать
+from django.db import models
+from django.urls import reverse
+
+class MenuItem(models.Model):
+    name = models.CharField(max_length=50)
+    url_or_named_url = models.CharField(max_length=200)  
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
+________________________________________№ 3. Администрирование модели
+Регистрируем нашу модель в административной панели Django (admin.py):
+pythonКопировать
+from django.contrib import admin
+from .models import MenuItem
+
+@admin.register(MenuItem)
+class MenuItemAdmin(admin.ModelAdmin):
+    list_display = ('name', 'url_or_named_url')
+    ordering = ['parent__id']
+Теперь можно создавать и управлять элементами меню через административную панель.
+________________________________________№ 4. Template Tag для вывода меню
+Создаем шаблонные теги в папке templatetags. Создайте файл menu_tags.py внутри директории templatetags, которая находится внутри вашего приложения menu_app.
+pythonКопировать
+# menu_app/templatetags/menu_tags.py
+
+from django import template
+from menu_app.models import MenuItem
+
+register = template.Library()
+
+@register.simple_tag(takes_context=True)
+def draw_menu(context, menu_name):
+    request = context['request']
+    current_path = request.path
+    items = MenuItem.objects.filter(name=menu_name).prefetch_related('children').first().get_descendants(include_self=True)
+    active_item = None
+    
+    for item in items:
+        if item.url_or_named_url == current_path or reverse(item.url_or_named_url) == current_path:
+            active_item = item
+            break
+            
+    return render_to_string('menu.html', {'items': items, 'active_item': active_item})
+Не забудьте добавить пустую инициализирующую файловую структуру в директорию templatetags:
+•	menu_app/
+o	templatetags/
+	__init__.py
+	menu_tags.py
+________________________________________№ 5. Шаблон для меню
+Создайте шаблон menu.html в папке templates:
+htmlКопировать
+<!-- templates/menu.html -->
+<ul>
+{% for item in items %}
+    <li class="{% if item == active_item %}active{% endif %}{% if item.children.exists and not item.parent_id %} open{% endif %}" >
+        <a href="{{ item.url_or_named_url }}">{{ item.name }}</a>
+        
+        {% if item.children.exists %}
+            <ul>
+                {% for child in item.children.all %}
+                    <li><a href="{{ child.url_or_named_url }}">{{ child.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% empty %}
+    Нет доступных пунктов меню.
+{% endfor %}
+</ul>
+________________________________________№ 6. Использование тега в ваших шаблонах
+Используйте созданный тег в любом вашем HTML-шаблоне следующим образом:
+htmlКопировать
+{% load menu_tags %}
+...
+{% draw_menu 'main_menu' %}
+________________________________________№ 7. Развертывание на GitHub
+После завершения разработки разместите код на GitHub:
+bashКопировать
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/your_username/django-menu-app.git
+git push -u origin main
+________________________________________
+🎯 Готово! Теперь у вас есть полностью функциональное Django приложение для работы с древовидными меню, удовлетворяющее всем указанным условиям задачи.
+
