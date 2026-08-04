@@ -1,0 +1,257 @@
+Решение задачи - Vlasov - 04-08-26 +
+<Антон Власов>, разработка модуля для CS-Cart требует строгого соблюдения файловой структуры платформы. Ниже представлена архитектура и ключевые фрагменты кода для создания модуля «История изменения статусов заказов».
+1. Файловая структура модуля
+Модуль будет называться order_status_history. Все файлы размещаются в директории /app/addons/order_status_history/.
+Копировать
+app/
+└── addons/
+    └── order_status_history/
+        ├── addon.xml                  # Манифест (метаданные) модуля
+        ├── func.php                   # Хелперы и функции установки/удаления
+        ├── config.php                 # Схемы навигации, полей и прав доступа
+        ├── controllers/
+        │   ├── backend/
+        │   │   └── orders.post.php    # Контроллер страницы истории
+        │   └── common/
+        │       └── orders.pre.php     # Обработчик смены статуса
+        ├── schemas/
+        │   └── menu/
+        │       └── menu.post.php      # Добавление пункта в меню "Заказы"
+        ├── templates/
+        │   └── backend/
+        │       └── views/
+        │           └── orders/
+        │               └── history.tpl# Шаблон таблицы с историей
+        └── var/
+            └── langs/
+                ├── ru/
+                │   └── core.po        # Русские языковые переменные
+                └── en/
+                    └── core.po        # Английские языковые переменные
+2. База данных
+Для хранения логов потребуется создать таблицу. Логика создания прописывается в файле func.php через хук install.
+Файл: app/addons/order_status_history/func.php
+phpКопировать
+<?php
+
+if (!defined('BOOTSTRAP')) { die('Access denied'); }
+
+use Tygh\Registry;
+use Tygh\Database;
+
+function fn_order_status_history_install()
+{
+    $db = Database::getInstance();
+    
+    // Проверка на существование перед созданием (на случай повторной установки)
+    if (!$db->hasTable('?:order_status_history')) {
+        $db->query("CREATE TABLE IF NOT EXISTS ?:order_status_history (
+            history_id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+            order_id INT(11) UNSIGNED NOT NULL DEFAULT 0,
+            old_status CHAR(32) NOT NULL DEFAULT '',
+            new_status CHAR(32) NOT NULL DEFAULT '',
+            user_id INT(11) UNSIGNED NOT NULL DEFAULT 0,
+            timestamp INT(11) UNSIGNED NOT NULL DEFAULT 0,
+            PRIMARY KEY (history_id),
+            INDEX order_id (order_id),
+            INDEX timestamp (timestamp)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+    }
+}
+
+function fn_order_status_history_uninstall()
+{
+    $db = Database::getInstance();
+    $db->query("DROP TABLE IF EXISTS ?:order_status_history");
+}
+3. Отслеживание события (Pre-контроллер)
+Стандартный способ перехвата смены статуса — использование pre-контроллера общего контроллера заказов.
+Файл: app/addons/order_status_history/controllers/common/orders.pre.php
+phpКопировать
+<?php
+
+use Tygh\Registry;
+
+if (!defined('BOOTSTRAP')) { die('Access denied'); }
+
+// Перехватываем смену статуса только при POST-запросе из админки или API
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && ($mode == 'update_status' || $mode == 'change_status')) {
+    
+    $order_id = isset($_REQUEST['order_id']) ? intval($_REQUEST['order_id']) : 0;
+    $new_status = isset($_REQUEST['status']) ? $_REQUEST['status'] : '';
+    
+    // Получаем текущий статус заказа до его изменения
+    $old_status = db_get_field("SELECT status FROM ?:orders WHERE order_id = ?i", $order_id);
+
+    // Регистрируем постконтроллер для записи в БД после успешного обновления основного статуса
+    Registry::register('post_controllers', 'common/orders.change_status', function() use ($order_id, $old_status, $new_status) {
+        
+        // Если статус не изменился, ничего не делаем
+        if ($old_status == $new_status) {
+            return;
+        }
+
+        $data = [
+            'order_id' => $order_id,
+            'old_status' => $old_status,
+            'new_status' => $new_status,
+            'user_id' => !empty(Tygh::$app['session']['auth']['user_id']) ? Tygh::$app['session']['auth']['user_id'] : 0,
+            'time' => time()
+        ];
+        
+        db_query("INSERT INTO ?:order_status_history ?e", $data);
+    });
+}
+4. Пункт в меню административной панели
+Добавляем новый раздел через схему меню.
+Файл: app/addons/order_status_history/schemas/menu/menu.post.php
+phpКопировать
+<?php
+
+$schema['central']['orders']['subitems']['history'] = array(
+    'position' => 900,
+    'title' => __('order_status_history.title'),
+    'href' => 'orders.history'
+);
+
+return $schema;
+5. Страница в админке (Контроллер и Шаблон)
+Контроллер получает данные из кастомной таблицы и передает их в Smarty.
+Файл: app/addons/order_status_history/controllers/backend/orders.post.php
+phpКопировать
+<?php
+
+use Tygh\Registry;
+
+if (!defined('BOOTSTRAP')) { die('Access denied'); }
+
+if ($mode == 'history') {
+    
+    $params = $_REQUEST;
+    
+    // Настройки пагинации
+    list($history_data, $search) = OrdersHistoryRepository::find($params);
+    
+    Registry::get('view')->assign('history_data', $history_data);
+    Registry::get('view')->assign('search', $search);
+}
+
+// Репозиторий лучше вынести в отдельный класс, но для примера оставим здесь
+class OrdersHistoryRepository 
+{
+    public static function find($params)
+    {
+        $default_params = [
+            'page' => 1,
+            'items_per_page' => 20
+        ];
+        
+        $params = array_merge($default_params, $params);
+        
+        $condition = [];
+        
+        if (!empty($params['order_id'])) {
+            $condition[] = db_quote("order_id = ?i", $params['order_id']);
+        }
+        
+        $limit = db_paginate($params['page'], $params['items_per_page']);
+        
+        $history_data = db_get_array(
+            "SELECT * FROM ?:order_status_history " . implode(' ', $condition) . " ORDER BY timestamp DESC $limit"
+        );
+        
+        foreach ($history_data as &$row) {
+            // Имя пользователя можно получить сразу запросом JOIN, но для простоты дергаем отдельно
+            $row['user_name'] = fn_get_user_name($row['user_id']);
+        }
+        
+        $total_items = db_get_field("SELECT COUNT(*) FROM ?:order_status_history " . implode(' ', $condition));
+        
+        return [$history_data, ['total_items' => $total_items]];
+    }
+}
+Файл: app/addons/order_status_history/templates/backend/views/orders/history.tpl
+smartyКопировать
+{** /app/addons/order_status_history/templates/backend/views/orders/history.tpl **}
+
+{include file="common/pagination.tpl"}
+
+<form action="{""|fn_url}" method="post" name="history_filter_form">
+<input type="hidden" name="redirect_url" value="{$config.current_url}" />
+
+<div class="table-responsive-wrapper">
+    <table width="100%" class="table table-middle table--relative table-responsive log-table">
+    <thead>
+        <tr>
+            <th>{__("id")}</th>
+            <th>{__("order_status_history.old_status")}</th>
+            <th>{__("order_status_history.new_status")}</th>
+            <th>{__("order_status_history.changed_by")}</th>
+            <th>{__("date")}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {foreach from=$history_data item=log}
+        <tr>
+            <td data-th="{__("id")}">#{$log.order_id}</td>
+            <td data-th="{__("order_status_history.old_status")}">{__("status_{$log.old_status}")}</td>
+            <td data-th="{__("order_status_history.new_status")}">{__("status_{$log.new_status}")}</td>
+            <td data-th="{__("order_status_history.changed_by")}">
+                {if $log.user_id}
+                    <a href="{"profiles.update?user_id=`$log.user_id`"|fn_url}">{$log.user_name}</a>
+                {else}
+                    —
+                {/if}
+            </td>
+            <td data-th="{__("date")}">{$log.timestamp|date_format:"`$settings.Appearance.date_format`, `$settings.Appearance.time_format`"}</td>
+        </tr>
+    {foreachelse}
+        <tr>
+            <td colspan="5"><p class="no-items">{__("no_data")}</p></td>
+        </tr>
+    {/foreach}
+    </tbody>
+    </table>
+</div>
+
+{include file="common/pagination.tpl"}
+
+</form>
+6. Языковые переменные
+Пример файла локализации. Для корректной работы необходимо добавить переводы названий статусов (status_O, status_P и т.д.) в основной языковой пакет магазина или продублировать их в модуле.
+Файл: app/addons/order_status_history/var/langs/en/core.po
+Копировать
+msgid "order_status_history.title"
+msgstr "Order Status History"
+
+msgid "order_status_history.old_status"
+msgstr "Old Status"
+
+msgid "order_status_history.new_status"
+msgstr "New Status"
+
+msgid "order_status_history.changed_by"
+msgstr "Changed by"
+7. Метаданные модуля
+Файл: app/addons/order_status_history/addon.xml
+xmlКопировать
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>order_status_history</id>
+    <name>Order Status History</name>
+    <description>Tracks and logs all changes of order statuses.</description>
+    <version>1.0</version>
+    <priority>100</priority>
+    <status>active</status>
+    <queries>
+        <item for="install">app/addons/order_status_history/func.php::fn_order_status_history_install</item>
+        <item for="uninstall">app/addons/order_status_history/func.php::fn_order_status_history_uninstall</item>
+    </queries>
+</addon>
+Дальнейшие шаги по оформлению репозитория:
+1.	Создайте публичный репозиторий на GitHub (например, cs-cart-order-status-history).
+2.	Инициализируйте локальный репозиторий и скопируйте туда созданную структуру папок app/addons/order_status_history.
+3.	Создайте файлы .gitignore (стандартный для PHP-проектов), README.md и LICENSE (рекомендуется MIT или GPLv3). В README подробно опишите процесс установки архива через панель администратора CS-Cart.
+4.	Сделайте первый коммит и отправьте код на GitHub.
+5.	Проверьте работу модуля: установите его через "Администрирование → Модули → Управление модулями" в CS-Cart, создайте тестовый заказ и несколько раз измените его статус, затем перейдите в "Заказы → История изменения статусов заказов".
+
