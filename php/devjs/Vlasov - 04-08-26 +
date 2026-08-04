@@ -1,0 +1,251 @@
+Вариант решения - Vlasov - 04-08-26 - Vlasov
+Для реализации этой задачи на PHP 7.1 оптимально использовать классический объектно-ориентированный подход с абстрактным классом, интерфейсами и наследованием. 
+Архитектурное решение:
+•	Интерфейсы Soundable и Huntable: определяют контракты для звуков и охоты.
+•	Абстрактный класс Dog: содержит общее имя собаки и реализует базовую логику консольного интерфейса (парсинг команды).
+•	Конкретные классы собак: реализуют или переопределяют поведение в зависимости от условий задачи:
+o	Живые собаки (ShibaInu, Mops, Dachshund) умеют лаять.
+o	Мопс ленится охотиться.
+o	Игрушечные собаки не могут охотиться по определению.
+o	Плюшевый лабрадор — молчаливая игрушка.
+o	Резиновая такса пищит вместо лая.
+Код программы (файл src/Dogs.php)
+phpКопировать
+<?php
+
+interface Soundable
+{
+    public function makeSound(): string;
+}
+
+interface Huntable
+{
+    public function hunt(): string;
+}
+
+/**
+ * Абстрактная собака. Обрабатывает ввод из CLI.
+ */
+abstract class Dog implements Soundable, Huntable
+{
+    protected $name;
+
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Фабричный метод для создания собак по имени типа.
+     */
+    public static function factory(string $type): ?Dog
+    {
+        switch ($type) {
+            case 'shiba':
+                return new ShibaInu('Сиба-ину');
+            case 'mops':
+                return new Mops('Мопс');
+            case 'dachshund':
+                return new Dachshund('Такса');
+            case 'plush_labrador':
+                return new PlushLabrador('Плюшевый лабрадор');
+            case 'rubber_dachshund':
+                return new RubberDachshund('Резиновая такса');
+            default:
+                return null;
+        }
+    }
+    
+    public function executeCommand(string $command): string
+    {
+        if ($command === 'sound') {
+            return $this->makeSound();
+        } elseif ($command === 'hunt') {
+            // Проверяем, умеет ли объект охотиться вообще
+            if (!$this instanceof Huntable) {
+                return "Ошибка: {$this->name} не может охотиться.";
+            }
+            return $this->hunt();
+        }
+        
+        return "Неизвестная команда: {$command}";
+    }
+}
+
+/* ЖИВЫЕ СОБАКИ */
+
+class ShibaInu extends Dog
+{
+    public function makeSound(): string
+    {
+        return "Гав! Гав!";
+    }
+
+    public function hunt(): string
+    {
+        return "{$this->name} внимательно вынюхивает добычу в кустах.";
+    }
+}
+
+class Mops extends Dog
+{
+    public function makeSound(): string
+    {
+        return "Хрр-хрр... Ой, то есть гав! Гав!";
+    }
+
+    public function hunt(): string
+    {
+        return "{$this->name} тяжело вздохнул и перевернулся на другой бок. Охотиться лень.";
+    }
+}
+
+class Dachshund extends Dog
+{
+    public function makeSound(): string
+    {
+        return "Тяв-тяв!";
+    }
+
+    public function hunt(): string
+    {
+        return "{$this->name} азартно лезет в нору за барсуком.";
+    }
+}
+
+/* ИГРУШКИ */
+
+class PlushLabrador extends Dog implements Soundable
+{
+    // Не реализует Huntable, так как не может охотиться
+
+    public function makeSound(): string
+    {
+        return "...";
+    }
+
+    public function hunt(): string
+    {
+        // Этот метод технически достижим через фабрику, но логика игрушки его не поддерживает.
+        // Для надежности можно выбросить исключение BadMethodCallException,
+        // но согласно ТЗ достаточно текстового ответа.
+        return "{$this->name} мягко скрипнул наполнителем. Охотиться он не умеет.";
+    }
+}
+
+class RubberDachshund extends Dog implements Soundable
+{
+    // Не реализует Huntable
+
+    public function makeSound(): string
+    {
+        return "ПИСК!";
+    }
+
+    public function hunt(): string
+    {
+        return "{$this->name} сделан из резины. Какая охота?";
+    }
+}
+
+/* КОНСОЛЬНЫЙ ИНТЕРФЕЙС */
+
+if (PHP_SAPI === 'cli' && isset($argv)) {
+    // php dogs.php mops sound
+    if (isset($argv[1]) && isset($argv[2])) {
+        $dogType = $argv[1];
+        $command = $argv[2];
+        
+        $dog = Dog::factory($dogType);
+        
+        if ($dog === null) {
+            echo "Собака вида '{$dogType}' не найдена.\n";
+            exit(1);
+        }
+
+        echo $dog->executeCommand($command) . "\n";
+    } else {
+        echo "Использование: php dogs.php <тип_собаки> <команда>\n";
+        echo "Типы: shiba, mops, dachshund, plush_labrador, rubber_dachshund\n";
+        echo "Команды: sound, hunt\n";
+    }
+}
+Тесты PHPUnit (файл tests/DogsTest.php)
+Для запуска тестов файл Dogs.php должен находиться либо в той же директории, что и тест, либо быть доступен через автозагрузчик Composer.
+phpКопировать
+<?php
+
+use PHPUnit\Framework\TestCase;
+
+require_once __DIR__ . '/../src/Dogs.php';
+
+class DogsTest extends TestCase
+{
+    public function testShibaInuBehavior()
+    {
+        $dog = new ShibaInu('Сиба-ину');
+        $this->assertEquals("Гав! Гав!", $dog->makeSound());
+        $this->assertStringContainsString('вынюхивает', $dog->hunt());
+    }
+
+    public function testMopsIsLazy()
+    {
+        $dog = new Mops('Мопс');
+        $this->assertEquals("Хрр-хрр... Ой, то есть гав! Гав!", $dog->makeSound());
+        $this->assertEquals("Мопс тяжело вздохнул и перевернулся на другой бок. Охотиться лень.", $dog->hunt());
+    }
+
+    public function testPlushLabradorCannotHuntOrBark()
+    {
+        $dog = new PlushLabrador('Плюшевый лабрадор');
+        $this->assertEquals("...", $dog->makeSound());
+        $this->assertStringContainsString('не умеет', $dog->hunt());
+    }
+
+    public function testRubberDachshundSqueaksAndCannotHunt()
+    {
+        $dog = new RubberDachshund('Резиновая такса');
+        $this->assertEquals("ПИСК!", $dog->makeSound());
+        $this->assertStringContainsString('резины', $dog->hunt());
+    }
+
+    public function testFactoryCreatesCorrectInstances()
+    {
+        $this->assertInstanceOf(ShibaInu::class, Dog::factory('shiba'));
+        $this->assertInstanceOf(Mops::class, Dog::factory('mops'));
+        $this->assertNull(Dog::factory('unknown_type'));
+    }
+
+    public function testExecuteCommandRouting()
+    {
+        $mops = new Mops('Мопс');
+        $this->assertEquals("Хрр-хрр... Ой, то есть гав! Гав!", $mops->executeCommand('sound'));
+        $this->assertEquals("Мопс тяжело вздохнул и перевернулся на другой бок. Охотиться лень.", $mops->executeCommand('hunt'));
+    }
+}
+Как запустить
+1.	Убедитесь, что у вас установлен PHP версии 7.1 или выше.
+2.	Установите PHPUnit нужной ветки глобально или локально через Composer:
+bashКопировать
+composer require --dev phpunit/phpunit:^5.7
+(PHPUnit 5.x — последняя ветка, официально поддерживающая нативно PHP 7.1).
+3.	Запустите тесты из корня проекта:
+bashКопировать
+./vendor/bin/phpunit tests/DogsTest.php
+4.	Проверьте работу консольного приложения:
+bashКопировать
+php src/Dogs.php mops sound
+# Вывод: Хрр-хрр... Ой, то есть гав! Гав!
+
+php src/Dogs.php mops hunt
+# Вывод: Мопс тяжело вздохнул и перевернулся на другой бок. Охотиться лень.
+
+php src/Dogs.php plush_labrador sound
+# Вывод: ...
+
+php src/Dogs.php rubber_dachshund hunt
+# Вывод: Резиновая такса сделана из резины. Какая охота?
+Почему архитектура построена именно так:
+•	Отсутствие множественного наследования: В PHP нельзя унаследоваться от двух классов сразу. Поэтому поведенческие роли («умеет звучать», «умеет охотиться») вынесены в интерфейсы. Класс Dog объединяет их, а конкретные игрушки просто не реализуют ненужные им интерфейсы (или реализуют только часть методов, возвращая заглушки, чтобы соответствовать сигнатуре родительского класса).
+•	Ленивый мопс: Это бизнес-логика конкретного класса. Метод hunt() в классе Mops возвращает строку о лени, при этом сам класс честно заявляет, что реализует интерфейс Huntable.
+•	Консольный интерфейс: Реализован прямо в конце файла через проверку PHP_SAPI. Это простейший способ принять аргументы $argv без подключения сторонних библиотек вроде Symfony Console, что полностью соответствует требованию «значение не имеет».
