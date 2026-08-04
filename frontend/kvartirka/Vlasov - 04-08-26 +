@@ -1,0 +1,108 @@
+Моё решение данной задачи - Vlasov - 04-08-26
+•	Создание онлайн-сервиса для мониторинга и уничтожения опасных астероидов с использованием API NASA – это интересный проект! Ниже представлен план разработки, который поможет вам организовать процесс. Я опишу основные шаги, а также предоставлю пример структуры кода.
+Шаги разработки:
+1.	Запуск проекта:
+	Создайте новый проект на базе Next.js.
+	Убедитесь, что используете последнюю версию Next.js, и настройте TypeScript (если решите использовать).
+2.	Настройка проекта:
+	Установите необходимые пакеты:
+	npm install axios
+	npm install --save-dev typescript @types/react @types/node
+	Создайте нужные папки: components, pages, styles, lib и public для иконок.
+3.	Работа с API:
+	Создайте файл в папке lib для работы с API NASA. Реализуйте функцию для получения данных об астероидах с помощью axios.
+4.	Создание компонентов:
+	Создайте компоненты для:
+	Списка астероидов (AsteroidList).
+	Одного астероида (AsteroidDetail).
+	Корзины (Cart) для формирования заказа.
+	Кнопки заказа (OrderButton).
+5.	Страница списка астероидов:
+	На главной странице отобразите список астероидов. Настройте бесконечный скролл.
+	Отобразите данные по каждому астероиду, включая название, размер, оценку опасности, расстояние и дату.
+6.	Страница детали астероида:
+	Создайте динамическую страницу для показа подробностей об астероиде и его сближениях.
+7.	Стилизация:
+	Используйте CSS Модули для стилизации компонентов.
+	Создайте адаптивный дизайн, основываясь на макете в Figma.
+8.	Корзина и заказ:
+	Реализуйте логику добавления астероидов в корзину.
+	Создайте страницу успешного заказа и перенаправьте на нее после оформления.
+9.	Тестирование:
+	Напишите интеграционные и юнит-тесты для компонентов, если используете Jest или другую библиотеку.
+10.	Деплой:
+	Выберите хостинг (например, Vercel или Netlify) и задеплойте приложение.
+11.	Документация:
+	Создайте файл README.md с инструкциями по установке, запуску и развертыванию проекта.
+Пример структуры проекта:
+my-asteroid-app/
+├── components/
+│   ├── AsteroidList.tsx
+│   ├── AsteroidDetail.tsx
+│   ├── Cart.tsx
+│   └── OrderButton.tsx
+├── pages/
+│   ├── index.tsx          // Главная страница со списком астероидов
+│   ├── asteroid/          // Динамическая папка для деталей астероидов
+│   │   └── [id].tsx
+│   └── success.tsx        // Страница успешного заказа
+├── lib/
+│   └── api.ts             // Взаимодействие с API NASA
+├── styles/
+│   └── styles.module.css   // Стили для компонентов
+├── public/
+│   └── icons/             // Иконки астероидов
+├── README.md
+├── tsconfig.json
+└── package.json
+Пример кода для AsteroidList.tsx (компонент)
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import styles from './AsteroidList.module.css';
+
+const AsteroidList = () => {
+    const [asteroids, setAsteroids] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [nextPage, setNextPage] = useState(1);
+
+    const fetchAsteroids = async () => {
+        setLoading(true);
+        const response = await axios.get(`https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=YOUR_API_KEY&page=${nextPage}`);
+        setAsteroids(prev => [...prev, ...response.data.near_earth_objects]);
+        setLoading(false);
+        setNextPage(prev => prev + 1);
+    };
+
+    useEffect(() => {
+        fetchAsteroids();
+    }, []);
+
+    const handleScroll = (event) => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !loading) {
+            fetchAsteroids();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [loading]);
+
+    return (
+        <div className={styles.asteroidList}>
+            {asteroids.map(asteroid => (
+                <div key={asteroid.id} className={styles.asteroidItem}>
+                    <h3>{asteroid.name}</h3>
+                    <p>Size: {asteroid.size} m</p>
+                    <p>Hazard status: {asteroid.hazard ? 'Dangerous' : 'Safe'}</p>
+                    <p>Closest approach: {asteroid.closest_approach_date}</p>
+                </div>
+            ))}
+            {loading && <p>Loading more asteroids...</p>}
+        </div>
+    );
+};
+
+export default AsteroidList;
+Заключение:
+Это общее руководство и пример кода для создания вашего онлайн-сервиса. Вы можете адаптировать его под свои нужды, добавлять новые функции и улучшать функциональность в соответствии с требованиями проекта. Удачи в разработке!
