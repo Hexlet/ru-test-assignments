@@ -1,0 +1,70 @@
+Решение - Vlasov - 06-08-26
+Analitik – Tinkoff Analitik SQL – 06-08-2026
+Ответы на все 8 вопросов из задания 
+1. **Да, для `LEFT JOIN` результат может измениться.**  
+   `LEFT JOIN` сохраняет все строки левой таблицы, поэтому при перестановке таблиц меняется, какие строки гарантированно попадут в результат. Например, `A LEFT JOIN B` неэквивалентен `B LEFT JOIN A`. Для `INNER JOIN` перестановка таблиц обычно не меняет логический набор строк. [stackoverflow](https://stackoverflow.com/questions/9614922/does-the-join-order-matter-in-sql)
+2. **`5 + NULL` даст `NULL`.**  
+   `NULL` означает неизвестное значение, поэтому результат арифметической операции с ним также неизвестен. Проверять `NULL` нужно через `IS NULL` или `IS NOT NULL`, а не через `= NULL`.
+3. **Да, можно.** Это называется **self join** — соединение таблицы с самой собой. Таблице обязательно задают разные псевдонимы:
+```sql
+SELECT
+    employee.name,
+    manager.name AS manager_name
+FROM employees AS employee
+LEFT JOIN employees AS manager
+    ON employee.manager_id = manager.id;
+```
+4. **Сам по себе `ORDER BY` не уменьшает количество строк.**  
+   Он только сортирует результат. Число строк может уменьшиться, если вместе с ним используются `LIMIT`, `TOP`, `OFFSET ... FETCH` или аналогичные конструкции.
+
+5. **Гарантированно — при `INNER JOIN`.**  
+   Для внутреннего соединения условие обычно можно перенести между `WHERE` и `ON` без изменения результата:
+```sql
+-- Вариант 1
+SELECT *
+FROM A
+JOIN B ON A.id = B.a_id
+WHERE B.status = 'active';
+
+-- Вариант 2
+SELECT *
+FROM A
+JOIN B
+    ON A.id = B.a_id
+   AND B.status = 'active';
+```
+Для `LEFT`, `RIGHT` и `FULL OUTER JOIN` перенос часто меняет результат, потому что `WHERE` фильтрует уже сформированные строки, включая строки с `NULL`, а `ON` влияет на сам процесс сопоставления. [stackoverflow](https://stackoverflow.com/questions/9614922/does-the-join-order-matter-in-sql)
+
+6. **Из перечисленных последним логически выполняется `SELECT`.**
+Логический порядок обработки примерно такой:
+```text
+FROM / JOIN
+WHERE
+GROUP BY
+SELECT
+```
+Важно: это логический порядок, а не обязательно фактический порядок действий оптимизатора базы данных.
+
+7. **`LAG()` и `LEAD()`.**
+- `LAG()` возвращает значение из предыдущей строки.
+- `LEAD()` возвращает значение из следующей строки.
+Пример:
+```sql
+SELECT
+    order_date,
+    amount,
+    LAG(amount) OVER (ORDER BY order_date)  AS previous_amount,
+    LEAD(amount) OVER (ORDER BY order_date) AS next_amount
+FROM orders;
+```
+Это оконные функции; порядок строк задаётся через `ORDER BY` внутри `OVER`. [dev](https://dev.to/dishon_gatambiadd_31a1/sql-analytical-mechanics-joins-window-functions-pc4)
+
+8. Для `FULL JOIN` таблицы на 10 строк и таблицы на 100 строк:
+- **минимум — 100 строк**;
+- **максимум — 1000 строк**.
+
+Почему:
+- минимум $$ \max(10, 100) = 100 $$, если каждая строка меньшей таблицы сопоставляется со строками большей, а все строки большей таблицы участвуют в соединении;
+- максимум $$10 \times 100 = 1000$$, если каждая строка первой таблицы соединяется с каждой строкой второй.
+`FULL JOIN` сохраняет строки обеих таблиц, а для несопоставленных строк подставляет `NULL`. [dev](https://dev.to/dishon_gatambiadd_31a1/sql-analytical-mechanics-joins-window-functions-pc4)
+
