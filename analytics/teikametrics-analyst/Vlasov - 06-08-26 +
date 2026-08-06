@@ -1,0 +1,50 @@
+Решение задачи - Власов - 06-08-2026 ;-)))
+РЕШЕНИЕ - teikametrics-analyst – Vlasov – 06-08-2026
+📊 One-Sheeter for Analyst Exercise: Ad Metrics & Keyword Categorization
+________________________________________
+✅ Key Advertising Metrics Definitions:
+Metric	Formula	Description
+Impressions	N/A	Number of times your ad is viewed by users.
+Clicks	N/A	Number of clicks on the advertisement.
+Cost	N/A	Total cost accrued from advertising activities.
+Orders	N/A	Number of purchases made after clicking an ad.
+Units Sold	N/A	Quantity of products sold via ads.
+Sales Revenue	N/A	Total revenue generated through sales resulting from ads.
+CTR (Click-through-rate)	ClicksImpressions\frac{\text{Clicks}}{\text{Impressions}}ImpressionsClicks
+Ratio showing how many viewers clicked compared to those who saw the ad.
+CPC (Cost per click)	CostClicks\frac{\text{Cost}}{\text{Clicks}}ClicksCost
+Average price paid each time someone clicks your ad.
+CVR (Conversion Rate)	OrdersClicks\frac{\text{Orders}}{\text{Clicks}}ClicksOrders
+Percentage of visitors converting into buyers after clicking the ad.
+AOV (Average Order Value)	SalesOrders\frac{\text{Sales}}{\text{Orders}}OrdersSales
+Average value spent per order placed.
+SPC (Sales Per Click)	SalesClicks\frac{\text{Sales}}{\text{Clicks}}ClicksSales
+Average revenue earned per single ad click.
+ACoS (Advertising Cost of Sales)	Ad CostAd Sales\frac{\text{Ad Cost}}{\text{Ad Sales}}Ad SalesAd Cost
+Efficiency metric measuring advertising spend relative to sales generated.
+________________________________________
+🔍 Keyword Segmentation: Brand vs Non-Brand Terms
+⚙️ Categories Explanation:
+•	Brand Keywords: 
+o	Include brand names and their misspellings. 
+o	Example: "Apple iPhone," "Samsung Galaxy."
+•	Non-Brand/Unbranded/GENERIC Keywords: 
+o	All other keywords excluding brand mentions. 
+o	Includes competitor names as well. 
+o	Examples: "smartphone," "laptop deals."
+________________________________________
+📈 Performance Differences Between Categories:
+Category	Characteristics	Typical ACoS
+Brand Terms	Higher intent; user knows desired product/brand already	Lower (more efficient)
+Non-Brand Terms	User still deciding; broader search	Moderate
+Competitor Terms	Effort to change consumer's mind about preferred brand	Highest (least efficient)
+________________________________________
+🔄 Important Considerations:
+•	Volume Availability: 
+o	Brand terms have lower available volume than non-brand terms. 
+o	Organic traffic may be cannibalized if over-reliant on branded PPC campaigns.
+•	Market Share Growth Strategy: 
+o	Competitor-focused keyword targeting helps acquire new customers but comes with higher costs due to lower conversion rates.
+________________________________________
+This structured one-sheeter provides a clear overview of essential metrics and strategic considerations for analysts working in digital advertising performance evaluation.
+
