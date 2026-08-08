@@ -1,0 +1,178 @@
+Вариант решения - основная часть
+Задача - sendsay - Власов - 08-08-2026 +
+Готовый план и пример реализации e2e тестов на Cypress (JS ES6) под это тестовое задание. Поскольку у меня нет доступа к реальному интерфейсу Sendsay, я даю максимально устойчивую заготовку: с упором на независимость от вёрстки, понятную структуру, комментарии и дополнительные кейсы.
+________________________________________
+Подготовка проекта
+1.	Создайте папку проекта: mkdir sendsay-e2e-test && cd sendsay-e2e-test
+2.	Инициализируйте npm: npm init -y
+3.	Установите Cypress: npm install cypress --save-dev
+4.	Запустите Cypress для генерации структуры: npx cypress open (или cypress open)
+5.	В появившейся папке cypress появятся базовые файлы. Тесты размещайте в cypress/e2e/.
+________________________________________
+Важные принципы, чтобы соответствовать требованиям
+•	Не опирайтесь на классы/ID из HTML, если они не стабильные. Используйте атрибуты data-testid (это стандарт индустрии).
+•	Группируйте тесты по сценариям, а не «всё в один файл».
+•	Добавляйте комментарии — они показывают, что вы продумали логику.
+•	Делайте тесты независимыми: каждый тест должен начинаться с чистого состояния (или с явной подготовкой).
+•	Добавьте негативные кейсы (невалидные данные, пустые поля и т.п.) — это покажет глубину проработки.
+________________________________________
+Пример структуры файлов
+text
+ПереноситьСвернутьКопировать
+cypress/
+  e2e/
+    login.cy.js          # сценарии входа (обычный и корпоративный)
+    campaign-send.cy.js   # сценарий создания и отправки рассылки
+  support/
+    commands.js           # кастомные команды (опционально)
+________________________________________
+login.cy.js (сценарии входа)
+js
+ПереноситьСвернутьКопировать
+/// <reference types="cypress" />
+
+describe('Авторизация в Sendsay', () => {
+  const baseUrl = 'https://app.sendsay.ru';
+
+  beforeEach(() => {
+    // Каждый тест начинается с чистой сессии
+    cy.clearCookies();
+    cy.visit(`${baseUrl}/signin`);
+  });
+
+  it('успешный вход с валидными учётными данными', () => {
+    // Используем data-testid вместо классов/id, чтобы быть независимыми от вёрстки
+    cy.get('[data-testid="login-input"]').clear().type('test-user@example.com');
+    cy.get('[data-testid="password-input"]').clear().type('TestPass123!');
+    cy.get('[data-testid="submit-login"]').click();
+
+    // Ожидаем, что пользователь попал внутрь приложения (проверяем URL или наличие элемента)
+    cy.url().should('not.contain', '/signin');
+    cy.get('[data-testid="user-profile"]').should('be.visible'); // элемент, который виден только после входа
+  });
+
+  it('вход с невалидными данными (ошибка отображается)', () => {
+    cy.get('[data-testid="login-input"]').clear().type('wrong-email');
+    cy.get('[data-testid="password-input"]').clear().type('wrong-password');
+    cy.get('[data-testid="submit-login"]').click();
+
+    // Проверяем, что появляется сообщение об ошибке
+    cy.get('[data-testid="auth-error-message"]').should('be.visible')
+      .and('contain', 'неверный'); // подстройте текст под реальный интерфейс
+  });
+
+  it('корпоративный вход (заглушка сценария)', () => {
+    // Если в интерфейсе есть переключатель «Корпоративный вход» — используем его
+    cy.get('[data-testid="corporate-login-toggle"]').click();
+    cy.get('[data-testid="sso-button"]').click();
+
+    // Здесь логика зависит от реализации SSO в Sendsay.
+    // В тестовом задании достаточно показать, что вы понимаете сценарий:
+    // - переход на корпоративный поток
+    // - ожидание редиректа или модального окна
+    cy.location('pathname').should('contain', '/sso');
+  });
+});
+Важно: В реальном проекте вместо [data-testid="..."] нужно использовать реальные атрибуты, которые есть в DOM Sendsay. Если их нет — в рамках тестового задания допустимо использовать более стабильные селекторы (например, по лейблу/тексту кнопки или по name). Но в комментариях обязательно укажите, что в продакшене лучше добавить data-testid.
+________________________________________
+campaign-send.cy.js (создание и отправка рассылки)
+js
+ПереноситьСвернутьКопировать
+/// <reference types="cypress" />
+
+describe('Создание и отправка email-рассылки', () => {
+  const baseUrl = 'https://app.sendsay.ru';
+  const campaignsUrl = `${baseUrl}/campaigns/issues`;
+
+  beforeEach(() => {
+    cy.clearCookies();
+    // Для этого сценария нужен авторизованный пользователь
+    cy.request({
+      url: `${baseUrl}/signin`, // уточните реальный endpoint авторизации, если есть API
+      method: 'POST',
+      body: {
+        email: 'test-user@example.com',
+        password: 'TestPass123!'
+      },
+      failOnStatusCode: false
+    }).then((resp) => {
+      // Если Sendsay использует cookie-based auth, Cypress сохранит куки автоматически
+      // После успешного логина переходим к кампаниям
+      cy.visit(campaignsUrl);
+    });
+  });
+
+  it('создание и отправка email-выпуска через визард', () => {
+    // Переход в раздел рассылок (если нужно)
+    cy.contains('Рассылки').click();
+    cy.url().should('eq', campaignsUrl);
+
+    // Создание нового выпуска
+    cy.get('[data-testid="create-campaign-button"]').click();
+
+    // Шаг 1: заполнение темы письма
+    cy.get('[data-testid="subject-input"]').type('Тестовая рассылка для HH');
+
+    // Шаг 2: выбор списка получателей (или создание нового)
+    cy.get('[data-testid="recipients-select"]').select('test-list-1');
+
+    // Шаг 3: контент письма (упрощённо: вставить шаблон)
+    cy.get('[data-testid="editor-iframe']).then(($iframe) => {
+      const $body = $iframe.contents().find('body');
+      cy.wrap($body).type('Это тестовое письмо для e2e-теста.');
+    });
+
+    // Шаг 4: предпросмотр и подтверждение
+    cy.get('[data-testid="preview-button"]').click();
+    cy.get('[data-testid="confirm-send-button"]').click();
+
+    // Финальное подтверждение отправки
+    cy.get('[data-testid="final-send-confirm"]').click();
+
+    // Проверка статуса: рассылка отправлена
+    cy.contains('Рассылка успешно отправлена').should('be.visible');
+  });
+
+  it('попытка отправки без заполнения обязательных полей (валидация)', () => {
+    cy.get('[data-testid="create-campaign-button"]').click();
+    // Пропускаем заполнение темы (обязательное поле)
+    cy.get('[data-testid="next-step-button"]').click();
+
+    // Ожидается сообщение валидации
+    cy.get('[data-testid="validation-error"]').should('be.visible');
+  });
+});
+________________________________________
+Поддержка и рефакторинг
+commands.js (полезно для переиспользования)
+js
+ПереноситьСвернутьКопировать
+Cypress.Commands.add('login', (email, password) => {
+  cy.clearCookies();
+  cy.visit('https://app.sendsay.ru/signin');
+  cy.get('[data-testid="login-input"]').type(email);
+  cy.get('[data-testid="password-input"]').type(password);
+  cy.get('[data-testid="submit-login"]').click();
+});
+
+Cypress.Commands.add('waitForAppReady', () => {
+  // Можно добавить ожидание загрузки приложения, если есть спиннер/индикатор
+  cy.get('[data-testid="app-ready-indicator"]').should('not.be.visible', { timeout: 10000 });
+});
+Теперь в тестах можно писать:
+js
+ПереноситьСвернутьКопировать
+beforeEach(() => {
+  cy.login('test-user@example.com', 'TestPass123!');
+  cy.waitForAppReady();
+});
+________________________________________
+Как сделать тесты максимально «качественными» для оценки
+1.	Разделите сценарии на отдельные it блоки. Не делайте один большой тест «всё сразу».
+2.	Добавьте негативные и граничные кейсы: пустые поля, слишком длинная тема, неверный формат email и т.д.
+3.	Пишите комментарии, объясняющие: 
+o	зачем нужен каждый шаг;
+o	какие допущения сделаны (например, «предполагаем, что data-testid будет добавлен в продакшен»).
+4.	Не используйте хрупкие селекторы (вроде .form > div:nth-child(3) input).
+5.	Избегайте хардкода длинных ожиданий (cy.wait(5000)). Лучше использовать should('be.visible') или аналогичные проверки.
+
