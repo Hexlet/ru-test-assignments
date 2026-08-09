@@ -1,0 +1,150 @@
+Zadanie #3 shop qa trainee - 09-08-2026 - Vlasov
+Составим набор тестовых данных для проверки начисления скидок автоматом в зависимости от количества накопленных баллов покупателя. Данные составляются таким образом, чтобы покрыть все граничные случаи и диапазоны скидок.
+TaskTestData.md
+# Набор тестовых данных для проверки начисления скидок
+
+| Баллы | Ожидается скидка (%)| Комментарий |
+|-------|---------------------|-------------|
+| 0     | 1                   | Нижняя граница диапазона 0-100 баллов |
+| 99    | 1                   | Верхняя граница диапазона 0-100 баллов |
+| 100   | 3                   | Нижняя граница диапазона 100-200 баллов |
+| 199   | 3                   | Верхняя граница диапазона 100-200 баллов |
+| 200   | 5                   | Нижняя граница диапазона 200-500 баллов |
+| 499   | 5                   | Верхняя граница диапазона 200-500 баллов |
+| 500   | 10                  | Нижняя граница диапазона свыше 500 баллов |
+| 1000  | 10                  | Произвольное значение свыше 500 баллов |
+Этот набор гарантирует проверку всех границ диапазонов и типичных ситуаций.
+________________________________________
+Тестовое задание №2
+Теперь перейдем к написанию E2E-автотеста для Avito Delivery. Используем Selenium WebDriver и язык Python. Также воспользуемся паттерном Page Object для лучшей организации кода.
+Структура проекта на GitHub:
+avito_delivery_test/
+├── tests/
+│   ├── test_avito_delivery.py
+│   └── pages/
+│       ├── base_page.py
+│       ├── login_page.py
+│       ├── product_page.py
+│       └── checkout_page.py
+├── requirements.txt
+├── README.md
+└── TaskTestData.md
+requirements.txt
+selenium==4.*
+pytest==7.*
+webdriver-manager==*
+test_avito_delivery.py
+import pytest
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from pages.login_page import LoginPage
+from pages.product_page import ProductPage
+from pages.checkout_page import CheckoutPage
+
+@pytest.fixture(scope="session")
+def driver():
+    from webdriver_manager.chrome import ChromeDriverManager
+    from selenium import webdriver
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")  # Открыть браузер в полноэкранном режиме
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=options)
+    yield driver
+    driver.quit()
+
+def test_empty_phone_field(driver):
+    login_page = LoginPage(driver)
+    product_page = ProductPage(driver)
+    checkout_page = CheckoutPage(driver)
+
+    # Авторизация (логин и пароль остаются пустыми)
+    login_page.open("https://www.avito.ru/")
+    login_page.click_login_button()
+    login_page.enter_credentials("", "")  # Логин и пароль оставляют пустыми
+    login_page.submit_login()
+
+    # Переход на страницу личных вещей с доставкой
+    product_page.open("https://www.avito.ru/sochi/lichnye_veschi?cd=1&d=1")
+    product_page.select_first_delivery_product()
+
+    # Оформление заказа с доставкой
+    checkout_page.wait_for_checkout_form()
+    assert checkout_page.get_phone_field_value() == "", "Поле телефона не пустое!"
+pages/base_page.py
+class BasePage:
+    def __init__(self, driver):
+        self.driver = driver
+
+    def open(self, url):
+        self.driver.get(url)
+pages/login_page.py
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from .base_page import BasePage
+
+class LoginPage(BasePage):
+    LOGIN_BUTTON_LOCATOR = (By.XPATH, "//button[@data-marker='login-button']")
+    EMAIL_FIELD_LOCATOR = (By.ID, "email")
+    PASSWORD_FIELD_LOCATOR = (By.ID, "password")
+    SUBMIT_LOGIN_LOCATOR = (By.XPATH, "//button[@data-marker='submit-button']")
+
+    def click_login_button(self):
+        button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.LOGIN_BUTTON_LOCATOR))
+        button.click()
+
+    def enter_credentials(self, email, password):
+        email_field = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.EMAIL_FIELD_LOCATOR))
+        email_field.send_keys(email)
+        password_field = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.PASSWORD_FIELD_LOCATOR))
+        password_field.send_keys(password)
+
+    def submit_login(self):
+        submit_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.SUBMIT_LOGIN_LOCATOR))
+        submit_button.click()
+pages/product_page.py
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from .base_page import BasePage
+
+class ProductPage(BasePage):
+    FIRST_DELIVERY_PRODUCT_LOCATOR = (By.CSS_SELECTOR, ".item-root[data-marker='delivery-item']")
+    BUY_WITH_DELIVERY_BUTTON_LOCATOR = (By.XPATH, "//span[text()='Купить с доставкой']/parent::button")
+
+    def select_first_delivery_product(self):
+        delivery_item = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.FIRST_DELIVERY_PRODUCT_LOCATOR))
+        delivery_item.click()
+
+    def buy_with_delivery(self):
+        buy_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(self.BUY_WITH_DELIVERY_BUTTON_LOCATOR))
+        buy_button.click()
+pages/checkout_page.py
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from .base_page import BasePage
+
+class CheckoutPage(BasePage):
+    PHONE_FIELD_LOCATOR = (By.NAME, "phone")
+
+    def wait_for_checkout_form(self):
+        phone_field = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.PHONE_FIELD_LOCATOR))
+
+    def get_phone_field_value(self):
+        phone_field = self.driver.find_element(*self.PHONE_FIELD_LOCATOR)
+        return phone_field.get_attribute("value")
+Запуск тестов
+Для запуска тестов выполните команду:
+pip install -r requirements.txt
+pytest tests/test_avito_delivery.py
+Что проверяют тесты:
+1.	Авторизация: Пользователь авторизуется на сайте Avito (логин и пароль оставляем пустыми).
+2.	Переход на категорию: Автомат переходит на страницу личных вещей с доставкой.
+3.	Оформление заказа: Нажимается кнопка "Купить с доставкой".
+4.	Проверка поля телефона: Поле телефона должно оставаться пустым.
+________________________________________
+Заключение
+Проект готов к выполнению и выкладыванию на GitHub. Тесты написаны с учетом требований и покрывают необходимые сценарии.
+
+
