@@ -1,0 +1,296 @@
+Решение задачи - Власов - 10-08-2026
+Важно Помощь - GigaChat
+Решение задачи – консультация (помощь) GigaChat 
+Это классическое тестовое задание на позицию Middle Frontend-разработчика. Ниже представлен подробный план реализации проекта с нуля до деплоя, архитектурные решения и примеры кода для ключевых компонентов.
+1. Архитектура и стек (согласно ТЗ)
+•	Фреймворк: Vue 3 + <script setup>.
+•	Язык: TypeScript.
+•	Сборка: Vite (Nuxt 3 опционален; для чистого SPA без SSR целесообразнее использовать чистый Vite, так как Nuxt добавит лишнюю абстракцию).
+•	State-менеджер: Pinia (Composition API из коробки). Потребуется три стора: useWarehouseStore, useDealsStore, useFavoritesStore.
+•	Роутинг: Vue Router 4.
+•	Стили: Scoped CSS в компонентах или CSS Modules. Без фреймворков.
+2. Структура проекта
+Копировать
+src/
+├── assets/          # Изображения товаров
+│   └── products/
+├── components/
+│   ├── ProductCard.vue      # Карточка предложения
+│   ├── SortFilter.vue       # Блок сортировки и поиска
+│   └── Button.vue           # UI-кнопка (опционально)
+├── data/
+│   └── mockData.ts          # Фейковые данные (JSON)
+├── pages/
+│   ├── WarehousePage.vue    # Склад
+│   ├── DealsPage.vue        # Сделки
+│   └── FavoritesPage.vue    # Избранное
+├── router/
+│   └── index.ts             # Настройки роутера
+├── stores/
+│   ├── warehouse.ts
+│   ├── deals.ts
+│   └── favorites.ts
+├── types/
+│   └── index.d.ts           # Глобальные типы TS
+├── App.vue
+└── main.ts
+3. Данные и типизация (types/index.d.ts и data/mockData.ts)
+Определим интерфейс товара один раз, чтобы избежать дублирования типов.
+typescriptКопировать
+// src/types/index.d.ts
+export interface Offer {
+  id: string;
+  imageUrl: string;
+  type: 'auction' | 'direct'; // аукцион или прямые продажи
+  title: string;
+  city: string;
+  seller: string;
+  kind: string;
+  description: string;
+  price: number;
+  quantity: number;
+}
+
+// src/data/mockData.ts
+import { Offer } from '@/types';
+
+export const MOCK_OFFERS: Offer[] = [
+  {
+    id: '1',
+    imageUrl: '/assets/products/product-1.jpg',
+    type: 'auction',
+    title: 'Экскаватор гусеничный Caterpillar 320',
+    city: 'Москва',
+    seller: 'СтройТехника ООО',
+    kind: 'Спецтехника',
+    description: 'Наработка 4500 м/ч, состояние отличное.',
+    price: 15000000,
+    quantity: 1
+  },
+  // ... еще 9+ объектов
+];
+4. State-менеджер (Pinia) — пример одного стора
+Остальные два строятся по аналогии.
+typescriptКопировать
+// src/stores/warehouse.ts
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
+import { useDealsStore } from './deals';
+import { useFavoritesStore } from './favorites';
+import { MOCK_OFFERS } from '@/data/mockData';
+import { Offer } from '@/types';
+
+export const useWarehouseStore = defineStore('warehouse', () => {
+  const offers = ref<Offer[]>(MOCK_OFFERS);
+  const searchQuery = ref('');
+  const filterType = ref<'all' | 'auction' | 'direct'>('all');
+
+  const filteredOffers = computed(() => {
+    return offers.value.filter(offer => {
+      const matchesSearch = offer.title.toLowerCase().includes(searchQuery.value.toLowerCase());
+      const matchesFilter = 
+        filterType.value === 'all' || 
+        offer.type === filterType.value;
+      return matchesSearch && matchesFilter;
+    });
+  });
+
+  const dealsStore = useDealsStore();
+  const favoritesStore = useFavoritesStore();
+
+  function addToDeals(id: string) {
+    const item = offers.value.find(o => o.id === id);
+    if (item) dealsStore.addDeal(item);
+  }
+
+  function addToFavorites(id: string) {
+    const item = offers.value.find(o => o.id === id);
+    if (item) favoritesStore.addFavorite(item);
+  }
+
+  return { 
+    filteredOffers, 
+    searchQuery, 
+    filterType, 
+    addToDeals, 
+    addToFavorites 
+  };
+});
+5. Компонент «Карточка предложения» (ProductCard.vue)
+Компонент получает пропсы и через инъекции пиновских хуков взаимодействует со сторами.
+vueКопировать
+<!-- src/components/ProductCard.vue -->
+<script setup lang="ts">
+import { defineProps } from 'vue';
+import { Offer } from '@/types';
+import { useDealsStore } from '@/stores/deals';
+import { useFavoritesStore } from '@/stores/favorites';
+
+const props = defineProps<{
+  offer: Offer;
+}>();
+
+const dealsStore = useDealsStore();
+const favoritesStore = useFavoritesStore();
+</script>
+
+<template>
+  <div class="card">
+    <img :src="props.offer.imageUrl" :alt="props.offer.title" class="card__image" />
+    <span class="card__badge" :class="{ 'card__badge--auction': props.offer.type === 'auction' }">
+      {{ props.offer.type === 'auction' ? 'Аукцион' : 'Прямые продажи' }}
+    </span>
+    
+    <h3 class="card__title">{{ props.offer.title }}</h3>
+    <p class="card__meta">Город: {{ props.offer.city }}</p>
+    <p class="card__meta">Продавец: {{ props.offer.seller }}</p>
+    <p class="card__kind">Вид: {{ props.offer.kind }}</p>
+    <p class="card__desc">{{ props.offer.description }}</p>
+    
+    <div class="card__footer">
+      <span class="card__price">{{ props.offer.price.toLocaleString() }} ₽</span>
+      <span class="card__qty">Кол-во: {{ props.offer.quantity }}</span>
+    </div>
+
+    <div class="card__actions">
+      <!-- В разделе "Склад" показываем эти кнопки -->
+      <button v-if="!$route.path.includes('deals')" @click="dealsStore.addDeal(props.offer)" class="btn btn--primary">
+        Добавить в сделки
+      </button>
+      <button @click="favoritesStore.addFavorite(props.offer)" class="btn btn--secondary">
+        В избранное
+      </button>
+
+      <!-- В разделе "Сделки" показываем кнопку оплаты -->
+      <button 
+        v-if="$route.path.includes('deals')"
+        @click="dealsStore.payForDeal(props.offer.id)"
+        :disabled="dealsStore.isPaid(props.offer.id)"
+        class="btn btn--success"
+      >
+        {{ dealsStore.isPaid(props.offer.id) ? 'Оплачено' : 'Оплатить' }}
+      </button>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.card { /* Базовые стили карточки */ border: 1px solid #eee; padding: 16px; position: relative; }
+.card__badge { position: absolute; top: 16px; right: 16px; background: #e0e0e0; padding: 4px 8px; font-size: 12px; }
+.card__badge--auction { background: #ffeaa7; }
+.card__image { width: 100%; height: 180px; object-fit: cover; margin-bottom: 12px; }
+.card__title { font-size: 18px; margin: 0 0 8px; }
+.card__price { font-weight: bold; font-size: 20px; color: #d6336c; }
+.card__actions { display: flex; gap: 8px; margin-top: 16px; }
+.btn { cursor: pointer; padding: 8px 12px; border: none; border-radius: 4px; }
+.btn--primary { background: #3498db; color: white; }
+.btn--secondary { background: #95a5a6; color: white; }
+.btn--success { background: #27ae60; color: white; }
+.btn--success[disabled] { background: #bdc3c7; cursor: not-allowed; }
+</style>
+6. Страница «Склад» (WarehousePage.vue)
+vueКопировать
+<!-- src/pages/WarehousePage.vue -->
+<script setup lang="ts">
+import { useWarehouseStore } from '@/stores/warehouse';
+import ProductCard from '@/components/ProductCard.vue';
+import SortFilter from '@/components/SortFilter.vue';
+
+const store = useWarehouseStore();
+</script>
+
+<template>
+  <main class="page page--warehouse">
+    <h1>Склад</h1>
+    <SortFilter 
+      v-model:search="store.searchQuery" 
+      v-model:filter="store.filterType" 
+    />
+    <div class="grid">
+      <ProductCard 
+        v-for="offer in store.filteredOffers" 
+        :key="offer.id" 
+        :offer="offer" 
+      />
+    </div>
+  </main>
+</template>
+
+<style scoped>
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+</style>
+7. Компонент сортировки и поиска (SortFilter.vue)
+vueКопировать
+<!-- src/components/SortFilter.vue -->
+<script setup lang="ts">
+import { defineModel } from 'vue';
+
+const search = defineModel<string>('search', { required: true });
+const filter = defineModel<'all' | 'auction' | 'direct'>('filter', { required: true });
+</script>
+
+<template>
+  <div class="sort-filter">
+    <input 
+      type="text" 
+      placeholder="Поиск по названию..." 
+      v-model="search" 
+      class="sort-filter__input" 
+    />
+    <select v-model="filter" class="sort-filter__select">
+      <option value="all">Все типы</option>
+      <option value="auction">Аукцион</option>
+      <option value="direct">Прямые продажи</option>
+    </select>
+  </div>
+</template>
+8. Роутинг (router/index.ts) и точка входа
+Приложение запускается со страницы «Склад».
+typescriptКопировать
+// src/router/index.ts
+import { createRouter, createWebHistory } from 'vue-router';
+import WarehousePage from '@/pages/WarehousePage.vue';
+import DealsPage from '@/pages/DealsPage.vue';
+import FavoritesPage from '@/pages/FavoritesPage.vue';
+
+const routes = [
+  { path: '/', name: 'warehouse', component: WarehousePage },
+  { path: '/deals', name: 'deals', component: DealsPage },
+  { path: '/favorites', name: 'favorites', component: FavoritesPage }
+];
+
+export default createRouter({
+  history: createWebHistory(),
+  routes
+});
+typescriptКопировать
+// src/main.ts
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import { createPinia } from 'pinia';
+
+const app = createApp(App);
+app.use(createPinia());
+app.use(router);
+app.mount('#app');
+9. Реализация требований к кнопкам
+•	«Добавить в сделки / избранное»: Методы addDeal и addFavorite в соответствующих сторах проверяют наличие элемента по ID (чтобы не дублировать), пушат его в массив состояния и сохраняют в localStorage (для персистентности при перезагрузке).
+•	«Оплатить» / «Оплачено»:
+o	В сторе deals заводится сет paidIds: Set<string>.
+o	Метод payForDeal(id) добавляет ID в этот сет.
+o	Метод isPaid(id) возвращает булево значение.
+o	В шаблоне ProductCard.vue кнопка биндится на :disabled. Текст меняется тернарным оператором внутри v-text или интерполяции.
+10. План выполнения за 7 дней
+•	День 1: Поднятие репозитория, инициализация Vite + Vue 3 + TS + Pinia + Vue Router. Создание базовой структуры папок.
+•	День 2: Разметка макета из Figma глобально (шапка с навигацией, футер). Сборка общего Layout. Создание файла с моковыми данными и интерфейсов TypeScript.
+•	День 3: Создание сторов Pinia (warehouse, deals, favorites). Реализация логики добавления/удаления между ними.
+•	День 4: Верстка и реализация компонента ProductCard.vue. Отображение списка на странице «Склад».
+•	День 5: Реализация фильтрации и поиска в warehouse сторе и компоненте SortFilter.vue. Создание страниц «Сделки» и «Избранное», вывод данных из их сторов.
+•	День 6: Логика оплаты (сети paidIds), отключение кнопки после клика. Адаптивная верстка (брейкпоинты для сетки карточек).
+•	День 7: Оптимизация импорта изображений, проверка ESLint/Prettier, написание README.md с инструкцией по запуску (npm install, npm run dev). Заливка на GitHub и развертывание на Vercel (через импорт репозитория).
+Что стоит уточнить у заказчика перед началом (если есть такая возможность):
+•	Нужна ли пагинация? При росте данных бесконечный список может тормозить рендер.
+•	Требуются ли тесты (unit/e2e)? В ТЗ они не указаны, но для продакшн-проекта желательны.
+•	Как именно должен работать поиск: только по заголовку или по всему описанию?
+
