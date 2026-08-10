@@ -1,0 +1,296 @@
+Решение задачи - Vlasov - 10-08-2026
+Стек и подход
+•	Frontend: React (Vite) + TypeScript. Это даёт типизацию, понятную структуру и удобство для тестов.
+•	API: Rick and Morty API (https://rickandmortyapi.com/api/character/{id}).
+•	Кэш: localStorage (чтобы данные сохранялись после перезагрузки).
+•	Тестирование: Vitest + React Testing Library + Jest (или просто Vitest).
+•	Git: публичный репозиторий с README и инструкциями.
+________________________________________
+Структура проекта
+text
+ПереноситьСвернутьКопировать
+fetch-n-cache/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── SearchForm.tsx
+│   │   ├── CharacterList.tsx
+│   │   ├── CharacterDetail.tsx
+│   │   └── CacheControls.tsx
+│   ├── hooks/
+│   │   └── useRickAndMorty.ts
+│   ├── services/
+│   │   └── api.ts
+│   ├── store/
+│   │   └── cache.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── tests/
+│   ├── api.test.ts
+│   ├── cache.test.ts
+│   └── components.test.tsx
+├── .gitignore
+├── package.json
+├── README.md
+└── vitest.config.ts
+________________________________________
+Реализация ключевых требований
+1. Поиск персонажа по ID
+Пользователь вводит число → клик «Search» → запрос к API. Пока запрос идёт — блокируем кнопку и поле.
+Компонент SearchForm.tsx:
+tsx
+ПереноситьСвернутьКопировать
+import { useState } from 'react';
+import { useRickAndMorty } from '../hooks/useRickAndMorty';
+
+export const SearchForm = ({ onSearch }: { onSearch: (id: number) => void }) => {
+  const [query, setQuery] = useState('');
+  const { isLoading } = useRickAndMorty(); // или передаём isLoading из родителя
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const id = Number(query.trim());
+    if (!Number.isInteger(id) || id <= 0) return;
+    onSearch(id);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="number"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        disabled={isLoading}
+        placeholder="Enter character ID"
+      />
+      <button type="submit" disabled={isLoading || !query.trim()}>
+        {isLoading ? 'Loading...' : 'Search'}
+      </button>
+    </form>
+  );
+};
+2. Кэш в памяти браузера (localStorage)
+Логика кэширования должна быть вынесена в отдельный модуль, чтобы её можно было тестировать изолированно.
+store/cache.ts:
+ts
+ПереноситьСвернутьКопировать
+const CACHE_KEY = 'rick_and_morty_cache';
+
+export interface CharacterCacheItem {
+  id: number;
+  data: any;
+  timestamp: number; // для TTL (бонус)
+}
+
+export type CacheMap = Record<string, CharacterCacheItem>;
+
+export function getCache(): CacheMap {
+  const raw = localStorage.getItem(CACHE_KEY);
+  return raw ? JSON.parse(raw) : {};
+}
+
+export function setCache(cache: CacheMap) {
+  localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+}
+
+export function addToCache(id: number, data: any, ttlMs?: number) {
+  const cache = getCache();
+  cache[String(id)] = { id, data, timestamp: Date.now() };
+  setCache(cache);
+}
+
+export function getFromCache(id: number): CharacterCacheItem | undefined {
+  const cache = getCache();
+  return cache[String(id)];
+}
+
+export function clearCache() {
+  localStorage.removeItem(CACHE_KEY);
+}
+
+export function removeFromCache(id: number) {
+  const cache = getCache();
+  delete cache[String(id)];
+  setCache(cache);
+}
+
+// Бонус: TTL-очистка
+export function cleanExpiredCache(ttlMs: number) {
+  const now = Date.now();
+  const cache = getCache();
+  const updated: CacheMap = {};
+
+  for (const [key, item] of Object.entries(cache)) {
+    if (now - item.timestamp <= ttlMs) {
+      updated[key] = item;
+    }
+  }
+
+  if (Object.keys(cache).length !== Object.keys(updated).length) {
+    setCache(updated);
+  }
+}
+3. Отображение списка кэшированных персонажей и выделение выбранного
+В правой части страницы показываем список. Если на экране отображается персонаж — выделяем его в списке.
+components/CharacterList.tsx:
+tsx
+ПереноситьСвернутьКопировать
+import { CharacterCacheItem } from '../store/cache';
+
+interface Props {
+  items: CharacterCacheItem[];
+  selectedId: number | null;
+  onSelect: (id: number) => void;
+  onRemove: (id: number) => void;
+}
+
+export const CharacterList = ({ items, selectedId, onSelect, onRemove }: Props) => (
+  <ul>
+    {items.map((item) => (
+      <li
+        key={item.id}
+        style={{
+          cursor: 'pointer',
+          fontWeight: item.id === selectedId ? 'bold' : 'normal',
+          backgroundColor: item.id === selectedId ? '#eee' : 'transparent',
+        }}
+      >
+        <img
+          src={item.data.image}
+          alt={item.data.name}
+          width="60"
+          onClick={() => onSelect(item.id)}
+        />
+        <span>{item.data.name}</span>
+        <button onClick={() => onRemove(item.id)} style={{ marginLeft: '10px' }}>
+          ×
+        </button>
+      </li>
+    ))}
+  </ul>
+);
+4. Логика загрузки: сначала кэш, потом сеть
+hooks/useRickAndMorty.ts:
+ts
+ПереноситьСвернутьКопировать
+import { useState, useCallback } from 'react';
+import { getFromCache, addToCache, cleanExpiredCache } from '../store/cache';
+
+const TTL_MS = 5 * 60 * 1000; // 5 минут (бонус: TTL)
+
+export const useRickAndMorty = () => {
+  const [character, setCharacter] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchCharacter = useCallback(async (id: number) => {
+    // Бонус: очистка истёкших записей перед запросом
+    cleanExpiredCache(TTL_MS);
+
+    const cached = getFromCache(id);
+    if (cached) {
+      setCharacter(cached.data);
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+      if (!res.ok) throw new Error('Not found');
+      const data = await res.json();
+      setCharacter(data);
+      addToCache(id, data, TTL_MS);
+    } catch (e) {
+      // обработка ошибок (можно показать сообщение)
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  const clearAllCache = () => {
+    // можно добавить подтверждение
+    localStorage.removeItem('rick_and_morty_cache');
+  };
+
+  return { character, isLoading, fetchCharacter, clearAllCache };
+};
+5. Мгновенный показ из кэша при вводе ID
+Бонус: если в поле введён ID, который уже есть в кэше — сразу показываем персонажа (без клика). Это можно сделать через useEffect на изменение поля или через валидацию перед отправкой.
+Пример простой логики:
+ts
+ПереноситьСвернутьКопировать
+useEffect(() => {
+  const id = Number(query);
+  if (!isNaN(id) && id > 0) {
+    const cached = getFromCache(id);
+    if (cached) {
+      setCharacter(cached.data);
+    }
+  }
+}, [query]);
+________________________________________
+Автотесты
+Учитывая твои задачи по тестированию и тестовым заданиям, здесь важно покрыть:
+1.	API-сервис: мок-ответы, проверка URL, обработка 404.
+2.	Кэш (localStorage): чтение/запись/очистка/TTL.
+3.	Компоненты: рендер списка, выделение выбранного, блокировка UI во время загрузки.
+Пример теста для кэша (tests/cache.test.ts):
+ts
+ПереноситьСвернутьКопировать
+import {
+  getCache,
+  setCache,
+  addToCache,
+  getFromCache,
+  clearCache,
+} from '../src/store/cache';
+
+beforeEach(() => {
+  localStorage.clear();
+});
+
+test('добавляет и получает из кэша', () => {
+  addToCache(1, { id: 1, name: 'Rick' });
+  const item = getFromCache(1);
+  expect(item?.data.name).toBe('Rick');
+});
+
+test('очищает кэш', () => {
+  addToCache(2, { id: 2, name: 'Morty' });
+  clearCache();
+  expect(getCache()).toEqual({});
+});
+Пример теста компонента (tests/components.test.tsx):
+ts
+ПереноситьСвернутьКопировать
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { SearchForm } from '../../src/components/SearchForm';
+
+test('блокирует кнопку и поле при загрузке', async () => {
+  // Здесь нужен провайдер контекста или передача isLoading через пропсы
+  render(<SearchForm onSearch={jest.fn()} />);
+  // Пример: можно протестировать, что при isLoading=true поля disabled
+});
+________________________________________
+README.md (что обязательно включить)
+Чтобы ревьюеру было удобно, в README.md укажи:
+•	Краткое описание проекта.
+•	Стек технологий.
+•	Как запустить: npm install, npm run dev, npm test.
+•	Как проверить функционал (пошаговые сценарии).
+•	Примерное время, которое ты потратил на решение (это требование задания).
+•	Какие бонусы реализованы (TTL, мгновенный показ, удаление отдельных элементов и т.п.).
+________________________________________
+Git-практика
+•	Инициализируй git, сделай коммиты по фичам: feat: search form, feat: cache logic, feat: character list, feat: clear cache, test: cache unit tests, test: component tests.
+•	Репозиторий должен быть публичным.
+•	В README добавь ссылку на репозиторий и, при необходимости, на демо (GitHub Pages / Vercel).
+________________________________________
+Оценка времени
+Ориентиры по времени (чтобы указать в ответе):
+•	Базовая версия (поиск, кэш, список, выделение, очистка всего): 4–6 часов.
+•	Бонусы (удаление отдельных, мгновенный показ при вводе, TTL): +2–3 часа.
+•	Тесты (unit + компоненты): +3–5 часов в зависимости от покрытия.
+Итого: 9–14 часов — это реалистично и показывает глубину проработки.
+
