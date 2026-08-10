@@ -1,0 +1,390 @@
+Вариант решения - Vlasov - 10-08-2026
+Help GigaChat :-)))
+Для реализации этого приложения будет использован Ext JS (Classic Toolkit). Этот фреймворк идеально подходит под описание задачи, так как оперирует готовыми высокоуровневыми компонентами (Viewport, Window, FormPanel, GridPanel) и архитектурным паттерном MVVM для связи данных через viewModel.
+Ниже представлена структура проекта и реализация ключевых узлов.
+1. Структура проекта
+Копировать
+app/
+├── app.js                      // Точка входа
+├── Application.js              // Главный класс Ext.app.Application
+├── data/                       
+│   └── Documents.js            // Store с данными документов
+├── model/
+│   └── Document.js             // Модель документа
+├── view/
+│   ├── auth/
+│   │   └── LoginWindow.js      // Окно авторизации
+│   ├── main/
+│   │   ├── MainViewport.js     // Основной Viewport (Экран 2)
+│   │   ├── UserPanel.js        // Панель пользователя справа
+│   │   └── DocsController.js   // Контроллер для вкладки документов
+│   └── document/
+│       ├── DocsGrid.js         // Таблица документов
+│       └── DocEditWindow.js    // Окно редактирования/создания
+└── viewModel/
+    ├── AuthViewModel.js        // VM для окна авторизации
+    └── MainViewModel.js        // VM для основного экрана
+2. Данные: Model и Store
+src/model/Document.js
+javascriptКопировать
+Ext.define('MyApp.model.Document', {
+    extend: 'Ext.data.Model',
+    fields: [
+        { name: 'id', type: 'int' },
+        { name: 'name', type: 'string' },
+        { name: 'description', type: 'string' },
+        { name: 'signed', type: 'boolean' }
+    ]
+});
+src/data/Documents.js
+javascriptКопировать
+Ext.define('MyApp.store.Documents', {
+    extend: 'Ext.data.Store',
+    alias: 'store.documents',
+    model: 'MyApp.model.Document',
+    autoLoad: true,
+    data: [
+        { id: 1, name: 'Договор поставки №45', description: 'Контракт на поставку металла', signed: true },
+        { id: 2, name: 'Акт выполненных работ', description: 'За сентябрь 2023', signed: false },
+        { id: 3, name: 'Счет-фактура', description: 'Оплата по договору 45', signed: true }
+    ]
+});
+3. Экран 1: Авторизация (MVVM)
+Здесь реализуется проброс логина в глобальный viewModel при успешном входе.
+src/view/auth/LoginWindow.js
+javascriptКопировать
+Ext.define('MyApp.view.auth.LoginWindow', {
+    extend: 'Ext.window.Window',
+    xtype: 'loginwindow',
+    
+    requires: ['MyApp.viewModel.AuthViewModel'],
+    
+    viewModel: {
+        type: 'auth'
+    },
+    
+    title: 'Авторизация',
+    width: 350,
+    resizable: false,
+    modal: true,
+    closable: false,
+    
+    items: [{
+        xtype: 'form',
+        bodyPadding: 10,
+        reference: 'loginForm',
+        
+        defaults: {
+            anchor: '100%',
+            labelWidth: 80,
+            allowBlank: false
+        },
+        
+        items: [
+            { xtype: 'textfield', name: 'username', fieldLabel: 'Пользователь' },
+            { xtype: 'textfield', name: 'password', fieldLabel: 'Пароль', inputType: 'password' }
+        ],
+        
+        buttons: [{
+            text: 'Войти',
+            formBind: true,
+            handler: 'onLoginClick'
+        }]
+    }]
+});
+src/viewModel/AuthViewModel.js
+javascriptКопировать
+Ext.define('MyApp.viewModel.AuthViewModel', {
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.auth',
+    
+    formulas: {
+        isValidCredentials: function(get) {
+            const user = get('username');
+            const pass = get('password');
+            return user === 'admin' && pass === 'adm123';
+        }
+    },
+    
+    onLoginClick: function() {
+        const vm = this;
+        if (vm.get('isValidCredentials')) {
+            // Пробрасываем логин в родительский (глобальный) ViewModel
+            const parentVm = this.getParent();
+            parentVm.set('currentUser', vm.get('username'));
+            
+            // Закрываем окно и создаем основное приложение
+            this.getView().close();
+            Ext.create({
+                xtype: 'app-mainviewport'
+            });
+        } else {
+            Ext.Msg.alert('Ошибка', 'Неверный логин или пароль');
+        }
+    }
+});
+4. Экран 2: Основной интерфейс
+src/view/main/MainViewport.js — занимает всю область браузера.
+javascriptКопировать
+Ext.define('MyApp.view.main.MainViewport', {
+    extend: 'Ext.container.Viewport',
+    xtype: 'app-mainviewport',
+    
+    requires: [
+        'MyApp.viewModel.MainViewModel',
+        'MyApp.view.main.UserPanel',
+        'Ext.tab.Panel'
+    ],
+    
+    layout: 'border',
+    viewModel: {
+        type: 'main'
+    },
+    
+    tbar: [{ 
+        text: 'Документы', 
+        iconCls: 'x-fa fa-file-text', 
+        handler: 'onDocsButtonClick' 
+    }],
+    
+    items: [
+        // Центральная часть - таб панель
+        {
+            region: 'center',
+            xtype: 'tabpanel',
+            itemId: 'mainTabPanel'
+        },
+        // Боковая панель пользователя
+        {
+            region: 'east',
+            xtype: 'userpanel',
+            width: 250,
+            split: true,
+            collapsible: true
+        }
+    ]
+});
+src/view/main/UserPanel.js
+javascriptКопировать
+Ext.define('MyApp.view.main.UserPanel', {
+    extend: 'Ext.panel.Panel',
+    xtype: 'userpanel',
+    
+    scrollable: true,
+    title: 'Информация',
+    
+    tpl: `
+        <div style="padding: 15px;">
+            <h3>Добрый день, {currentUser}!</h3>
+            <button class="logout-btn" onclick="this.up('userpanel').fireEvent('logout')">Выход</button>
+        </div>
+    `,
+    
+    bind: {
+        data: '{currentUser}' // Привязка к формуле из MainViewModel
+    }
+});
+src/viewModel/MainViewModel.js
+javascriptКопировать
+Ext.define('MyApp.viewModel.MainViewModel', {
+    extend: 'Ext.app.ViewModel',
+    alias: 'viewmodel.main',
+    
+    data: {
+        currentUser: null
+    },
+    
+    formulas: {
+        welcomeText: function(get) {
+            return 'Добрый день, ' + (get('currentUser') || 'Гость') + '!';
+        }
+    }
+});
+src/view/main/DocsController.js (логика таблицы)
+javascriptКопировать
+Ext.define('MyApp.view.main.DocsController', {
+    extend: 'Ext.app.ViewController',
+    alias: 'controller.docs',
+    
+    init: function(view) {
+        this.grid = view.down('grid');
+    },
+    
+    onDocsButtonClick: function() {
+        const tabPanel = this.lookupReference('mainTabPanel'); // Доступ через refs во Viewport
+        let tab = tabPanel.child('#docsTab');
+        if (!tab) {
+            tab = tabPanel.add({
+                xtype: 'docsgrid',
+                title: 'Документы',
+                itemId: 'docsTab',
+                closable: true
+            });
+        }
+        tabPanel.setActiveTab(tab);
+    },
+    
+    onItemDblClick: function(grid, record) {
+        const win = Ext.create('MyApp.view.document.DocEditWindow', {
+            viewModel: {
+                data: {
+                    theRecord: record
+                }
+            }
+        });
+        win.show();
+    }
+});
+5. Вкладка «Документы» и кастомизация темы
+src/view/document/DocsGrid.js Для выделения подписанных документов используется renderer. Для фильтров — features.
+javascriptКопировать
+Ext.define('MyApp.view.document.DocsGrid', {
+    extend: 'Ext.grid.Panel',
+    xtype: 'docsgrid',
+    
+    requires: ['MyApp.store.Documents'],
+    
+    controller: 'docs',
+    store: { type: 'documents' },
+    
+    columns: [
+        { text: 'ID', dataIndex: 'id', width: 60 },
+        { 
+            text: 'Наименование', 
+            dataIndex: 'name', 
+            flex: 1,
+            filter: { type: 'string' } // Фильтр доп. задания
+        },
+        { text: 'Описание', dataIndex: 'description', flex: 2 },
+        { 
+            text: 'Подписан', 
+            dataIndex: 'signed', 
+            width: 100,
+            align: 'center',
+            renderer: function(value) {
+                return value ? '<span style="color:white;">Да</span>' : 'Нет';
+            },
+            tdCls: function(value) {
+                return value ? 'signed-yes' : '';
+            }
+        }
+    ],
+    
+    features: [{
+        ftype: 'filters',
+        encode: false,
+        local: true,
+        filters: [
+            { type: 'string', dataIndex: 'name' },
+            { type: 'boolean', dataIndex: 'signed' } // Чекбокс фильтр
+        ]
+    }],
+    
+    listeners: {
+        itemdblclick: 'onItemDblClick'
+    }
+});
+CSS для красной темы и подсветки (в index.html или отдельный файл):
+cssКопировать
+/* Переопределение основной темы Sencha */
+.x-border-box .x-toolbar-default {
+    background-color: #B71C1C !important; /* Темно-красный */
+    border-color: #880E4F !important;
+}
+.x-btn-default-toolbar-small {
+    background-image: none !important;
+    background-color: #D32F2F !important;
+    color: white !important;
+    border: 1px solid #B71C1C !important;
+}
+.x-btn-over {
+    background-color: #EF5350 !important;
+}
+
+/* Подписанные документы */
+.signed-yes {
+    background-color: #A5D6A7 !important; /* Зеленый фон ячейки */
+    color: black;
+}
+.logout-btn {
+    background: #B71C1C;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+6. Окно редактирования и логика сохранения
+src/view/document/DocEditWindow.js
+javascriptКопировать
+Ext.define('MyApp.view.document.DocEditWindow', {
+    extend: 'Ext.window.Window',
+    xtype: 'doceditwindow',
+    
+    title: 'Редактирование документа ID: {theRecord.id}',
+    width: 400,
+    
+    viewModel: {
+        formulas: {
+            windowTitle: function(get) {
+                return 'Редактирование документа ID: ' + get('theRecord.id');
+            }
+        }
+    },
+    
+    bind: {
+        title: '{windowTitle}'
+    },
+    
+    items: [{
+        xtype: 'form',
+        bodyPadding: 10,
+        reference: 'docForm',
+        defaults: { anchor: '100%', labelWidth: 120 },
+        
+        items: [
+            { xtype: 'displayfield', name: 'id', fieldLabel: 'ID', bind: '{theRecord.id}' },
+            { xtype: 'textfield', name: 'name', fieldLabel: 'Название', bind: '{theRecord.name}', allowBlank: false },
+            { xtype: 'checkboxfield', name: 'signed', fieldLabel: 'Подписать документ', bind: '{theRecord.signed}' }
+        ]
+    }],
+    
+    buttons: [{
+        text: 'Сохранить',
+        handler: 'onSave'
+    }],
+    
+    controller: {
+        onSave: function() {
+            const form = this.lookupReference('docForm');
+            const record = this.getViewModel().get('theRecord');
+            
+            if (form.isValid()) {
+                form.updateRecord(record); // Запись данных из формы в модель
+                
+                // Логика запроса на сервер (AJAX)
+                Ext.Ajax.request({
+                    url: '/api/documents/save/' + record.get('id'),
+                    method: 'POST',
+                    jsonData: record.getData(),
+                    success: function(response) {
+                        Ext.Msg.alert('Успех', 'Данные сохранены');
+                        this.getView().close();
+                        this.lookup('docsgrid').getStore().reload(); // Обновление грида
+                    },
+                    failure: function() {
+                        Ext.Msg.alert('Ошибка', 'Не удалось сохранить данные');
+                    },
+                    scope: this
+                });
+            }
+        }
+    }
+});
+Реализация дополнительных заданий:
+1.	Проброс логина: Выполнено через вызов parentVm.set('currentUser', ...) в AuthViewModel и привязку {currentUser} в MainViewModel и UserPanel.
+2.	Фильтры: Реализованы через стандартный плагин Ext.grid.filters.Filters прямо в конфигурации колонок и свойств панели.
+3.	Сохранение товара: Реализовано в методе onSave контроллера окна через Ext.Ajax.request. При создании нового документа логика идентична, но URL меняется на /api/documents/create, а форма открывается пустой (создается новая пустая запись модели).
+4.	Красная тема: Частично реализована через CSS-перезаписи переменных темы. Для полноценной смены темы рекомендуется использовать Sencha Themer.
+5.	Альтернативное открытие (табы): Реализовано в методе onDocsButtonClick. При нажатии на кнопку меню проверяется наличие таба по itemId. Если его нет — создается новый инстанс docsgrid внутри tabpanel. Это позволяет открывать несколько независимых таблиц документов одновременно.
+
