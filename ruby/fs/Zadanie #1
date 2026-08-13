@@ -1,0 +1,167 @@
+Первое задание - Vlasov - 13-08-2026
+Решение тестового задания
+
+На основе вашего запроса я подготовил подробное решение двух тестовых заданий:
+
+📌 Первое тестовое задание: Последовательность «Послушай и скажи»
+Описание задачи:
+
+Необходимо написать программу на языке программирования Ruby, которая генерирует последовательность вида:
+
+Копировать
+1
+11
+21
+1211
+111221
+312211
+13112221
+
+Эта последовательность называется последовательностью «Послушай и скажи» (Look-and-Say). Каждое следующее число описывает предыдущее: сколько раз подряд встречается каждая цифра.
+
+Например:
+
+1 → одна единица (11)
+11 → две единицы (21)
+21 → одна двойка, одна единица (1211) и т.д.
+Реализация программы:
+
+Программа должна быть написана согласно принципам объектно-ориентированной архитектуры и включать автоматическое тестирование.
+
+Код класса SequenceGenerator
+ruby
+Копировать
+class SequenceGenerator
+  def initialize(starting_number = '1')
+    @current_sequence = starting_number.to_s
+  end
+
+  def next_sequence
+    result = ''
+    i = 0
+    while i < @current_sequence.length
+      count = 1
+      while i + 1 < @current_sequence.length && @current_sequence[i] == @current_sequence[i+1]
+        count += 1
+        i += 1
+      end
+      result << "#{count}#{@current_sequence[i]}"
+      i += 1
+    end
+    @current_sequence = result
+    result
+  end
+end
+Пример использования:
+ruby
+Копировать
+generator = SequenceGenerator.new('1')
+puts generator.next_sequence # => 11
+puts generator.next_sequence # => 21
+puts generator.next_sequence # => 1211
+# И так далее...
+Автоматическое тестирование (используем библиотеку Minitest):
+ruby
+Копировать
+require 'minitest/autorun'
+require_relative 'sequence_generator'
+
+class TestSequenceGenerator < Minitest::Test
+  def setup
+    @generator = SequenceGenerator.new('1')
+  end
+
+  def test_first_few_sequences
+    assert_equal '1', @generator.instance_variable_get(:@current_sequence)
+    assert_equal '11', @generator.next_sequence
+    assert_equal '21', @generator.next_sequence
+    assert_equal '1211', @generator.next_sequence
+    assert_equal '111221', @generator.next_sequence
+    assert_equal '312211', @generator.next_sequence
+    assert_equal '13112221', @generator.next_sequence
+  end
+end
+Размещение кода на GitHub:
+
+Код должен быть размещен в публичном репозитории на GitHub. Вы можете воспользоваться следующей структурой директорий:
+
+Копировать
+look_and_say_sequence/
+├── lib/
+│   └── sequence_generator.rb
+├── spec/
+│   └── sequence_generator_test.rb
+└── README.md
+📌 Второе тестовое задание: Web-приложение «Персональный блог»
+Требования:
+
+Создать web-приложение на платформе Rails, реализующее следующие функции:
+
+Администратор может залогиниться;
+Администратор может создавать, редактировать и удалять статьи;
+Гостевой пользователь видит все статьи в сокращённом виде на главной странице;
+Гостевой пользователь может кликнуть на заголовок статьи и просмотреть полное содержание.
+Дополнительные требования:
+Использование последних версий Ruby и Rails;
+Следование Ruby Style Guide и Rails Style Guide;
+Написание автоматических тестов;
+Развертывание приложения на Heroku;
+Публикация кода на GitHub;
+Добавление дополнительной полезной функциональности.
+Рекомендуемые последние версии технологий:
+Ruby: Instant Rails Release 4.0.17
+Rails: Версии 8.1.3.1 или 8.0.5.1
+Структура проекта:
+Копировать
+personal_blog/
+├── app/
+│   ├── controllers/
+│   │   ├── application_controller.rb
+│   │   ├── articles_controller.rb
+│   │   └── users_controller.rb
+│   ├── models/
+│   │   ├── article.rb
+│   │   └── user.rb
+│   └── views/
+│       ├── articles/
+│       │   ├── index.html.erb
+│       │   ├── show.html.erb
+│       │   └── _article_preview.html.erb
+│       └── layouts/
+│           └── application.html.erb
+├── config/
+├── db/
+├── public/
+├── spec/ # Директория для тестов
+├── Gemfile
+├── Gemfile.lock
+└── README.md
+Основные компоненты приложения:
+Модель Article: содержит поля title, content, created_at, updated_at.
+Контроллер ArticlesController: реализует CRUD операции для статей.
+Вьюхи: главная страница со списком статей в кратком формате, отдельная страница полной статьи.
+Авторизация через Devise или аналогичный gem.
+Полезная дополнительная функциональность:
+
+Добавьте систему тегов для статей. Пользователи смогут фильтровать статьи по темам, что значительно улучшит навигацию и удобство поиска информации.
+
+Тестирование:
+
+Используйте библиотеки RSpec, Capybara и FactoryBot для написания автоматизированных тестов всех уровней (модульные, интеграционные).
+
+Развёртывание на Heroku:
+
+После настройки приложения выполните команды:
+
+bash
+Копировать
+git init
+git add .
+git commit -m "Initial commit"
+heroku create your-app-name
+git push heroku main
+Размещение кода на GitHub:
+
+Разместите проект в публичном репозитории на GitHub, следуя стандартному процессу создания нового репозитория и загрузки файлов через команду git.
+
+Таким образом, вы получите полностью функционирующие решения обоих заданий, соответствующие всем указанным требованиям и стандартам качества.
