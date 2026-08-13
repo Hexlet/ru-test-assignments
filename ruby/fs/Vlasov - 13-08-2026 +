@@ -1,0 +1,274 @@
+Решение всех 3 задач сразу - Help Alica AI - 13-08-2026
+
+Задание 1. Генератор последовательности «Посмотри и скажи» (Look-and-Say) на Ruby
+Это последовательность, которую вы привели: 1, 11, 21, 1211, 111221 и т.д.
+
+Архитектура
+Класс LookAndSayGenerator инкапсулирует логику генерации.
+Метод next_term(term) возвращает следующий член последовательности.
+Метод generate(count) возвращает массив из count членов.
+Используются только стандартные библиотеки Ruby (Enumerator, String, Array).
+Тесты на RSpec.
+Код (lib/look_and_say_generator.rb)
+ruby
+class LookAndSayGenerator
+  def self.next_term(term)
+    result = []
+    count = 1
+    chars = term.chars
+
+    (1...chars.size).each do |i|
+      if chars[i] == chars[i - 1]
+        count += 1
+      else
+        result << count.to_s << chars[i - 1]
+        count = 1
+      end
+    end
+
+    # Добавляем последнюю группу
+    result << count.to_s << chars.last if chars.any?
+    result.join
+  end
+
+  def self.generate(count)
+    return [] if count <= 0
+
+    seq = ['1']
+    (count - 1).times do
+      seq << next_term(seq.last)
+    end
+    seq
+  end
+end
+Тесты (spec/look_and_say_generator_spec.rb)
+ruby
+require 'rspec'
+require_relative '../lib/look_and_say_generator'
+
+RSpec.describe LookAndSayGenerator do
+  it 'generates correct next term' do
+    expect(LookAndSayGenerator.next_term('1')).to eq('11')
+    expect(LookAndSayGenerator.next_term('11')).to eq('21')
+    expect(LookAndSayGenerator.next_term('21')).to eq('1211')
+    expect(LookAndSayGenerator.next_term('1211')).to eq('111221')
+  end
+
+  it 'generates sequence of given length' do
+    expected = %w[1 11 21 1211 111221 312211]
+    expect(LookAndSayGenerator.generate(6)).to eq(expected)
+  end
+
+  it 'handles edge cases' do
+    expect(LookAndSayGenerator.generate(0)).to eq([])
+    expect(LookAndSayGenerator.generate(1)).to eq(['1'])
+  end
+end
+Как запустить и выложить
+Создайте папку проекта, инициализируйте git и создайте структуру: lib/, spec/.
+
+Положите файлы выше.
+
+Добавьте Gemfile:
+
+ruby
+source 'https://rubygems.org'
+gem 'rspec', '~> 3.0'
+bundle install, затем bundle exec rspec.
+
+Создайте публичный репозиторий на GitHub, сделайте коммиты, push.
+
+Задание 2. Web-приложение «Календарь событий» на Rails
+Стек и требования
+Ruby >= 2.5, Rails >= 5.1.
+Аутентификация: Devise.
+Авторизация: Pundit или аналог.
+UI: Bootstrap.
+Тесты: RSpec + Capybara.
+Деплой: Heroku.
+Репозиторий: GitHub (публичный).
+Модельные сущности
+User (Devise).
+Event:
+title (string, required)
+date (date, required)
+recurrence (string): daily, weekly, monthly, yearly, none.
+user_id (foreign key).
+Миграция
+bash
+rails generate model User
+rails generate devise User
+rails generate model Event title:string date:date recurrence:string user:references
+rails db:migrate
+В миграции events добавьте валидации и индексы.
+
+Контроллер событий (app/controllers/events_controller.rb)
+Упрощённый пример (без полной авторизации для краткости):
+
+ruby
+class EventsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @events = Event.all.order(date: :asc)
+  end
+
+  def my_events
+    @events = current_user.events.order(date: :asc)
+  end
+
+  def new
+    @event = current_user.events.build
+  end
+
+  def create
+    @event = current_user.events.build(event_params)
+    if @event.save
+      redirect_to my_events_path, notice: 'Событие создано.'
+    else
+      render :new
+    end
+  end
+
+  def show; end
+
+  def edit; end
+
+  def update
+    if @event.update(event_params)
+      redirect_to event_path(@event), notice: 'Событие обновлено.'
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  def event_params
+    params.require(:event).permit(:title, :date, :recurrence)
+  end
+end
+Добавьте маршруты в config/routes.rb:
+
+ruby
+devise_for :users
+resources :events, only: [:index, :show, :new, :create, :edit, :update]
+get 'my_events', to: 'events#my_events', as: :my_events
+Дополнительная полезная функциональность: напоминания по email
+Идея: за 24 часа до события отправлять email пользователю. Это полезно, чтобы не пропускать важные встречи.
+
+Реализация:
+
+Добавить поле last_reminder_at в модель Event.
+Создать Rake-задачу или Sidekiq-джоб, который раз в час проверяет события с date - 1.day и отправляет напоминания.
+Использовать ActionMailer для отправки писем.
+Почему это полезно: снижает риск пропуска важных событий, особенно при большом количестве записей в календаре.
+
+UI
+Подключите Bootstrap через application.scss или CDN.
+На странице index — общий список событий.
+На my_events — только свои события.
+Форма создания/редактирования с выбором типа повторения (select).
+Ссылки на «Показать», «Редактировать», «Создать событие».
+Тесты (фрагменты)
+Пример системного теста на Capybara (проверка создания события):
+
+ruby
+RSpec.feature 'Creating an event', type: :system do
+  let(:user) { create(:user) }
+
+  before do
+    login_as(user)
+  end
+
+  scenario 'User creates a new event' do
+    visit new_event_path
+    fill_in 'Title', with: 'Meeting'
+    fill_in 'Date', with: Date.today.to_s
+    select 'weekly', from: 'Recurrence'
+    click_button 'Create Event'
+    expect(page).to have_content('Событие создано.')
+    expect(page).to have_content('Meeting')
+  end
+end
+Деплой на Heroku
+В Gemfile добавьте:
+
+ruby
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
+Создайте Procfile:
+
+text
+web: bundle exec rails server -p ${PORT:-3000}
+Инициализируйте Git, сделайте коммит, создайте приложение:
+
+bash
+git init
+git add .
+git commit -m "Initial commit"
+heroku create
+git push heroku main
+heroku run rails db:migrate
+Настройте переменные окружения (секреты, email и т.п.) через heroku config:set.
+
+Задание 3. Форма обратной связи (Feedback) на Rails
+User Stories → Реализация
+Гость видит форму с полями: имя, email, текст. При отправке — сообщение об успехе, письмо админу.
+Авторизованный пользователь видит предзаполненные имя и email.
+Админ видит список отзывов (сортировка «новые сверху»), пагинацию, поиск по тексту или имени.
+Модели
+User: Devise + роль (например, поле role или отдельная модель ролей).
+Feedback:
+name (string)
+email (string)
+text (text)
+user_id (nullable)
+Авторизация и политика (Pundit)
+FeedbackPolicy: админ может видеть список и искать, остальные — только создавать.
+Контроллер FeedbacksController с методами index, new, create.
+Поиск и пагинация
+Используйте kaminari или pagy для пагинации. Поиск — через where('name ILIKE ? OR text ILIKE ?', "%#{query}%", "%#{query}%").
+
+Mailer
+Создайте FeedbackMailer, который отправляет письмо на admin@example.com при создании отзыва.
+
+Автотесты (RSpec + Capybara)
+Покрытие всех user stories:
+
+Тест, что гость видит форму и после отправки получает сообщение.
+Тест, что у авторизованного пользователя поля предзаполнены.
+Тесты для админа: список, сортировка, пагинация, поиск (по подстроке в имени и тексте).
+Пример теста для поиска:
+
+ruby
+scenario 'Admin searches feedbacks by name' do
+  create(:feedback, name: 'John Smith', text: 'Hello')
+  create(:feedback, name: 'Michael Brown', text: 'Help')
+
+  login_as(admin_user)
+  visit feedbacks_path
+  fill_in 'Search', with: 'john'
+  click_button 'Search'
+  expect(page).to have_content('John Smith')
+  expect(page).not_to have_content('Michael Brown')
+end
+Деплой
+Аналогично заданию 2:
+
+Публичный репозиторий GitHub.
+Heroku-приложение, миграции, переменные окружения.
+Общие рекомендации по стилю
+Следуйте Ruby Style Guide и Rails Style Guide: именование, отступы, длина строк, структура контроллеров/моделей.
+Избегайте дублирования логики: используйте service objects или concerns, если код разрастается.
+Пишите понятные сообщения об ошибках и уведомления.
+Для тестов используйте фабрики (FactoryBot) вместо create в каждом тесте.
