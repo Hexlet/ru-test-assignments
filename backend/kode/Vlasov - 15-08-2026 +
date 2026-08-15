@@ -1,0 +1,136 @@
+Решение заданий - Vlasov - 15-08-2026 +
+В этом ответе представлены решения трех различных задач:
+1.	Задача №1 - Проверка наличия связи между пользователями в социальной сети
+2.	Задача №2 - Реализация API для получения погодных данных с кешированием
+3.	Задача №3 - Проектирование структуры классов для платформы проведения стажировок
+________________________________________
+Задача №1: Проверка наличия связи между пользователями
+Для этой задачи нам необходимо создать функцию check_relation, которая будет проверять существование связи между любыми двумя заданными пользователями в социальной сети. Мы будем использовать алгоритм поиска в ширину (BFS) для определения наличия пути между узлами графа.
+Код решения
+pythonКопировать
+from collections import deque
+
+def check_relation(net, first, second):
+    # Создаем граф как словарь смежности
+    graph = {}
+    for a, b in net:
+        if a not in graph:
+            graph[a] = []
+        if b not in graph:
+            graph[b] = []
+        graph[a].append(b)
+        graph[b].append(a)
+    
+    # Инициализируем очередь для BFS и множество посещенных узлов
+    queue = deque([first])
+    visited = set()
+    visited.add(first)
+    
+    while queue:
+        current_node = queue.popleft()
+        
+        if current_node == second:
+            return True
+            
+        for neighbor in graph.get(current_node, []):
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+                
+    return False
+
+
+if __name__ == '__main__':
+    net = (
+        ("Ваня", "Лёша"), ("Лёша", "Катя"),
+        ("Ваня", "Катя"), ("Вова", "Катя"),
+        ("Лёша", "Лена"), ("Оля", "Петя"),
+        ("Стёпа", "Оля"), ("Оля", "Настя"),
+        ("Настя", "Дима"), ("Дима", "Маша")
+    )
+
+    assert check_relation(net, "Петя", "Стёпа") is True
+    assert check_relation(net, "Маша", "Петя") is True
+    assert check_relation(net, "Ваня", "Дима") is False
+    assert check_relation(net, "Лёша", "Настя") is False
+    assert check_relation(net, "Стёпа", "Маша") is True
+    assert check_relation(net, "Лена", "Маша") is False
+    assert check_relation(net, "Вова", "Лена") is True
+Этот код создает граф социальных связей и использует BFS для поиска пути между двумя заданными пользователями.
+________________________________________
+Задача №2: Реализация API для получения погодных данных
+Для второй задачи мы создадим простое Flask-приложение, которое будет возвращать текущую погоду для указанного города. Данные будут запрашиваться у сервиса openweathermap.com, но результаты будут кешироваться на 30 минут.
+Структура проекта
+•	app.py - основной скрипт приложения
+•	requirements.txt - зависимости проекта
+•	.gitignore - игнорирование ненужных файлов
+Файл app.py
+pythonКопировать
+import os
+from flask import Flask, request
+import requests
+from datetime import datetime, timedelta
+
+app = Flask(__name__)
+cache = {}
+CACHE_DURATION = 30 * 60  # 30 minutes in seconds
+
+@app.route('/weather')
+def get_weather():
+    city_name = request.args.get('city', None)
+    if not city_name:
+        return {"error": "City name is required"}, 400
+    
+    cached_data = cache.get(city_name)
+    now = datetime.now()
+    
+    if cached_data and (now - cached_data['timestamp']).total_seconds() < CACHE_DURATION:
+        return {
+            'temperature': cached_data['data']['temp'],
+            'pressure': cached_data['data']['pressure'],
+            'wind_speed': cached_data['data']['wind_speed']
+        }
+    
+    api_key = os.getenv("OPENWEATHER_API_KEY")
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}"
+    
+    response = requests.get(url)
+    data = response.json()
+    
+    weather_info = {
+        'temp': round(data['main']['temp'] - 273.15, 2),
+        'pressure': int(data['main']['pressure'] * 0.750062),
+        'wind_speed': data['wind']['speed']
+    }
+    
+    cache[city_name] = {'timestamp': now, 'data': weather_info}
+    
+    return weather_info
+
+if __name__ == "__main__":
+    app.run(debug=True)
+Файл requirements.txt
+Копировать
+Flask==2.0.2
+requests==2.25.1
+Инструкция по запуску
+1.	Установите необходимые пакеты:
+bashКопировать
+pip install -r requirements.txt
+2.	Получите ключ API от OpenWeatherMap и установите его как переменную окружения:
+bashКопировать
+export OPENWEATHER_API_KEY=your_api_key_here
+3.	Запустите приложение:
+bashКопировать
+python app.py
+4.	Сделайте запрос к API:
+bashКопировать
+curl http://localhost:5000/weather?city=Moscow
+________________________________________
+Задача №3: Диаграмма классов для платформы стажировок
+Для третьей задачи была создана диаграмма классов, представляющая структуру системы управления стажировками. Она включает основные сущности такие как Направление, Стажёр, Интерн, Преподаватель, Теоретический курс, Практический курс, Проект, Стажировка, Интернатура, Оценки, Тесты, Задачи, Темы и Категории.
+Диаграмму можно найти здесь: https://drawsql.app/doke/staging-platform-class-diagram
+Эта диаграмма показывает отношения между различными классами и атрибутами каждого класса. Она помогает понять архитектуру системы и взаимодействие ее компонентов.
+________________________________________
+Все задания выполнены согласно требованиям. 
+
