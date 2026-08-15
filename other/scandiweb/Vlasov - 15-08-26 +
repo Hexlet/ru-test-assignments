@@ -1,0 +1,19 @@
+Scandiweb - Vlasov - 15-08-2026 +
+
+This text is a standard technical brief for a take-home assignment. It outlines the requirements and constraints for setting up a backend service that will serve as the data source for your frontend project.
+Here is a breakdown of what this means in practice:
+•	GraphQL endpoint: This is an API address (URL) where your future storefront application will send requests to fetch or modify product, category, cart, or user data. Unlike REST APIs which often require multiple endpoints, GraphQL uses a single URL but allows you to specify exactly which fields you need in each request using queries. For example: { products { id name price } }.
+•	Minimalistic storefront: The scope of your task is limited. You do not need to build a complex e-commerce platform with payment gateways, reviews, or advanced filtering. Focus on core features like displaying a list of products, showing individual product details, and potentially adding items to a shopping cart.
+•	Install dependencies (yarn install): Before building, you must run yarn install (or simply yarn) in the terminal within the provided project directory. This command reads the package.json file and downloads all necessary libraries (like Apollo Server, database drivers, etc.) into the node_modules folder.
+•	Build the project (yarn build): Since modern Node.js backends are typically written in TypeScript, this step runs a compiler (usually defined in tsconfig.json). It converts human-readable .ts files into optimized JavaScript code inside a dist/ (distribution) folder, which can then be executed by Node.js.
+•	Start the project (yarn start): This executes the compiled server code from the dist/ folder. Once running, the process will listen on a specific network port (commonly 4000, 3000, or specified in environment variables), making the GraphQL endpoint accessible via HTTP. Often, it also launches tools like GraphQL Playground or GraphiQL at that same address so you can visually explore the schema and test queries.
+•	Do not modify this endpoint: Treat this backend as a black box or an external third-party dependency. Your goal is only to write the frontend part (the minimalistic storefront) that consumes its data. Do not change any schemas, resolvers, business logic, or add new routes in the provided server code. If you find bugs in the mock data, work around them in your UI rather than fixing the source.
+•	No need to provide it along with your assessment: When submitting your completed assignment, include only your own frontend codebase. Recruiters already have access to their internal testing endpoint, so packaging the modified backend would be redundant.
+Typical workflow for completing such an assignment
+1.	Explore the contract. Start the endpoint locally and open the GraphQL Playground. Read through the available types, queries (e.g., products, product), mutations (e.g., addToCart), and arguments (pagination cursors, filters).
+2.	Plan your components. Break down the "minimalistic storefront" into small parts: ProductCard, ProductList, ProductDetail, CartIcon, Navbar.
+3.	Set up the frontend stack. Initialize a React/Vue/Svelte project and configure a GraphQL client library (Apollo Client, urql, or Relay).
+4.	Implement data fetching. Write the exact GraphQL queries needed for each component and connect them to your UI state management.
+5.	Add interactivity. Implement navigation between pages and basic actions like clicking "Add to cart," ensuring they call the correct GraphQL mutations.
+6.	Polish and submit. Ensure the styling is clean, handle loading and error states gracefully, verify there are no console errors, and prepare your repository for submission without including the original backend code.
+
