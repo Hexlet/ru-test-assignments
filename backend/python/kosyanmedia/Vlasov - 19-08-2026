@@ -1,0 +1,338 @@
+Vlasov - 19-08-2026
+готовое решение тестового задания на Python. Оно парсит два XML‑файла, извлекает маршруты (тег Flights), сравнивает их по ключевым параметрам и выводит отличия в читаемом виде.
+
+Что реализовано
+Парсинг XML через xml.etree.ElementTree (стандартная библиотека, ничего дополнительно ставить не нужно).
+Нормализация данных: даты/время, цены, списки рейсов.
+Сравнение маршрутов по уникальным идентификаторам (или по комбинации параметров, если ID нет).
+Вывод: какие маршруты добавились/удалились, какие изменились (рейсы, время, цена, условия), какие остались без изменений.
+Код структурирован, с типизацией, обработкой ошибок и понятными сообщениями.
+Код решения (compare_via_gates.py)
+python
+import xml.etree.ElementTree as ET
+from dataclasses import dataclass, field
+from datetime import datetime
+from typing import List, Optional, Dict, Any, Tuple
+from pathlib import Path
+
+
+@dataclass
+class Flight:
+    carrier: str
+    flight_number: str
+    departure: datetime
+    arrival: datetime
+
+    @classmethod
+    def from_element(cls, elem: ET.Element) -> "Flight":
+        # Предполагаем типичную структуру: Carrier, FlightNumber, Departure, Arrival
+        def get_text(tag: str) -> str:
+            child = elem.find(tag)
+            return child.text.strip() if child is not None and child.text else ""
+
+        carrier = get_text("Carrier")
+        flight_number = get_text("FlightNumber")
+
+        dep_str = get_text("Departure")
+        arr_str = get_text("Arrival")
+
+        # Поддерживаем несколько распространённых форматов времени
+        fmt_list = [
+            "%Y-%m-%dT%H:%M:%S",
+            "%Y-%m-%d %H:%M:%S",
+            "%Y-%m-%dT%H:%M",
+            "%Y-%m-%d %H:%M",
+        ]
+
+        def parse_dt(s: str) -> Optional[datetime]:
+            if not s:
+                return None
+            for fmt in fmt_list:
+                try:
+                    return datetime.strptime(s, fmt)
+                except ValueError:
+                    continue
+            # Если не удалось распарсить — возвращаем None, чтобы потом обработать
+            return None
+
+        departure = parse_dt(dep_str)
+        arrival = parse_dt(arr_str)
+
+        return cls(
+            carrier=carrier,
+            flight_number=flight_number,
+            departure=departure,
+            arrival=arrival,
+        )
+
+
+@dataclass
+class Route:
+    route_id: Optional[str]
+    flights: List[Flight] = field(default_factory=list)
+    start_time: Optional[datetime] = None
+    end_time: Optional[datetime] = None
+    price: Optional[float] = None
+    conditions: Dict[str, Any] = field(default_factory=dict)
+
+    def __post_init__(self):
+        if self.flights:
+            times = [f.departure for f in self.flights if f.departure]
+            if times:
+                self.start_time = min(times)
+            times = [f.arrival for f in self.flights if f.arrival]
+            if times:
+                self.end_time = max(times)
+
+    @classmethod
+    def from_flights_element(cls, elem: ET.Element) -> "Route":
+        route_id = elem.get("ID") or elem.get("id")
+
+        route = cls(route_id=route_id)
+
+        for flight_elem in elem.findall(".//Flight"):
+            route.flights.append(Flight.from_element(flight_elem))
+
+        # Цена: ищем Price / TotalPrice / BasePrice
+        price_tags = ["Price", "TotalPrice", "BasePrice"]
+        for tag in price_tags:
+            price_elem = elem.find(tag)
+            if price_elem is not None and price_elem.text:
+                try:
+                    route.price = float(price_elem.text.strip().replace(",", "."))
+                except ValueError:
+                    pass
+                break
+
+        # Условия: любые дополнительные теги, которые могут влиять на маршрут
+        # Например: Baggage, Refundable, Changeable, Currency, TaxIncluded и т.п.
+        condition_tags = [
+            "Baggage", "Refundable", "Changeable", "Currency",
+            "TaxIncluded", "FareType", "Class", "Provider"
+        ]
+        for tag in condition_tags:
+            elem_child = elem.find(tag)
+            if elem_child is not None and elem_child.text:
+                route.conditions[tag] = elem_child.text.strip()
+
+        return route
+
+
+def parse_routes_from_xml(path: Path) -> List[Route]:
+    tree = ET.parse(path)
+    root = tree.getroot()
+
+    # Ищем все элементы Flights (регистронезависимо по тегу)
+    routes = []
+    for flights_elem in root.iter():
+        if flights_elem.tag.lower() == "flights":
+            routes.append(Route.from_flights_element(flights_elem))
+    return routes
+
+
+def make_route_key(route: Route) -> Tuple[Optional[str], str]:
+    """
+    Создаёт ключ для сравнения маршрутов.
+    Приоритет: route_id. Если его нет — строковое представление списка рейсов.
+    """
+    if route.route_id:
+        return (route.route_id, "")
+
+    # Если ID нет, делаем детерминированный ключ по рейсам
+    flights_key = "|".join(
+        f"{f.carrier}/{f.flight_number}/{f.departure}/{f.arrival}"
+        for f in route.flights
+    )
+    return (None, flights_key)
+
+
+def routes_are_equal(r1: Route, r2: Route, tol_minutes: int = 5) -> bool:
+    """
+    Сравнивает два маршрута.
+    Считаем равными, если:
+      - одинаковые рейсы (по carrier+number)
+      - время начала/конца совпадает с допуском tol_minutes
+      - цена совпадает с допуском (можно настроить)
+      - условия совпадают
+    """
+    # Сравнение списков рейсов
+    if len(r1.flights) != len(r2.flights):
+        return False
+
+    for f1, f2 in zip(r1.flights, r2.flights):
+        if f1.carrier != f2.carrier or f1.flight_number != f2.flight_number:
+            return False
+        # Время с допуском
+        if f1.departure and f2.departure:
+            delta = abs((f1.departure - f2.departure).total_seconds())
+            if delta > tol_minutes * 60:
+                return False
+        if f1.arrival and f2.arrival:
+            delta = abs((f1.arrival - f2.arrival).total_seconds())
+            if delta > tol_minutes * 60:
+                return False
+
+    # Время маршрута
+    if r1.start_time and r2.start_time:
+        delta = abs((r1.start_time - r2.start_time).total_seconds())
+        if delta > tol_minutes * 60:
+            return False
+    elif (r1.start_time is None) != (r2.start_time is None):
+        return False
+
+    if r1.end_time and r2.end_time:
+        delta = abs((r1.end_time - r2.end_time).total_seconds())
+        if delta > tol_minutes * 60:
+            return False
+    elif (r1.end_time is None) != (r2.end_time is None):
+        return False
+
+    # Цена
+    if (r1.price is None) != (r2.price is None):
+        return False
+    if r1.price is not None and r2.price is not None:
+        if abs(r1.price - r2.price) > 0.01:  # допуск 1 копейка
+            return False
+
+    # Условия
+    if r1.conditions != r2.conditions:
+        return False
+
+    return True
+
+
+def compare_routes(routes_a: List[Route], routes_b: List[Route]) -> Dict[str, List[Route]]:
+    """
+    Возвращает:
+      added: маршруты, которых не было в A, но есть в B
+      removed: маршруты, которые были в A, но нет в B
+      changed: маршруты, которые есть в обоих, но изменились
+      unchanged: маршруты без изменений
+    """
+    map_a = {make_route_key(r): r for r in routes_a}
+    map_b = {make_route_key(r): r for r in routes_b}
+
+    added = []
+    removed = []
+    changed = []
+    unchanged = []
+
+    all_keys = set(map_a.keys()) | set(map_b.keys())
+
+    for key in all_keys:
+        in_a = key in map_a
+        in_b = key in map_b
+
+        if in_a and not in_b:
+            removed.append(map_a[key])
+        elif not in_a and in_b:
+            added.append(map_b[key])
+        else:
+            r_a = map_a[key]
+            r_b = map_b[key]
+            if routes_are_equal(r_a, r_b):
+                unchanged.append(r_b)
+            else:
+                changed.append((r_a, r_b))
+
+    return {
+        "added": added,
+        "removed": removed,
+        "changed": changed,
+        "unchanged": unchanged,
+    }
+
+
+def format_route(route: Route, prefix: str = "") -> str:
+    lines = []
+    rid = route.route_id or "(без ID)"
+    lines.append(f"{prefix}Маршрут ID: {rid}")
+
+    lines.append(f"{prefix}  Рейсы:")
+    for i, f in enumerate(route.flights, 1):
+        dep = f.departure.strftime("%Y-%m-%d %H:%M") if f.departure else "?"
+        arr = f.arrival.strftime("%Y-%m-%d %H:%M") if f.arrival else "?"
+        lines.append(
+            f"{prefix}    {i}. {f.carrier} {f.flight_number} "
+            f"({dep} -> {arr})"
+        )
+
+    start = route.start_time.strftime("%Y-%m-%d %H:%M") if route.start_time else "?"
+    end = route.end_time.strftime("%Y-%m-%d %H:%M") if route.end_time else "?"
+    lines.append(f"{prefix}  Время маршрута: {start} — {end}")
+
+    if route.price is not None:
+        lines.append(f"{prefix}  Цена: {route.price}")
+
+    if route.conditions:
+        lines.append(f"{prefix}  Условия: {route.conditions}")
+
+    return "\n".join(lines)
+
+
+def print_comparison(result: Dict[str, List[Any]]) -> None:
+    print("=== ДОБАВЛЕННЫЕ МАРШРУТЫ ===")
+    if not result["added"]:
+        print("Нет новых маршрутов.")
+    else:
+        for r in result["added"]:
+            print(format_route(r))
+            print("-" * 40)
+
+    print("\n=== УДАЛЁННЫЕ МАРШРУТЫ ===")
+    if not result["removed"]:
+        print("Нет удалённых маршрутов.")
+    else:
+        for r in result["removed"]:
+            print(format_route(r))
+            print("-" * 40)
+
+    print("\n=== ИЗМЕНЁННЫЕ МАРШРУТЫ ===")
+    if not result["changed"]:
+        print("Нет изменённых маршрутов.")
+    else:
+        for old, new in result["changed"]:
+            print("Было:")
+            print(format_route(old, prefix="  "))
+            print("Стало:")
+            print(format_route(new, prefix="  "))
+            print("-" * 40)
+
+    print("\n=== БЕЗ ИЗМЕНЕНИЙ ===")
+    if not result["unchanged"]:
+        print("Нет маршрутов без изменений.")
+    else:
+        for r in result["unchanged"]:
+            print(format_route(r))
+            print("-" * 40)
+
+
+def main():
+    # Пути к файлам — можно поменять или передавать через аргументы
+    file_a = Path("RS_Via-3.xml")
+    file_b = Path("RS_ViaOW.xml")
+
+    if not file_a.exists():
+        raise FileNotFoundError(f"Файл не найден: {file_a}")
+    if not file_b.exists():
+        raise FileNotFoundError(f"Файл не найден: {file_b}")
+
+    routes_a = parse_routes_from_xml(file_a)
+    routes_b = parse_routes_from_xml(file_b)
+
+    result = compare_routes(routes_a, routes_b)
+    print_comparison(result)
+
+
+if __name__ == "__main__":
+    main()
+Как запустить
+Положите скрипт compare_via_gates.py в одну папку с файлами RS_Via-3.xml и RS_ViaOW.xml.
+Запустите:
+bash
+python compare_via_gates.py
+В консоль будет выведено:
+добавленные маршруты;
+удалённые маршруты;
+изменённые маршруты (с «было/стало»);
+маршруты без изменений.
