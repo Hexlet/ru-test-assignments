@@ -1,0 +1,324 @@
+Решение - Vlasov - 19-08-2026
+План реализации и пример кода для тестового iOS приложения для работы с GitHub Gists. Используем Swift, UIKit (чтобы было понятно и быстро), URLSession (без лишних зависимостей), MVVM подход для чистоты архитектуры.
+________________________________________
+Архитектура и стек
+•	Язык: Swift 5+
+•	UI: UIKit
+•	Сеть: URLSession
+•	Архитектура: MVVM (ViewModel + ViewController)
+•	Хранение состояния: в памяти (для тестового задания достаточно)
+•	API: GitHub Gists API (GET /users/{username}/gists, GET /gists/{id})
+________________________________________
+Модель данных
+swift
+ПереноситьСвернутьКопировать
+struct Gist: Codable {
+    let id: String
+    let description: String?
+    let files: [String: GistFile]
+    let createdAt: Date
+
+    struct GistFile: Codable {
+        let filename: String
+        let content: String?
+        let type: String?
+    }
+}
+Для парсинга дат GitHub нужен dateDecodingStrategy:
+swift
+ПереноситьСвернутьКопировать
+let decoder = JSONDecoder()
+let formatter = DateFormatter()
+formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+decoder.dateDecodingStrategy = .formatted(formatter)
+________________________________________
+Network layer
+Базовый клиент для запросов к GitHub:
+swift
+ПереноситьСвернутьКопировать
+enum GitHubAPIError: Error {
+    case invalidResponse
+    case decodingError
+    case networkError(Error)
+    case notFound
+}
+
+class GitHubClient {
+    private let baseURL = URL(string: "https://api.github.com")!
+
+    func fetchGists(for username: String, page: Int, perPage: Int = 20) async throws -> [Gist] {
+        var components = URLComponents(url: baseURL.appendingPathComponent("users/\(username)/gists"), resolvingAgainstBaseURL: false)!
+        components.queryItems = [
+            URLQueryItem(name: "page", value: "\(page)"),
+            URLQueryItem(name: "per_page", value: "\(perPage)")
+        ]
+
+        guard let url = components.url else { throw GitHubAPIError.invalidResponse }
+
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse else { throw GitHubAPIError.invalidResponse }
+
+        switch httpResponse.statusCode {
+        case 200: break
+        case 404: throw GitHubAPIError.notFound
+        default: throw GitHubAPIError.networkError(NSError(domain: "GitHub", code: httpResponse.statusCode))
+        }
+
+        do {
+            return try JSONDecoder().decode([Gist].self, from: data)
+        } catch {
+            throw GitHubAPIError.decodingError
+        }
+    }
+
+    func fetchGist(by id: String) async throws -> Gist {
+        let url = baseURL.appendingPathComponent("gists/\(id)")
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw GitHubAPIError.notFound
+        }
+        return try JSONDecoder().decode(Gist.self, from: data)
+    }
+}
+________________________________________
+ViewModel (основной экран)
+swift
+ПереноситьСвернутьКопировать
+@MainActor
+class GistsViewModel: ObservableObject {
+    @Published var gists: [Gist] = []
+    @Published var isLoading = false
+    @Published var errorMessage: String? = nil
+    @Published var hasMore = true
+    @Published var currentPage = 1
+
+    private let client = GitHubClient()
+    private var username: String!
+
+    func start(for username: String) {
+        self.username = username
+        Task {
+            await loadMore()
+        }
+    }
+
+    func loadMore() async {
+        guard !isLoading, hasMore else { return }
+        isLoading = true
+        errorMessage = nil
+
+        do {
+            let newGists = try await client.fetchGists(for: username, page: currentPage)
+            if newGists.isEmpty {
+                hasMore = false
+            } else {
+                gists.append(contentsOf: newGists)
+                currentPage += 1
+                hasMore = newGists.count == 20 // эвристика: если ровно 20, вероятно, есть ещё
+            }
+        } catch {
+            errorMessage = error.localizedDescription
+            hasMore = false // чтобы не спамить запросами при ошибке
+        }
+        isLoading = false
+    }
+
+    func refresh() async {
+        currentPage = 1
+        hasMore = true
+        gists.removeAll()
+        await loadMore()
+    }
+}
+________________________________________
+ViewController основного экрана (список)
+Реализуем:
+•	UITableViewController или UIViewController с UITableView
+•	Pull-to-refresh (UIRefreshControl)
+•	Подгрузку при скролле (внизу таблицы)
+•	Индикатор загрузки и обработку ошибок
+Пример с UITableViewController:
+swift
+ПереноситьСвернутьКопировать
+class GistsListViewController: UITableViewController {
+    @ObservedObject var viewModel: GistsViewModel
+
+    override init(style: UITableView.Style) {
+        super.init(style: style)
+        setup()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+
+    @objc private func handleRefresh() {
+        Task {
+            await viewModel.refresh()
+            tableView.refreshControl?.endRefreshing()
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.gists.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let gist = viewModel.gists[indexPath.row]
+        cell.textLabel?.text = gist.description ?? "(no description)"
+        cell.detailTextLabel?.text = "ID: \(gist.id)"
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.gists.count - 1 && viewModel.hasMore && !viewModel.isLoading {
+            Task {
+                await viewModel.loadMore()
+            }
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let gist = viewModel.gists[indexPath.row]
+        let detailVC = GistDetailViewController(gistID: gist.id)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if viewModel.gists.isEmpty && !viewModel.isLoading {
+            Task {
+                // если пусто и не грузится — можно вызвать loadMore, но лучше это делать явно
+            }
+        }
+    }
+}
+________________________________________
+Экран деталей Gist
+swift
+ПереноситьСвернутьКопировать
+class GistDetailViewController: UIViewController {
+    let gistID: String
+    @State private var gist: Gist?
+    @State private var isLoading = false
+    @State private var errorMessage: String? = nil
+
+    private let client = GitHubClient()
+
+    init(gistID: String) {
+        self.gistID = gistID
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Gist Details"
+        loadGist()
+    }
+
+    private func loadGist() {
+        isLoading = true
+        Task {
+            do {
+                self.gist = try await client.fetchGist(by: self.gistID)
+            } catch {
+                self.errorMessage = error.localizedDescription
+            }
+            self.isLoading = false
+        }
+    }
+
+    private func contentText(for file: GitHubClient.GistFile) -> String {
+        return file.content ?? "(no content)"
+    }
+
+    // Пример простого UI: UILabel для description, UITextView для содержимого файла
+    // В реальном приложении лучше сделать UITableView со списком файлов
+}
+UI можно сделать через Storyboard/XIB или программно. Для теста достаточно простого:
+•	Если isLoading → UIActivityIndicatorView
+•	Если errorMessage → показать UIAlertController или метку с ошибкой
+•	Если gist есть → отобразить описание и содержимое первого файла (или список файлов)
+________________________________________
+Стартовый экран (логин по имени)
+Минимальный вариант: UITextField + UIButton → переход на GistsListViewController с передачей username.
+swift
+ПереноситьСвернутьКопировать
+class StartViewController: UIViewController {
+    private let usernameField = UITextField()
+    private let goButton = UIButton(type: .system)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        setupViews()
+    }
+
+    private func setupViews() {
+        usernameField.placeholder = "Введите имя пользователя GitHub"
+        usernameField.borderStyle = .roundedRect
+
+        goButton.setTitle("Показать Gists", for: .normal)
+        goButton.addTarget(self, action: #selector(onTapGo), for: .touchUpInside)
+
+        [usernameField, goButton].forEach { v in
+            v.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(v)
+        }
+
+        NSLayoutConstraint.activate([
+            usernameField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            usernameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            usernameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+
+            goButton.topAnchor.constraint(equalTo: usernameField.bottomAnchor, constant: 20),
+            goButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            goButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+    }
+
+    @objc private func onTapGo() {
+        guard let username = usernameField.text, !username.trimmingCharacters(in: .whitespaces).isEmpty else {
+            showAlert(title: "Ошибка", message: "Введите имя пользователя")
+            return
+        }
+
+        let viewModel = GistsViewModel()
+        let listVC = GistsListViewController(style: .plain)
+        listVC.viewModel = viewModel
+
+        viewModel.start(for: username)
+
+        let nav = UINavigationController(rootViewController: listVC)
+        present(nav, animated: true)
+    }
+
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+}
+________________________________________
+Обработка ошибок и отображение загрузки
+Что уже реализовано:
+•	isLoading в ViewModel и ViewController → показываем UIActivityIndicatorView / refreshControl
+•	Ошибки в errorMessage → показываем пользователю (alert или label)
+•	HTTP коды (404, прочие) → мапим в понятные сообщения
+Дополнительно можно:
+•	Добавить retry при временных сетевых ошибках
+
+
