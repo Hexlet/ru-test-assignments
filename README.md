@@ -41,6 +41,7 @@
 
 * [BOLT](https://bolt.eu/)
     * [Тестовое задание для аналитика данных](./analytics/bolt-analitik-dannykh/README.md)
+    * [Тестовое задание для fraud-аналитика *(ENG)*](./analytics/bolt-fraud-analyst/README.md)
 
 * [Chibbis](https://chibbis.ru/)
     * [Тестовое задание для продуктового аналитика](./analytics/chibbis-produktovyj-analitik/README.md)
@@ -82,7 +83,7 @@
     * [Тестовое задание для аналитика](./analytics/ivi/README.md)
 
 * [Kaspi.kz](https://kaspi.kz/)
-    * [Тестовое задание для продуктового аналитика *(SQL)*](./analytics/kaspi.kz продуктовый аналитик/weekend-offer-dlya-produktovykh-analitikov-testovo-b99d51311f1b4a77a3e19f797d680ebb.html)
+    * [Тестовое задание для продуктового аналитика *(SQL)*](./analytics/kaspi-kz-produktovyj-analitik/weekend-offer-produktovyj-analitik.pdf)
 
 * [Lesta](https://lesta.ru/ru)
     * [Тестовое задание для аналитика данных *(SQL)*](./analytics/lesta-analitik-dannykh/README.md)
@@ -105,6 +106,12 @@
 * [Realweb Camp](https://realweb-camp.ru/)
     * [Тестовое задание для аналитика](./analytics/realweb-camp-analytics/README.md)
 
+* [Rekor](https://www.rekor.ai/)
+    * [Тестовое задание для инженера данных *(SQL)*](./analytics/rekor-data-engineer/)
+
+* [Samsung](https://www.samsung.com/ru/)
+    * [Тестовое задание для data manager](./analytics/samsung-data-manager/)
+
 * [Skypro](https://sky.pro/)
     * [Тестовое задание для аналитика](./analytics/skypro-data-analyst/README.md)
 
@@ -126,7 +133,7 @@
     * [Тестовое задание для аналитика данных](./analytics/wolt-analitik-dannykh/README.md)
 
 * [X5](https://www.x5.ru/en/)
-    * [Тестовое задание, стажировка для аналитика данных *(Python)*](./analytics/x5-analitik-dannykh-stazhirovka)/README.md)
+    * [Тестовое задание, стажировка для аналитика данных *(Python)*](./analytics/x5-analitik-dannykh-stazhirovka/README.md)
 
 * [Альфа-Банк](https://alfabank.ru/)
     * [Тестовое задание для продуктового аналитика *(SQL)*](./analytics/alfabank-produktovyj-analitik/README.md)
@@ -170,6 +177,9 @@
     * [Тестовое задание для аналитика](./analytics/samokat-analitik-dannykh/README.md)
     * [Тестовое задание для аналитика](./analytics/samokat-analitik/)
 
+* [Сбербанк](https://www.sberbank.ru/ru/person)
+    * [Тестовое задание для инженера данных](./analytics/sberbank-inzhener-dannykh/)
+
 * [Северсталь](https://severstal.com/rus/)
     * [Тестовое задание для аналитика](./analytics/severstal/)
 
@@ -190,6 +200,8 @@
 
 * [Учи.ру](https://uchi.ru/)
     * [Тестовое задание для Продуктового Аналитика](./analytics/uchi-ru-produktovyj-analitk/README.md)
+
+* [Задания без указания компании](./analytics/neizvestnye/README.md)
 
 * [Сборник тестовых заданий для аналитиков](https://pavelbukhtik.notion.site/Product-Analyst-Data-Analyst-a5f7bea5a0064960bbdb7a3ee1e46e97)
 
@@ -346,7 +358,7 @@
  <summary>Data Scientist</summary>
 
 * [BST Digital](https://bst.digital/)
-    * [Тестовое задание для Data Scientist](https://drive.google.com/drive/folders/1G0VwPL-6T0ThPdLstnZK07dy1q2Mgv2T)
+    * [Тестовое задание для Data Scientist](./data-scientist/bst-digital/README.md)
 
 </details>
 
@@ -826,7 +838,7 @@
  <summary>Other</summary>
 
 * [Dodo Brands](https://dodobrands.io/)
-    * [Тестовое задание для Web-mobile Analyst](https://drive.google.com/drive/folders/18yjaMxWI9qpPa-9kTojYuNVcCj6iG8Pd)
+    * [Тестовое задание для Web-mobile Analyst](./analytics/dodo-brands-web-mobile-analyst/README.md)
 
 * [Тестовое задание на вакансию Perl-программист *(Perl)*](https://www.reg.ru/company/jobs/testtask-prog)
 
