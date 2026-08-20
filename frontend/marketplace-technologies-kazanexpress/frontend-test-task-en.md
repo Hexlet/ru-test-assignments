@@ -1,5 +1,7 @@
 # Front-End Test Assignment
 
+> Локальная копия. Источник: <https://github.com/KazanExpress/frontend-test-task>
+
 Here lies a description of a test assignment for the position of a Front-End-developer @ KazanExpress.\
 If you've discovered it accidentaly - give it a go! We might just hire you after that. 😉
 

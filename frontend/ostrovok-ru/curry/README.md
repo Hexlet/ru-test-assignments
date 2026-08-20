@@ -1,3 +1,5 @@
+> Локальная копия. Источник: <https://github.com/ostrovok-team/code-challenge/tree/master/js/curry>
+
 Реализовать функцию curry таким образом, чтобы выполнялось:
 
 ```js

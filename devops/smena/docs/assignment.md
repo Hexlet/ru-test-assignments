@@ -1,5 +1,7 @@
 # Тестовое задание DevOps разработчик
 
+> Локальная копия. Источник: <https://github.com/smenateam/assignments/tree/master/devops>
+
 Имеется приложение hello-world написанное на Python + FastAPI, которое отдает строку `"Hello World <окружение>!"`.
 
 ## Задачи

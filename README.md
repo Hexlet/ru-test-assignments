@@ -119,7 +119,7 @@
     * [Тестовое задание для аналитика](./analytics/teikametrics-analyst/README.md)
 
 * [Tinkoff](https://www.tinkoff.ru/)
-    * [Тестовое задание аналитика Tinkoff *(Python)*](https://colab.research.google.com/drive/1sbq3bW7FSsqzPBsJu6lmX1cTaC_Oan6S?usp=sharing)
+    * [Тестовое задание аналитика Tinkoff *(Python)*](./analytics/tinkoff-analitik-python/tinkoff-analitik.ipynb)
     * [Тестовое задание аналитика Tinkoff *(SQL)*](./analytics/tinkoff-analitik-sql/tinkoff-analitik-sql.jpeg)
     * [Тестовое задание аналитика Tinkoff](./analytics/tinkoff-product-analyst/README.md)
 
@@ -196,7 +196,7 @@
     * [Тестовое задание для Продуктового Аналитика](./analytics/sravniru-product-analyst/README.md)
 
 * [Табакон](https://tabakon.su/)
-    * [Тестовое для аналитика данных](https://drive.google.com/drive/folders/1FDHErQLGvPoJKECmRqijpwuVifnTaw8x)
+    * [Тестовое для аналитика данных](./analytics/tabakon-analitik-dannykh/testovoe.docx) *(база TestDB.bak — 1,7 ГБ, осталась [на Google Drive](https://drive.google.com/drive/folders/1FDHErQLGvPoJKECmRqijpwuVifnTaw8x))*
 
 * [Учи.ру](https://uchi.ru/)
     * [Тестовое задание для Продуктового Аналитика](./analytics/uchi-ru-produktovyj-analitk/README.md)
@@ -253,8 +253,8 @@
     * [Junior QA (SQL+Python)](./qa/hrlink/README.md)
 
 * [Matic Insurance Services](https://matic.com/)
-    * [Customer Import Platform MQA - MQA test assignment *(ENG)* *(any)*](https://github.com/matic-insurance/assignment-test-import)
-    * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
+    * [Customer Import Platform MQA - MQA test assignment *(ENG)* *(any)*](./ruby/matic-insurance/assignment-test-import.md)
+    * [Customer Import Platform - AQA test assignment *(ENG)* *(Ruby)*](./ruby/matic-insurance/assignment-test-import.md)
 
 * [Purrweb](https://www.purrweb.com/ru/)
     * [Тестовое задание на позицию QA](./qa/test-task-purrweb.md)
@@ -335,20 +335,25 @@
 <details>
  <summary>C#</summary>
 
-* [Тестовое задание *(C#)*](https://drive.google.com/file/d/1GNwTfoJCQD0Ec3JXkWmzaYuIY6DnWnEa/view)
+* [Nauka]
+    * [Тестовое задание *(C#)*](./csharp/nauka/testovoe-zadanie-csharp-dev.pdf)
 
-* [Тестовое задание на стажировку *(C#, SQL)*](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
+* [Mindbox](https://mindbox.ru/)
+    * [Тестовое задание на стажировку *(C#, SQL)*](./csharp/mindbox/testovoe-zadanie-na-stazhirovku-mindbox.docx)
 
 * [Тестовое задание C# *(C#)*](./csharp/busyrev/cb89f309d2c32873449366023b8e0057.md)
 
 * [AFCStudio](https://afcstudio.ru/)
     * [Junior C# Developer *(C#, .NET, Angular, React, Razor)*](./csharp/afcstudio/0621204ce249e9faf1aaa1e1b7d3f7ef.md)
 
-* [Стажер-программист *(C#)*](https://drive.google.com/drive/folders/1pnBXXuAABDCMAKrcNjrDvRnE1jPd_LBL?usp=sharing)
+* [DevSystems](https://devsystems.ru/)
+    * [Стажер-программист *(C#)*](./csharp/devsystems/zadanie-s-kosmicheskogo-korablya.pdf)
 
-* [Тестовые задания на c# стажировку *(C#)*](https://drive.google.com/drive/folders/185cbL5CzhcYoW2D92D5wHmdd04cDqTYS?usp=sharing)
+* [СКБ Контур](https://kontur.ru/)
+    * [Тестовые задания на c# стажировку *(C#)*](./csharp/skb-kontur/)
 
-* [Тестовое на стажировку C#, зима 2019-2020 *(C#, ASP.NET)*](https://drive.google.com/drive/folders/1UCx7__WtgzkWF4iFbkFPfc3NNQAqSKqn?usp=sharing)
+* [ИнфоТеКС](https://infotecs.ru/)
+    * [Тестовое на стажировку C#, зима 2019-2020 *(C#, ASP.NET)*](./csharp/infoteks/csharp-1-.rtf)
 
 </details>
 
@@ -415,7 +420,7 @@
     * [Тестовое задание для Javascript разработчика *(JS, jQuery)*](./frontend/cs-cart/frontend-developer.md) *(отсутствуют макеты и JSON-файл из условия)*
 
 * [~~DAO TECH~~](https://daotech.ru/) *сайт недоступен*
-    * [Тестовое задание на вакансию "Frontend Developer" *(JS, React, Docker)*](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
+    * [Тестовое задание на вакансию "Frontend Developer" *(JS, React, Docker)*](./frontend/dao-tech/testovoe-dao-tech.pdf)
 
 * [~~DevJS~~](https://devjs.ru/) *сайт недоступен*
     * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](./frontend/devjs/react-test.md)*(отсутствует дизайн-макет по указанной ссылке)*
@@ -433,7 +438,7 @@
     * [Тестовое задание на позицию Менеджер проекта *(Figma, HTML, CSS, JS)*](./frontend/future/frontend-html-3.md)
 
 * [Hammer Systems](https://hammer.systems/)
-    * [Тестовое задание для Frontend разработчика](https://disk.yandex.ru/d/R74ptnVnK5xpPA)
+    * [Тестовое задание для Frontend разработчика](./frontend/hammer-systems/testovoe-zadanie-frontend.docx)
 
 * [KODE](https://kode.ru/)
     * [Frontend разработчик *(Create React App, React Router, Axios)*](./frontend/kode/trainee-test-frontend.md)
@@ -452,13 +457,13 @@
     * [Тестовое на Frontend](./frontend/modulbank.md)
 
 * [NewGen Vision](https://www.unipage.net/)
-    * [Junior Frontend Developer *(JS, Vue.js)*](https://newgen-it.github.io/tests/front)
+    * [Junior Frontend Developer *(JS, Vue.js)*](./frontend/newgen-vision/junior-frontend.md)
 
 * [Ostrovok.ru](https://ostrovok.ru)
     * [Frontend Developer *(JS, HTML, CSS)*](./frontend/ostrovok-ru/js.md)
 
 * [Oxem Studio](https://oxem.ru)
-    * [Фронтенд-разработчик *(React/Vue, вёрстка)*](https://doc.clickup.com/2659433/p/h/2h539-67321/1cdca9cd67897c8)
+    * [Фронтенд-разработчик *(React/Vue, вёрстка)*](./frontend/oxem-studio/frontend-razrabotchik.md)
 
 * [pixlpark](https://pixlpark.ru/)
     * [Frontend-разработка *(React, MobX)*](./frontend/pixlpark/c03c97ae553a0038962fb945644392cf.md)
@@ -467,16 +472,14 @@
     * [Frontend-разработчик *(JS, Vue.js, Node.js)*](./frontend/redsoft/1vamqwl3maxdfomcebtv.md)
 
 * [Ruport](http://ruport.ru/)
-    * [Middle Frontend Developer *(ECMAScript, SCSS)*](https://github.com/ruport-digital/middle-frontend-assignment)
-    * [Junior Frontend Developer *(верстка)*](https://github.com/ruport-digital/junior-frontend-assignment)
+    * [Middle Frontend Developer *(ECMAScript, SCSS)*](./frontend/ruport/middle-frontend-assignment.md)
+    * [Junior Frontend Developer *(верстка)*](./frontend/ruport/junior-frontend-assignment.md)
 
 * [Sendsay](https://sendsay.ru/)
-    * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](https://www.notion.so/sendsay/Junior-Frontend-QA-44af3daa06524689aa6ac0fc76f66579)
-    * [Frontend-разработчик 1 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-4263b61293224088b7c3f929b761f9e3)
-    * [Frontend-разработчик 2 [АРХИВ] *(JS, React, Redux)*](https://www.notion.so/sendsay/Frontend-API-75cc5ecc28cd42f4a6f963e2dad88680)
-    * [Младший frontend-разработчик *(JS, React)*](https://sendsay.notion.site/Frontend-e378a45c3a934dafb6e44f79da2a0040)
-
-* [Frontend test case *(React, TypeScript)*](https://drive.google.com/file/d/1GPYkayQVevwsPcipL76DsKBm3so3DihR/view?usp=share_link)
+    * [Junior Frontend + QA [АРХИВ] *(JS, Cypress)*](./frontend/sendsay/junior-frontend-qa-arkhiv.md)
+    * [Frontend-разработчик 1 [АРХИВ] *(JS, React, Redux)*](./frontend/sendsay/frontend-razrabotchik-1-arkhiv.md)
+    * [Frontend-разработчик 2 [АРХИВ] *(JS, React, Redux)*](./frontend/sendsay/frontend-razrabotchik-2-arkhiv.md)
+    * [Младший frontend-разработчик *(JS, React)*](./frontend/sendsay/junior-frontend.md)
 
 * [Test Task for Intern / Junior Front-End Developer Position *(React)*](./frontend/krambertech/ecb3890824fd7ada0f4ec1ff55125758.md)
 
@@ -497,13 +500,13 @@
     * [Angular Developer *(TypeScript, Angular, NgRX, NGXS)*](./frontend/waliot/frontend-2.md)
 
 * [Yoldi](https://yoldi.agency/development)
-    * [Тестовое задание для вакансии фронтенд разработчик в Yoldi](https://yoldi-agency.notion.site/Yoldi-7552752e30964431ab0ca03d54908148)
+    * [Тестовое задание для вакансии фронтенд разработчик в Yoldi](./frontend/yoldi/frontend-razrabotchik.md)
 
 * [Валантис](https://juvelirnyj-lombard.ru/)
     * [Frontend-разработчик *(React)*](./frontend/valatris-api.md)
 
 * [~~Домотехника~~](https://domotekhnika.ru/) *сайт недоступен*
-    * [Тестовое задание Frontend *(Vue.js)*](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
+    * [Тестовое задание Frontend *(Vue.js)*](./frontend/domotekhnika/frontend-vue.md)
 
 * [Инфоматика](https://infomatika.ru/)
     * [Верстка *(HTML, CSS)*](./frontend/infomatika/infomatika-test.md)
@@ -512,7 +515,7 @@
     * [Frontend-разработчик, Junior+ *(JS, React/Next.js/TypeScript)*](./frontend/kvartirka/1bsc3hgaye69fjfkknfh.md)
 
 * [Маквес Групп](https://www.makves.ru/)
-    * [Стажёр-разработчик Frontend *(JS, React)*](https://drive.google.com/file/d/1ZRKa2us1D49l8natOIpO5TYTirKdNssz/view?usp=sharing)
+    * [Стажёр-разработчик Frontend *(JS, React)*](./frontend/makves-grupp/testovoe-makves-grupp.pdf)
 
 * [НПО Фарватер](https://tsep.pro/)
     * [Junior+ Frontend Developer *(Vue, React, Canvas)*](./frontend/npo-farvater/1rermhwri1qwji2pxhc9.md)
@@ -526,9 +529,7 @@
 
 * [Matic Test assignment - Front-end test assignment *(ENG)* *(any)*](./frontend/matic-insurance/assignment-fetch-n-cache.md)
 
-* [Тестовое задание.React *(React/Redux)*](https://drive.google.com/file/d/1LUlaX0-8MuZXOMbqsIt8tW3xPrBPWSHU/view?usp=sharing)
-
-* [Frontend test case *(React, TypeScript)*](https://drive.google.com/file/d/1GPYkayQVevwsPcipL76DsKBm3so3DihR/view?usp=share_link)
+* [Frontend test case *(React, TypeScript)*](./frontend/neizvestnye/test-timer.jpg)
 
 * ЮТОР
     * [Стажер фронтенд разработчик, 1 этап отбора](./frontend/testovoe-zadanie-frontend-razrabotchik-js-react-redux-reac/1bk6losnteti0v5k5idk.md)
@@ -539,15 +540,13 @@
 
 * [Задание по вёрстке — ШРИ, Москва, весна 2018](./frontend/yandex-shri-2018/entrance-task-2.md)
 
-* [Тестовое задание для вакансии web-технолог *(CSS)*](https://www.reg.ru/company/jobs/testtask-webtech)
-
 * [Тестовое задание для TypeScript/Vue.js разработчика *(TS, VueJS, HTML/CSS)*](./frontend/ecwid/typescript.md)
 
 * [Тестовые задания по React *(React, React Router, Redux Saga, Mobx)*](./frontend/gpb-cos/test-work-react.md)
 
 * [React Engineer *(JS, HTML, PHP)*](./frontend/google-docs/1ul4fjrtzhamyoavu-vn.md)
 
-* [Тестовое задание для верстальщика](https://hexlet-ru.notion.site/38fd01d380cb43efa94702b5188cfde4)
+* [Тестовое задание для верстальщика](./frontend/hexlet/verstalshchik.md)
 
 * [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](./frontend/kosyanmedia/deprecated-aviasales.md)
 
@@ -629,7 +628,7 @@
     * [StudentDatabase *(Java)*](./java/haulmont/studentdatabase.md)
 
 * [Infomaximum](https://infomaximum.com)
-    * [Java разработчик](https://drive.google.com/file/d/17g9-4HTkBtJln-3I-iavMqWkX9bBYcg2/view?usp=sharing)
+    * [Java разработчик](https://drive.google.com/file/d/17g9-4HTkBtJln-3I-iavMqWkX9bBYcg2/view?usp=sharing) *(архив 32 МБ, не переносим в репозиторий)*
 
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
     * [Тестовое задание для кандидатов в бэкенд разработку *(Java, Spring)*](./java/marketplace-technologies-kazanexpress/backend-spring-test-task.md)
@@ -643,7 +642,7 @@
     * [Backend Developer *(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)*](./java/waliot/backend-1.md)
 
 * [СКБ Контур](https://kontur.ru/)
-    * [Тестовые задания на java *(Java)*](https://drive.google.com/drive/folders/1zhJUFNYc8KJkLNOmPueoQkaiZCv5kodM?usp=sharing)
+    * [Тестовые задания на java *(Java)*](./java/skb-kontur/)
 
 * [ЭВРИКА](https://hr.eureca.ru)
     * [Fullstack разработчик *(JS + Java)*](./java/evrika/1foduftpcuhyp2hn7ly3.md)
@@ -679,7 +678,7 @@
 
     * [Тестовое задание по python *(Python)*](./backend/python/avitotech/readme1.md)
 
-* [GitHub repository browsing tool *(Python)*](https://github.com/wemake-services/meta/issues/7)
+* [GitHub repository browsing tool *(Python)*](./backend/python/wemake-services/github-repository-browsing-tool.md)
 
 * [Bewise](https://bewise.ai/)
     * [Тестовое задание на позицию Python Junior](./backend/python/bewise/test-python.md)
@@ -727,7 +726,7 @@
  <summary>PHP</summary>
 
 * [CLC Tech](https://clc-logistic.ru/)
-    * [Junior PHP developer *(yii2)*](https://disk.yandex.ru/d/hN8ycrSdTNCydw)
+    * [Junior PHP developer *(yii2)*](./php/clc-tech/clc-tech-test-task.txt)
 
 * [CS-Cart](https://cs-cart.com/)
     * [Тестовое задание для PHP разработчиков *(PHP)*](./php/cs-cart/backend-developer.md)
@@ -739,19 +738,18 @@
     * [PHP-разработчик *(PHP, MySQL)*](./php/future/php-comments.md)
 
 * [Greensight](https://greensight.ru/)
-    * [Тестовое задание для направления Backend разработка *(PHP)*](https://www.notion.so/Backend-f863a6666e9f40f99f41254a1fffe450)
+    * [Тестовое задание для направления Backend разработка *(PHP)*](./php/greensight/backend-razrabotka.md)
 
 * [Hommler OU](https://hommler.de/)
     * [Middle developer / PHP разработчик](./php/hommler-ou/193305072023.md)
 
 * [is.Digital](https://isdigi.ru/)
-    * [Тестовое задание для веб разработчика *(PHP, MySQL)*](https://isdigi.ru/is/job/web-programmer-2/test-web-dev-junior/)
+    * [Тестовое задание для веб разработчика *(PHP, MySQL)*](./php/is-digital/test-web-dev-junior.md)
 
 * [Oxem Studio](https://oxem.ru)
-    * [Бэкенд-разработчик *(PHP)*](https://doc.clickup.com/p/h/2h539-778/840ce49e651e59a)
+    * [Бэкенд-разработчик *(PHP)*](./php/oxem-studio/backend-razrabotchik.md)
 
 * [REG.RU](https://www.reg.ru/)
-    * [Тестовое задание для вакансии «Программист PHP» *(PHP)*](https://www.reg.ru/company/jobs/testtask-prog-php)
 
     * [Тестовое задание на позицию backend-разработчик *(PHP)*](./php/reg-ru/php-interview.md)
 
@@ -759,16 +757,16 @@
     * [PHP разработчик Junior +](./backend/socialmediaholding/README.md)
 
 * [Глобал Консалтинг](https://bth.su/)
-    * [Тестовое задание для Junior PHP-разработчик *(Laravel)*](https://docs.google.com/document/d/1fl4eCKdpSXUNyu899NCKaDy_fdHcVPDE-GoO9siZPX4/edit)
+    * [Тестовое задание для Junior PHP-разработчик *(Laravel)*](./php/global-konsalting/testovoe-junior-php-laravel.md)
 
 * [Монолит Северо-Запад](https://spb.hh.ru/employer/4170463?hhtmFrom=vacancy)
-    * [Junior Full Stack Web PHP разработчик](https://gleaming-tent-a11.notion.site/PHP-c1648a59bc8c4880a40ec750ee1d8aee)
+    * [Junior Full Stack Web PHP разработчик](./php/monolit-severo-zapad/junior-full-stack-php.md)
 
 * [TMK](https://tmktools.ru/)
     * [Тестовое задание PHP-developer *(PHP, Symfony)*](./php/tmk/1ixexyddjg4v4jxpsuyh.md)
 
 * [Hicaliber](https://www.hicaliber.com.au/)
-    * [PHP Developer Test *(ENG)* *(PHP + Laravel, Vue.js)*](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ)
+    * [PHP Developer Test *(ENG)* *(PHP + Laravel, Vue.js)*](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ) *(папка старого формата, скачать программно не удалось)*
 </details>
 
 <details>
@@ -782,7 +780,7 @@
 
 * [Ruby-разработчик *(Ruby, Rails, JS)*](https://dl.funbox.ru/qt-ruby.pdf)
 
-* [Customer Import Platform - Ruby test assignment *(ENG)* *(Ruby)*](https://github.com/matic-insurance/assignment-test-import)
+* [Customer Import Platform - Ruby test assignment *(ENG)* *(Ruby)*](./ruby/matic-insurance/assignment-test-import.md)
 
 * [Appbooster](https://appbooster.com/)
     * [Ruby Developer *(Ruby)*](./ruby/appbooster/949731e077656ce036fa6114e7b47d2d.md)
@@ -826,37 +824,31 @@
 * [Dodo Brands](https://dodobrands.io/)
     * [Тестовое задание для Web-mobile Analyst](./analytics/dodo-brands-web-mobile-analyst/README.md)
 
-* [Тестовое задание на вакансию Perl-программист *(Perl)*](https://www.reg.ru/company/jobs/testtask-prog)
-
 * [BigData-разработчик *(Hadoop, Cassandra, Docker)*](https://dl.funbox.ru/qt-bigdata.pdf)
 
 * [Тестовое задание для стажёра-автоматизатора в команду разработки Центра экспертизы по Обеспечению качества](./other/avito-tech/qa-into-coe-trainee-task.md)
 
 * [Mobile-разработка *(React Native, TS/JS)*](./other/paraekklisiarh/de6b38cc79be8e14f2c98d88028447c6.md)
 
-* [Тестовое задание для дата-инженера *(SQL)*](https://drive.google.com/drive/folders/1PHzuS3TWdLJBthV35Ra3q1oF9RzEuZ2u)
+* [Тестовое задание для дата-инженера *(SQL)*](./analytics/rekor-data-engineer/)
 
 * [Система решения математических уравнений *(CSS, JS/Ajax, TestUnit/RSpec/Cucumber, Sinatra)*](./other/shiroginne/2cd4ade25d7c81f28798.md)
 
-* [Тестовое задание Веб-программист *(any, предпочтительно Laravel)*](https://drive.google.com/file/d/1ACBukx7UpnLztRnnCKID3K-DxX1UciMw/view)
-
-* [Тестовое задание на должность «Специалист службы технической поддержки хостинга»](https://www.reg.ru/company/jobs/testtask-hostingsupport)
+* [Тестовое задание Веб-программист *(any, предпочтительно Laravel)*](./other/neizvestnye/testovoe-zadanie-2.docx)
 
 * [Erlang-разработчик *(Erlang)*](https://dl.funbox.ru/qt-erlang.pdf)
 
-* [Тестовое задание для вакансии «Инженер по автоматизации тестирования» *(any)*](https://www.reg.ru/company/jobs/testtask-qa-automator)
-
 * [Тестовое задание для Workle *(Vue.js)*](./other/mikhail-shamshurin/workle-test-task.md)
 
-* [Тестовое задание для Fraud Analyst](https://drive.google.com/drive/folders/1JTMqKy8Kgmkh08vAW3wx8NcPfdyqXWuV)
+* [Тестовое задание для Fraud Analyst](./analytics/bolt-fraud-analyst/README.md)
 
 * [Задание "найди ошибки" — ШРИ, Москва, весна 2018 *(Node.js)*](./other/yandex-shri-2018/entrance-task-1.md)
 
-* [Тестовое задание для дата-менеджера](https://drive.google.com/drive/folders/1FS0GtB_DxK4ZgrI8s6zMSPCYiDhtETNY)
+* [Тестовое задание для дата-менеджера](./analytics/samsung-data-manager/)
 
 * [Node.js Developer *(Node.js)*](./other/fs/nodejs.md)
 
-* [Тестовое на стажировку Тестировщик, осень 2022 *(any)*](https://disk.yandex.kz/i/Aew3EEz3GNuxHA)
+* [Тестовое на стажировку Тестировщик, осень 2022 *(any)*](https://disk.yandex.kz/i/Aew3EEz3GNuxHA) *(Яндекс.Диск отдаёт только превью, файл не скачивается программно)*
 
 * [Тестовое задание для стажёра-автоматизатора](./other/avito-tech/qa-trainee-task.md)
 
@@ -870,7 +862,7 @@
 
 * [Тестовое задание для поступления в FrontCloudCamp](./other/frontcloudcamp/test-assignment.md)
 
-* [[Dev] Тестовое задание *(any)*](https://drive.google.com/file/d/1cbUD3ID1yyHJES9KQH12L_wGhKTn6Jrg/view)
+* [[Dev] Тестовое задание *(any)*](./other/nauka/testovoe-zadanie-tabel.pdf)
 
 * [Задание "реализовать алгоритм" — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018](./other/yandex-shri-2018/entrance-task-3-2.md)
 

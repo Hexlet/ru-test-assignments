@@ -1,3 +1,5 @@
+> Локальная копия. Источник: <https://github.com/ostrovok-team/code-challenge/tree/master/js/click-counter>
+
 Имеeтся следующий index.html:
 
 ```html
