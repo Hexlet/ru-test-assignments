@@ -2,9 +2,9 @@
 
 В папке два XML – это ответы на запросы, сделанные к API партнёра via.com.
 
-[RS_Via-3.xml](/backend/Python/KosyanMedia/RS_Via-3.xml)
+[RS_Via-3.xml](rs-via-3.xml)
 
-[RS_ViaOW.xml](/backend/Python/KosyanMedia/RS_ViaOW.xml)
+[RS_ViaOW.xml](rs-viaow.xml)
 
 Необходимо их распарсить и вывести списком отличия между результатами двух запросов по маршрутам (тег Flights).
 

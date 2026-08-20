@@ -120,7 +120,7 @@
     * [Тестовое задание для аналитика](./analytics/vizor-data-analytics/README.md)
 
 * [WhoIsBlogger](https://whoisblogger.com/)
-    * [Тестовое задание для junior аналитика данных *(SQL)*](./analytics/whoisblogger-wib),%20junior%20data%20analyst/README.md)
+    * [Тестовое задание для junior аналитика данных *(SQL)*](./analytics/whoisblogger-wib-junior-data-analyst/README.md)
 
 * [Wolt](https://wolt.com/en)
     * [Тестовое задание для аналитика данных](./analytics/wolt-analitik-dannykh/README.md)
@@ -619,7 +619,7 @@
     * [Посчитать количество уникальных IP-адресов в простом текстовом файле *(Kotlin/Java)*](./java/ecwid/ip-addr-counter.md)
 
 * [Eltex](https://eltex-co.ru/)
-    * [Многопользовательский тайм-трекер *(Backend Java/Kotlin)*](backend/java_time_tracker.md)
+    * [Многопользовательский тайм-трекер *(Backend Java/Kotlin)*](backend/java-time-tracker.md)
 
 * [FunBox](https://funbox.ru/)
     * [Java-разработчик *(Java)*](https://dl.funbox.ru/qt-java.pdf)
@@ -800,25 +800,25 @@
  <summary>SQL</summary>
 
 * [Airbnb](https://sql-academy.org/ru/trainer)
-    * [SQL *(any SQL DB)*](sql/airbnb/airbnb_sql_tests.md)
+    * [SQL *(any SQL DB)*](sql/airbnb/airbnb-sql-tests.md)
 
 * [Alfabank](https://sql-academy.org/ru/trainer)
-    * [SQL *(any SQL DB)*](sql/alfabank/alfabank_sql_tasks.md)
+    * [SQL *(any SQL DB)*](sql/alfabank/alfabank-sql-tasks.md)
 
 * [Appbooster](https://appbooster.com/)
     * [SQL *(any SQL DB)*](./sql/appbooster/949731e077656ce036fa6114e7b47d2d.md)
 
 * [Domclick](https://sql-academy.org/ru/trainer)
-    * [SQL *(any SQL DB)*](sql/domclick/domclick_sql_tests.md)
+    * [SQL *(any SQL DB)*](sql/domclick/domclick-sql-tests.md)
 
 * [Samokat](https://sql-academy.org/ru/trainer)
-    * [SQL *(any SQL DB)*](sql/samokat/samokat_sql_tests.md)
+    * [SQL *(any SQL DB)*](sql/samokat/samokat-sql-tests.md)
 
 * [Sberbank](https://sql-academy.org/ru/trainer)
-    * [SQL *(any SQL DB)*](sql/sberbank/sberbank_sql_tests.md)
+    * [SQL *(any SQL DB)*](sql/sberbank/sberbank-sql-tests.md)
 
 * [VK](https://sql-academy.org/ru/trainer)
-    * [SQL *(any SQL DB)*](sql/vk/vk_sql_tests.md)
+    * [SQL *(any SQL DB)*](sql/vk/vk-sql-tests.md)
 
 </details>
 

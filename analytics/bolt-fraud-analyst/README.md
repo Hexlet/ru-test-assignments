@@ -16,7 +16,7 @@ When describing the top developments, please explain your process and reasoningâ
 
 ## Sample Data
 
-Below is a dump of first-time credit card orders (worldwide): [ZIP](1st_adyen_rides-success-and-fail.csv.zip)
+Below is a dump of first-time credit card orders (worldwide): [ZIP](1st-adyen-rides-success-and-fail.csv.zip)
 
 The data includes metadata on users who make their first completed order with a credit card as a payment method, as well as metadata on the transaction itself.
 

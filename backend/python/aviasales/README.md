@@ -2,9 +2,9 @@
 
 В папке два XML – это ответы на поисковые запросы, сделанные к одному из наших партнёров.
 
-[RS_Via-3.xml](/backend/Python/Aviasales/RS_Via-3.xml)
+[RS_Via-3.xml](rs-via-3.xml)
 
-[RS_ViaOW.xml](/backend/Python/Aviasales/RS_ViaOW.xml)
+[RS_ViaOW.xml](rs-viaow.xml)
 
 В ответах лежат варианты перелётов (тег `Flights`) со всей необходимой информацией,
 чтобы отобразить билет на Aviasales.
