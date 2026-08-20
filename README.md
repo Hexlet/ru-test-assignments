@@ -1,7 +1,10 @@
 <div align="center">
 
 <a href="https://ru.hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments">
-    <img src="https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png" alt="Hexlet Ltd. logo" width="96">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Hexlet/brand-assets/master/images/png/hexlet_wordmark_white_rus.png">
+        <img src="https://raw.githubusercontent.com/Hexlet/brand-assets/master/images/png/hexlet_wordmark_primary_rus.png" alt="Хекслет" width="240">
+    </picture>
 </a>
 
 # Тестовые задания для прокачки
@@ -12,12 +15,14 @@
 Открытый каталог для практики, портфолио и подготовки к собеседованиям.
 
 [![PR welcome](https://img.shields.io/badge/pull_request-welcome-brightgreen?style=flat-square)](#как-помочь)
-[![Hexlet](https://img.shields.io/badge/сообщество-Hexlet-116dff?style=flat-square)](https://ru.hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments)
+[![Хекслет Сообщество в Telegram](https://img.shields.io/badge/сообщество-Telegram-136EF6?style=flat-square&logo=telegram&logoColor=white)](https://t.me/hexletcommunity)
 
 </div>
 
 Репозиторий создан и поддерживается командой и сообществом образовательного проекта *Хекслет*.
 [Подробнее о проекте](https://ru.hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments).
+Обсудить задание, спросить совета или найти напарника для практики можно в
+[Хекслет Сообществе](https://t.me/hexletcommunity) в Telegram.
 
 ## Как пользоваться
 
