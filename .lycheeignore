@@ -1,0 +1,36 @@
+# Hosts that lie to a link checker — see .github/workflows/links.yml
+
+# Russian sites served with certificates from the national CA: curl and
+# lychee report a TLS error, the site is fine in a browser.
+https://alfabank\.ru
+https://modulbank\.ru
+https://www\.sberbank\.ru
+https://www\.tinkoff\.ru
+https://www\.vtb\.ru
+https://www\.open\.ru
+https://www\.rosneft\.ru
+https://www\.gazprom\.ru
+https://kontur\.ru
+
+# Geo-restricted: reachable from Russia, times out elsewhere.
+https://funbox\.ru
+https://dl\.funbox\.ru
+https://domotekhnika\.ru
+
+# Bot protection: answers 401/403 to anything without a browser.
+https://cian\.ru
+https://www\.cian\.ru
+https://www\.sportmaster\.ru
+https://sovcomins\.ru
+https://realweb-camp\.ru
+https://clc-logistic\.ru
+https://www\.figma\.com
+https://www\.npmjs\.com
+https://medium\.com
+https://codesandbox\.io
+https://developer\.accuweather\.com
+
+# Example and placeholder URLs quoted inside assignment texts.
+http://site
+http://tutu\.ru:8080
+.*\{.*\}.*

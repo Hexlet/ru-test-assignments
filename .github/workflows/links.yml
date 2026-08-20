@@ -1,0 +1,57 @@
+name: links
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    # Monday 06:00 UTC — external links rot slowly, weekly is enough.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  relative:
+    # Cheap and deterministic: catches the class of breakage that a mass
+    # rename causes. Runs on every PR.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - run: python3 scripts/check-relative-links.py
+
+  external:
+    # Slow and flaky by nature, so it does not gate pull requests.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - name: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # --accept: 401/403 mean "bot blocked", not "link dead".
+          # --offline is not used: we want the network check here.
+          args: >-
+            --no-progress
+            --max-concurrency 8
+            --timeout 30
+            --retry-wait-time 5
+            --max-retries 2
+            --accept 200,201,202,203,204,206,301,302,303,307,308,401,403,429
+            --exclude-path scripts
+            './**/*.md'
+          fail: false
+          output: lychee.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report
+          path: lychee.md
+
+# Known blind spot: Google Drive, Google Docs, Notion and ClickUp answer
+# 200 with a JavaScript shell for documents that have been deleted or made
+# private, and reg.ru redirects dead job pages to its company page from the
+# client side. No status-code checker can see any of that — those links have
+# to be opened to be verified, which is one more reason to keep local copies
+# instead of linking out (scripts/download-assignments.py).
