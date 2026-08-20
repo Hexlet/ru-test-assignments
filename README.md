@@ -1,23 +1,54 @@
-# Список тестовых заданий для прокачки
+<div align="center">
 
-[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://ru.hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments)
+<a href="https://ru.hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments">
+    <img src="https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png" alt="Hexlet Ltd. logo" width="96">
+</a>
 
-Данный репозиторий создан и поддерживается командой и сообществом образовательного проекта *Хекслет*. [Подробнее о проекте](https://ru.hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments).
+# Тестовые задания для прокачки
 
-Посмотрите самых активных участников проекта на [hexlet-friends](https://friends.hexlet.io/).
+**Около 400 реальных тестовых заданий почти от 200 IT-компаний** — от стажировок до senior-позиций,
+от аналитики и SQL до Frontend, Go и мобильной разработки.
 
----
+Открытый каталог для практики, портфолио и подготовки к собеседованиям.
 
-Выполненные тестовые задания прикрепляйте как портфолио к своему резюме на [Hexlet CV](https://cv.hexlet.io/).
+[![PR welcome](https://img.shields.io/badge/pull_request-welcome-brightgreen?style=flat-square)](#как-помочь)
+[![Hexlet](https://img.shields.io/badge/сообщество-Hexlet-116dff?style=flat-square)](https://ru.hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments)
+
+</div>
+
+Репозиторий создан и поддерживается командой и сообществом образовательного проекта *Хекслет*.
+[Подробнее о проекте](https://ru.hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=ru-test-assignments).
+
+## Как пользоваться
+
+1. Найдите своё направление в списке [заданий](#задания) и раскройте его — компании внутри отсортированы по алфавиту.
+2. Выполните задание так, как если бы это был реальный отбор: с гитом, тестами и внятным README.
+3. Решений здесь нет намеренно — их отсутствие и делает практику практикой.
+
+## Ищете работу?
+
+> [!TIP]
+> Тестовое задание — только один этап отбора. На [Хекслет.Карьере](https://career.hexlet.io/) помогают довести
+> дело до оффера: разбор резюме, пробные собеседования с менторами и HR, вакансии партнёров и закрытое сообщество.
+> Студентам групповых курсов и обучения с ментором — бесплатно.
+
+## Направления
+
+| Группа | Разделы |
+| --- | --- |
+| Веб и бэкенд | Frontend · Backend · full-stack · PHP · Python · Ruby · Go · Java · C# · Clojure |
+| Мобильная разработка | Android · iOS |
+| Данные и аналитика | Аналитик · Data Scientist · SQL |
+| Инфраструктура и качество | DevOps · Automation QA · Manual QA |
+| Всё остальное | Other |
 
 ## Как помочь?
 
-Мы принимаем Pull Request'ы!
+Мы принимаем Pull Request'ы — новое задание, актуализация ссылки или исправленная опечатка одинаково полезны.
 
-## Правила
-
-* Располагайте компании в алфавитном порядке
-* Добавляйте только **описание задания**, а не своё решение. Решения лишают смысла практику для других кандидатов
+* Располагайте компании внутри раздела **в алфавитном порядке**.
+* Добавляйте только **описание задания**, а не своё решение: решения лишают смысла практику для других кандидатов.
+* Предпочитайте **локальную копию** внешней ссылке — внешние ссылки со временем умирают.
 
 ## Задания
 
