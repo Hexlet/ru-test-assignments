@@ -280,7 +280,7 @@
     * [Backend developer *(any)*](./backend/appbooster/backend.md)
 
 * [Appstorespy](https://appstorespy.com/)
-    * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](./backend/appstorespy/README.md)
+    * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](./backend/python/appstorespy/test-backend.md)
 
 * [avito.tech](https://github.com/avito-tech)
     * [Тестовое задание для стажёра Backend в команду Advertising *(Go/PHP)*](./backend/avito-tech/adv-backend-trainee-assignment.md)
@@ -340,8 +340,6 @@
 * [Тестовое задание на стажировку *(C#, SQL)*](https://drive.google.com/drive/folders/1--08xK0ympxiR2BedrKVhnE7cjfNn7bk?usp=sharing)
 
 * [Тестовое задание C# *(C#)*](./csharp/busyrev/cb89f309d2c32873449366023b8e0057.md)
-
-* [Тестовое задание на вакансию Junior Разработчика C# *(C#, ASP.NET Core, Entity Framework Core)*](https://versta24.ru/hr/testfordevjun)
 
 * [AFCStudio](https://afcstudio.ru/)
     * [Junior C# Developer *(C#, .NET, Angular, React, Razor)*](./csharp/afcstudio/0621204ce249e9faf1aaa1e1b7d3f7ef.md)
@@ -412,18 +410,14 @@
 * [~~Bluesweater-studio~~](https://vk.com/bluesweaterstudio) *студия закрыта*
     * [Frontend task *(JS, React, React Hooks, JSS)*](./frontend/bluesweater-studio/frontend-task.md)
 
-* [Chatfuel](https://chatfuel.com/)
-    * [Frontend Engineer — тестовое задание *(any)*](https://paper.dropbox.com/doc/Frontend-Engineer-GFOYvLYpCLWUJe59Ydfmw)
-    * [Верстальщик](https://paper.dropbox.com/doc/fljyQo7ig1gZRevGejqEX)
-
 * [CS-Cart](https://cs-cart.com/)
     * [Тестовое задание для PHP разработчиков *(PHP)*](./frontend/cs-cart/backend-developer.md)
-    * [Тестовое задание для Javascript разработчика *(JS, jQuery)*](./frontend/cs-cart/frontend-developer.md)
+    * [Тестовое задание для Javascript разработчика *(JS, jQuery)*](./frontend/cs-cart/frontend-developer.md) *(отсутствуют макеты и JSON-файл из условия)*
 
-* [DAO TECH](https://daotech.ru/)
+* [~~DAO TECH~~](https://daotech.ru/) *сайт недоступен*
     * [Тестовое задание на вакансию "Frontend Developer" *(JS, React, Docker)*](https://drive.google.com/file/d/17i3HWkCW8OdvmczEcE2p3q-ljU-2sAWz/view?usp=sharing)
 
-* [DevJS](https://devjs.ru/)
+* [~~DevJS~~](https://devjs.ru/) *сайт недоступен*
     * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](./frontend/devjs/react-test.md)*(отсутствует дизайн-макет по указанной ссылке)*
 
 * [Flatstack](https://www.flatstack.com)
@@ -505,13 +499,10 @@
 * [Yoldi](https://yoldi.agency/development)
     * [Тестовое задание для вакансии фронтенд разработчик в Yoldi](https://yoldi-agency.notion.site/Yoldi-7552752e30964431ab0ca03d54908148)
 
-* [Армо](http://armo.ru/)
-    * [Junior Frontend *(JSc+ Electron, Python + Tornado)*](https://disk.yandex.ru/d/3u7hKvypQ-nOxA)
-
 * [Валантис](https://juvelirnyj-lombard.ru/)
     * [Frontend-разработчик *(React)*](./frontend/valatris-api.md)
 
-* [Домотехника](https://domotekhnika.ru/)
+* [~~Домотехника~~](https://domotekhnika.ru/) *сайт недоступен*
     * [Тестовое задание Frontend *(Vue.js)*](https://www.notion.so/radislaw/9c4c4b1823304404af78a0f7cbe640f3)
 
 * [Инфоматика](https://infomatika.ru/)
@@ -620,8 +611,6 @@
 <details>
  <summary>Java</summary>
 
-* [Java разработчик](./java/google-docs/1peodqanrael5jw3kmwp.md)
-
 * [Java разработчик](./java/google-docs/1f5frd0d-sqk471oeznt.md)
 
 * [Ecwid](https://www.ecwid.com/)
@@ -646,9 +635,6 @@
     * [Тестовое задание для кандидатов в бэкенд разработку *(Java, Spring)*](./java/marketplace-technologies-kazanexpress/backend-spring-test-task.md)
     * [Тестовое задание на Android разработку - поиск коктейлей *(Java, Kotlin)*](./java/marketplace-technologies-kazanexpress/android-test-task.md)
     * [Тестовое задание на Android разработку - просмотр статей *(Java, Kotlin)*](./java/marketplace-technologies-kazanexpress/ke-test-android.md)
-
-* [MediaSoft](https://mediasoft.team/)
-    * [Тестовое задание.Java *(Java EE/Spring, Maven/Gradle)*](https://drive.google.com/file/d/1obl6-j36xkLszszRPnj0enWxPX-nzzuQ/view?usp=sharing)
 
 * [Tutu.ru](https://www.Tutu.ru/)
     * [Тестовое задание на позицию Android-разработчика *(Kotlin/Java, Dagger, RxJava)*](./java/tutu-ru/hire-android-test.md)
@@ -732,7 +718,7 @@
 <details>
 <summary>Clojure</summary>
 
-* [Health Samurai](https://health-samurai.ru/how-to-become)
+* [~~Health Samurai~~](https://health-samurai.ru/how-to-become) *сайт недоступен*
     * [Clojure Developer](./backend/healthsamurai/healthsamurai-clojure.md)
 
 </details>
@@ -746,7 +732,7 @@
 * [CS-Cart](https://cs-cart.com/)
     * [Тестовое задание для PHP разработчиков *(PHP)*](./php/cs-cart/backend-developer.md)
 
-* [DevJS](https://devjs.ru/)
+* [~~DevJS~~](https://devjs.ru/) *сайт недоступен*
     * [Тестовое задание для PHP разработчиков *(PHP)*](./php/devjs/php-test.md)
 
 * [Future](https://future-group.ru/)
@@ -868,13 +854,9 @@
 
 * [Тестовое задание для дата-менеджера](https://drive.google.com/drive/folders/1FS0GtB_DxK4ZgrI8s6zMSPCYiDhtETNY)
 
-* [Тестовое задание.Mobile *(Swift/Kotlin/Flutter)*](https://drive.google.com/file/d/16glieEeWz0o_Yg-VX2gug7M86g2UoMpi/view?usp=sharing)
-
 * [Node.js Developer *(Node.js)*](./other/fs/nodejs.md)
 
 * [Тестовое на стажировку Тестировщик, осень 2022 *(any)*](https://disk.yandex.kz/i/Aew3EEz3GNuxHA)
-
-* [Remote FS Explorer - Eclipse plugin *(ENG)* *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=22742624)
 
 * [Тестовое задание для стажёра-автоматизатора](./other/avito-tech/qa-trainee-task.md)
 
@@ -883,8 +865,6 @@
 * [Задание для тестировщика *(any)*](./other/alexeykashin1/test1.md)
 
 * [GraphQL endpoint for Junior Developer position in Scandiweb *(ENG)* *(TS, GraphQL)*](./other/scandiweb/junior-react-endpoint.md)
-
-* [Screen sharing + chat *(ENG)* *(any)*](https://docs.xored.com/display/XL/Test+task+Screen+sharing+with+chat)
 
 * [Тестовое задание на позицию React-Native developer *(React-Native CLI (iOS, Android))*](./other/google-docs/1akejuzmhbldv7pcmdjs.md)
 
@@ -898,16 +878,6 @@
 
 * [Unity Developer *(Unity)*](./other/fs/unity.md)*(ссылка "тестовым проектом" нерабочая)*
 
-* [developer's performance measurement tool *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=19694895)
-
 * [Задание "найди ошибки" — ШРИ, Москва, Санкт-Петербург, Симферополь, осень 2018 *(Node.js)*](./other/yandex-shri-2018/entrance-task-1-2.md)
-
-* [Xored home work test task 2 *(ENG)* *(Eclipse)*](https://docs.xored.com/display/XL/Xored+home+work+test+task+2)
-
-* [Тестовое задание *(Eclipse)*](https://docs.xored.com/pages/viewpage.action?pageId=16023682)
-
-* [Маленький Эксель *(any)*](https://docs.xored.com/pages/viewpage.action?pageId=26378756)
-
-* [Xored home work test task *(ENG)* *(Eclipse)*](https://docs.xored.com/display/XL/Xored+home+work+test+task)
 
 </details>
