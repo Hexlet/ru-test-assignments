@@ -1,0 +1,36 @@
+A-G : 1
+AN : 1
+AND : 1
+BASED : 1
+BE : 2
+CONTENTS : 1
+DON'T : 1
+EXAMPLE : 1
+FILE : 2
+FILES : 1
+FIRST : 1
+FORGET : 1
+
+H-N : 1
+INTO : 1
+IS : 1
+LETTER : 1
+NORMALIZED : 1
+
+O-U : 1
+OF : 2
+ON : 1
+OUTPUT : 1
+SEPARATE : 1
+SHALL : 1
+SHOULD : 1
+SORTED : 1
+SPLIT : 1
+TEST : 1
+THAT : 1
+THE : 3
+THIS : 2
+
+V-Z : 1
+WORD : 1
+WORDS : 1

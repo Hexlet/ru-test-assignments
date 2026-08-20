@@ -1,0 +1,1300 @@
+<section id="storage_guide">
+  <h1 class="title">Пользовательское ReST API</h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">Содержание</p>
+<ul class="simple">
+<li><a class="reference internal" href="#api" id="id27">Поддерживаемое API</a></li>
+<li><a class="reference internal" href="#id2" id="id28">Аутентификация</a></li>
+<li><a class="reference internal" href="#id3" id="id29">Операции с хранилищем</a><ul>
+<li><a class="reference internal" href="#id4" id="id30">Информация по хранилищу</a></li>
+<li><a class="reference internal" href="#id5" id="id31">Список контейнеров</a></li>
+<li><a class="reference internal" href="#id6" id="id32">Создание контейнера</a></li>
+<li><a class="reference internal" href="#id7" id="id33">Информация по контейнеру</a></li>
+<li><a class="reference internal" href="#id8" id="id34">Изменение мета-данных контейнера</a></li>
+<li><a class="reference internal" href="#id9" id="id35">Удаление контейнера</a></li>
+<li><a class="reference internal" href="#id10" id="id36">Галерея изображений</a></li>
+<li><a class="reference internal" href="#id11" id="id37">Список файлов в контейнере</a></li>
+<li><a class="reference internal" href="#id12" id="id38">Скачивание файла</a></li>
+<li><a class="reference internal" href="#id13" id="id39">Загрузка файла</a></li>
+<li><a class="reference internal" href="#id14" id="id40">Распаковка архивов</a></li>
+<li><a class="reference internal" href="#id15" id="id41">Установка мета-данных файла</a></li>
+<li><a class="reference internal" href="#id16" id="id42">Копирование файлов в контейнерах</a></li>
+<li><a class="reference internal" href="#id17" id="id43">Удаление файла</a></li>
+<li><a class="reference internal" href="#id18" id="id44">Управление заголовками для файлов</a></li>
+<li><a class="reference internal" href="#symlink" id="id45">Ссылки на файл или каталог (symlink)</a></li>
+<li><a class="reference internal" href="#id19" id="id46">Генерация ссылок для скачивания файлов</a></li>
+<li><a class="reference internal" href="#sendmefile" id="id47">Ссылки на загрузку файлов (sendmefile)</a></li>
+<li><a class="reference internal" href="#id20" id="id48">Специальные страницы</a></li>
+<li><a class="reference internal" href="#zip" id="id49">Скачивание всего содержимого в виде zip архива</a></li>
+<li><a class="reference internal" href="#id21" id="id50">Лимиты на хранение</a></li>
+<li><a class="reference internal" href="#id22" id="id51">Версионирование</a></li>
+<li><a class="reference internal" href="#cdn" id="id52">Сброс кэша CDN</a></li>
+<li><a class="reference internal" href="#id23" id="id53">Получение статуса очистки кэша CDN</a></li>
+<li><a class="reference internal" href="#ssl" id="id54">Управление пользовательскими ssl-сертификатами</a></li>
+<li><a class="reference internal" href="#id24" id="id55">Управление доменами контейнера</a></li>
+<li><a class="reference internal" href="#id25" id="id56">Управление подпользователями</a></li>
+<li><a class="reference internal" href="#id26" id="id57">Получение логов запросов к хранилищу</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="api">
+<h1><a class="toc-backref" href="#id1">Поддерживаемое API</a></h1>
+<p>Хранилище полностью поддерживает OpenStack Swift API и дополнительно Amazon S3 API.</p>
+</div>
+<div class="section" id="id2">
+<h1><a class="toc-backref" href="#id1">Аутентификация</a></h1>
+<p>Для выполнения аутентификации нужно отправить <strong>GET</strong> запрос на url <strong>https://auth.selcdn.ru/</strong> и передать следующие обязательные заголовки <strong>X-Auth-User</strong> и <strong>X-Auth-Key</strong>.</p>
+<p>Где:</p>
+<ul class="simple">
+<li><em>X-Auth-User</em> - ваш номер договора (логин в общую панель управления <a class="reference external" href="http://support.selectel.ru/">http://support.selectel.ru/</a>)</li>
+<li><em>X-Auth-Key</em> - пароль для данной услуги (он отличается от пароля для общей панели управления)</li>
+</ul>
+<p>Данную информацию вы можете получить на странице <em>Облачное хранилище</em> - <em>Пользователи</em>. Для генерации пароля услуги воспользуйтесь функцией <em>Настроить пароль</em></p>
+<p>При успешной аутентификации будет получен HTTP ответ <strong>204 (No Content)</strong> с заголовками <strong>X-Storage-Url</strong> и <strong>X-Auth-Token</strong> содержащие данные необходимые для выполнения всех остальных операций с хранилищем:</p>
+<ul class="simple">
+<li><em>X-Storage-Url</em> - базовый адрес для выполнения операций с хранилищем</li>
+<li><em>X-Auth-Token</em> - идентификатор авторизации (действителен 24 часа с момента первой аутентификации)</li>
+<li><em>X-Expire-Auth-Token</em> - точное время действия идентификатора авторизации в секундах</li>
+</ul>
+<p>В случае ошибки аутентификации будет получен HTTP ответ <strong>403 (Forbidden)</strong>.</p>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i https://auth.selcdn.ru/ \
+    -H &quot;X-Auth-User:user&quot; \
+    -H &quot;X-Auth-Key:password&quot;
+
+# вывод curl сокращен в целях удобочитаемости
+&gt; HTTP/1.1 204 No Content
+&gt; X-Expire-Auth-Token: 86029
+&gt; X-Storage-Url: https://xxx.selcdn.ru/
+&gt; X-Auth-Token: 285a05336fe0317beac78e84adac5f11
+</pre>
+<p>Дополнительно поддерживается аутентификация по протоколу v2.0 (keystone api).
+Поддерживается только необходимый минимум этого протокола, поэтому некоторые расширенные возможности keystone могут не работать.</p>
+<p>Пример аутентификации по v2.0 keystone:</p>
+<pre class="literal-block">
+$ curl -i -X POST  https://auth.selcdn.ru/tokens \
+    -H 'Content-type: application/json' \
+    -d '{&quot;auth&quot;: {&quot;passwordCredentials&quot;: {&quot;username&quot;: &quot;user&quot;, &quot;password&quot;: &quot;password&quot;}}}'
+</pre>
+<p>В качестве Tenant ID и Access Key следует указывать имя пользователя или дополнительного пользователя в Хранилище,
+в качестве Secret Key - пароль пользователя, Region - Common.</p>
+</div>
+<div class="section" id="id3">
+<h1><a class="toc-backref" href="#id1">Операции с хранилищем</a></h1>
+<p>Во всех запросах к хранилищу должен передаваться заголовок <strong>X-Auth-Token</strong>, полученный при аутентификации, иначе будет получен отказ доступа.
+Исключение, скачивание файла из публичного контейнера.</p>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id1">Информация по хранилищу</a></h2>
+<p><strong>HEAD</strong> запрос на адрес <em>X-Storage-Url</em>.</p>
+<p>В заголовках ответа будет получена следующая информация:</p>
+<ul>
+<li><p class="first"><em>X-Account-Bytes-Used</em> - суммарный объём хранения данных в хранилище (в байтах)</p>
+</li>
+<li><p class="first"><em>X-Account-Container-Count</em> - количество контейнеров</p>
+</li>
+<li><p class="first"><em>X-Account-Object-Count</em> - суммарное количество хранимых объектов</p>
+</li>
+<li><p class="first"><em>X-Transfered-Bytes</em> - скачено байт из хранилища (за всё время)</p>
+</li>
+<li><p class="first"><em>X-Received-Bytes</em> - закачено байт в хранилище (за всё время)</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -I https://xxx.selcdn.ru/ \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+
+&gt; HTTP/1.1 204 No Content
+&gt; X-Account-Object-Count: 5563
+&gt; X-Account-Bytes-Used: 6427888648
+&gt; X-Account-Container-Count: 27
+&gt; X-Received-Bytes: 110278989542
+&gt; X-Transfered-Bytes: 224961419192
+</pre>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id1">Список контейнеров</a></h2>
+<p><strong>GET</strong> запрос на адрес <em>X-Storage-Url</em>.</p>
+<p>Дополнительные необязательные параметры запроса:</p>
+<ul class="simple">
+<li><em>limit</em> - число, ограничивает количество объектов в результате (по умолчанию 10000)</li>
+<li><em>marker</em> - строка, результат будет содержать объекты по значению больше указанного маркера (полезно использовать для постраничной навигации и при большом количестве контейнеров)</li>
+<li><em>format</em> - json или xml, результат будет выдан в указанном формате</li>
+</ul>
+<p>За один запрос можно получить информацию максимум о 10000 контейнерах, если контейнеров больше, нужно использовать дополнительные запросы с параметром marker.</p>
+<blockquote>
+<p>Примеры:</p>
+<pre class="literal-block">
+# получить листинг контейнеров с явным указание формата
+$ curl -i https://xxx.selcdn.ru/\?format\=json \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+
+&gt; HTTP/1.1 200 OK
+&gt; x-account-object-count: 5563
+&gt; x-account-bytes-used: 6427888648
+&gt; x-account-container-count: 27
+&gt; Content-Type: application/json; charset=utf-8
+&gt; Content-Length: 3033
+&gt; X-Received-Bytes: 110278989542
+&gt; X-Transfered-Bytes: 224978196408
+&gt;
+&gt; /* информация по контейнерам */
+&gt; [
+&gt;    {
+&gt;        /* место занимаемое содержимым контейнера */
+&gt;        &quot;bytes&quot;: 81292837,
+&gt;        /* число объектов в контейнере */
+&gt;        &quot;count&quot;: 17,
+&gt;        /* имя контейнера */
+&gt;        &quot;name&quot;: &quot;container 1&quot;,
+&gt;        /* всего закачанных в контейнер байт */
+&gt;        &quot;rx_bytes&quot;: 17936289,
+&gt;        /* всего скачанных из контейнера байт */
+&gt;        &quot;tx_bytes&quot;: 11088956,
+&gt;        /* тип контейнера */
+&gt;        &quot;type&quot;: &quot;private&quot;
+&gt;    },
+&gt;    {
+&gt;        &quot;bytes&quot;: 124355568,
+&gt;        &quot;count&quot;: 86,
+&gt;        &quot;name&quot;: &quot;container 2&quot;,
+&gt;        &quot;rx_bytes&quot;: 296955064,
+&gt;        &quot;tx_bytes&quot;: 79205328,
+&gt;        &quot;type&quot;: &quot;public&quot;
+&gt;    },
+&gt;    ...
+&gt; ]
+</pre>
+</blockquote>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id1">Создание контейнера</a></h2>
+<p><strong>PUT</strong> запрос на адрес <em>X-Storage-Url/container_name</em>.</p>
+<p>Имя контейнера должно быть меньше 256 символов и не содержать завершающего слеша '/' в конце.</p>
+<p><strong>HTTP ответы:</strong></p>
+<ul class="simple">
+<li><em>201 (Created)</em> - при успешном создании</li>
+<li><em>202 (Accepted)</em> - если контейнер уже существует</li>
+</ul>
+<p>К контейнеру можно привязать произвольные мета-данные через передачу заголовков с префиксом <em>X-Container-Meta-</em>.</p>
+<p>Так же можно указать специальные заголовки, которые меняют функциональные свойства контейнера:</p>
+<ul>
+<li><p class="first"><em>X-Container-Meta-Type</em> - тип контейнера (public, private, gallery)</p>
+</li>
+<li><p class="first"><a class="reference internal" href="#cors">дополнительные заголовки кэшировани и CORS</a></p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPUT https://xxx.selcdn.ru/new_container \
+     -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+     -H &quot;X-Container-Meta-Type: public&quot; \
+     -H &quot;X-Container-Meta-Some: some_specific_meta_data&quot;
+
+&gt; HTTP/1.1 201 Created
+</pre>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id1">Информация по контейнеру</a></h2>
+<p><strong>HEAD</strong> запрос на адрес <em>X-Storage-Url/container_name</em>.</p>
+<p>В заголовках ответа будет получена следующая информация:</p>
+<ul>
+<li><p class="first"><em>X-Container-Object-Count</em> - количество объектов в контейнере</p>
+</li>
+<li><p class="first"><em>X-Container-Bytes-Used</em> - суммарный размер объектов в контейнере</p>
+</li>
+<li><p class="first"><em>X-Transfered-Bytes</em> - скачено байт из контейнера</p>
+</li>
+<li><p class="first"><em>X-Received-Bytes</em> - передано байт в контейнер</p>
+</li>
+<li><p class="first"><em>X-Container-Meta-Type</em> - тип контейнера (public или private)</p>
+</li>
+<li><p class="first"><em>X-Container-Meta-Domains</em> - привязанные домены к контейнеру</p>
+</li>
+<li><p class="first"><em>X-Container-Meta-*</em> - заголовки с произвольной пользовательской информацией</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -I https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+
+&gt; HTTP/1.1 204 No Content
+&gt; x-container-object-count: 0
+&gt; x-container-bytes-used: 0
+&gt; x-container-meta-type: public
+&gt; x-container-meta-some: some_specific_meta_data
+&gt; X-Container-Domains:
+&gt; X-Transfered-Bytes: 0
+&gt; X-Received-Bytes: 0
+</pre>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id1">Изменение мета-данных контейнера</a></h2>
+<p><strong>POST</strong> запрос на адрес <em>X-Storage-Url/container_name</em> и указать заголовки с префиксом <strong>X-Container-Meta-</strong> которые нужно установить или поменять.</p>
+<p><strong>HTTP ответы:</strong></p>
+<ul>
+<li><p class="first"><em>204 (No Content)</em> - изменение выполнено</p>
+</li>
+<li><p class="first"><em>404 (Not Found)</em> - указанный контейнер не существует</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+# смена типа контейнера на личный и установка других метаданных
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Container-Meta-Type: private&quot; \
+    -H &quot;X-Container-Meta-Some: any text&quot;
+
+&gt; HTTP/1.1 204 No Content
+</pre>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id1">Удаление контейнера</a></h2>
+<p><strong>DELETE</strong> запрос на адрес <em>X-Storage-Url/container_name</em>.</p>
+<p>Удаляемый контейнер должен быть пуст, иначе операция не будет выполнена.</p>
+<p><strong>HTTP ответы:</strong></p>
+<ul>
+<li><p class="first"><em>204 (No Content)</em> - при успешном удалении</p>
+</li>
+<li><p class="first"><em>404 (Not Found)</em> -  указанный контейнер не существует</p>
+</li>
+<li><p class="first"><em>409 (Conflict)</em> - ошибка удаления, контейнер не пустой</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XDELETE https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+
+&gt; HTTP/1.1 204 No Content
+</pre>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id1">Галерея изображений</a></h2>
+<p>Контейнер можно преобразовать в галерею для удобного публичного представления в веб-браузере загруженных в нем фотографий и других изображений.</p>
+<p>Создание галереи происходит путем установки типа контейнера <strong>gallery</strong>:</p>
+<pre class="literal-block">
+$ curl -i -XPUT https://xxx.selcdn.ru/gallery \
+         -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+         -H &quot;X-Container-Meta-Type: gallery&quot;
+</pre>
+<p>По умолчанию, галерея является публичной и доступ (только просмотр) к ней может получить любой. Но, дополнительно, можно установить пароль, по которому будет ограничен доступ. Для этого в запросе нужно передать заголовок <strong>X-Container-Meta-Gallery-Secret</strong> со значением sha1-хеша пароля. Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPUT https://xxx.selcdn.ru/gallery \
+         -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+         -H &quot;X-Container-Meta-Type: gallery&quot;
+         -H &quot;X-Container-Meta-Gallery-Secret: 91dfd9ddb4198affc5c194cd8ce6d338fde470e2&quot;  # sha1-хеш пароля mypassword
+</pre>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id1">Список файлов в контейнере</a></h2>
+<p><strong>GET</strong> запрос на адрес <em>X-Storage-Url/container_name</em>.</p>
+<p>Дополнительные необязательные параметры запроса:</p>
+<ul class="simple">
+<li><em>limit</em> - число, ограничивает количество объектов в результате (по умолчанию 10000)</li>
+<li><em>marker</em> - строка, результат будет содержать объекты по значению больше указанного маркера (полезно использовать для постраничной навигации и для большого количества файлов)</li>
+<li><em>prefix</em> - строка, вернуть объекты имена которых начинаются с указанного префикса</li>
+<li><em>path</em> - строка, вернуть объекты в указанной папке (виртуальные папки)</li>
+<li><em>delimiter</em> - символ, вернуть объекты до указанного разделителя в их имени</li>
+<li><em>format</em> - json или xml, результат будет выдан в указанном формате</li>
+</ul>
+<p>За один запрос можно получить информацию максимум о 10000 файлах в контейнере, если в контейнере содержится больше файлов то нужно использовать дополнительные запросы с параметром marker.</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i https://xxx.selcdn.ru/new_container/\?format\=json \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+
+&gt; HTTP/1.1 200 OK
+&gt; x-container-meta-web-listings: on
+&gt; x-container-object-count: 4
+&gt; x-container-meta-access-control-request-method: HEAD, GET
+&gt; x-container-meta-web-listings-css: /my_style.css
+&gt; x-container-bytes-used: 1092
+&gt; x-container-meta-web-404-redirect: /trex_404.html
+&gt; x-container-meta-type: public
+&gt; x-container-meta-web-index: /my_index.html
+&gt; Content-Type: application/json; charset=utf-8
+&gt; Content-Length: 724
+&gt;
+&gt; /* информация о файлах */
+&gt; [
+&gt;    {
+&gt;        /* размер файла: */
+&gt;        &quot;bytes&quot;: 31,
+&gt;        /* тип файла: */
+&gt;        &quot;content_type&quot;: &quot;text/html&quot;,
+&gt;        /* сколько раз данный файл был скачан: */
+&gt;        &quot;downloaded&quot;: 4,
+&gt;        /* md5 хеш: */
+&gt;        &quot;hash&quot;: &quot;b302ffc3b75770453e96c1348e30eb93&quot;,
+&gt;        /* время загрузки файла: */
+&gt;        &quot;last_modified&quot;: &quot;2013-05-27T14:42:04.669760&quot;,
+&gt;        /* имя файла: */
+&gt;        &quot;name&quot;: &quot;my_index.html&quot;
+&gt;    },
+&gt;    {
+&gt;        &quot;bytes&quot;: 1024,
+&gt;        &quot;content_type&quot;: &quot;application/octet-stream&quot;,
+&gt;        &quot;downloaded&quot;: 0,
+&gt;        &quot;hash&quot;: &quot;0f343b0931126a20f133d67c2b018a3b&quot;,
+&gt;        &quot;last_modified&quot;: &quot;2013-05-27T13:16:49.007590&quot;,
+&gt;        &quot;name&quot;: &quot;new_object&quot;
+&gt;    },
+&gt;    ...
+&gt; ]
+</pre>
+</blockquote>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id1">Скачивание файла</a></h2>
+<p><strong>GET</strong> запрос на адрес <em>X-Storage-Url/container_name/path_to_file</em>.</p>
+<p>Указание заголовка <em>X-Auth-Token</em> необходимо только если файл находиться внутри личного (приватного) контейнера.</p>
+<p>Путь к файлу может содержать символ '/' как виртуальную папку.</p>
+<p>Хранилище поддерживает условные запросы в соответствии с RFC 2616, вы можете указывать следующие  заголовки:</p>
+<ul>
+<li><p class="first">If-Match</p>
+</li>
+<li><p class="first">If-None-Match</p>
+</li>
+<li><p class="first">If-Modified-Since</p>
+</li>
+<li><p class="first">If-Unmodified-Since</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -O https://xxx.selcdn.ru/new_container/new_object \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+</pre>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id1">Загрузка файла</a></h2>
+<p><strong>PUT</strong> запрос <em>X-Storage-Url/container_name/path_to_file</em>.</p>
+<p>Файл может быть загружен только в контейнер, который должен существовать к моменту загрузки файла. Полное имя файла (включая виртуальные папки) не должно превышать 1024 байт после URL квотирования. Размер одного загружаемого файла не должен превышать 5 ГБ.</p>
+<p>Загрузка может быть осуществлена целиком либо http-чанками. При загрузке целиком в заголовках должен быть указан размер файла в заголовке <strong>Content-Lenght</strong>.
+При загрузке чанками должен быть указан соответствующий заголовок <strong>Transfer-Encoding: chunked</strong>.</p>
+<p>К файлу может быть прикреплены произвольные мета-данные через указание заголовков с префиксом <strong>X-Object-Meta-</strong>. Суммарный размер заголовков не должен превышать 4 КБ.</p>
+<p>При загрузке файла можно указать специальный заголовок <strong>ETag</strong> содержащий контрольную сумму MD5. После загрузки файла будет проведена проверка сохранённых данных по контрольным суммам, это позволяет убедиться что данные сохранены верно.</p>
+<p>Так же можно указать заголовок <strong>Content-Type</strong> для задания типа файла. Заголовок <strong>Content-Disposition</strong> влияет на то как браузер будет обрабатывать получение файла из Хранилища.</p>
+<p>Хранилище поддерживает автоматически удаляемые файлы. Для создание таких файлов нужно передать один из следующих заголовков:</p>
+<ul class="simple">
+<li><em>X-Delete-At</em> - время когда нужно удалить файл, указывается целое число в unix timestamp</li>
+<li><em>X-Delete-After</em> - через какое время удалить файл, указывается в секундах</li>
+</ul>
+<p>При успешной загрузке файла будет получен HTTP ответ <strong>201 (Created)</strong> с заголовками <strong>Content-Lenght</strong>, <strong>Content-Type</strong> и <strong>Etag</strong>. В случае если при загрузке был указан заголовок <em>ETag</em> и проверка загруженных данных будет неудачна, то в ответ будет получен HTTP статус <strong>422 (Unprocessable Entity)</strong>.</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPUT https://xxx.selcdn.ru/new_container/new_object \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Delete-After: 25200&quot; \
+    -T &quot;./example.gz&quot;
+
+&gt; HTTP/1.1 100 Continue
+
+&gt; HTTP/1.1 201 Created
+&gt; etag: 0f343b0931126a20f133d67c2b018a3b
+&gt; Last-Modified: Mon, 27 May 2013 12:24:37 GMT
+</pre>
+</blockquote>
+</div>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id1">Распаковка архивов</a></h2>
+<p>Хранилище поддерживает возможность автоматической распаковки загружаемого архива. Поддерживаются следующие форматы архивов: tar, tar.gz, tar.bz2.</p>
+<p>Для распаковки нужно при загрузке архива указать параметр запроса <strong>extract-archive=format</strong>, где за место <strong>format</strong> указать формат архива.</p>
+<p>Пример загрузки архива с его распаковкой в хранилище:</p>
+<pre class="literal-block">
+# файлы будут распакованы в контейнер new_container
+$ curl -i -X PUT 'https://xxx.selcdn.ru/new_container/?extract-archive=tar.bz2' \
+        -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+        -T &quot;photos.tar.bz2&quot;
+</pre>
+<p>В качестве пути для распаковки можно указывать контейнер, папку в контейнере или корень аккаунта. В последнем случае для папок первого уровня из архива будут созданы соответствующие контейнеры в хранилище.</p>
+<p>После выполнения операции будет отдан ответ 200 с отчетом о результате распаковки. Поддерживается получение отчета в структурированном формате, для этого нужно при запросе указать заголовок <strong>Accept</strong> с одним из значений: text/plain, application/json, application/xml или text/xml.</p>
+<p>Пример отчета в json формате:</p>
+<pre class="literal-block">
+{&quot;Response Status&quot;: &quot;201 Created&quot;,
+&quot;Response Body&quot;: &quot;&quot;, &quot;Errors&quot;: [], &quot;Number Files Created&quot;: 1237}
+</pre>
+<p>Из отчета можно получить информацию о количестве распакованных файлов и список возникших ошибок при распаковки.</p>
+</div>
+<div class="section" id="id15">
+<h2><a class="toc-backref" href="#id1">Установка мета-данных файла</a></h2>
+<p><strong>POST</strong> запрос на адрес <em>X-Storage-Url/container_name/path_to_file</em> и указать заголовки с префиксом <strong>X-Object-Meta-</strong> которые нужно установить или поменять.</p>
+<p><strong>Внимание:</strong> установка мета-данных стирает все установленные ранее мета-данные для указанного файла и заменяет их на указанные в запросе.</p>
+<p><strong>HTTP ответы:</strong></p>
+<ul>
+<li><p class="first"><em>204 (No Content)</em> - изменение выполнено</p>
+</li>
+<li><p class="first"><em>404 (Not Found)</em> - указанный контейнер не существует</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container/new_object \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Object-Meta-Another: another&quot;
+
+&gt; HTTP/1.1 202 Accepted
+</pre>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="#id1">Копирование файлов в контейнерах</a></h2>
+<p>Можно копировать и перемещать файлы в пределах хранилища без повторной их загрузки. Операцию можно осуществить с помощью <strong>PUT</strong> или <strong>COPY</strong> запроса.</p>
+<p><strong>PUT</strong> запрос на <em>X-Storage-Url/container_name/new_path_to_file</em> с обязательным заголовком <strong>X-Copy-From</strong> содержащим путь к исходному файлу относительно корня хранилища (например, <em>/container2/file3</em>) и заголовком <strong>Content-Lenght</strong> равным нулю (<strong>0</strong>).</p>
+<p><strong>COPY</strong> запрос на <em>X-Storage-Url/container_name/orig_path_to_file</em> и заголовком <strong>Destination</strong> содержащим путь куда нужно копировать файл.</p>
+<p>Для обоих запросов контейнер в который производиться копирование должен существовать.</p>
+<p>При копировании также копируется и мета-данные о файле. Если в запросе указать заголовки с префиксом <strong>X-Object-Meta-</strong>, то для скопированного объекта будет установлены или перезаписаны (если они были в исходном файле) указанные мета-данные.</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+# первый способ
+$ curl -i -XPUT https://xxx.selcdn.ru/new_container/first_copy \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;Content-Length: 0&quot; \
+    -H &quot;X-Copy-From: /new_container/new_object&quot;
+
+&gt; HTTP/1.1 201 Created
+&gt; etag: 0f343b0931126a20f133d67c2b018a3b
+&gt; X-Copied-From: new_container/new_object
+&gt; X-Copied-From-Last-Modified: Mon, 27 May 2013 13:16:49 GMT
+&gt; Last-Modified: Tue, 28 May 2013 06:27:11 GMT
+
+# второй способ
+$ curl -i -XCOPY https://xxx.selcdn.ru/new_container/new_object \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;Destination: /new_container/second_copy&quot;
+
+&gt; HTTP/1.1 201 Created
+&gt; etag: 0f343b0931126a20f133d67c2b018a3b
+&gt; X-Copied-From: new_container/new_object
+&gt; X-Copied-From-Last-Modified: Mon, 27 May 2013 13:16:49 GMT
+&gt; Last-Modified: Tue, 28 May 2013 06:30:51 GMT
+</pre>
+</blockquote>
+</div>
+<div class="section" id="id17">
+<h2><a class="toc-backref" href="#id1">Удаление файла</a></h2>
+<p><strong>DELETE</strong> запрос на адрес <em>X-Storage-Url/container_name/path_to_file</em>.</p>
+<p><strong>HTTP ответы:</strong></p>
+<ul class="simple">
+<li><em>204 (No Content)</em> - при успешном удалении</li>
+<li><em>404 (Not Found)</em> - если файла не существует</li>
+</ul>
+<blockquote id="cors">
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XDELETE https://xxx.selcdn.ru/new_container/new_object \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+
+&gt; HTTP/1.1 204 No Content
+</pre>
+</blockquote>
+</div>
+<div class="section" id="id18">
+<h2><a class="toc-backref" href="#id1">Управление заголовками для файлов</a></h2>
+<p>Хранилище позволяет указывать специальные заголовки которые влияют на процесс получения файла из Хранилища.
+В частности, позволяют управлять кэшированием данных на стороне клиента и промежуточных прокси серверах, а
+так же задавать заголовки для обработки кросс-доменных запросов (CORS).</p>
+<p>Поддерживаемые заголовки:</p>
+<ul class="simple">
+<li>Cache-Control</li>
+<li>Expires</li>
+<li>Origin</li>
+<li>Access-Control-Allow-Origin</li>
+<li>Access-Control-Max-Age</li>
+<li>Access-Control-Allow-Methods</li>
+<li>Access-Control-Allow-Credentials</li>
+<li>Access-Control-Expose-Headers</li>
+<li>Access-Control-Request-Headers</li>
+<li>Access-Control-Request-Method</li>
+<li>Content-Disposition (только для конечного файла)</li>
+<li>Strict-Transport-Security (только на уровне контейнера)</li>
+</ul>
+<p>Вы можете установить значения по умолчанию для поддерживаемых заголовков на уровне контейнера.
+Для этого для контейнера нужно установить соответствующие мета-данные <strong>X-Container-Meta-&lt;header&gt;</strong>, где <em>&lt;header&gt;</em> заменить на нужный заголовок.
+После задания этих значений для всех отдаваемых данных (методом GET) из контейнера будет устанавливаться соответствующие заголовки.</p>
+<p>Так же вы можете установить или переопределить значения по умолчанию для конктерного файла в хранилище, заданием соответствующих мета-данных.</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Container-Meta-Access-Control-Request-Method: HEAD, GET&quot; \
+    -H &quot;X-Container-Meta-Cache-Control: public&quot; \
+    -H &quot;X-Container-Meta-Strict-Transport-Security: max-age=31536000; includeSubDomains&quot;
+
+&gt; HTTP/1.1 204 No Content
+</pre>
+</blockquote>
+</div>
+<div class="section" id="symlink">
+<h2><a class="toc-backref" href="#id1">Ссылки на файл или каталог (symlink)</a></h2>
+<p>Ссылки позволяют предоставлять доступ к файлам в хранилище используя альтернативное имя. В частности, это даёт возможность открывать публичный доступ к файлам из личного контейнера, а так же доступ между пользователями на одном аккаунте.</p>
+<p>Вы можете создать специальный <em>объект-ссылку</em> которая будет будет указывать на другой объект в хранилище (только на файл) и настроить ряд дополнительных параметров (ограничить время действия, задать пароль).</p>
+<p>Создание ссылки: <strong>PUT</strong> запрос на адрес <em>X-Storage-Url/container_name/link_name</em> с указанием ряда заголовков.</p>
+<p><strong>Заголовки:</strong></p>
+<ul>
+<li><dl class="first docutils">
+<dt><em>Content-Type</em> - определяет тип ссылки, возможные значения:</dt>
+<dd><ul class="first last simple">
+<li><em>x-storage/symlink</em> - обычная ссылка</li>
+<li><em>x-storage/onetime-symlink</em> - одноразовая ссылка</li>
+<li><em>x-storage/symlink+secure</em> - обычная запароленная ссылка</li>
+<li><em>x-storage/onetime-symlink+secure</em> - одноразовая запароленная ссылка</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><em>X-Object-Meta-Location</em> - цель ссылки, относительный заквотированный путь к объекту в хранилище (пример: <em>/container/path/to%20file</em>).</p>
+</li>
+<li><p class="first"><em>Content-Length: 0</em> - тело запроса обязательно должно быть пустым</p>
+</li>
+<li><p class="first"><em>X-Object-Meta-Delete-At</em> - время до которого ссылка будет действительна (unix timestamp), необязательно заголовок.</p>
+</li>
+<li><p class="first"><em>X-Object-Meta-Link-Key</em> - хеш ключа доступа к запароленной ссылке. Вычисление хеша: sha1(<cite>password</cite> + <cite>X-Object-Meta-Location</cite>).</p>
+</li>
+<li><p class="first"><em>Content-Disposition</em> - перекрывает соответствующий заголовок объекта, на который указывает ссылка.</p>
+</li>
+</ul>
+<p>При обращение к объекту-ссылке (методом <strong>GET</strong>) в ответ будет получен объект на который она указывает. <strong>HEAD</strong>-запрос возвращает информацию о ссылке.</p>
+<p>Для доступа к запароленной ссылке нужно в GET запросе указать параметр <strong>_sslk</strong> со значением пароля.</p>
+<p>Объект-ссылка (но не цель ссылки) автоматически удаляется при истечение срока действия или при первом успешном скачивании для одноразовых ссылок.</p>
+<blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPUT http://xxx.selcdn.ru/new_container/new_link \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;Content-Type: x-storage/symlink&quot; \
+    -H &quot;X-Object-Meta-Location: /new_container/new_object&quot; \
+    -H &quot;X-Object-Meta-Link-Key: b6589fc6ab0dc82cf12099d1c2d40ab994e8410c&quot;\
+    -H &quot;Content-Length: 0&quot;
+
+&gt; HTTP/1.1 201 Created
+&gt; etag: d41d8cd98f00b204e9800998ecf8427e
+&gt; Last-Modified: Mon, 27 May 2013 13:34:34 GMT
+</pre>
+</blockquote>
+<p>Символьные ссылки можно создавать и на каталоги. Для этого используются те же самые команды, что и при создании ссылки на файл, только в X-Object-Meta-Location указывается путь к каталогу. Такие ссылки должны располагаться в корне контейнера.</p>
+</div>
+<div class="section" id="id19">
+<h2><a class="toc-backref" href="#id1">Генерация ссылок для скачивания файлов</a></h2>
+<p>С помощью функции генерации ссылок можно создавать специальные ссылки для скачивания файлов, в том числе и из личных контейнеров. Срок действия ссылок ограничен.</p>
+<p>В отличии от symlink, ссылки создаются без выполнения запросов к API. После создания ссылки невозможно отменить или удалить; они доступны в течении всего срока действия.</p>
+<p>Прежде чем генерировать подобные ссылки, нужно установить секретный ключ. Ключ можно устанавливать как на уровне пользователя, так и на уровне контейнера. Секртеный ключ,
+заданный для аккаунта, позволяет создавать ссылки на все файлы во всех контейнерах. Для установки такого глобального ключа следует выполнить авторизованный POST-запрос с заголовком X-Account-Meta-Temp-URL-Key.
+Если требуется дать доступ на создание ссылок только в одном определенном контейнере, следует отправить на адрес контейнера POST-запрос с заголовком X-Container-Meta-Temp-URL-Key.
+Здесь нужно иметь в виду, что запрос на установку пользовательского ключа следует выполнять от основного пользователя, подпользователи не имеют прав изменять глобальные настройки аккаунта.
+Пример запроса установки секретного ключа аккаунта:</p>
+<pre class="literal-block">
+$ curl -i -XPOST http://xxx.selcdn.ru/ \
+       -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+       -H &quot;X-Account-Meta-Temp-URL-Key: secret_word&quot;
+
+&gt; HTTP/1.1 204 No Content
+</pre>
+<p>Пример запроса установки секретного ключа контейнера:</p>
+<pre class="literal-block">
+$ curl -i -XPOST http://xxx.selcdn.ru/container1 \
+       -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+       -H &quot;X-Container-Meta-Temp-URL-Key: secret_word&quot;
+
+&gt; HTTP/1.1 204 No Content
+</pre>
+<p>В этих примерах задается секретный ключ <em>secret_word</em>. Его нужно запомнить (в дальнейшем все ссылки будут генерироваться с его помощью) и защитить от постороннего доступа (доступ к файлам может получить любой пользователь, знающий секретный ключ).</p>
+<p>Алгоритм генерации ссылки для языка python:</p>
+<pre class="literal-block">
+import hmac
+from hashlib import sha1
+from time import time
+
+# данные для генерации ссылки
+method = &quot;GET&quot;  # метод доступа (всегда GET)
+expires = int(time()) + 60  # ссылка действительная 60 секунд
+path = &quot;/container/dir/file&quot;  # путь к файлу в хранилище, всегда с указанием контейнера
+link_secret_key = &quot;secret_word&quot;  # секретный ключ
+
+# генерация ключа доступа
+hmac_body = '%s\n%s\n%s' % (method, expires, path)
+sig = hmac.new(link_secret_key, hmac_body, sha1).hexdigest()  # ключ доступа
+</pre>
+<p>Полученный в результате ключ нужно будет указать в ссылке.  Ссылка может выглядеть, например, так:</p>
+<pre class="literal-block">
+http://xxx.selcdn.ru/container/dir/file?temp_url_sig=3f512dfed32111d6e742afc5522076c0621951cc&amp;temp_url_expires=1390914227
+</pre>
+<p>где <strong>xxx.selcdn.ru</strong> базовый домен, значение <strong>temp_url_sig</strong> - ключ доступа, <strong>temp_url_expires</strong> - время до которого ссылка действительна (unixtime).</p>
+<p>Вместо базового домена можно указывать привязанный в контейнеру домен. В таком случае указывать имя контейнера в ссылке не нужно, например:</p>
+<pre class="literal-block">
+http://my.domain/dir/file?temp_url_sig=3f512dfed32111d6e742afc5522076c0621951cc&amp;temp_url_expires=1390914227
+</pre>
+<p>Дополнительно поддерживается управление заголовком <strong>Content-Disposition</strong> для отдаваемых по ссылке данных. Для этого нужно добавить параметр запроса <strong>filename</strong> с нужным значением. Пример:</p>
+<pre class="literal-block">
+http://xxx.selcdn.ru/container/dir/file?temp_url_sig=3f512dfed32111d6e742afc5522076c0621951cc&amp;temp_url_expires=1390914227&amp;filename=Other+file+name.doc
+</pre>
+<p>Секретный ключ при необходимости можно изменить, но в таком случае все сгенерированные ранее ссылки перестанут действовать.</p>
+</div>
+<div class="section" id="sendmefile">
+<h2><a class="toc-backref" href="#id1">Ссылки на загрузку файлов (sendmefile)</a></h2>
+<p>Ссылки на загрузку файлов - это специальная возможность позволяющая настроить загрузку файлов в Хранилище без авторизации. Она полезна когда вы хотите попросить кого-нибудь передать вам файлы, или для организации общего хранилища и даже для настройки резервного копирования. Ссылка на загрузку может быть использована для открытия в браузере и для работы с различными программами и утилитами, например, curl.</p>
+<p>Сама ссылка создается как обычный файл в Хранилище для которого задаются специальные метаданные.</p>
+<p>Поддерживается несколько типов ссылок, которые настраиваются указанием заголовка <strong>Content-Type</strong>:</p>
+<blockquote>
+<ul class="simple">
+<li><strong>x-storage/sendmefile</strong> - обычная ссылка на загрузку файлов</li>
+<li><strong>x-storage/sendmefile+inplace</strong> - загрузка только одного файла по указанному имени (имя ссылки является именем под которым будет сохранен загружаемый файл)</li>
+<li><strong>x-storage/sendmefile+timepostfix</strong> - загрузка файлов с добавлением времени загрузки в имема файлов (с учетом расширения файлов)</li>
+<li><strong>x-storage/sendmefile+autopostfix</strong> - загрузка файлов с добавлением уникального идентификатора в имема файлов (с учетом расширения файлов)</li>
+<li><strong>x-storage/sendmefile+folderday</strong> - загрузка файлов в папку с именем состоящим из даты загрузки (год и день)</li>
+<li><strong>x-storage/sendmefile+folderhour</strong> - загрузка файлов в папку с именем состоящим из даты и часа загрузки</li>
+<li><strong>x-storage/sendmefile+folderuniq</strong> - загрузка файлов в папку с уникальным именем</li>
+</ul>
+</blockquote>
+<p>Ссылки поддерживают ряд необязательных настроек:</p>
+<blockquote>
+<ul class="simple">
+<li><strong>X-Object-Meta-Sendmefile-Disable-Web</strong> (yes|no) - отключение веб-интерфейса загрузки файлов (веб-интерфейс включен по умолчанию)</li>
+<li><strong>X-Object-Meta-Sendmefile-Max-Size</strong> - максимальный размер загружаемого файла в байтах, не допускаются значения больше 5 Гб</li>
+<li><strong>X-Object-Meta-Sendmefile-Allow-Overwrite</strong> (yes|no) - разрешить перезапись файла если он уже есть в Хранилище (по умолчанию перезапись запрещена)</li>
+<li><strong>X-Object-Meta-Sendmefile-Default-Expire</strong> - время хранения загруженного файла по умолчанию, в секундах, может быть переопределено во время загрузки, не допускаются значения меньше часа</li>
+<li><strong>X-Object-Meta-Sendmefile-Expire</strong> - время хранения загруженного файла, в секундах, не допускаются значения меньше часа</li>
+<li><strong>X-Object-Meta-Sendmefile-Delete-At</strong> - точное время когда загруженные файлы будут удалены, формат unixtime</li>
+<li><strong>X-Object-Meta-Sendmefile-Ignore-Filename</strong> (yes|no) - игнорировать изначальное имя загружаемого файла (полезно в сочетании с некоторыми типами ссылок)</li>
+<li><strong>X-Object-Meta-Sendmefile-Secret</strong> - пароль на загрузку файлов, формат sha1-хеш пароля</li>
+</ul>
+</blockquote>
+<p>Для веб-интерфейса загрузки предусмотрена возможность задания пояснительного текста. Установка пояснительного текста осуществляется отправкой тела запроса, длина текста ограничена 4096 символами.</p>
+<p>Пример запроса создания ссылки на загрузку:</p>
+<pre class="literal-block">
+$ curl -i -XPUT https://xxx.selcdn.ru/container/upload \
+        -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+        -H &quot;Content-Type: x-storage/sendmefile&quot; \
+        -H &quot;X-Object-Meta-Sendmefile-Max-Size: 52428800&quot; \
+        -H &quot;X-Object-Meta-Sendmefile-Expire: 14400&quot; \
+        -H &quot;X-Object-Meta-Sendmefile-Secret: 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8&quot; \
+        -d &quot;Пояснительный текст для страницы загрузки&quot;
+</pre>
+<p>Загрузка файла по ссылке осуществляется PUT-запросом на адрес ссылки. Дополнительно можно указывать следующие заголовки для запроса:</p>
+<blockquote>
+<ul class="simple">
+<li><strong>X-Filename</strong> - название для файла под которым он будет загружен (Хранилище может изменить название в зависимости от типа ссылки на загрузку)</li>
+<li><strong>X-Sendmefile-Session-Id</strong> - число, идентификатор сессии загрузки</li>
+<li><strong>X-Sendmefile-TZ-Offset</strong> - коррекция времени, полезно для некоторых типов ссылок. Формат: число в минутах (пример, +240) или строка вида &quot;hhmm[+|-]HHMM&quot;, где HH - смещение часов, MM - смещение минут (пример, hhmm-0400).</li>
+</ul>
+</blockquote>
+<p>При успешной загрузке возвращается код ответа 201 Created и дополнительный заголовок <strong>X-Uploaded-As</strong> содержащий название файла под которым он был сохранен.</p>
+<p>Если был установлен пароль на загрузку, то в запросе нужно передать параметр _ssuk=password, где password заданный пароль (не sha1-хеш).</p>
+<p>Пример загрузки файла по ссылке:</p>
+<pre class="literal-block">
+# получение локального смещения времени (не обязательно)
+$ d=`date +%z`
+$ offset=&quot;hhmm&quot;${d:0:1}$(( ${d:0:3} * 60 + ${d:3} ))
+# загрузка файла
+$ curl https://xxx.selcdn.ru/container/upload?_ssuk=password -i -X PUT \
+        -H &quot;X-Filename: my_file.txt&quot; \
+        -H &quot;X-Sendmefile-TZ-Offset: ${offset}&quot; \
+        -T path_to_file/my_file.txt
+</pre>
+<p>Передача пароля через параметр запроса <strong>_ssuk</strong> требует указание его в исходном виде. Чтобы этого избежать предусмотрен второй способ загрузки с безопасной подписью. Для этого нужно при загружке файла указать заголовок <strong>X-Sendmefile-Secret-Sig</strong> со специально сформированной значением в формате &quot;expires.hmac_hash&quot;, где:</p>
+<blockquote>
+<ul class="simple">
+<li><strong>expires</strong> - время, до которого подпись действительна (unix timestamp); рекомендуется указывать время действия на 5-15 минут</li>
+<li><strong>hmac_hash</strong> - hmac-sha1 хеш по ключу sha1-хеша пароля от данные вида &quot;user-agent\nexpires&quot;, где <strong>user-agent</strong> - первые 300 символов значения заголовка User-Agent запроса на загрузка файла; <strong>expires</strong> - см. выше; <strong>\n</strong> - символ перевода строки.</li>
+</ul>
+</blockquote>
+<p>Пример формирования подписи на языке python:</p>
+<pre class="literal-block">
+import hmac
+from hashlib import sha1
+import time
+
+secret = &quot;password&quot;
+user_agent = &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:23.0)&quot;
+expires = int(time.time()) + 60 * 5  # действителен в течение 5 минут
+
+data = &quot;{user_agent}\n{expires}&quot;.format(
+    user_agent=user_agent, expires=expires)
+hash_secret = hmac.new(sha1(secret).hexdigest(), data, sha1)
+
+# подпись, значение для заголовка X-Sendmefile-Secret-Sig
+sig = &quot;{expires}.{hash}&quot;.format(
+    expires=expires, hash=hash_secret.hexdigest()
+)
+</pre>
+<p>Пример загрузки файла по запароленной ссылке с безопасной подписью:</p>
+<pre class="literal-block">
+$ curl https://xxx.selcdn.ru/container/upload?_ssuk=password -i -X PUT \
+        -H &quot;X-Filename: my_file.txt&quot; \
+        -H &quot;X-Sendmefile-Secret-Sig: 1378910237.b795d3c13d91b4629a100d04c2b72ea81c12f233&quot; \
+        -T path_to_file/my_file.txt
+</pre>
+<p>Для всех загруженных файлов устанавливается дополнительная информация в метаданные:</p>
+<blockquote>
+<ul class="simple">
+<li><strong>X-Object-Meta-Origin-Filename</strong> - изначальное название файла</li>
+<li><strong>X-Object-Meta-Uploaded-From-IP</strong> - ip-адрес с которого была произведена загрузка</li>
+<li><strong>X-Object-Meta-Sendmefile-Session-Id</strong> - идентификатор сессии загрузки</li>
+</ul>
+</blockquote>
+<p>Поддерживается возможность удаления &quot;своих&quot; загруженных файлов, осуществляется отправкой DELETE запроса на файл с обязательным указание заголовка X-Sendmefile-Session-Id. Удаление происходит при соблюдении следующих условий: значение X-Sendmefile-Session-Id совпадает со значением метаданных X-Object-Meta-Sendmefile-Session-Id файла, запрос загрузки и удаления пришел с одного ip-адреса и прошло не более 10 минут с момента загрузки. При успешном удалении файла возвращается код ответа 204. Пример запроса на удаление:</p>
+<pre class="literal-block">
+$ curl https://xxx.selcdn.ru/container/my_file.txt -i -X DELETE \
+    -H &quot;X-Sendmefile-Session-Id: 111222&quot;
+</pre>
+</div>
+<div class="section" id="id20">
+<h2><a class="toc-backref" href="#id1">Специальные страницы</a></h2>
+<p>Настройки задаются на уровне контейнера и действует на все запросы внутрь контейнера. Поведение работает и для привязанных к контейнеру доменов.</p>
+<p><strong>Индексные страницы</strong></p>
+<blockquote>
+<p>При анонимном GET-запросе на имя контейнера или папки внутри него, будет отдан специальный файл указанный в метаданных контейнера.</p>
+<p>Настройка осуществляется отправкой PUT-запроса(создание) или POST-запроса(изменение) на контейнер с указанием заголовка <em>X-Container-Meta-Web-Index</em>. В значении заголовка нужно указать файл внутри контейнера без указания имени самого контейнера. Можно использовать режим указания строгого пути к файлу или относительного поиска. Значение должно быть заквотированно (url encode).</p>
+<p>Примеры:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="35%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Web-Index</th>
+<th class="head">Запрос</th>
+<th class="head">Отданный файл</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>/index.html</td>
+<td><p class="first">GET /container/</p>
+<p class="last">GET /container/dir1/</p>
+</td>
+<td>/container/index.html</td>
+</tr>
+<tr><td rowspan="2">index.html</td>
+<td>GET /container/</td>
+<td>/container/index.html</td>
+</tr>
+<tr><td>GET /container/dir1/dir2/</td>
+<td><p class="first">/container/dir1/dir2/index.html</p>
+<p>или (если файла нет)</p>
+<p class="last">/container/index.html</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Пример:</p>
+<pre class="literal-block">
+# создаем индексный файл
+$ echo &quot;&lt;html&gt;custom_index_file&lt;/html&gt;&quot; &gt; my_index.html
+
+# закачиваем его в хранилище
+$ curl -i -XPUT https://xxx.selcdn.ru/new_container/my_index.html \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -T &quot;./my_index.html&quot;
+
+&gt; HTTP/1.1 100 Continue
+
+&gt; HTTP/1.1 201 Created
+&gt; etag: b302ffc3b75770453e96c1348e30eb93
+&gt; Last-Modified: Mon, 27 May 2013 14:42:04 GMT
+
+# устанавливаем значение Web-Index для контейнера
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Container-Meta-Web-Index: /my_index.html&quot;
+
+&gt; HTTP/1.1 204 No Content
+
+# при анонимном запросе получаем содержимое указанного файла
+$ curl -i https://xxx.selcdn.ru/new_container/
+
+&gt; HTTP/1.1 200 OK
+&gt; last-modified: Mon, 27 May 2013 14:27:57 GMT
+&gt; etag: b302ffc3b75770453e96c1348e30eb93
+&gt; accept-ranges: bytes
+&gt; Content-Length: 31
+&gt; Content-Type: text/html
+&gt; access-control-request-method: HEAD, GET
+&gt;
+&gt; &lt;html&gt;custom_index_file&lt;/html&gt;
+</pre>
+</blockquote>
+<p><strong>Перенаправление при ошибке 404</strong></p>
+<blockquote>
+<p>При анонимном GET-запросе, если запрашиваемого файла нет в Хранилище, то будет отдано перенаправление (с кодом 307) на указанный в метаданных контейнера адрес.</p>
+<p>Настройка осуществляется отправкой PUT или POST запроса на контейнер с указанием заголовка <em>X-Container-Meta-Web-404-Page</em>. В значении можно указывать файл внутри контейнера или внешнюю ссылку.</p>
+<p>Примеры:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="39%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Web-404-Redirect</th>
+<th class="head">Запрос</th>
+<th class="head">Перенаправление на</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>/404.html</td>
+<td><p class="first">GET /container/nofile</p>
+<p class="last">GET /container/dir1/nofile</p>
+</td>
+<td>/container/404.html</td>
+</tr>
+<tr><td rowspan="2">404.html</td>
+<td>GET /container/nofile</td>
+<td>/container/404.html</td>
+</tr>
+<tr><td>GET /container/dir1/dir2/nofile</td>
+<td><p class="first">/container/dir1/dir2/404.html</p>
+<p>или (если файла нет)</p>
+<p>/container/dir1/404.html</p>
+<p>или</p>
+<p class="last">/container/404.html</p>
+</td>
+</tr>
+<tr><td>http://test.test</td>
+<td><p class="first">GET /container/nofile</p>
+<p class="last">GET /container/dir1/nofile</p>
+</td>
+<td>http://test.test</td>
+</tr>
+</tbody>
+</table>
+<p>Для передачи информации о изначально запрашиваемом файле можно использовать специальные шаблонные параметры:</p>
+<blockquote>
+<ul class="simple">
+<li><strong>{container}</strong> - имя контейнера</li>
+<li><strong>{path}</strong> - путь к файлу относительно контейнера</li>
+<li><strong>{qs}</strong> - параметры запроса (без начального символа &quot;?&quot;)</li>
+</ul>
+</blockquote>
+<p>По умолчанию, при отдаче страницы ошибки код ответа будет 404. Можно явно указать код ответа используя следующий формат:</p>
+<blockquote>
+<ul class="simple">
+<li>&lt;path&gt;?&lt;code&gt;</li>
+</ul>
+</blockquote>
+<p>, где path - путь к файлу, code - код ответа (может быть 200, 307 или 404).</p>
+<p>Пример:</p>
+<pre class="literal-block">
+# устанавливаем значение Web-404-Page для контейнера
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Container-Meta-Web-404-Page: /404.html?file={path}?307&quot;
+
+&gt; HTTP/1.1 204 No Content
+
+# при анонимном запросе на не существующий объект получаем редирект на указанный файл
+$ curl -i https://xxx.selcdn.ru/new_container/non_exist_object
+
+&gt; HTTP/1.1 307 Temporary Redirect
+&gt; Location: http://xxx.selcdn.ru/404.html?file=non_exist_object
+</pre>
+<p>Пример отдачи содержимого страницы 404.html при 404 ошибках:</p>
+<pre class="literal-block">
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Container-Meta-Web-404-Page: /404.html?404&quot;
+</pre>
+</blockquote>
+<p><strong>Листинг файлов</strong></p>
+<blockquote>
+<p>При анонимном GET-запросе позволяет получить список папок и файлов внутри контейнера.</p>
+<p>Вывод списка возможен в нескольких форматах: html (по умолчанию), json, plain.</p>
+<p>Для настройки нужно отправить PUT-запрос на контейнер со следующими заголовками:</p>
+<blockquote>
+<ul class="simple">
+<li><em>X-Container-Meta-Web-Listings</em> - значение <strong>on</strong> включает режим листинга для контейнера, <strong>off</strong> или пустое значение - выключает</li>
+<li><em>X-Container-Meta-Web-Listings-CSS</em> - ссылка на файл стилей, используется для html формата вывода, не обязательная опцией</li>
+<li><em>X-Container-Meta-Web-Listings-ACL</em> - список ограничения доступа, не обязательная опция</li>
+</ul>
+</blockquote>
+<p>Дополнительные (не обязательные) параметры для получения листинга (GET запрос):</p>
+<blockquote>
+<ul class="simple">
+<li><strong>format</strong> - формат вывода листинга (html, json, plain)</li>
+<li><strong>limit</strong> - ограничение на количество папок и файлов в листинге (не более 1000)</li>
+<li><strong>marker</strong> - с какого элемента продолжить вывод листинга</li>
+</ul>
+</blockquote>
+<p>В ответе листинга доступны следующие дополнительные заголовки:</p>
+<blockquote>
+<ul class="simple">
+<li><em>X-Listing-Show-Files</em> - количество файлов показанных в листинге</li>
+<li><em>X-Listing-Show-Dirs</em> - количество папок показанных в листинге</li>
+<li><em>X-Container-Object-Count</em> - всего файлов и папок в контейнере</li>
+</ul>
+</blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+# включаем режим листинга для контейнера new_container
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Container-Meta-Web-Listings: on&quot;
+
+&gt; HTTP/1.1 204 No Content
+
+# получаем листинг файлов анонимным запросом (индексный файл
+# либо должен быть выключен, либо нужно передать заголовок
+# X-Web-Mode: listing)
+$ curl -i https://xxx.selcdn.ru/new_container/ \
+    -H &quot;X-Web-Mode: listing&quot;
+
+&gt; HTTP/1.1 200 OK
+&gt; Content-Type: application/json; charset=UTF-8
+&gt; X-Listing-Show-Files: 4
+&gt; X-Container-Object-Count: 4
+&gt; X-Listing-Show-Dirs: 0
+&gt;
+&gt; &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&gt; &lt;html&gt;
+&gt; ...
+&gt; &lt;/html&gt;
+
+# Еще примеры запросов:
+
+# получаем листинг анонимным запросом с явным указание формата
+$ curl http://xxx.selcdn.ru/public/?format=json
+$ curl http://xxx.selcdn.ru/public/dir1/?format=plain
+
+# ограничить количество выводимых элементов
+
+$ curl http://xxx.selcdn.ru/public/?limit=100&amp;format=plain
+
+# вывести следующие 100 элементов после файла file100.jpg
+$ curl http://xxx.selcdn.ru/public/images/?marker=file100.jpg&amp;limit=100
+</pre>
+<p>Json формат вывода листинга:</p>
+<pre class="literal-block">
+/* список папок и файлов */
+[
+    /* папки */
+    {
+        &quot;subdir&quot;: &quot;dir1/&quot;  /* название папки */
+    },
+    /* файлы */
+    {
+        /* имя файла: */
+        &quot;name&quot;: &quot;test.gif&quot;,
+        /* размер файла: */
+        &quot;bytes&quot;: 964629,
+        /* тип файла: */
+        &quot;content_type&quot;: &quot;image/gif&quot;,
+        /* md5 хеш: */
+        &quot;hash&quot;: &quot;02e3082c2ad8a8ef2b3ffdba1efa710c&quot;,
+        /* время загрузки файла: */
+        &quot;last_modified&quot;: &quot;2012-05-28T14:05:33.343090&quot;
+    },
+]
+</pre>
+<p>Для html формата вывода можно задать свой стиль оформления с помощью <em>X-Container-Meta-Web-Listings-CSS</em>. Настройка позволяет указать ссылку на файл внутри контейнера или на внешний адрес, пример:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Web-Listings-CSS</th>
+<th class="head">Поведение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>my.css или /my.css</td>
+<td>будет использоваться файл стилей находящийся в этом же контейнере</td>
+</tr>
+<tr><td>http://my_site/my.css</td>
+<td>будут использоваться файл стилей с внешнего сайта</td>
+</tr>
+</tbody>
+</table>
+<p>Пример:</p>
+<pre class="literal-block">
+# устанавливаем значение Web-Listings-CSS для контейнера
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Container-Meta-Web-Listings-CSS: /my_style.css&quot;
+
+&gt; HTTP/1.1 204 No Content
+</pre>
+<p>Опция настройки индексной страницы является приоритетней опции листинга. Специальный заголовок <strong>X-Web-Mode</strong> позволяет получить листинг при включенной опции индексной страницы.</p>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i https://xxx.selcdn.ru/new_container/\?format\=json \
+    -H &quot;X-Web-Mode: listing&quot;
+
+&gt; HTTP/1.1 200 OK
+&gt; Content-Type: application/json; charset=UTF-8
+&gt; X-Listing-Show-Files: 4
+&gt; X-Container-Object-Count: 4
+&gt; X-Listing-Show-Dirs: 0
+&gt;
+&gt; [
+&gt;    {
+&gt;        &quot;bytes&quot;: 31,
+&gt;        &quot;content_type&quot;: &quot;text/html&quot;,
+&gt;        &quot;hash&quot;: &quot;b302ffc3b75770453e96c1348e30eb93&quot;,
+&gt;        &quot;last_modified&quot;: &quot;2013-05-27T14:42:04.669760&quot;,
+&gt;        &quot;name&quot;: &quot;my_index.html&quot;
+&gt;    },
+&gt;    ...
+&gt; ]
+</pre>
+<p>С помощью установки <strong>X-Container-Meta-Web-Listings-ACL</strong> можно включить аутентификацию и ограничить получение списка.
+Эта опция ограничивает только получение списка файлов, сами файлы остаются доступны без аунетитификации по прямы ссылкам.</p>
+<p>Формат значений:</p>
+<blockquote>
+<ul class="simple">
+<li>один пользователь: <strong>user:password</strong></li>
+<li>несколько пользователей: <strong>user1:password1 | user2:password2 | user3:password3</strong> [...]</li>
+</ul>
+</blockquote>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPOST https://xxx.selcdn.ru/new_container \
+    -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+    -H &quot;X-Container-Meta-Web-Listings: on&quot; \
+    -H &quot;X-Container-Meta-Web-Listings-ACL: user1:password1 | user2:password2&quot;
+</pre>
+</blockquote>
+</div>
+<div class="section" id="zip">
+<h2><a class="toc-backref" href="#id1">Скачивание всего содержимого в виде zip архива</a></h2>
+<p>Поддерживается возможность скачать всё содержимое контейнера или папки в виде одного zip архива.</p>
+<p>Для включение этой возможности нужно установить опцию для контейнера <strong>X-Container-Meta-Allow-ZipDownload</strong> в значение <strong>true</strong>, пример:</p>
+<pre class="literal-block">
+# устанавливаем значение X-Container-Meta-Allow-ZipDownload для контейнера
+$ curl -i -XPOST https://xxx.selcdn.ru/public_container \
+        -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+        -H &quot;X-Container-Meta-Allow-ZipDownload: true&quot;
+
+&gt; HTTP/1.1 204 No Content
+</pre>
+<p>Опция действует только для публичного контейнер и контейнера галереи изображений.
+Для фотогалереи опция включена по-умолчанию, для её отключения нужно установить значение <strong>false</strong>.</p>
+<p>Для скачивания zip архива в запросе нужно указать параметр <strong>download-all-as-zip</strong> со значением названием архива, пример:</p>
+<pre class="literal-block">
+# скачать все файлы из контейнера, в том числе файлы в папкам и подпапках
+$ wget 'https://xxx.selcdn.ru/public_container/?download-all-as-zip=arch.zip'
+
+# скачать всё файлы из папки myfolder, включая вложенные папки
+$ wget 'https://xxx.selcdn.ru/public_container/myfolder/?download-all-as-zip=myfolder.zip'
+</pre>
+<p>Скачивание доступно для анонимных запросов, но если для контейнера включен листинг файлов
+с настройкой авторизации доступа (ACL) или установлен пароль для фотогалереи, но скачивание zip архива будет
+возможно только после прохождении авторизации.</p>
+<dl class="docutils">
+<dt>Ограничения и особенности:</dt>
+<dd><ul class="first last simple">
+<li>файлы в архиве не сжимаются, возможность предназначена для упрощения скачивания набора файлов, а не экономии трафика</li>
+<li>в архив попадают только первые 10000 файлов из контейнер или папки</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id21">
+<h2><a class="toc-backref" href="#id1">Лимиты на хранение</a></h2>
+<p>Хранилище поддерживает возможность ограничить размер и количество хранимых файлов отдельно для каждого контейнера или в общем.</p>
+<p>Чтобы установить ограничения для контейнера нужно выполнить POST (если контейнер уже создан) либо PUT запрос и указать специальные мета-данные:</p>
+<pre class="literal-block">
+$ curl -i -XPOST https://xxx.selcdn.ru/container_name \
+       -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+       -H &quot;X-Container-Meta-Quota-Bytes: 52428800&quot; \
+       -H &quot;X-Container-Meta-Quota-Count: 1000&quot;
+</pre>
+<dl class="docutils">
+<dt>где:</dt>
+<dd><ul class="first last simple">
+<li><em>X-Container-Meta-Quota-Bytes</em> - ограничение на суммарный размер хранимых в контейнере файлов (в байтах);</li>
+<li><em>X-Container-Meta-Quota-Count</em> - ограничение на количество файлов в контейнере (с учётом файлов в папках).</li>
+</ul>
+</dd>
+</dl>
+<p>Для установки ограничения на весь аккаунт нужно выполнить POST запрос на аккаунт, пример:</p>
+<pre class="literal-block">
+$ curl -i -XPOST https://xxx.selcdn.ru \
+       -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+       -H &quot;X-Account-Meta-Quota-Bytes: 52428800&quot;
+</pre>
+<dl class="docutils">
+<dt>где:</dt>
+<dd><ul class="first last simple">
+<li><em>X-Account-Meta-Quota-Bytes</em> - ограничение на суммарный размер файлов в хранилище (в байтах).</li>
+</ul>
+</dd>
+</dl>
+<p>При попытке загрузить файл сверх лимита загрузка будет прервана и возвращен код ошибки 413 (Request Entity Too Large).</p>
+<p>Для отмены ограничения нужно выполнить запрос с пустым значением для соответствующего заголовка.</p>
+<p>С помощью опции контейнера <strong>X-Container-Meta-Default-Delete-After</strong> можно ограничить время хранения файлов.
+Эта настройка применяется только при загрузке новых файлов и не влияет на уже хранящиеся файлы в контейнере.
+Изменение настройки не меняет и не отменяет время удаления ранее загруженных файлов.
+Значение указывается в секунда, через сколько секунд после загрузки файл будет автоматически удален.
+Пример установки:</p>
+<pre class="literal-block">
+$ curl -i -XPOST https://xxx.selcdn.ru/container \
+        -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+        -H &quot;X-Container-Meta-Default-Delete-After: 1209600&quot;
+</pre>
+<p>В примере устанавливается, что загружаемые файлы будет автоматически удалены через 14 дней.
+Действие этой опции можно переопередить или отменить при загрузке файла, для этого в запросе на загрузку нужно
+указать заголовок <strong>X-Delete-After</strong> или <strong>X-Delete-At</strong>. Примеры:</p>
+<pre class="literal-block">
+# удалить файл через 30 дней
+$ curl -i -XPUT https://xxx.selcdn.ru/container/myfile.dat \
+            -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+            -H &quot;X-Delete-After: 2592000&quot; \
+            -T &quot;./myfile.dat&quot;
+
+# отключение удаления файла
+$ curl -i -XPUT https://xxx.selcdn.ru/container/myfile.dat \
+            -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+            -H &quot;X-Delete-After: 0&quot; \
+            -T &quot;./myfile.dat&quot;
+</pre>
+</div>
+<div class="section" id="id22">
+<h2><a class="toc-backref" href="#id1">Версионирование</a></h2>
+<p>Хранилище позволяет хранить предыдущие версии файлов для определенных контейнеров. Включается версионирование посредством опции <strong>X-Versions-Location</strong>,
+содержащей имя контейнера для хранения версий файлов. Эта опция должна передаваться в PUT-запросе на адрес контейнера.
+Также, нужно убедиться, что контейнер для хранения версий существует, либо создать оный отдельным запросом:</p>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPUT https://xxx.selcdn.ru/container/ \
+            -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+            -H &quot;X-Versions-Location: container_versions&quot;
+
+$ curl -i -XPUT https://xxx.selcdn.ru/container_versions/ \
+            -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+</pre>
+<p>Отключение версионирования осуществляется путем отправки POST-запроса с заголовком <strong>X-Remove-Versions-Location</strong> на адрес контейнера.
+В данном заголовке может быть произвольное содержимое.</p>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -XPUT https://xxx.selcdn.ru/container/ \
+            -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+            -H &quot;X-Remove-Versions-Location: x&quot;
+</pre>
+</div>
+<div class="section" id="cdn">
+<h2><a class="toc-backref" href="#id1">Сброс кэша CDN</a></h2>
+<p><strong>PURGE</strong> запрос на адрес <em>X-Storage-Url</em>.</p>
+<p>В теле запроса нужно перечислить полные адреса страниц (каждый на новой строчке) для которых нужно очистить кэш.
+Обязательно нужно указать заголовок <em>Content-Length</em> равный размеру тела запроса.</p>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -X PURGE https://xxx.selcdn.ru/ \
+       -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+       -H &quot;Content-Length: 75&quot; \
+       -d $'http://xxx.selcdn.com/container/path/file-1.e\nhttp://binded.domain.my/file1'
+</pre>
+<p>При успешном выполнении запроса будет отдан код ответа <em>201 Created</em>.</p>
+<p><strong>Внимание:</strong> после успешного выполнения данные из кэша будут удалены с задержкой около 15 минут.</p>
+</div>
+<div class="section" id="id23">
+<h2><a class="toc-backref" href="#id1">Получение статуса очистки кэша CDN</a></h2>
+<p><strong>GET</strong> запрос на адрес <em>X-Storage-Url</em>/cdn_purge_status.</p>
+<p>В заголовке purgeId передается id запроса к акамаи, можно получить в ходе отправки запроса на очистку кэша CDN</p>
+<p>Пример:</p>
+<pre class="literal-block">
+$ curl -i -X GET https://xxx.selcdn.ru/cdn_purge_status \
+     -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; \
+     -H &quot;purgeId: 75dfdgfd-fgdfr342536&quot;
+</pre>
+</div>
+<div class="section" id="ssl">
+<h2><a class="toc-backref" href="#id1">Управление пользовательскими ssl-сертификатами</a></h2>
+<p>Привязанные сертификаты будут показаны в заголовке X-Ssl при HEAD-запросе на адрес хранилища пользователя. Существует возможность добавлять и удалять сертификаты через API.</p>
+<p>Для добавления и удаления пользовательских сертификатов нужно отправить <strong>PUT</strong> запрос на адрес <em>X-Storage-Url</em></p>
+<p>При добавлении сертификата используется заголовок <strong>X-Add-SSL</strong>, содержащий имя сертификата. При удалении отправляется заголовок <strong>X-Remove-SSL</strong>
+Имя сертификата должно указываться в формате:</p>
+<blockquote>
+001_cert1</blockquote>
+<p>Где первое число является логином пользователя, второй компонент произвольное имя. Имена сертификатов не должны повторяться.
+Сам сертификат (должен содержать как сертификат, так и приватный ключ) передается в теле запроса.
+Для замены сертификата нужно выполнить запрос на удаление старого сертификата и затем загрузить новый.</p>
+<p>Пример запроса на добавление сертификата:</p>
+<pre class="literal-block">
+$ curl -I https://xxxxx.selcdn.ru/ -H &quot;X-Auth-Token:$token&quot; -H &quot;X-Add-SSL: 001_cert1&quot; -XPUT -T ./cert1.pem
+</pre>
+<p>Пример запроса на удаление сертфиката:</p>
+<pre class="literal-block">
+$ curl -I https://xxxxx.selcdn.ru/ -H &quot;X-Auth-Token:$token&quot; -H &quot;X-Remove-SSL: 001_cert1&quot; -XPUT
+</pre>
+<p>Для просмотра сведений о сертификате необходимо отправить GET-запрос на адрес аккаунта с заголовком X-Info-SSL. В ответе будет получен json с данными сертификата:</p>
+<pre class="literal-block">
+$ curl -i https://xxxxx.selcdn.ru/ -H &quot;X-Auth-Token:$token&quot; -H &quot;X-Info-SSL: 001_cert1&quot; -XGET
+[{&quot;domains&quot;: &quot;cert1.com, www.cert1.com&quot;, &quot;not_after&quot;: &quot;2016-10-10T23:59:59&quot;, &quot;not_before&quot;: &quot;2015-10-10T23:59:59&quot;}]
+</pre>
+</div>
+<div class="section" id="id24">
+<h2><a class="toc-backref" href="#id1">Управление доменами контейнера</a></h2>
+<p>Для изменения списка доменов, привязанных к контейнеру, следует выполнить <strong>POST</strong> запрос на адрес контейнера и передать в заголовке <strong>X-Container-Domains</strong>
+cписок доменов, разделенный пробелами. Для удаления всех доменов следует отправить в этом заголовке “0”.</p>
+<p>Пример запроса:</p>
+<pre class="literal-block">
+$ curl -i https://ххххх.selcdn.ru/new_container -H &quot;X-Auth-Token:$token&quot; -XPOST -H &quot;X-Сontainer-Domains: domain1.ru domain2.ru&quot;
+</pre>
+<p>Предыдущая команда заменяет весь список привязанных доменов. Для добавления или удаления части доменов следует передавать их списки в заголовках
+<strong>X-Add-Container-Domains</strong> и <strong>X-Remove-Container-Domains</strong> соответственно. Списки, как и в предыдущем случае, разделены пробелами.</p>
+</div>
+<div class="section" id="id25">
+<h2><a class="toc-backref" href="#id1">Управление подпользователями</a></h2>
+<p>Для управления подпользователями следует отправлять авторизованные запросы на url: <strong>http://selcdn.ru/users</strong>
+GET-запрос вернет список подпользователей
+PUT и DELETE на адрес: <strong>http://selcdn.ru/users/{user_name}</strong> добавляют и удаляют пользователей с именем, заданным переменной user_name
+В put-запросе могут быть переданы следующие заголовки:</p>
+<ul class="simple">
+<li><em>X-Auth-Key</em> - пароль подпользователя</li>
+<li><em>X-User-Active</em> - on | off - флаг активности пользователя</li>
+<li><em>X-User-ACL-Containers-R</em> - список доступных только для чтения контейнеров, разделенных запятой. Для очистки списка - передать значение &quot;,&quot; (запятая)</li>
+<li><em>X-User-ACL-Containers-W</em> - список доступных на запись (+чтение) контейнеров, разделенных запятой. Для очистки списка - передать значение &quot;,&quot; (запятая)</li>
+<li><em>X-User-Store-Password</em> - если установлен в yes то пароль пользователя будет сохранён в базе в открытом виде</li>
+</ul>
+<p>Запрос на получение списка подпользователей:</p>
+<pre class="literal-block">
+$ curl -i -X GET https://selcdn.ru/users -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+</pre>
+<p>Запрос на создание пользователя:</p>
+<pre class="literal-block">
+$ curl -i -XPUT https://selcdn.ru/users/1 -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot; -H &quot;X-Auth-Key: 123&quot; -H &quot;X-User-ACL-Containers-W: container1&quot; -H &quot;X-User-ACL-Containers-R: container2&quot; -H &quot;X-User-Store-Password: yes&quot; -H &quot;X-User-Active: on&quot;
+</pre>
+<p>Удаление пользователя:</p>
+<pre class="literal-block">
+$ curl -i -XDELETE https://selcdn.ru/users/1 -H &quot;X-Auth-Token: 285a05336fe0317beac78e84adac5f11&quot;
+</pre>
+</div>
+<div class="section" id="id26">
+<h2><a class="toc-backref" href="#id1">Получение логов запросов к хранилищу</a></h2>
+<p>Для получения лог-файлов с запросами к хранилищу, следует отправить авторизованный POST-запрос на url: <strong>http://selcdn.ru/logs</strong>
+В запросе необходимо передавать следующие заголовки:</p>
+<ul class="simple">
+<li><em>X-Auth-Token</em> - токен пользователя (для определения того, кто запрашивает логи)</li>
+<li><em>X-Start-Time</em> - время, начиная с которого будут выбираться логи (формат - Y-m-d H:M:S)</li>
+<li><em>X-End-Time</em> - время, до которого будут выбираться логи (формат - Y-m-d H:M:S)</li>
+<li><em>X-Limit</em> (опционально) - определяет максимальное количество записей логов, выданных в данном запросе, по умолчанию выбираются все логи в указанном временном интервале</li>
+</ul>
+<p>После окончания выборки ее результаты складываются в приватный контейнер logs</p>
+<p>Для проверки статуса запроса следует отправить GET-запрос на url: <strong>http://selcdn.ru/logs</strong>, в ответе вернется список предыдущих запросов и их статус</p>
+</div>
+</div>
+
+</section>

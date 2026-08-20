@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "DocumentResponse",
+    "description": "Ответ с документом",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "document": {
+            "description": "Документ",
+            "$ref": "document.json"
+        }
+    }
+}

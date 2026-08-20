@@ -1,0 +1,137 @@
+version: "2"
+services:
+  mysql:
+    container_name: mysql
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=keepasecret
+      - MYSQL_USER=druid
+      - MYSQL_PASSWORD=keepasecret
+      - MYSQL_DATABASE=druid
+    command:
+      - '--character-set-server=utf8'
+      - '--collation-server=utf8_unicode_ci'
+
+  zookeeper:
+    container_name: zookeeper
+    image: zookeeper
+    environment:
+      - ZOO_MY_ID=1
+      - ZOO_SERVERS=zookeeper
+
+  kafka:
+    container_name: kafka
+    image: confluentinc/cp-kafka
+    environment:
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://:9092
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
+
+  coordinator:
+    hostname: coordinator
+    container_name: coordinator
+    image: linkfire/druid
+    build: .
+    ports:
+      - "3001:8081"
+    environment:
+      - DRUID_XMX=1g
+      - DRUID_XMS=1g
+      - DRUID_MAXNEWSIZE=250m
+      - DRUID_NEWSIZE=250m
+      - MYSQL_USERNAME=druid
+      - MYSQL_PASSWORD=keepasecret
+      - KAFKA_BOOTSTRAP=kafka:9092
+    depends_on:
+      - mysql
+      - zookeeper
+      - kafka
+    volumes:
+      - ./data/:/var/data/
+      - ./logs/:/opt/druid/var/druid/indexing-logs
+    command:
+      - coordinator
+
+  broker:
+    hostname: broker
+    container_name: broker
+    image: linkfire/druid
+    build: .
+    ports:
+      - "3002:8082"
+    environment:
+      - DRUID_XMX=1g
+      - DRUID_XMS=1g
+      - DRUID_MAXNEWSIZE=250m
+      - DRUID_NEWSIZE=250m
+      - DRUID_MAXDIRECTMEMORY=256m
+      - DRUID_PROCESS_THREADS=2
+      - DRUID_PROCESS_BUFFER=53687091
+      - MYSQL_USERNAME=druid
+      - MYSQL_PASSWORD=keepasecret
+      - KAFKA_BOOTSTRAP=kafka:9092
+      - MEMCACHED_HOST=memcached
+    depends_on:
+      - mysql
+      - zookeeper
+      - kafka
+      - coordinator
+    command:
+      - broker
+
+  historical:
+    hostname: historical
+    container_name: historical
+    image: linkfire/druid
+    build: .
+    ports:
+      - "3003:8083"
+    environment:
+      - DRUID_XMX=1g
+      - DRUID_XMS=1g
+      - DRUID_MAXNEWSIZE=250m
+      - DRUID_NEWSIZE=250m
+      - MYSQL_USERNAME=druid
+      - MYSQL_PASSWORD=keepasecret
+      - KAFKA_BOOTSTRAP=kafka:9092
+      - DRUID_MAXDIRECTMEMORY=600m
+      - DRUID_PROCESS_THREADS=2
+      - DRUID_PROCESS_BUFFER=53687091
+    depends_on:
+      - mysql
+      - zookeeper
+      - kafka
+      - coordinator
+    volumes:
+      - ./deep_storage/:/opt/druid/var/druid/segments
+    command:
+      - historical
+
+  middlemanager:
+    hostname: middlemanager
+    container_name: middlemanager
+    image: linkfire/druid
+    build: .
+    ports:
+      - "4001:8091"
+    environment:
+      - DRUID_XMX=25m
+      - DRUID_XMS=25m
+      - DRUID_MAXNEWSIZE=25m
+      - DRUID_NEWSIZE=25m
+      - MYSQL_USERNAME=druid
+      - MYSQL_PASSWORD=keepasecret
+      - KAFKA_BOOTSTRAP=kafka:9092
+    depends_on:
+      - mysql
+      - zookeeper
+      - kafka
+      - coordinator
+    volumes:
+      - ./data/:/var/data/
+      - ./deep_storage/:/opt/druid/var/druid/segments
+      - ./logs/:/opt/druid/var/druid/indexing-logs
+    command:
+      - middleManager

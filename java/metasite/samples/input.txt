@@ -1,0 +1,7 @@
+THIS IS AN EXAMPLE TEST FILE.
+Contents of this file shall be split into 4 separate output files (based on the first letter of the word):
+- A-G,
+- H-N,
+- O-U,
+- V-Z.
+Don't forget that the words should be normalized and sorted.

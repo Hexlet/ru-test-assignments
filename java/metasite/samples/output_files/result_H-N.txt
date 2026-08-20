@@ -1,0 +1,5 @@
+H-N : 1
+INTO : 1
+IS : 1
+LETTER : 1
+NORMALIZED : 1

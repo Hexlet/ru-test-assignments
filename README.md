@@ -100,6 +100,9 @@
 * Nortas Analitics
     * [Тестовое задание для аналитика](./analytics/nortas-analitics-analitik-dannykh/README.md)
 
+* [Oracul Analytics](https://oracul.io/)
+    * [Тестовое задание Quant Researcher](./analytics/oracul-analytics/quant-challenge.md)
+
 * [Ozon](https://www.ozon.ru/)
     * [Тестовое задание для аналитика *(SQL)*](./analytics/ozon/)
 
@@ -212,12 +215,18 @@
 <details>
  <summary>Android</summary>
 
-* [Android разработчик *(Kotlin, Single Activity, Retrofit, Jetpack Compose / XML, Kotlinx Serialization / Gson, RxJava / Coroutines)*](./android/appkode/trainee-test-android.md)
-
 * [avito.tech](https://github.com/avito-tech)
     * [Тестовое задание для стажёра Android (archived) *(Kotlin/Java)*](./android/avito-tech/android-trainee-task.md)
     * [Тестовое задание для стажёра Android *(Kotlin)*](./android/avito-tech/bx-android-trainee-assigment.md)
     * [Приложение прогноза погоды (Андроид) *(Kotlin)*](./android/avito-tech/android-trainee-task-2021.md)
+
+* [BetterMe](https://betterme.world/)
+    * [Android Test Task — movies client *(ENG)* *(Android)*](./android/betterme/android-test-task.md)
+
+* [Туту.ру](https://tutu.ru/)
+    * [Тестовое задание для стажировки в Android команду *(Kotlin/Java)*](./android/tutu-ru/internship-test.md)
+
+* [Android разработчик *(Kotlin, Single Activity, Retrofit, Jetpack Compose / XML, Kotlinx Serialization / Gson, RxJava / Coroutines)*](./android/appkode/trainee-test-android.md)
 
 * [Android Developer *(Kotlin, Java, C++)*](./android/fs/android.md)
 
@@ -231,6 +240,7 @@
 * [Тестовое задание для стажёра-тестировщика на знание Java и SQL *(any)*](./qa/pammer/traineetesttask.md)
 
 * [QATestLab](https://qatestlab.com/company/contact-us/)
+
 * [Test task for position QA Specialist // *Java или C#*](./qa/n1mnull/qatestlab.md)
 
 * [Тестовое задание по автоматизации действий в поисковой строке Яндекса для *tensor.ru*](./qa/warumbaum/tensor-yandex.md)
@@ -276,6 +286,9 @@
 <details>
  <summary>Backend</summary>
 
+* [ANMEDIO](https://anmedio.ru/)
+    * [Тестовое задание на вакансию backend-специалиста](./backend/anmedio/backend-task.md)
+
 * [Appbooster](https://appbooster.com/)
     * [Backend developer *(any)*](./backend/appbooster/backend.md)
 
@@ -306,23 +319,17 @@
 * [KODE](https://kode.ru/)
     * [Backend разработчик *(Python)*](./backend/kode/2018-internship-backend.md)*(изображение не найдено)*
 
-* [pixlpark](https://pixlpark.ru/)
-    * [Backend-разработка *(C#, ASP.NET, React/RazorPages)*](./backend/pixlpark/d64fbbc1de1028aaa7a47ff3fa0650a1.md)
-
-* [Tutu.ru](https://www.Tutu.ru/)
-    * [Тестовое задание на позицию backend-разработчик *(PHP)*](./backend/tutu-ru/php-interview.md)
-
-* [Waliot](https://waliot.com/)
-    * [Backend Developer *(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)*](./backend/waliot/backend-1.md)
-
-* [ООО "МСтрой"](https://mstroy.tech/)
-    * [Тестовое задание Backend developer / Python](./backend/ooo-mstroj/README.md)
-
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
     * [Тестовое задания для кандидатов в бэкенд разработку *(Java, Spring)*](./backend/marketplace-technologies-kazanexpress/backend-spring-test-task.md)
 
 * [Oxem Studio](https://oxem.ru)
     * [Бэкенд-разработчик *(PHP)*](./backend/oxem-studio/README.md)
+
+* [pixlpark](https://pixlpark.ru/)
+    * [Backend-разработка *(C#, ASP.NET, React/RazorPages)*](./backend/pixlpark/d64fbbc1de1028aaa7a47ff3fa0650a1.md)
+
+* [Smena](http://smena.space/)
+    * [Тестовое задание Бэкенд разработчик *(any)*](./backend/smena/backend.md)
 
 * [Social Media Holding](https://socialmediaholding.com/)
     * [PHP разработчик Junior +](./backend/socialmediaholding/README.md)
@@ -330,30 +337,51 @@
 * SoftPro
     * [Тестовое задание *(Go, C++, Python)*](./backend/softpro/)
 
+* [Tutu.ru](https://www.Tutu.ru/)
+    * [Тестовое задание на позицию backend-разработчик *(PHP)*](./backend/tutu-ru/php-interview.md)
+
+* [Waliot](https://waliot.com/)
+    * [Backend Developer *(Java/Kotlin, Spring Boot, SQL/NoSQL, Docker)*](./backend/waliot/backend-1.md)
+
+* [Комитет](https://cmtt.ru/)
+    * [Backend Engineer](./backend/komitet/vacancy-backend.md)
+
+* [ООО "МСтрой"](https://mstroy.tech/)
+    * [Тестовое задание Backend developer / Python](./backend/ooo-mstroj/README.md)
+
 </details>
 
 <details>
  <summary>C#</summary>
 
-* [Nauka]
-    * [Тестовое задание *(C#)*](./csharp/nauka/testovoe-zadanie-csharp-dev.pdf)
-
-* [Mindbox](https://mindbox.ru/)
-    * [Тестовое задание на стажировку *(C#, SQL)*](./csharp/mindbox/testovoe-zadanie-na-stazhirovku-mindbox.docx)
-
-* [Тестовое задание C# *(C#)*](./csharp/busyrev/cb89f309d2c32873449366023b8e0057.md)
-
 * [AFCStudio](https://afcstudio.ru/)
     * [Junior C# Developer *(C#, .NET, Angular, React, Razor)*](./csharp/afcstudio/0621204ce249e9faf1aaa1e1b7d3f7ef.md)
+
+* [Crexi](https://www.crexi.com/)
+    * [Rate limiter *(ENG)* *(C#)*](./csharp/crexi/rate-limiter.md)
 
 * [DevSystems](https://devsystems.ru/)
     * [Стажер-программист *(C#)*](./csharp/devsystems/zadanie-s-kosmicheskogo-korablya.pdf)
 
-* [СКБ Контур](https://kontur.ru/)
-    * [Тестовые задания на c# стажировку *(C#)*](./csharp/skb-kontur/)
+* [Flowsell.me](https://flowsell.me/)
+    * [Антибан-система *(C#)*](./csharp/flowsell/antiban.md)
+
+* [Mindbox](https://mindbox.ru/)
+    * [Тестовое задание на стажировку *(C#, SQL)*](./csharp/mindbox/testovoe-zadanie-na-stazhirovku-mindbox.docx)
+
+* [Nauka]
+    * [Тестовое задание *(C#)*](./csharp/nauka/testovoe-zadanie-csharp-dev.pdf)
 
 * [ИнфоТеКС](https://infotecs.ru/)
     * [Тестовое на стажировку C#, зима 2019-2020 *(C#, ASP.NET)*](./csharp/infoteks/csharp-1-.rtf)
+
+* [Катрен](https://katren.ru/)
+    * [Тестовое задание для разработчика C# *(C#)*](./csharp/katren/test-task.md)
+
+* [СКБ Контур](https://kontur.ru/)
+    * [Тестовые задания на c# стажировку *(C#)*](./csharp/skb-kontur/)
+
+* [Тестовое задание C# *(C#)*](./csharp/busyrev/cb89f309d2c32873449366023b8e0057.md)
 
 </details>
 
@@ -363,10 +391,17 @@
 * [BST Digital](https://bst.digital/)
     * [Тестовое задание для Data Scientist](./data-scientist/bst-digital/README.md)
 
+* [Лаборатория машинного интеллекта МФТИ](http://mil-team.com/)
+    * [Тестовое задание на стажировку *(Python)*](./data-scientist/mil-team/internship-test-task.md)
+
 </details>
 
 <details>
  <summary>DevOps</summary>
+
+* [Linkfire](https://linkfire.com/)
+    * [DevOps assignment *(ENG)* *(Docker)*](./devops/linkfire/devops-assignment.md)
+    * [Big Data DevOps assignment *(ENG)* *(Docker)*](./devops/linkfire/bigdata-devops-assignment.md)
 
 * [Smena](https://smena.space/)
     * [Тестовое задание DevOps разработчик *(Docker, minikube, Python)*](./devops/smena/devops.md)
@@ -385,14 +420,21 @@
 * [23Devs](https://23devs.com/)
     * [Тестовое задание на позицию cтажер-разработчик javascript *HTML, CSS, JS*)](https://cloud.mail.ru/public/KN2F/TW4dPYs6n)
 
+* [Abanking](https://abanking.ru/)
+    * [Junior Frontend Developer *(JS, API)*](./frontend/abanking/junior-frontend.md)
+
+* [Agro.Club](https://agro.club/)
+    * [Junior Frontend Developer *(TS, API)*](./frontend/agro-club/junior-frontend.md)
+
+* [ANMEDIO](https://anmedio.ru/)
+    * [Тестовое задание на вакансию frontend-специалиста](./frontend/anmedio/frontend-task.md)
+
 * [Appbooster](https://appbooster.com/)
     * [Frontend Developer *(any)*](./frontend/appbooster/frontend.md)
     * [Frontend + graphql developer *(React, Github GraphQL API)*](./frontend/appbooster/frontend-graphql.md)
 
 * [Aviasales](https://aviasales.ru)
     * [~~Тестовое задание Aviasales (frontend) *(JS/TS, React)*~~](./frontend/aviasales/aviasales-frontend.md) *(сервер тестового задания не работает)*
-* [Тестовое задание - Frontend Developer *(JS/TS)*](./frontend/kosyanmedia/front-end-tp-test.md)
-* [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](./frontend/kosyanmedia/deprecated-aviasales.md)
 
 * [avito.tech](https://github.com/avito-tech)
     * [Тестовое задание на позицию стажёра-фронтендера 2022 *(React, Redux, TS)*](./frontend/avito-tech/internship-frontend-2022.md)
@@ -412,6 +454,9 @@
 * [BirdsBuild](https://bb.market/)
     * [Тестовое задание на позицию Frontend разработчик Nuxt.js *(Nuxt 3, TypeScript, GraphQL)*](./frontend/birdsbuild/1-bn8bbym0inyfdelyyv.md)
 
+* [BlockWallet](https://blockwallet.io/)
+    * [Blank test task *(ENG)* *(TS)*](./frontend/blockwallet/test-task.md)
+
 * [~~Bluesweater-studio~~](https://vk.com/bluesweaterstudio) *студия закрыта*
     * [Frontend task *(JS, React, React Hooks, JSS)*](./frontend/bluesweater-studio/frontend-task.md)
 
@@ -425,8 +470,17 @@
 * [~~DevJS~~](https://devjs.ru/) *сайт недоступен*
     * [Тестовое задания на позицию Frontend разработчика *(JS, React)*](./frontend/devjs/react-test.md)*(отсутствует дизайн-макет по указанной ссылке)*
 
+* [Dodo Pizza](https://dodobrands.io/)
+    * [Тестовое задание для Frontend разработчика *(SPA)*](./frontend/dodo-pizza/frontend-developer.md)
+
 * [Flatstack](https://www.flatstack.com)
     * [Frontend Developer *(JS, HTML, CSS)*](./frontend/flatstack/front-end.md)
+
+* [Fractal Web](https://github.com/Fractal-Web)
+    * [Тестовое задание для фронтенд-разработчика](./frontend/fractal-web/front-test-assignment.md)
+
+* [friendlee](https://github.com/friendlee-pro)
+    * [Тестовое задание на верстку *(HTML, CSS, Figma)*](./frontend/friendlee/test-task-html-figma.md)
 
 * [Future](https://future-group.ru/)
     * [Фронтенд-разработчик 1 *(React, Docker, TS)*](./frontend/future/frontend-javascript-test.md)
@@ -437,14 +491,27 @@
     * [Верстальщик 3 *(Figma, HTML, CSS, JS)*](./frontend/future/frontend-html-3.md)
     * [Тестовое задание на позицию Менеджер проекта *(Figma, HTML, CSS, JS)*](./frontend/future/frontend-html-3.md)
 
+* [Good Proton](https://github.com/Good-Proton)
+    * [Тестовое задание «Планировщик задач» *(TS)*](./frontend/good-proton/planirovshchik-zadach.md)
+
 * [Hammer Systems](https://hammer.systems/)
     * [Тестовое задание для Frontend разработчика](./frontend/hammer-systems/testovoe-zadanie-frontend.docx)
+
+* [Incode Group](https://github.com/incodellc)
+    * [React Test Task — price tickers *(ENG)* *(React)*](./frontend/incode-group/finance-test-task.md)
+    * [GitHub Kanban Board *(ENG)* *(any)*](./frontend/incode-group/github-kanban-test-task.md)
+
+* [IT Rev](https://github.com/itrevolution-perm)
+    * [Тестовое задание для фронтенд-разработчиков *(JS)*](./frontend/it-rev/test-task-frontend.md)
+
+* [Jupiter soft](https://jupiter-soft.com/)
+    * [Тестовое задание Junior Frontend Developer (React)](./frontend/jupiter-soft/1vgahmunsutnn0a6bjy5.md)
 
 * [KODE](https://kode.ru/)
     * [Frontend разработчик *(Create React App, React Router, Axios)*](./frontend/kode/trainee-test-frontend.md)
 
-* [Jupiter soft](https://jupiter-soft.com/)
-    * [Тестовое задание Junior Frontend Developer (React)](./frontend/jupiter-soft/1vgahmunsutnn0a6bjy5.md)
+* [Magnum Design](https://github.com/magnum-design)
+    * [Тестовое задание Photohunt *(React)*](./frontend/magnum-design/photohunt-test-task.md)
 
 * [Marketplace Technologies (KazanExpress)](https://github.com/KazanExpress)
     * [Тестовое задание Front-End *(JS/TS, Vue.js)*](./frontend/marketplace-technologies-kazanexpress/frontend-test-task.md)
@@ -456,8 +523,14 @@
 * [Modulbank](https://modulbank.ru/)
     * [Тестовое на Frontend](./frontend/modulbank.md)
 
+* [Nevatrip](https://nevatrip.ru/)
+    * [Тестовое задание на верстку *(any)*](./frontend/nevatrip/layout-test-task.md)
+
 * [NewGen Vision](https://www.unipage.net/)
     * [Junior Frontend Developer *(JS, Vue.js)*](./frontend/newgen-vision/junior-frontend.md)
+
+* [Norigin Media](https://noriginmedia.com/)
+    * [Frontend developer testing task *(ENG)* *(any)*](./frontend/norigin-media/candidate-tester.md)
 
 * [Ostrovok.ru](https://ostrovok.ru)
     * [Frontend Developer *(JS, HTML, CSS)*](./frontend/ostrovok-ru/js.md)
@@ -467,6 +540,12 @@
 
 * [pixlpark](https://pixlpark.ru/)
     * [Frontend-разработка *(React, MobX)*](./frontend/pixlpark/c03c97ae553a0038962fb945644392cf.md)
+
+* [Quantify the World](https://quantify.world/)
+    * [Тестовое задание *(React, Redux)*](./frontend/quantify-the-world/react-test.md)
+
+* [red_mad_robot](https://redmadrobot.com/)
+    * [Тестовое задание Робопрактики *(JS)*](./frontend/red-mad-robot/frontend-robopractice.md)
 
 * [Redsoft](https://redsoft.ru)
     * [Frontend-разработчик *(JS, Vue.js, Node.js)*](./frontend/redsoft/1vamqwl3maxdfomcebtv.md)
@@ -481,8 +560,6 @@
     * [Frontend-разработчик 2 [АРХИВ] *(JS, React, Redux)*](./frontend/sendsay/frontend-razrabotchik-2-arkhiv.md)
     * [Младший frontend-разработчик *(JS, React)*](./frontend/sendsay/junior-frontend.md)
 
-* [Test Task for Intern / Junior Front-End Developer Position *(React)*](./frontend/krambertech/ecb3890824fd7ada0f4ec1ff55125758.md)
-
 * [Shopify](https://www.shopify.com/)
     * [Frontend Intern, Fall 2022 *(JS, OpenAI) (ENG)*](./frontend/shopify/16tmbx990qfnx2p1ltkt.md)
 
@@ -490,10 +567,28 @@
     * [JavaScript Developer *(JS, Vue.js)*](./frontend/smena/assignments.md)
     * [TypeScript Developer *(TS, React)*](./frontend/smena/assignments.md)
 
+* [Snowdog](https://snow.dog/)
+    * [Front-end recruitment test *(ENG)* *(any)*](./frontend/snowdog/front-end-recruitment-test.md)
+
+* [Strikersoft](http://strikersoft.com/)
+    * [Frontend test assignment *(ENG)* *(JS)*](./frontend/strikersoft/frontend-test-assignment.md)
+
+* [TableCheck](https://tablecheck.com/)
+    * [React Test Task *(ENG)* *(React)*](./frontend/tablecheck/react-test-task.md)
+
 * [Tutu.ru](https://www.Tutu.ru/)
     * [Домашнее задание для соискателей на позицию фронтенд-разработчика *(JS, React, Node.js)*](./frontend/tutu-ru/fe-homework.md)
     * [Тестовое задание на позицию frontend-разработчик *(JS, TS)*](./frontend/tutu-ru/frontend-javascript-test.md)
     * [Тестовое задание на позицию верстальщик *(JavaScript/jQuery, HTML, CSS)*](./frontend/tutu-ru/frontend-html-test.md)
+
+* [Twins Technologies](https://github.com/twinscom)
+    * [Frontend Test Task *(ENG)* *(JS)*](./frontend/twins-technologies/frontend-test-task.md)
+
+* [VESTBERRY](https://www.vestberry.com/)
+    * [Test assignment — companies table and chart *(ENG)* *(JS)*](./frontend/vestberry/test-assignment.md)
+
+* [Volvo Cars](https://www.volvocars.com/)
+    * [Front-end coding test *(ENG)* *(React)*](./frontend/volvo-cars/god-frontend-code-test.md)
 
 * [Waliot](https://waliot.com/)
     * [Frontend Developer *(TypeScript/JavaScript, Angular/React/Vue)*](./frontend/waliot/frontend-1.md)
@@ -523,16 +618,30 @@
 * [СДК Гарант](https://www.sdkgarant.ru/index.php/ru/)
     * [Junior Front-End разработчик *(JS, ExtJS)*](./frontend/sdk-garant/sdk-garant-test-task.md)
 
+* [Учи.ру](https://uchi.ru/)
+    * [Задание для Front-end стажёра](./frontend/uchi-ru/frontend-challenge.md)
+
+* [Хантфлоу](https://huntflow.ru/)
+    * [Тестовое задание для фронтенда *(Vue.js)*](./frontend/huntflow/frontend-vue.md)
+
+* ЮТОР
+    * [Стажер фронтенд разработчик, 1 этап отбора](./frontend/testovoe-zadanie-frontend-razrabotchik-js-react-redux-reac/1bk6losnteti0v5k5idk.md)
+
+* [Тестовое задание - Frontend Developer *(JS/TS)*](./frontend/kosyanmedia/front-end-tp-test.md)
+
+* [~~Тестовое задание Aviasales (frontend)~~ DEPRECATED *(JS, TS, CS, React)*](./frontend/kosyanmedia/deprecated-aviasales.md)
+
+* [Test Task for Intern / Junior Front-End Developer Position *(React)*](./frontend/krambertech/ecb3890824fd7ada0f4ec1ff55125758.md)
+
 * [Frontend test case *(React, TypeScript)*](./frontend/google-docs/16ikxq-zdrxrfnzdjqdy.md)
+
 * [C32. Frontend JS test task 1 *(React)*](./frontend/google-docs/1lq7olxmcjnkf-vhopqm.md)
+
 * [Тестовое задание Frontend-разработчик *(JS, React, Redux, React Router)*](https://docs.yandex.ru/docs/view?url=ya-disk-public%3A%2F%2FPg8Mn9b2nwRtbsd79GdjAOk0sK0J5vagJAQzR5a5H4HBf2B6dSCQGd5kCvgXaxdcq%2FJ6bpmRyOJonT3VoXnDag%3D%3D&name=%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5.docx)
 
 * [Matic Test assignment - Front-end test assignment *(ENG)* *(any)*](./frontend/matic-insurance/assignment-fetch-n-cache.md)
 
 * [Frontend test case *(React, TypeScript)*](./frontend/neizvestnye/test-timer.jpg)
-
-* ЮТОР
-    * [Стажер фронтенд разработчик, 1 этап отбора](./frontend/testovoe-zadanie-frontend-razrabotchik-js-react-redux-reac/1bk6losnteti0v5k5idk.md)
 
 * [Задание на вакансию "Верстальщик лендингов", осень 2023](https://forms.yandex.ru/surveys/10033975.d66cde35b078199afc83f1e9f11cb58c5cdb22e9/?utm_source=hh&utm_medium=email&utm_content=3472582922)
 
@@ -572,10 +681,19 @@
 <details>
  <summary>Go</summary>
 
+* [ArchGIS](https://github.com/ArchGIS)
+    * [Тестовое задание для Go-разработчика — каталог товаров *(Go)*](./go/archgis/golang-test-assignment.md)
+
 * [avito.tech](https://github.com/avito-tech)
     * [Тестовое задание на позицию стажёра-бэкендера 2022 *(Go, MySQL/PostgreSQL, Docker)*](./go/avito-tech/internship-backend-2022.md)
     * [Тестовое задание для стажера в юнит Merchant Experience *(Go, PostgreSQL)*](./go/avito-tech/mx-backend-trainee-assignment.md)
     * [Тестовое задание стажера в юнит AvitoPRO *(Go)*](./go/avito-tech/pro-backend-trainee-assignment.md)
+
+* [Avtocod](https://avtocod.ru/)
+    * [Тестовое задание для GoLang-разработчика *(Go)*](./go/avtocod/golang-developer-test-task.md)
+
+* [GoCloudCamp](https://github.com/gocloudcamp)
+    * [Тестовое задание для поступления в GoCloudCamp *(Go)*](./go/gocloudcamp/test-assignment.md)
 
 * [Тестовое задание для Golang разработчика *(Go)*](./go/kazanexpress/golang-test-task.md)
 
@@ -585,8 +703,6 @@
 
 <details>
  <summary>iOS</summary>
-
-* [Задание для стажера на платформу iOS *(Swift)*](./ios/avito-tech/ios-trainee-problem-2021.md)
 
 * [Appbooster](https://appbooster.com/)
     * [iOS Developer *(any)*](./ios/appbooster/ios.md)
@@ -601,6 +717,14 @@
 * [FunBox](https://funbox.ru/)
     * [iOS/Android-разработчик *(Xcode/Android Studio)*](https://dl.funbox.ru/qt-mobile.pdf)
 
+* [Gratio Tech](https://gratio.tech/)
+    * [Тестовое задание для mobile-разработчика *(iOS/Android)*](./ios/gratio/mobile-test.md)
+
+* [Qapital](https://qapital.com/)
+    * [iOS Test Task — activity feed *(ENG)* *(iOS)*](./ios/qapital/ios-test-task.md)
+
+* [Задание для стажера на платформу iOS *(Swift)*](./ios/avito-tech/ios-trainee-problem-2021.md)
+
 * [Хитрые задачки по iOS *(any)*](./ios/appkode/test2019.md)*(сервер тестового задания не работает)*
 
 * [Internship *(iOS)*](./ios/avito-tech/internship.md)
@@ -609,8 +733,6 @@
 
 <details>
  <summary>Java</summary>
-
-* [Java разработчик](./java/google-docs/1f5frd0d-sqk471oeznt.md)
 
 * [Ecwid](https://www.ecwid.com/)
     * [Парсер SQL запросов *(Kotlin/Java)*](./java/ecwid/sql-parser.md)
@@ -624,8 +746,14 @@
 * [FunBox](https://funbox.ru/)
     * [Java-разработчик *(Java)*](https://dl.funbox.ru/qt-java.pdf)
 
+* [Guardtime](https://guardtime.com/)
+    * [Software Engineer assignment *(ENG)* *(Java)*](./java/guardtime/software-engineer-assignment.md)
+
 * [Haulmont](https://www.haulmont.ru)
     * [StudentDatabase *(Java)*](./java/haulmont/studentdatabase.md)
+
+* [I-Novus](https://i-novus.ru/)
+    * [Тестовые задания для java-разработчиков *(Java)*](./java/i-novus/job-test.md)
 
 * [Infomaximum](https://infomaximum.com)
     * [Java разработчик](https://drive.google.com/file/d/17g9-4HTkBtJln-3I-iavMqWkX9bBYcg2/view?usp=sharing) *(архив 32 МБ, не переносим в репозиторий)*
@@ -634,6 +762,15 @@
     * [Тестовое задание для кандидатов в бэкенд разработку *(Java, Spring)*](./java/marketplace-technologies-kazanexpress/backend-spring-test-task.md)
     * [Тестовое задание на Android разработку - поиск коктейлей *(Java, Kotlin)*](./java/marketplace-technologies-kazanexpress/android-test-task.md)
     * [Тестовое задание на Android разработку - просмотр статей *(Java, Kotlin)*](./java/marketplace-technologies-kazanexpress/ke-test-android.md)
+
+* [Metasite Business Solutions](https://www.metasite.net/)
+    * [Coding assignment for a Java developer *(ENG)* *(Java)*](./java/metasite/java-coding-task.md)
+
+* [Raiffeisen DGTL](https://www.raiffeisen.ru/)
+    * [Тестовое задание для Java стажёров *(Java)*](./java/raiffeisen/cib-interns-test-task.md)
+
+* [TouchTunes](https://www.touchtunes.com/)
+    * [Backend developer technical assignment *(ENG, FR)* *(Java)*](./java/touchtunes/backend-dev-tech-assignment.md)
 
 * [Tutu.ru](https://www.Tutu.ru/)
     * [Тестовое задание на позицию Android-разработчика *(Kotlin/Java, Dagger, RxJava)*](./java/tutu-ru/hire-android-test.md)
@@ -647,25 +784,15 @@
 * [ЭВРИКА](https://hr.eureca.ru)
     * [Fullstack разработчик *(JS + Java)*](./java/evrika/1foduftpcuhyp2hn7ly3.md)
 
+* [Java разработчик](./java/google-docs/1f5frd0d-sqk471oeznt.md)
+
 </details>
 
 <details>
 <summary>Python</summary>
 
-* [FitnessKit](https://fitness-kit.ru/)
-    * [Python разработчик на backend *(Python, Django)*](./backend/python/fitnesskit/testovoe-bek.pdf)
-
-* [KosyanMedia *(Python)*](./backend/python/kosyanmedia/README.md)
-
-* [KazanExpress *(eng)* *(Python, Django)*](./backend/python/kazanexpress/README.md)
-
-* [Сбербанк](https://www.sberbank.ru/ru/person)
-    * [Тестовое задание для инженера данных *(Python, SQL)*](./backend/python/sberbank/de-task-solution.docx)
-
 * [abz.agency](https://abz.agency/)
     * [Junior Python Developer *(Python, Django/Flask, MySQL/PostgreSQL)*](./backend/python/abz-agency/testovoe-zadanie-na-pozitsiyu-junior-python-developer.pdf)
-
-* [AppBooster *(any)*](./backend/python/appbooster/backend.md)
 
 * [Appstorespy](https://appstorespy.com/)
     * [Junior Backend developer *(Django/Flask, MySQL/PostgreSQL, MongoDB/Redis/Elasticsearch, GraphQL/REST)*](./backend/python/appstorespy/test-backend.md)
@@ -675,10 +802,7 @@
 
 * [Avito Tech](https://www.avito.tech/)
     * [Avito Tech (archived) *(Go/Python/PHP/Java/JavaScript)*](./backend/python/avitotech/README.md)
-
     * [Тестовое задание по python *(Python)*](./backend/python/avitotech/readme1.md)
-
-* [GitHub repository browsing tool *(Python)*](./backend/python/wemake-services/github-repository-browsing-tool.md)
 
 * [Bewise](https://bewise.ai/)
     * [Тестовое задание на позицию Python Junior](./backend/python/bewise/test-python.md)
@@ -686,23 +810,40 @@
 * [Escape Tech](https://escape-team.tech/)
     * [Software Tester (стажер), *Python*](./backend/python/softwaretester/readme.md)
 
+* [FitnessKit](https://fitness-kit.ru/)
+    * [Python разработчик на backend *(Python, Django)*](./backend/python/fitnesskit/testovoe-bek.pdf)
+
+* [itcase](https://itcase.pro/)
+    * [Тестовое задание на Django *(Python, Django)*](./backend/python/itcase/django-test-task.md)
+
 * [Ivelum](https://ivelum.com/)
     * [Python-разработчик *(Python)*](./backend/python/ivelum/python.md)
 
+* [PyShop](https://pyshop.ru/)
+    * [Разработчик Python (стажировка)](./backend/python/pyshop/pyshop-python-trainee.md)
+    * [Python Developer *(Python, Django, PostgreSQL, Docker)*](./backend/python/pyshop/README.md)
+
+* [Очень Интересно](https://www.interesnee.ru/)
+    * [Python-разработчик на позицию стажера](./backend/python/djangotesttask/task-itself.md)
+
+* [Сбербанк](https://www.sberbank.ru/ru/person)
+    * [Тестовое задание для инженера данных *(Python, SQL)*](./backend/python/sberbank/de-task-solution.docx)
+
+* [KosyanMedia *(Python)*](./backend/python/kosyanmedia/README.md)
+
+* [KazanExpress *(eng)* *(Python, Django)*](./backend/python/kazanexpress/README.md)
+
+* [AppBooster *(any)*](./backend/python/appbooster/backend.md)
+
+* [GitHub repository browsing tool *(Python)*](./backend/python/wemake-services/github-repository-browsing-tool.md)
+
 * [KODE](https://kode.ru/)
+
 * [Backend разработчик *(Python)*](./backend/python/kode/README.md)*(изображение не найдено)*
 
 * [Ostrovok Tech Python Developer *(Python)*](./backend/python/ostrovoktech/README.md)
 
 * [Ostrovok Tech Django Developer *(в Контент)*](./backend/python/ostrovoktech/content-tech-task.md)
-
-* [PyShop](https://pyshop.ru/)
-    * [Разработчик Python (стажировка)](./backend/python/pyshop/pyshop-python-trainee.md)
-
-    * [Python Developer *(Python, Django, PostgreSQL, Docker)*](./backend/python/pyshop/README.md)
-
-* [Очень Интересно](https://www.interesnee.ru/)
-    * [Python-разработчик на позицию стажера](./backend/python/djangotesttask/task-itself.md)
 
 * [FunBox *(Python)*](./backend/python/funbox/python.pdf)
 
@@ -740,37 +881,61 @@
 * [Greensight](https://greensight.ru/)
     * [Тестовое задание для направления Backend разработка *(PHP)*](./php/greensight/backend-razrabotka.md)
 
+* [Hicaliber](https://www.hicaliber.com.au/)
+    * [PHP Developer Test *(ENG)* *(PHP + Laravel, Vue.js)*](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ) *(папка старого формата, скачать программно не удалось)*
+
 * [Hommler OU](https://hommler.de/)
     * [Middle developer / PHP разработчик](./php/hommler-ou/193305072023.md)
 
+* [Inet Production](http://inetstudio.ru/)
+    * [Тестовое задание на позицию backend-разработчик *(PHP)*](./php/inet-production/php-interview.md)
+
 * [is.Digital](https://isdigi.ru/)
     * [Тестовое задание для веб разработчика *(PHP, MySQL)*](./php/is-digital/test-web-dev-junior.md)
+
+* [MAG Development](http://magdv.com/)
+    * [Backend (PHP) разработчик *(PHP)*](./php/mag-development/php-test-task.md)
 
 * [Oxem Studio](https://oxem.ru)
     * [Бэкенд-разработчик *(PHP)*](./php/oxem-studio/backend-razrabotchik.md)
 
 * [REG.RU](https://www.reg.ru/)
-
     * [Тестовое задание на позицию backend-разработчик *(PHP)*](./php/reg-ru/php-interview.md)
 
 * [Social Media Holding](https://socialmediaholding.com/)
     * [PHP разработчик Junior +](./backend/socialmediaholding/README.md)
 
-* [Глобал Консалтинг](https://bth.su/)
-    * [Тестовое задание для Junior PHP-разработчик *(Laravel)*](./php/global-konsalting/testovoe-junior-php-laravel.md)
-
-* [Монолит Северо-Запад](https://spb.hh.ru/employer/4170463?hhtmFrom=vacancy)
-    * [Junior Full Stack Web PHP разработчик](./php/monolit-severo-zapad/junior-full-stack-php.md)
+* [Systeme.io](https://systeme.io/)
+    * [Symfony REST-приложение для расчёта цены *(PHP, Symfony, Docker)*](./php/systeme-io/backend-test-task.md)
 
 * [TMK](https://tmktools.ru/)
     * [Тестовое задание PHP-developer *(PHP, Symfony)*](./php/tmk/1ixexyddjg4v4jxpsuyh.md)
 
-* [Hicaliber](https://www.hicaliber.com.au/)
-    * [PHP Developer Test *(ENG)* *(PHP + Laravel, Vue.js)*](https://drive.google.com/drive/folders/0ByqxhUNvccJxdTdROE5aX3VSOWc?resourcekey=0-Cf8K_Zu0DCnnhfFs3aokDQ) *(папка старого формата, скачать программно не удалось)*
+* [Глобал Консалтинг](https://bth.su/)
+    * [Тестовое задание для Junior PHP-разработчик *(Laravel)*](./php/global-konsalting/testovoe-junior-php-laravel.md)
+
+* [Комитет](https://cmtt.ru/)
+    * [Middle PHP-разработчик *(PHP)*](./php/komitet/vacancy-php-summer-2016.md)
+
+* [Монолит Северо-Запад](https://spb.hh.ru/employer/4170463?hhtmFrom=vacancy)
+    * [Junior Full Stack Web PHP разработчик](./php/monolit-severo-zapad/junior-full-stack-php.md)
+
 </details>
 
 <details>
  <summary>Ruby</summary>
+
+* [Appbooster](https://appbooster.com/)
+    * [Ruby Developer *(Ruby)*](./ruby/appbooster/949731e077656ce036fa6114e7b47d2d.md)
+
+* [Fountain (OnboardIQ)](https://fountain.com/)
+    * [Apply commands *(ENG)* *(Ruby on Rails)*](./ruby/fountain/apply-commands.md)
+    * [Messaging *(ENG)* *(Ruby on Rails)*](./ruby/fountain/messaging.md)
+    * [Online banking *(ENG)* *(Ruby on Rails)*](./ruby/fountain/online-banking.md)
+    * [Simple form builder *(ENG)* *(Ruby on Rails, React)*](./ruby/fountain/simple-form-builder.md)
+
+* [MEDODS](http://medods.ru/)
+    * [Junior+ Ruby разработчик *(Ruby, Ruby On Rails)*](./ruby/medods/ror_junior_plus.md)
 
 * [Ruby Developer *(Ruby, Rails)*](./ruby/fs/ruby.md)
 
@@ -781,12 +946,6 @@
 * [Ruby-разработчик *(Ruby, Rails, JS)*](https://dl.funbox.ru/qt-ruby.pdf)
 
 * [Customer Import Platform - Ruby test assignment *(ENG)* *(Ruby)*](./ruby/matic-insurance/assignment-test-import.md)
-
-* [Appbooster](https://appbooster.com/)
-    * [Ruby Developer *(Ruby)*](./ruby/appbooster/949731e077656ce036fa6114e7b47d2d.md)
-
-* [MEDODS](http://medods.ru/)
-    * [Junior+ Ruby разработчик *(Ruby, Ruby On Rails)*](./ruby/medods/ror_junior_plus.md)
 
 * [Тестовое задание Software Engineer *(Ruby, Ruby On Rails, ActiveRecord, Docker)*](./ruby/kosyanmedia/travelpayouts-ror-test.md)
 
@@ -821,8 +980,52 @@
 <details>
  <summary>Other</summary>
 
+* [Chili Labs](https://chililabs.io/)
+    * [Android developer test task *(ENG)* *(Android)*](./other/chili-labs/android-developer.md)
+    * [iOS developer test task *(ENG)* *(iOS)*](./other/chili-labs/ios-developer.md)
+    * [Flutter developer test task *(ENG)* *(Flutter)*](./other/chili-labs/flutter-developer.md)
+    * [Frontend developer test task *(ENG)* *(JS)*](./other/chili-labs/frontend-developer.md)
+    * [Backend developer test task *(ENG)* *(any)*](./other/chili-labs/backend-developer.md)
+
 * [Dodo Brands](https://dodobrands.io/)
     * [Тестовое задание для Web-mobile Analyst](./analytics/dodo-brands-web-mobile-analyst/README.md)
+
+* [iSpring](https://www.ispring.ru/)
+    * [Тестовое задание Backend-разработчик *(any)*](./other/ispring/backend.md)
+    * [Тестовые задания Frontend-разработчик *(JS)*](./other/ispring/frontend.md)
+    * [Тестовое задание iOS-разработчик *(iOS)*](./other/ispring/ios.md)
+    * [Тестовое задание для аналитика](./other/ispring/analyst.md)
+
+* [IT Solutions Group](https://github.com/itsolgrp)
+    * [Тестовое задание Frontend Developer *(JS)*](./other/it-solutions-group/frontend-developer.md)
+    * [Тестовое задание Backend Developer *(any)*](./other/it-solutions-group/backend-developer.md)
+
+* [Mylivn](https://mylivn.com/)
+    * [Image loading library *(ENG)* *(Android/iOS)*](./other/mylivn/mobile-test-assignment.md)
+
+* [Peacock Team](https://github.com/PeacockTeam)
+    * [Тестовое задание Java *(Java)*](./other/peacock-team/lng-java.md)
+    * [Тестовое задание по скрапингу *(any)*](./other/peacock-team/scrapping.md)
+    * [Тестовое задание Three.js *(TS, Three.js)*](./other/peacock-team/threejs-ts.md)
+    * [Тестовое задание Vue *(Vue.js)*](./other/peacock-team/vk-vue.md)
+    * [Тестовое задание DevOps *(Ansible)*](./other/peacock-team/devops-ansible.md)
+    * [Тестовое задание DevOps *(Astra Linux)*](./other/peacock-team/devops-astra.md)
+    * [Тестовое задание DevOps *(Docker)*](./other/peacock-team/devops-docker.md)
+
+* [Phygitalism](https://phygitalism.com/)
+    * [Тестовое задание для 3D Artist *(3D)*](./other/phygitalism/3d-artist-2018.md)
+
+* [RBKmoney](https://rbk.money/)
+    * [Тестовое задание в школу разработки RBKmoney *(any)*](./other/rbkmoney/bootcamp.md)
+
+* [Smartlook](https://www.smartlook.com/)
+    * [Flutter interview test task *(ENG)* *(Flutter)*](./other/smartlook/flutter-interview-test-task.md)
+
+* [Volvo Cars](https://www.volvocars.com/)
+    * [Congestion Tax Calculator *(ENG)* *(any)*](./other/volvo-cars/congestion-tax-calculator.md)
+
+* [Юла](https://youla.dev/)
+    * [Тестовое задание для стажировки, этап 2 *(any)*](./other/youla/internship-testing.md)
 
 * [BigData-разработчик *(Hadoop, Cassandra, Docker)*](https://dl.funbox.ru/qt-bigdata.pdf)
 

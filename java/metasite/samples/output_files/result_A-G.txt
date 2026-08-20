@@ -1,0 +1,12 @@
+A-G : 1
+AN : 1
+AND : 1
+BASED : 1
+BE : 2
+CONTENTS : 1
+DON'T : 1
+EXAMPLE : 1
+FILE : 2
+FILES : 1
+FIRST : 1
+FORGET : 1

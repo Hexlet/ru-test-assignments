@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "DocumentResponse",
+    "description": "Ответ с документом",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "document": {
+            "description": "Массив документов",
+            "type": "array",
+            "items": {
+                "$ref": "document.json"
+            }
+        },
+        "pagination": {
+            "type": "object",
+            "required": [
+                "page",
+                "perPage",
+                "total"
+            ],
+            "properties": {
+                "page": {
+                    "description": "Номер страницы",
+                    "type": "integer"
+                },
+                "perPage": {
+                    "description": "Элементов на странице",
+                    "type": "integer"
+                },
+                "total": {
+                    "description": "Всего документов",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
