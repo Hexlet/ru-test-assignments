@@ -23,9 +23,9 @@
 6. Никакое специальное оформление не требуется, оцениваться будет логика работы с вложенными группами товаров – sql-запросы и код php, реализующий эту логику, а также html код, реализующий вложенные списки.
 
 «Эталонный» результат работы скрипта:
-![Example Program Result Part 1](/img/task1-img-1.png)
-![Example Program Result Part 2](/img/task1-img-2.png)
-![Example Program Result Part 3](/img/task1-img-3.png)
+![Example Program Result Part 1](img/task1-img-1.png)
+![Example Program Result Part 2](img/task1-img-2.png)
+![Example Program Result Part 3](img/task1-img-3.png)
 
 ---
 

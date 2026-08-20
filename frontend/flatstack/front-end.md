@@ -49,9 +49,9 @@
 
 > Прототип: <https://invis.io/U773MCDH8>
 >
-> Sketch-файл: [front-end-tt.sketch](front-end-tt.sketch)
+> Sketch-файл: [front-end-tt.sketch](https://github.com/fs/test-tasks/blob/master/front-end/front-end-tt.sketch)
 >
-> Figma-файл: [front-end-tt.fig](front-end-tt.fig)
+> Figma-файл: [front-end-tt.fig](https://github.com/fs/test-tasks/blob/master/front-end/front-end-tt.fig)
 
 ***
 

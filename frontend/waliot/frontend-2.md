@@ -49,7 +49,7 @@ interface Object {
 Схематичный дизайн представлен ниже, делать точь-в-точь не обязательно!
 Важнее архитектура проекта и организация кода, чем внешний вид.
 
-![](../assets/images/frontend-1-design.png)
+![](https://github.com/waliot/test-tasks/blob/master/assets/images/frontend-1-design.png)
 
 _[Ссылка на Figma](https://www.figma.com/file/h0n3bPlbDcOBay3AQqcnGV/Frontend-design?node-id=0%3A1)_
 

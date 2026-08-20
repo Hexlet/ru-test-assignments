@@ -4,7 +4,7 @@
 
 1. Сверстать страницу по [макету](https://www.figma.com/file/TSike5vJs4oQSbAAh13oZ0/WTZ).
 2. Добавить функционал:
-    * Брать данные через API сайта [Unsplash.com](api.unsplash.com).
+    * Брать данные через API сайта [Unsplash.com](https://api.unsplash.com).
     * При клике по автору в отдельной вкладке открывается его профиль.
     * При клике по фото ничего не происходит.
 

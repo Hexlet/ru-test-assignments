@@ -1,5 +1,3 @@
-![Image1 image](media/image1.jpg){width="8.5in" height="10.999997812773403in"}
-
 # Описаниезадачи
 
 ==============

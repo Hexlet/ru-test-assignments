@@ -2,10 +2,10 @@
 
 **Макеты:**
 
-* [десктоп](desktop-images)
-* [мобильные телефоны](touch-images)
+* [десктоп](https://github.com/yandex-shri-2018/entrance-task-2/tree/master/desktop-images)
+* [мобильные телефоны](https://github.com/yandex-shri-2018/entrance-task-2/tree/master/touch-images)
 
 **Спецификация:**
 
-* [десктоп](desktop-guide)
-* [мобильные телефоны](touch-guide)
+* [десктоп](https://github.com/yandex-shri-2018/entrance-task-2/tree/master/desktop-guide)
+* [мобильные телефоны](https://github.com/yandex-shri-2018/entrance-task-2/tree/master/touch-guide)

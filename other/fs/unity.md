@@ -1,6 +1,6 @@
 # Тестовое задание для кандидата на должность Unity Developer
 
-Требуется реализовать перечисленные задачи над существующим [тестовым проектом](project.zip).
+Требуется реализовать перечисленные задачи над существующим [тестовым проектом](https://github.com/fs/test-tasks/blob/master/unity/project.zip).
 
 ## Интеграция рекламы Appodeal
 
@@ -48,7 +48,7 @@
 * Нельзя масштабировать объект изображения.
 * Нельзя менять размер ортогональной камеры (ParallaxCamera).
 
-  ![Скриншот](Screenshot.jpg)
+  ![Скриншот](https://github.com/fs/test-tasks/blob/master/unity/Screenshot.jpg)
 
 ## Репозиторий в GitHub
 

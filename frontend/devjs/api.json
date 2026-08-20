@@ -1,0 +1,40 @@
+{
+  "info": {
+    "_postman_id": "c64afaff-d07d-424e-aad0-96446b5a2d02",
+    "name": "GQL Example",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "getSpecialistServicePackage",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\": \"query($id: ID!, $index: SpecialistServiceIndex, $serviceType: SpecialistServiceType) { specialistServices(id: $id, index: $index, type: $serviceType) { id uri name price type rating duration description languages city lat lon quantity reviews { id } results { photos } specialist { uri id type name description avatar { url_thumbnail } } images { id url_original url_thumbnail url_crop } periods { since, to } } }\",\n\t\"variables\": {\n\t\t\"id\": \"32c40308-2057-4a33-8cd9-dd952b200d45\",\n\t\t\"index\": \"id\",\n\t\t\"serviceType\": \"package\"\n\t}\n}"
+        },
+        "url": {
+          "raw": "https://gql.st.devjs.ru/graphql",
+          "protocol": "https",
+          "host": [
+            "gql",
+            "st",
+            "devjs",
+            "ru"
+          ],
+          "path": [
+            "graphql"
+          ]
+        },
+        "description": "query($id: ID!, $index: SpecialistServiceIndex, $serviceType: SpecialistServiceType) { specialistServices(id: $id, index: $index, type: $serviceType) { id\n  uri\n  name\n  price\n  type\n  rating\n  duration\n  description\n  languages\n  city\n  lat\n  lon\n  quantity\n  reviews {\n    id\n  }\n  results {\n    photos\n  }\n  specialist {\n    uri\n    id\n    type\n    name\n    description\n    avatar {\n      url_thumbnail\n    }\n  }\n  images {\n    id\n    url_original\n    url_thumbnail\n    url_crop\n  }\n  periods {\n    since,\n    to\n  }\n}"
+      },
+      "response": []
+    }
+  ]
+}

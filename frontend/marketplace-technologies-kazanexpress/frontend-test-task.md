@@ -3,7 +3,7 @@
 Здесь находится описание тестового задания на позицию Front-End-разработчика в KazanExpress.\
 Если вы нашли его случайно - попробуйте сделать! Авось и вас к себе возьмём. 😉
 
-[RU](README.md) | [EN](README_EN.md)
+[RU](frontend-test-task.md) | [EN](frontend-test-task-en.md)
 
 ## Задача
 
