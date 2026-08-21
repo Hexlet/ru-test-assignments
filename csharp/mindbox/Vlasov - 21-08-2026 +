@@ -1,0 +1,174 @@
+Решение - Vlasov - 21-08-2026 +
+C# Task: Библиотека для вычисления площадей
+
+Для решения задачи используется объектно-ориентированный подход с применением полиморфизма. Это обеспечивает легкость расширения, возможность работы с коллекцией разнотипных фигур и инкапсуляцию логики.
+
+Структура проекта (рекомендуемая):
+
+Geometry.Core — библиотека классов (.dll), поставляемая клиентам.
+Geometry.Tests — проект юнит-тестов (xUnit или NUnit).
+1. Основной код библиотеки
+
+Интерфейс фигуры:
+
+csharp
+public interface IShape
+{
+    double CalculateArea();
+}
+
+Класс круга:
+
+csharp
+Копировать
+public sealed class Circle : IShape
+{
+    public double Radius { get; }
+
+    public Circle(double radius)
+    {
+        if (radius <= 0) throw new ArgumentException("Радиус должен быть больше нуля.", nameof(radius));
+        Radius = radius;
+    }
+
+    public double CalculateArea() => Math.PI * Radius * Radius;
+}
+
+Класс треугольника со статическим фабричным методом для валидации существования фигуры по неравенству треугольника:
+
+csharp
+public sealed class Triangle : IShape
+{
+    public double SideA { get; }
+    public double SideB { get; }
+    public double SideC { get; }
+
+    private Triangle(double a, double b, double c)
+    {
+        SideA = a;
+        SideB = b;
+        SideC = c;
+    }
+
+    // Фабричный метод вместо конструктора для безопасной валидации
+    public static Triangle Create(double a, double b, double c)
+    {
+        if (a <= 0 || b <= 0 || c <= 0) 
+            throw new ArgumentException("Стороны должны быть больше нуля.");
+        
+        // Неравенство треугольника
+        if (a + b <= c || a + c <= b || b + c <= a)
+            throw new ArgumentException("Из данных сторон невозможно составить треугольник.");
+
+        return new Triangle(a, b, c);
+    }
+
+    public double CalculateArea()
+    {
+        // Формула Герона
+        var p = (SideA + SideB + SideC) / 2;
+        return Math.Sqrt(p * (p - SideA) * (p - SideB) * (p - SideC));
+    }
+
+    public bool IsRightAngled()
+    {
+        // Сортируем стороны, чтобы гипотенузой всегда была самая длинная
+        var sides = new[] { SideA, SideB, SideC };
+        Array.Sort(sides);
+        
+        // Проверка по теореме Пифагора с допуском на погрешность вещественных чисел
+        const double epsilon = 1e-10;
+        return Math.Abs(Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2) - Math.Pow(sides[2], 2)) < epsilon;
+    }
+}
+
+Абстрактная фабрика для создания фигур без знания их конкретного типа (полезна при парсинге пользовательского ввода):
+
+csharp
+public static class ShapeFactory
+{
+    public static IShape Create(string type, params double[] parameters)
+    {
+        return type.ToLowerInvariant() switch
+        {
+            "circle" when parameters.Length == 1 => new Circle(parameters[0]),
+            "triangle" when parameters.Length == 3 => Triangle.Create(parameters[0], parameters[1], parameters[2]),
+            _ => throw new NotSupportedException($"Тип фигуры '{type}' не поддерживается.")
+        };
+    }
+}
+2. Юнит-тесты (примеры на xUnit)
+csharp
+Копировать
+public class GeometryTests
+{
+    [Theory]
+    [InlineData(1, Math.PI)]
+    [InlineData(2, Math.PI * 4)]
+    public void Circle_Area_ShouldBeCorrect(double radius, double expected)
+    {
+        var circle = new Circle(radius);
+        Assert.Equal(expected, circle.CalculateArea(), precision: 8);
+    }
+
+    [Fact]
+    public void Triangle_InvalidSides_ShouldThrow()
+    {
+        Assert.Throws<ArgumentException>(() => Triangle.Create(1, 1, 10));
+    }
+    
+    [Theory]
+    [InlineData(3, 4, 5, true)] // Прямоугольный
+    [InlineData(2, 2, 3, false)] // Обычный
+    public void Triangle_IsRightAngled_ShouldReturnExpected(double a, double b, double c, bool expected)
+    {
+        var triangle = Triangle.Create(a, b, c);
+        Assert.Equal(expected, triangle.IsRightAngled());
+    }
+
+    [Fact]
+    public void Factory_CanCreateShapesWithoutKnowingType()
+    {
+        IShape shape1 = ShapeFactory.Create("circle", 5);
+        IShape shape2 = ShapeFactory.Create("triangle", 3, 4, 5);
+        
+        Assert.NotNull(shape1);
+        Assert.NotNull(shape2);
+    }
+}
+Оценка критериев:
+Легкость добавления других фигур: Высокая. Чтобы добавить новую фигуру (например, прямоугольник), нужно создать новый класс, реализующий интерфейс IShape, и добавить один кейс в switch фабрики ShapeFactory. Существующий код затронут не будет (принцип открытости/закрытости SOLID).
+Вычисление площади без знания типа: Реализовано через интерфейс IShape. Клиентский код может работать со списком List<IShape> и вызывать CalculateArea() у каждого элемента, не делая приведений типов.
+Проверка на прямоугольность: Метод IsRightAngled() использует сортировку сторон и проверку по теореме Пифагора с учетом машинной точности (epsilon).
+SQL Task: Выборка продуктов и категорий
+
+Задача описывает связь «многие-ко-многим». В реляционных базах данных она реализуется через промежуточную таблицу (junction table). 
+
+Предполагаемая структура таблиц:
+
+Products (ProductId PK, Name)
+Categories (CategoryId PK, Name)
+ProductCategories (ProductId FK, CategoryId FK) — связующая таблица.
+
+Для вывода всех продуктов, включая те, у которых нет категорий, необходимо использовать LEFT JOIN. Сначала продукт соединяется со связующей таблицей, а затем результат — с таблицей категорий. Если категории нет, поля из таблицы Categories будут содержать NULL.
+
+Если требуется вывести значение вместо NULL (например, строку "Без категории"), можно использовать функцию ISNULL (T-SQL) или COALESCE.
+
+Запрос:
+
+sql
+
+SELECT 
+    p.Name AS ProductName,
+    ISNULL(c.Name, 'Без категории') AS CategoryName -- Для MS SQL Server
+    -- COALESCE(c.Name, 'Без категории') AS CategoryName -- Универсальный вариант ANSI SQL
+FROM Products p
+LEFT JOIN ProductCategories pc ON p.ProductId = pc.ProductId
+LEFT JOIN Categories c ON pc.CategoryId = c.CategoryId;
+
+Пояснение к работе запроса:
+
+FROM Products p: Запрос начинается с полной выборки всех продуктов.
+LEFT JOIN ProductCategories: Каждый продукт сопоставляется со своими записями в связующей таблице. Если у продукта нет категорий, этот JOIN вернет строки с NULL в полях связующей таблицы, но строка продукта сохранится.
+LEFT JOIN Categories: Результат предыдущего шага соединяется с категориями. Если на предыдущем шаге был NULL (категории отсутствовали), то и после этого JOIN имя категории останется NULL. Если категории были, подставятся их имена.
+ISNULL(c.Name, 'Без категории'): Преобразует технические NULL в человекочитаемую строку для удобства отображения во внешних системах.
