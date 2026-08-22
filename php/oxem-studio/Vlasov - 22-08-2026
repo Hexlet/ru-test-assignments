@@ -1,0 +1,244 @@
+Решение - Vlasov - 22-08-2026
+Help Alica
+решение на PHP в духе ООП с наследованием, инкапсуляцией и расширяемостью: новые типы животных можно добавлять без правки класса Farm.
+Архитектура
+•	Animal — абстрактный базовый класс: у всех животных есть уникальный номер и метод получения продукции.
+•	Cow и Chicken — наследники Animal, реализуют свою логику продукции.
+•	Product — класс-значение (value object) для типа и количества продукции.
+•	Farm — автономный класс: ведёт учёт номеров, хранит животных, собирает и суммирует продукцию. Добавление новых видов животных не требует изменения Farm.
+________________________________________
+Код
+Animal.php
+php
+ПереноситьСвернутьКопировать
+<?php
+
+declare(strict_types=1);
+
+abstract class Animal
+{
+    protected int $id;
+
+    public function __construct(int $id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Возвращает массив продукции, которую даёт животное за один цикл сбора.
+     * Для расширяемости возвращаем массив Product[], чтобы одно животное могло давать несколько типов.
+     */
+    abstract public function collect(): array;
+}
+________________________________________
+Cow.php
+php
+ПереноситьСвернутьКопировать
+<?php
+
+declare(strict_types=1);
+
+class Cow extends Animal
+{
+    private const MIN_MILK = 8;
+    private const MAX_MILK = 12;
+
+    public function collect(): array
+    {
+        // случайное количество молока от 8 до 12 литров
+        $milkLiters = random_int(self::MIN_MILK, self::MAX_MILK);
+        return [new Product('milk', $milkLiters)];
+    }
+}
+________________________________________
+Chicken.php
+php
+ПереноситьСвернутьКопировать
+<?php
+
+declare(strict_types=1);
+
+class Chicken extends Animal
+{
+    // курица несёт 0 или 1 яйцо за кладку
+    public function collect(): array
+    {
+        $eggs = random_int(0, 1);
+        return [new Product('eggs', $eggs)];
+    }
+}
+________________________________________
+Product.php
+php
+ПереноситьСвернутьКопировать
+<?php
+
+declare(strict_types=1);
+
+class Product
+{
+    public function __construct(
+        public string $type,
+        public float $amount
+    ) {}
+}
+________________________________________
+Farm.php
+php
+ПереноситьСвернутьКопировать
+<?php
+
+declare(strict_types=1);
+
+class Farm
+{
+    /** @var Animal[] */
+    private array $animals = [];
+
+    private int $nextId = 1;
+
+    /**
+     * Добавить животное на ферму.
+     */
+    public function addAnimal(Animal $animal): void
+    {
+        $this->animals[] = $animal;
+    }
+
+    /**
+     * Автоматически создать и добавить животное с новым уникальным ID.
+     */
+    public function createAndAddAnimal(callable $factory): Animal
+    {
+        $animal = $factory($this->nextId++);
+        $this->addAnimal($animal);
+        return $animal;
+    }
+
+    /**
+     * Собрать продукцию у всех животных.
+     * Возвращает ассоциативный массив: тип продукции => суммарное количество.
+     */
+    public function collectAll(): array
+    {
+        $totals = [];
+
+        foreach ($this->animals as $animal) {
+            foreach ($animal->collect() as $product) {
+                if (!isset($totals[$product->type])) {
+                    $totals[$product->type] = 0.0;
+                }
+                $totals[$product->type] += $product->amount;
+            }
+        }
+
+        return $totals;
+    }
+
+    /**
+     * Получить статистику по типам животных.
+     * Ключ — имя класса (Cow, Chicken и т.д.), значение — количество.
+     */
+    public function getStatsByType(): array
+    {
+        $stats = [];
+        foreach ($this->animals as $animal) {
+            $className = get_class($animal);
+            if (!isset($stats[$className])) {
+                $stats[$className] = 0;
+            }
+            $stats[$className]++;
+        }
+        return $stats;
+    }
+
+    public function countAnimals(): int
+    {
+        return count($this->animals);
+    }
+}
+________________________________________
+main.php (точка входа)
+php
+ПереноситьСвернутьКопировать
+<?php
+
+require_once 'Animal.php';
+require_once 'Cow.php';
+require_once 'Chicken.php';
+require_once 'Product.php';
+require_once 'Farm.php';
+
+$farm = new Farm();
+
+// 1. Добавляем 10 коров и 20 кур
+for ($i = 0; $i < 10; $i++) {
+    $farm->createAndAddAnimal(fn(int $id) => new Cow($id));
+}
+for ($i = 0; $i < 20; $i++) {
+    $farm->createAndAddAnimal(fn(int $id) => new Chicken($id));
+}
+
+// Выводим количество каждого типа животных
+echo "Количество животных на ферме:\n";
+foreach ($farm->getStatsByType() as $type => $count) {
+    echo "$type: $count\n";
+}
+echo "\n";
+
+// 2. 7 раз (неделя) собираем продукцию
+$weeklyTotals = ['milk' => 0.0, 'eggs' => 0];
+
+for ($day = 1; $day <= 7; $day++) {
+    $daily = $farm->collectAll();
+    $weeklyTotals['milk'] += $daily['milk'] ?? 0;
+    $weeklyTotals['eggs'] += $daily['eggs'] ?? 0;
+}
+
+echo "Собрано за неделю:\n";
+echo "Молоко: {$weeklyTotals['milk']} л\n";
+echo "Яйца: {$weeklyTotals['eggs']} шт\n\n";
+
+// 3. Добавляем ещё 5 кур и 1 корову
+for ($i = 0; $i < 5; $i++) {
+    $farm->createAndAddAnimal(fn(int $id) => new Chicken($id));
+}
+$farm->createAndAddAnimal(fn(int $id) => new Cow($id));
+
+echo "После покупки животных:\n";
+foreach ($farm->getStatsByType() as $type => $count) {
+    echo "$type: $count\n";
+}
+echo "\n";
+
+// 4. Снова 7 дней собираем продукцию и выводим результат
+$nextWeekTotals = ['milk' => 0.0, 'eggs' => 0];
+for ($day = 1; $day <= 7; $day++) {
+    $daily = $farm->collectAll();
+    $nextWeekTotals['milk'] += $daily['milk'] ?? 0;
+    $nextWeekTotals['eggs'] += $daily['eggs'] ?? 0;
+}
+
+echo "Собрано за следующую неделю:\n";
+echo "Молоко: {$nextWeekTotals['milk']} л\n";
+echo "Яйца: {$nextWeekTotals['eggs']} шт\n";
+________________________________________
+Как запустить
+1.	Сохраните файлы Animal.php, Cow.php, Chicken.php, Product.php, Farm.php, main.php в одной папке.
+2.	В терминале выполните: 
+bash
+ПереноситьСвернутьКопировать
+php main.php
+3.	В консоли увидите статистику по животным и объёмы собранной продукции за каждую неделю.
+________________________________________
+Почему решение соответствует требованиям
+•	Наследование: Cow и Chicken наследуются от абстрактного Animal.
+•	Расширяемость: чтобы добавить, например, коз (дают молоко другого типа) или уток (несут яйца чаще), достаточно создать новый класс-наследник Animal и реализовать collect(). Класс Farm менять не нужно.
+•	Автономность Farm: сам управляет ID, хранит животных, собирает продукцию, считает итоги.
+•	Консольный вывод: полностью покрывает требуемый сценарий запуска (добавление, сбор 7 дней, покупка, повторный сбор).
+
