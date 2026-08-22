@@ -1,0 +1,142 @@
+Vlasov - 22-08-2026 + Help GigaChat 
+## Решение тестового задания по автоматизации
+
+### 1. E2E тест для saucedemo.com
+
+**Структура проекта:**
+```
+saucedemo_e2e/
+├── conftest.py
+├── pages/
+│   ├── base.py
+│   ├── main_page.py
+│   ├── market_page.py
+│   └── basket_page.py
+├── tests/
+│   └── test_buy_product.py
+├── requirements.txt
+└── README.md
+```
+
+**Реализация:**
+
+1. Установка зависимостей:
+```bash
+pip install pytest playwright
+playwright install
+```
+
+2. Конфигурация в `conftest.py`:
+```python
+import os
+from playwright.sync_api import sync_playwright
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def pytest_configure(config):
+    config.addinivalue_line("markers", "regression: mark test as regression")
+
+@pytest.fixture(scope="session")
+def browser():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        yield browser
+        browser.close()
+```
+
+3. Основной тест в `test_buy_product.py`:
+```python
+@pytest.mark.regression
+class TestBuyProduct:
+    def test_full_purchase(self, browser):
+        page = browser.new_page()
+        main = MainPage(page)
+        main.login(os.getenv("AUTH_LOGIN"), os.getenv("AUTH_PASSWORD"))
+        
+        market = MarketPage(page)
+        market.add_product_to_cart()
+        
+        basket = BasketPage(page)
+        basket.checkout("John", "Doe", "123 Street", "Springfield", "12345")
+        basket.assert_purchase_success()
+```
+
+### 2. GitHub API тест
+
+**Структура проекта:**
+```
+github_api_test/
+├── test_api.py
+├── .env.example
+├── requirements.txt
+└── README.md
+```
+
+**Реализация:**
+
+1. Файл `.env.example`:
+```
+GITHUB_TOKEN=your_token_here
+GITHUB_USERNAME=your_username
+REPO_NAME=test-repo-123
+```
+
+2. Основной код в `test_api.py`:
+```python
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BASE_URL = "https://api.github.com"
+HEADERS = {
+    "Authorization": f"token {os.getenv('GITHUB_TOKEN')}",
+    "Accept": "application/vnd.github+json"
+}
+
+def create_repo():
+    data = {
+        "name": os.getenv("REPO_NAME"),
+        "private": False
+    }
+    response = requests.post(f"{BASE_URL}/user/repos", headers=HEADERS, json=data)
+    return response.json()
+
+def check_repo_exists():
+    response = requests.get(
+        f"{BASE_URL}/user/repos?q={os.getenv('REPO_NAME')}",
+        headers=HEADERS
+    )
+    return any(repo['name'] == os.getenv('REPO_NAME') for repo in response.json())
+
+def delete_repo():
+    repo_url = f"{BASE_URL}/repos/{os.getenv('GITHUB_USERNAME')}/{os.getenv('REPO_NAME')}"
+    requests.delete(repo_url, headers=HEADERS)
+
+def test_github_repo_lifecycle():
+    # Создание репозитория
+    create_repo()
+    assert check_repo_exists() == True
+    
+    # Удаление репозитория
+    delete_repo()
+    assert check_repo_exists() == False
+```
+
+**Требования в `requirements.txt`:**
+```
+pytest
+requests
+python-dotenv
+playwright
+```
+
+**README.md должен содержать:**
+* Инструкции по установке зависимостей
+* Настройки переменных окружения
+* Команду для запуска тестов
+* Требования к окружению
+
+Оба проекта должны быть готовы к развертыванию на любой машине с Python и необходимыми зависимостями. Тесты должны быть стабильными и покрывать все требуемые сценарии.
