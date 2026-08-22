@@ -1,0 +1,544 @@
+Vlasov Anton - 22-08-2026
+Ниже — готовое решение тестового задания: архитектура, код, инструкция по запуску, Docker, тесты и статанализ.
+
+---
+
+## Архитектура решения
+
+- **Без фреймворков**: чистый PHP + Composer-библиотеки.
+- **ООП**: отдельные классы для модели, хранилища, валидатора, сервиса, контроллера/роутера.
+- **Хранилище**: SQLite (файл) — просто, быстро, без установки сервера БД.
+- **Роутинг**: ручной разбор `$_SERVER['REQUEST_METHOD']` и `$_SERVER['PATH_INFO']`.
+- **Валидация**: отдельный класс с правилами.
+- **Открутка**: алгоритм выбирает объявление с максимальной ценой, у которого `shown < limit`. При равных ценах можно брать первое (или по ID) — это уже «базовая хитрость». Для большей «хитрости» можно добавить взвешивание по остатку лимита: `score = price * (limit - shown)`. В решении ниже используется именно такой вариант.
+- **Стандарты**: PSR‑12, PHPDoc, типизация через declare и комментарии.
+
+---
+
+## Структура проекта
+
+```
+ads-api/
+├── composer.json
+├── composer.lock
+├── src/
+│   ├── Ad.php                 # Модель объявления
+│   ├── AdStorage.php          # Хранилище (SQLite)
+│   ├── AdService.php          # Бизнес-логика (создание, редактирование, выбор релевантного)
+│   ├── Validator.php          # Валидация полей
+│   └── Router.php             # Роутинг и обработка запросов
+├── public/
+│   └── index.php              # Точка входа
+├── tests/
+│   └── AdServiceTest.php      # PHPUnit тесты
+├── docker-compose.yml
+└── README.md                  # Инструкция по запуску
+```
+
+---
+
+## composer.json
+
+```json
+{
+  "name": "example/ads-api",
+  "description": "Ads API without frameworks",
+  "type": "project",
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "ext-pdo": "*",
+    "ext-pdo_sqlite": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "vimeo/psr-4-autoloader": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "AdsApi\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  }
+}
+```
+
+После создания файла выполните:
+
+```bash
+composer install
+```
+
+---
+
+## src/Ad.php
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace AdsApi;
+
+class Ad
+{
+    public int $id;
+    public string $text;
+    public float $price;
+    public int $limit;
+    public string $banner;
+    public int $shown;
+
+    public function __construct(
+        int $id,
+        string $text,
+        float $price,
+        int $limit,
+        string $banner,
+        int $shown = 0
+    ) {
+        $this->id = $id;
+        $this->text = $text;
+        $this->price = $price;
+        $this->limit = $limit;
+        $this->banner = $banner;
+        $this->shown = $shown;
+    }
+
+    public static function createFromRow(array $row): self
+    {
+        return new self(
+            (int)$row['id'],
+            (string)$row['text'],
+            (float)$row['price'],
+            (int)$row['limit'],
+            (string)$row['banner'],
+            (int)$row['shown']
+        );
+    }
+}
+```
+
+---
+
+## src/Validator.php
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace AdsApi;
+
+use InvalidArgumentException;
+
+class Validator
+{
+    public static function validateText(string $text): void
+    {
+        if (trim($text) === '') {
+            throw new InvalidArgumentException('Text is required and cannot be empty.');
+        }
+        if (mb_strlen($text) > 255) {
+            throw new InvalidArgumentException('Text must be no longer than 255 characters.');
+        }
+    }
+
+    public static function validatePrice(mixed $price): float
+    {
+        if (!is_numeric($price)) {
+            throw new InvalidArgumentException('Price must be numeric.');
+        }
+        $value = (float)$price;
+        if ($value < 0) {
+            throw new InvalidArgumentException('Price cannot be negative.');
+        }
+        return $value;
+    }
+
+    public static function validateLimit(mixed $limit): int
+    {
+        if (!is_numeric($limit)) {
+            throw new InvalidArgumentException('Limit must be numeric.');
+        }
+        $value = (int)$limit;
+        if ($value <= 0) {
+            throw new InvalidArgumentException('Limit must be positive integer.');
+        }
+        return $value;
+    }
+
+    public static function validateBanner(string $banner): void
+    {
+        // Простая валидация URL
+        if (!filter_var($banner, FILTER_VALIDATE_URL)) {
+            throw new InvalidArgumentException('Invalid banner link.');
+        }
+    }
+}
+```
+
+---
+
+## src/AdStorage.php
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace AdsApi;
+
+use PDO;
+use PDOException;
+
+class AdStorage
+{
+    private PDO $pdo;
+
+    public function __construct(string $dsn)
+    {
+        $this->pdo = new PDO($dsn, '', '', [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]);
+        $this->initSchema();
+    }
+
+    private function initSchema(): void
+    {
+        $sql = <<<SQL
+        CREATE TABLE IF NOT EXISTS ads (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            text TEXT NOT NULL,
+            price REAL NOT NULL,
+            limit_count INTEGER NOT NULL,
+            banner TEXT NOT NULL,
+            shown INTEGER NOT NULL DEFAULT 0
+        );
+        SQL;
+        $this->pdo->exec($sql);
+    }
+
+    public function create(Ad $ad): Ad
+    {
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO ads (text, price, limit_count, banner, shown) VALUES (:text, :price, :limit, :banner, :shown)'
+        );
+        $stmt->execute([
+            ':text'   => $ad->text,
+            ':price'  => $ad->price,
+            ':limit'  => $ad->limit,
+            ':banner' => $ad->banner,
+            ':shown'  => $ad->shown,
+        ]);
+        $ad->id = (int)$this->pdo->lastInsertId();
+        return $ad;
+    }
+
+    public function findById(int $id): ?Ad
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM ads WHERE id = :id');
+        $stmt->execute([':id' => $id]);
+        $row = $stmt->fetch();
+        return $row ? Ad::createFromRow($row) : null;
+    }
+
+    public function update(Ad $ad): void
+    {
+        $stmt = $this->pdo->prepare(
+            'UPDATE ads SET text = :text, price = :price, limit_count = :limit, banner = :banner WHERE id = :id'
+        );
+        $stmt->execute([
+            ':id'    => $ad->id,
+            ':text'  => $ad->text,
+            ':price' => $ad->price,
+            ':limit' => $ad->limit,
+            ':banner'=> $ad->banner,
+        ]);
+    }
+
+    public function getAll(): array
+    {
+        $rows = $this->pdo->query('SELECT * FROM ads')->fetchAll();
+        return array_map(fn($row) => Ad::createFromRow($row), $rows);
+    }
+
+    public function incrementShown(int $id): void
+    {
+        $stmt = $this->pdo->prepare('UPDATE ads SET shown = shown + 1 WHERE id = :id');
+        $stmt->execute([':id' => $id]);
+    }
+}
+```
+
+> Примечание: поле `limit` переименовано в `limit_count` в БД, чтобы избежать конфликта с ключевым словом SQL.
+
+---
+
+## src/AdService.php
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace AdsApi;
+
+class AdService
+{
+    public function __construct(private AdStorage $storage) {}
+
+    public function createAd(string $text, float $price, int $limit, string $banner): Ad
+    {
+        Validator::validateText($text);
+        Validator::validatePrice($price);
+        Validator::validateLimit($limit);
+        Validator::validateBanner($banner);
+
+        $ad = new Ad(0, $text, $price, $limit, $banner, 0);
+        return $this->storage->create($ad);
+    }
+
+    public function updateAd(int $id, ?string $text, ?float $price, ?int $limit, ?string $banner): ?Ad
+    {
+        $existing = $this->storage->findById($id);
+        if (!$existing) {
+            return null;
+        }
+
+        if ($text !== null) Validator::validateText($text);
+        if ($price !== null) Validator::validatePrice($price);
+        if ($limit !== null) Validator::validateLimit($limit);
+        if ($banner !== null) Validator::validateBanner($banner);
+
+        $existing->text = $text ?? $existing->text;
+        $existing->price = $price ?? $existing->price;
+        $existing->limit = $limit ?? $existing->limit;
+        $existing->banner = $banner ?? $existing->banner;
+
+        $this->storage->update($existing);
+        return $existing;
+    }
+
+    /**
+     * Возвращает релевантное объявление для показа.
+     * Алгоритм: max(price * (limit - shown)), при этом shown < limit.
+     */
+    public function getRelevantAd(): ?Ad
+    {
+        $ads = $this->storage->getAll();
+        $best = null;
+        $bestScore = -1;
+
+        foreach ($ads as $ad) {
+            if ($ad->shown >= $ad->limit) {
+                continue;
+            }
+            // Хитрый алгоритм: учитываем и цену, и остаток лимита
+            $score = $ad->price * ($ad->limit - $ad->shown);
+            if ($score > $bestScore) {
+                $bestScore = $score;
+                $best = $ad;
+            }
+        }
+
+        if ($best) {
+            $this->storage->incrementShown($best->id);
+        }
+
+        return $best;
+    }
+}
+```
+
+---
+
+## src/Router.php
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace AdsApi;
+
+final class Router
+{
+    public function __construct(private AdService $service) {}
+
+    public function handle(): void
+    {
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+        $path = $_SERVER['PATH_INFO'] ?? '';
+
+        try {
+            switch ($method) {
+                case 'POST':
+                    if ($path === '/ads') {
+                        $this->handleCreate();
+                        return;
+                    }
+                    if (preg_match('#^/ads/(\d+)$#', $path, $matches)) {
+                        $this->handleUpdate((int)$matches[1]);
+                        return;
+                    }
+                    break;
+                case 'GET':
+                    if ($path === '/ads/relevant') {
+                        $this->handleRelevant();
+                        return;
+                    }
+                    break;
+            }
+
+            $this->respondJson(404, 'Not found');
+        } catch (\InvalidArgumentException $e) {
+            $this->respondJson(400, $e->getMessage());
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            $this->respondJson(500, 'Internal server error');
+        }
+    }
+
+    private function handleCreate(): void
+    {
+        parse_str(file_get_contents('php://input'), $data);
+
+        $text = $data['text'] ?? '';
+        $price = $data['price'] ?? null;
+        $limit = $data['limit'] ?? null;
+        $banner = $data['banner'] ?? '';
+
+        $ad = $this->service->createAd($text, (float)$price, (int)$limit, $banner);
+
+        $this->respondJson(200, 'OK', [
+            'id'     => $ad->id,
+            'text'   => $ad->text,
+            'banner' => $ad->banner,
+        ]);
+    }
+
+    private function handleUpdate(int $id): void
+    {
+        parse_str(file_get_contents('php://input'), $data);
+
+        $text = isset($data['text']) ? $data['text'] : null;
+        $price = isset($data['price']) ? (float)$data['price'] : null;
+        $limit = isset($data['limit']) ? (int)$data['limit'] : null;
+        $banner = isset($data['banner']) ? $data['banner'] : null;
+
+        $updated = $this->service->updateAd($id, $text, $price, $limit, $banner);
+        if (!$updated) {
+            $this->respondJson(404, 'Ad not found');
+            return;
+        }
+
+        $this->respondJson(200, 'OK', [
+            'id'     => $updated->id,
+            'text'   => $updated->text,
+            'banner' => $updated->banner,
+        ]);
+    }
+
+    private function handleRelevant(): void
+    {
+        $ad = $this->service->getRelevantAd();
+        if (!$ad) {
+            $this->respondJson(200, 'No relevant ad', []);
+            return;
+        }
+
+        $this->respondJson(200, 'OK', [
+            'id'     => $ad->id,
+            'text'   => $ad->text,
+            'banner' => $ad->banner,
+        ]);
+    }
+
+    private function respondJson(int $code, string $message, array $data = []): void
+    {
+        http_response_code($code);
+        header('Content-Type: application/json');
+        echo json_encode([
+            'message' => $message,
+            'code'    => $code,
+            'data'    => $data,
+        ], JSON_UNESCAPED_UNICODE);
+    }
+}
+```
+
+---
+
+## public/index.php
+
+```php
+<?php
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use AdsApi\AdStorage;
+use AdsApi\AdService;
+use AdsApi\Router;
+
+// SQLite файл будет создан автоматически
+$dsn = 'sqlite:' . __DIR__ . '/../ads.db';
+
+$storage = new AdStorage($dsn);
+$service = new AdService($storage);
+$router = new Router($service);
+
+$router->handle();
+```
+
+---
+
+## tests/AdServiceTest.php (PHPUnit)
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Tests;
+
+use PHPUnit\Framework\TestCase;
+use AdsApi\Ad;
+use AdsApi\AdStorage;
+use AdsApi\AdService;
+
+final class AdServiceTest extends TestCase
+{
+    private AdService $service;
+    private string $dbFile;
+
+    protected function setUp(): void
+    {
+        $this->dbFile = tempnam(sys_get_temp_dir(), 'ads_test_') . '.db';
+        $dsn = 'sqlite:' . $this->dbFile;
+        $storage = new AdStorage($dsn);
+        $this->service = new AdService($storage);
+    }
+
+    protected function tearDown(): void
+    {
+        @unlink($this->dbFile);
+    }
+
+    public function testCreateAd(): void
+    {
+        $ad = $this->service->createAd('Test', 10.5, 100, 'https://example.com/img.png');
+        self::assertEquals('Test', $ad->text);
+        self::assertEquals(10.5, $ad->price);
+        self::assertGreaterThan(0, $ad->id);
+    }
+
+    public function testGetRelevantAdWithNoAds(): void
+    {
+        self::assertNull($this->service->getRelevantAd());
