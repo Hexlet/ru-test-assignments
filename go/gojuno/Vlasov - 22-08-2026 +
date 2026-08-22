@@ -1,0 +1,521 @@
+Vlasov - 22-08-2026 +
+Ниже — полный комплект для тестового задания Juno Inc.: простая реализация in-memory cache на Go с Redis‑подобным поведением, клиент, тесты, спецификация API, примеры и руководство по запуску.
+
+---
+
+## Архитектура и ключевые решения
+
+- **Хранение**: `map[string]interface{}` + отдельный `map[string]time.Time` для TTL.
+- **Типы данных**: `string`, `[]string` (списки), `map[string]string` (словари).
+- **TTL**: при каждом `Get` проверяем истечение срока; при `Set` можно указать TTL в секундах.
+- **Потокобезопасность**: все операции защищены `sync.RWMutex`.
+- **Протокол**: простой бинарный протокол поверх TCP (похож на упрощённый Redis RESP), чтобы можно было подключиться через `telnet`/`nc`.
+- **Клиент**: отдельный пакет `client` с методами `Get`, `Set`, `Remove`, `Keys`.
+
+---
+
+## Структура проекта
+
+```
+juno-cache/
+├── cmd/
+│   └── server/
+│       └── main.go
+├── pkg/
+│   ├── cache/
+│   │   ├── cache.go          # реализация кэша
+│   │   └── cache_test.go     # unit-тесты кэша
+│   └── client/
+│       ├── client.go         # Go-клиент
+│       └── client_test.go    # тесты клиента
+├── api-spec.md               # спецификация API
+├── deployment.md             # руководство по развертыванию
+├── examples/
+│   └── usage.go              # примеры использования клиента
+└── README.md
+```
+
+---
+
+## Реализация кэша (`pkg/cache/cache.go`)
+
+```go
+package cache
+
+import (
+	"errors"
+	"sync"
+	"time"
+)
+
+type Cache struct {
+	mu      sync.RWMutex
+	store   map[string]interface{}
+	ttl     map[string]time.Time
+}
+
+var (
+	ErrKeyNotFound = errors.New("key not found")
+	ErrInvalidType = errors.New("invalid value type")
+)
+
+func NewCache() *Cache {
+	return &Cache{
+		store: make(map[string]interface{}),
+		ttl:   make(map[string]time.Time),
+	}
+}
+
+func (c *Cache) Set(key string, value interface{}, ttlSeconds int) error {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	switch v := value.(type) {
+	case string, []string, map[string]string:
+		c.store[key] = v
+	default:
+		return ErrInvalidType
+	}
+
+	if ttlSeconds > 0 {
+		c.ttl[key] = time.Now().Add(time.Duration(ttlSeconds) * time.Second)
+	} else {
+		delete(c.ttl, key)
+	}
+	return nil
+}
+
+func (c *Cache) Get(key string) (interface{}, error) {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+
+	val, ok := c.store[key]
+	if !ok {
+		return nil, ErrKeyNotFound
+	}
+
+	// Проверка TTL
+	if expire, ok := c.ttl[key]; ok && time.Now().After(expire) {
+		// Логическое удаление: вызывающий должен очистить
+		return nil, ErrKeyNotFound
+	}
+
+	return val, nil
+}
+
+func (c *Cache) Remove(key string) error {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	_, ok := c.store[key]
+	if !ok {
+		return ErrKeyNotFound
+	}
+
+	delete(c.store, key)
+	delete(c.ttl, key)
+	return nil
+}
+
+func (c *Cache) Keys() []string {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+
+	now := time.Now()
+	var res []string
+	for k, v := range c.store {
+		if expire, ok := c.ttl[k]; ok && now.After(expire) {
+			continue // исключаем истёкшие
+		}
+		res = append(res, k)
+		_ = v // чтобы избежать unused warning
+	}
+	return res
+}
+```
+
+### Тесты кэша (`pkg/cache/cache_test.go`)
+
+```go
+package cache
+
+import (
+	"testing"
+	"time"
+)
+
+func TestSetGetString(t *testing.T) {
+	c := NewCache()
+	key := "test_key"
+	val := "hello"
+
+	if err := c.Set(key, val, 0); err != nil {
+		t.Fatalf("Set failed: %v", err)
+	}
+
+	got, err := c.Get(key)
+	if err != nil {
+		t.Fatalf("Get failed: %v", err)
+	}
+
+	if s, ok := got.(string); !ok || s != val {
+		t.Errorf("Expected %q, got %v", val, got)
+	}
+}
+
+func TestTTL(t *testing.T) {
+	c := NewCache()
+	key := "ttl_key"
+	val := "expiring"
+
+	if err := c.Set(key, val, 1); err != nil {
+		t.Fatalf("Set failed: %v", err)
+	}
+
+	time.Sleep(1100 * time.Millisecond)
+
+	_, err := c.Get(key)
+	if err == nil {
+		t.Error("Expected key to be expired")
+	}
+}
+
+func TestRemove(t *testing.T) {
+	c := NewCache()
+	key := "remove_key"
+
+	if err := c.Set(key, "value", 0); err != nil {
+		t.Fatalf("Set failed: %v", err)
+	}
+
+	if err := c.Remove(key); err != nil {
+		t.Fatalf("Remove failed: %v", err)
+	}
+
+	_, err := c.Get(key)
+	if err == nil {
+		t.Error("Expected key not found after Remove")
+	}
+}
+
+func TestKeys(t *testing.T) {
+	c := NewCache()
+	c.Set("k1", "v1", 0)
+	c.Set("k2", "v2", 0)
+
+	keys := c.Keys()
+	if len(keys) != 2 {
+		t.Errorf("Expected 2 keys, got %d", len(keys))
+	}
+}
+```
+
+---
+
+## Сервер и протокол (`cmd/server/main.go`)
+
+Протокол — упрощённый RESP:
+
+- `SET key value [ttl]`
+- `GET key`
+- `DEL key`
+- `KEYS [pattern]` (в этой реализации pattern игнорируется, возвращается все ключи)
+- Ответы: `+OK`, `-ERR ...`, `$len\r\nvalue`, `*N` для списков, `%N` для словарей.
+
+```go
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"net"
+	"strconv"
+	"strings"
+
+	"juno-cache/pkg/cache"
+)
+
+var c = cache.NewCache()
+
+func handleConn(conn net.Conn) {
+	defer conn.Close()
+	r := bufio.NewReader(conn)
+
+	for {
+		line, err := r.ReadString('\n')
+		if err != nil {
+			return
+		}
+		line = strings.TrimSpace(line)
+		if line == "" {
+			continue
+		}
+
+		parts := strings.Split(line, " ")
+		cmd := strings.ToUpper(parts[0])
+
+		var resp []byte
+		switch cmd {
+		case "SET":
+			resp = handleSet(parts)
+		case "GET":
+			resp = handleGet(parts)
+		case "DEL":
+			resp = handleDel(parts)
+		case "KEYS":
+			resp = handleKeys(parts)
+		default:
+			resp = []byte("-ERR unknown command\r\n")
+		}
+
+		conn.Write(resp)
+	}
+}
+
+func handleSet(parts []string) []byte {
+	if len(parts) < 3 {
+		return []byte("-ERR wrong number of arguments for 'set'\r\n")
+	}
+	key, value := parts[1], parts[2]
+	ttl := 0
+	if len(parts) > 3 {
+		v, err := strconv.Atoi(parts[3])
+		if err == nil {
+			ttl = v
+		}
+	}
+
+	err := c.Set(key, value, ttl)
+	if err != nil {
+		return []byte("-ERR " + err.Error() + "\r\n")
+	}
+	return []byte("+OK\r\n")
+}
+
+func handleGet(parts []string) []byte {
+	if len(parts) != 2 {
+		return []byte("-ERR wrong number of arguments for 'get'\r\n")
+	}
+	key := parts[1]
+	val, err := c.Get(key)
+	if err != nil {
+		return []byte("-ERR key not found\r\n")
+	}
+
+	switch v := val.(type) {
+	case string:
+		return []byte(fmt.Sprintf("$%d\r\n%s\r\n", len(v), v))
+	case []string:
+		lines := strings.Join(v, "\r\n")
+		return []byte(fmt.Sprintf("*%d\r\n%s", len(v), lines))
+	case map[string]string:
+		// упрощённо: сериализуем в строку
+		var b strings.Builder
+		b.WriteString(fmt.Sprintf("%d\r\n", len(v)))
+		for k, val := range v {
+			b.WriteString(fmt.Sprintf("$%d\r\n%s\r\n$%d\r\n%s\r\n", len(k), k, len(val), val))
+		}
+		return []byte(b.String())
+	default:
+		return []byte("-ERR unsupported type\r\n")
+	}
+}
+
+func handleDel(parts []string) []byte {
+	if len(parts) != 2 {
+		return []byte("-ERR wrong number of arguments for 'del'\r\n")
+	}
+	key := parts[1]
+	err := c.Remove(key)
+	if err != nil {
+		return []byte("-ERR key not found\r\n")
+	}
+	return []byte("+OK\r\n")
+}
+
+func handleKeys(parts []string) []byte {
+	keys := c.Keys()
+	var b strings.Builder
+	b.WriteString(fmt.Sprintf("*%d\r\n", len(keys)))
+	for _, k := range keys {
+		b.WriteString(fmt.Sprintf("$%d\r\n%s\r\n", len(k), k))
+	}
+	return []byte(b.String())
+}
+
+func main() {
+	ln, err := net.Listen("tcp", ":6379")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer ln.Close()
+
+	log.Println("Juno Cache server listening on :6379")
+
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+		go handleConn(conn)
+	}
+}
+```
+
+> Примечание: порт `6379` выбран для совместимости с привычными Redis‑клиентами, но это не полноценный Redis.
+
+---
+
+## Go-клиент (`pkg/client/client.go`)
+
+Клиент реализует `Get`, `Set`, `Remove`, `Keys` поверх TCP.
+
+```go
+package client
+
+import (
+	"bufio"
+	"fmt"
+	"net"
+	"strconv"
+	"strings"
+)
+
+type Client struct {
+	conn net.Conn
+}
+
+func NewClient(addr string) (*Client, error) {
+	conn, err := net.Dial("tcp", addr)
+	if err != nil {
+		return nil, err
+	}
+	return &Client{conn: conn}, nil
+}
+
+func (cl *Client) Close() error {
+	return cl.conn.Close()
+}
+
+func (cl *Client) Set(key, value string, ttl int) error {
+	cmd := fmt.Sprintf("SET %s %s %d\r\n", key, value, ttl)
+	_, err := cl.conn.Write([]byte(cmd))
+	if err != nil {
+		return err
+	}
+
+	br := bufio.NewReader(cl.conn)
+	line, _ := br.ReadString('\n')
+	if strings.HasPrefix(line, "-ERR") {
+		return fmt.Errorf("set error: %s", line)
+	}
+	return nil
+}
+
+func (cl *Client) Get(key string) (string, error) {
+	cmd := fmt.Sprintf("GET %s\r\n", key)
+	_, err := cl.conn.Write([]byte(cmd))
+	if err != nil {
+		return "", err
+	}
+
+	br := bufio.NewReader(cl.conn)
+	prefix, err := br.ReadString('\r')
+	if err != nil {
+		return "", err
+	}
+	prefix = strings.TrimSuffix(prefix, "\r")
+
+	if strings.HasPrefix(prefix, "-ERR") {
+		return "", fmt.Errorf("get error: %s", prefix)
+	}
+
+	if prefix == "" {
+		return "", fmt.Errorf("empty response")
+	}
+
+	lenStr := strings.TrimPrefix(prefix, "$")
+	length, err := strconv.Atoi(lenStr)
+	if err != nil {
+		return "", err
+	}
+
+	data := make([]byte, length+2) // +2 for \r\n
+	n, err := br.Read(data)
+	if err != nil || n != length+2 {
+		return "", fmt.Errorf("read error")
+	}
+
+	return string(data[:length]), nil
+}
+
+func (cl *Client) Remove(key string) error {
+	cmd := fmt.Sprintf("DEL %s\r\n", key)
+	_, err := cl.conn.Write([]byte(cmd))
+	if err != nil {
+		return err
+	}
+
+	br := bufio.NewReader(cl.conn)
+	line, _ := br.ReadString('\n')
+	if strings.HasPrefix(line, "-ERR") {
+		return fmt.Errorf("del error: %s", line)
+	}
+	return nil
+}
+
+func (cl *Client) Keys() ([]string, error) {
+	cmd := "KEYS *\r\n"
+	_, err := cl.conn.Write([]byte(cmd))
+	if err != nil {
+		return nil, err
+	}
+
+	br := bufio.NewReader(cl.conn)
+	prefix, _ := br.ReadString('\r')
+	prefix = strings.TrimSuffix(prefix, "\r")
+
+	if strings.HasPrefix(prefix, "-ERR") {
+		return nil, fmt.Errorf("keys error: %s", prefix)
+	}
+
+	countStr := strings.TrimPrefix(prefix, "*")
+	count, _ := strconv.Atoi(countStr)
+
+	var keys []string
+	for i := 0; i < count; i++ {
+		p, _ := br.ReadString('\r')
+		p = strings.TrimSuffix(p, "\r")
+		lenStr := strings.TrimPrefix(p, "$")
+		l, _ := strconv.Atoi(lenStr)
+
+		data := make([]byte, l+2)
+		n, _ := br.Read(data)
+		keys = append(keys, string(data[:l]))
+	}
+
+	return keys, nil
+}
+```
+
+Тесты клиента (`pkg/client/client_test.go`) аналогичны тестам кэша, но используют реальный TCP‑клиент.
+
+---
+
+## Примеры использования (`examples/usage.go`)
+
+```go
+package main
+
+import (
+	"fmt"
+	"juno-cache/pkg/client"
+)
+
+func main() {
+	cl, _ := client.NewClient("localhost:6379")
+	defer cl.Close()
+
+	cl
