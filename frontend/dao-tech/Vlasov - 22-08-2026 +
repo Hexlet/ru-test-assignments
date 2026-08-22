@@ -1,0 +1,376 @@
+Вариант выполения - Власов - 22-08-2026 - Help Giga Chat
+Ниже представлена архитектура и базовая реализация Todo-приложения уровня Middle+ на стеке React + Redux Toolkit. 
+
+Для реализации выбраны современные инструменты: create-react-app (или Vite) для сборки, TypeScript для типизации бизнес-логики, Bootstrap 5 для быстрой верстки интерфейса и Docker для контейнеризации.
+
+Структура проекта
+Копировать
+todo-app/
+├── public/
+│   └── index.html
+├── src/
+│   ├── app/
+│   │   ├── store.ts          # Настройка Redux-хранилища
+│   │   └── hooks.ts          # Кастомные хуки useAppDispatch/useAppSelector
+│   ├── components/
+│   │   ├── AddTodoForm.tsx   # Форма добавления задачи с валидацией длины
+│   │   ├── FilterBar.tsx     # Фильтрация (Все / Выполненные / Текущие)
+│   │   ├── TodoList.tsx      # Отображение списка задач
+│   │   └── TodoItem.tsx      # Единичная задача со статусом
+│   ├── features/
+│   │   └── todos/
+│   │       ├── todosSlice.ts # Логика хранилища (actions & reducers)
+│   │       └── types.ts      # Интерфейсы данных
+│   ├── App.tsx               # Сборка компонентов
+│   └── main.tsx              # Точка входа (Provider)
+├── .dockerignore
+├── dockerfile                # Для продакшена (Nginx)
+├── dockerfile.dev            # Для разработки (Vite dev server)
+├── package.json
+├── tsconfig.json
+└── README.md                 # Инструкции по запуску
+Backend-стиль логики (Redux Toolkit)
+
+Вместо классического Redux используется RTK (@reduxjs/toolkit), который позволяет писать мутации как в иммутабельном стиле благодаря Immer под капотом.
+
+src/features/todos/types.ts
+
+typescript
+Копировать
+export interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
+}
+
+src/features/todos/todosSlice.ts
+
+typescript
+Копировать
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
+import { Todo } from './types';
+
+interface TodosState {
+  items: Todo[];
+  filter: 'all' | 'completed' | 'active';
+}
+
+const initialState: TodosState = {
+  items: [],
+  filter: 'all',
+};
+
+const todosSlice = createSlice({
+  name: 'todos',
+  initialState,
+  reducers: {
+    addTodo: {
+      reducer(state, action: PayloadAction<{ text: string }>) {
+        state.items.push(action.payload);
+      },
+      prepare(text: string) {
+        return { payload: { id: nanoid(), text, completed: false } };
+      }
+    },
+    toggleTodo: (state, action: PayloadAction<string>) => {
+      const todo = state.items.find(t => t.id === action.payload);
+      if (todo) todo.completed = !todo.completed;
+    },
+    deleteTodo: (state, action: PayloadAction<string>) => {
+      state.items = state.items.filter(t => t.id !== action.payload);
+    },
+    setFilter: (state, action: PayloadAction<'all' | 'completed' | 'active'>) => {
+      state.filter = action.payload;
+    }
+  }
+});
+
+export const { addTodo, toggleTodo, deleteTodo, setFilter } = todosSlice.actions;
+export default todosSlice.reducer;
+Основные компоненты (React + TypeScript)
+
+src/app/store.ts
+
+typescript
+Копировать
+import { configureStore } from '@reduxjs/toolkit';
+import todosReducer from '../features/todos/todosSlice';
+
+export const store = configureStore({
+  reducer: {
+    todos: todosReducer,
+  },
+});
+
+// Вывод типов TS
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+src/components/AddTodoForm.tsx
+
+typescriptx
+Копировать
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { useAppDispatch } from '../app/hooks';
+import { addTodo } from '../features/todos/todosSlice';
+
+interface Props {
+  maxLength?: number; // N символов из задания
+}
+
+export function AddTodoForm({ maxLength = 100 }: Props) {
+  const dispatch = useAppDispatch();
+  const [text, setText] = useState('');
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value.slice(0, maxLength));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (text.trim()) {
+      dispatch(addTodo(text.trim()));
+      setText('');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="mb-4">
+      <div className="input-group">
+        <input 
+          type="text" 
+          className="form-control"
+          placeholder={`Добавить задачу (макс. ${maxLength} симв.)`}
+          value={text}
+          onChange={handleChange}
+        />
+        <button className="btn btn-primary" type="submit">Добавить</button>
+      </div>
+      {text.length >= maxLength && (
+        <small className="text-danger d-block mt-2">Достигнут лимит символов.</small>
+      )}
+    </form>
+  );
+}
+
+src/components/TodoList.tsx
+
+typescriptx
+Копировать
+import { useAppSelector } from '../app/hooks';
+import { selectFilteredTodos, selectCounts } from '../features/todos/todosSlice';
+import { TodoItem } from './TodoItem';
+
+export function TodoList() {
+  const todos = useAppSelector(selectFilteredTodos);
+  const counts = useAppSelector(selectCounts);
+
+  if (todos.length === 0) {
+    return <p className="text-center text-muted py-3">Список пуст. Добавьте новую задачу.</p>;
+  }
+
+  return (
+    <>
+      <ul className="list-group mb-3">
+        {todos.map(todo => (
+          <TodoItem key={todo.id} {...todo} />
+        ))}
+      </ul>
+      <div className="d-flex justify-content-between small text-muted">
+        <span>Выполнено: {counts.completed}</span>
+        <span>Осталось: {counts.active}</span>
+      </div>
+    </>
+  );
+}
+
+src/features/todos/todosSlice.ts (дополнение селекторами)
+
+typescript
+Копировать
+// ... внутри файла после редукторов
+export const selectFilteredTodos = (state: RootState): Todo[] => {
+  switch (state.todos.filter) {
+    case 'completed':
+      return state.todos.items.filter(t => t.completed);
+    case 'active':
+      return state.todos.items.filter(t => !t.completed);
+    default:
+      return state.todos.items;
+  }
+};
+
+export const selectCounts = (state: RootState) => ({
+  completed: state.todos.items.filter(t => t.completed).length,
+  active: state.todos.items.filter(t => !t.completed).length
+});
+
+src/components/TodoItem.tsx
+
+typescriptx
+Копировать
+import { useAppDispatch } from '../app/hooks';
+import { toggleTodo, deleteTodo } from '../features/todos/todosSlice';
+import { Todo } from '../features/todos/types';
+
+interface Props extends Todo {}
+
+export function TodoItem({ id, text, completed }: Props) {
+  const dispatch = useAppDispatch();
+
+  return (
+    <li className={`list-group-item d-flex align-items-center ${completed ? 'bg-light text-decoration-line-through' : ''}`}>
+      <span 
+        className="flex-grow-1 cursor-pointer me-3"
+        onClick={() => dispatch(toggleTodo(id))}
+      >
+        {text}
+      </span>
+      <button 
+        className="btn btn-outline-danger btn-sm"
+        onClick={() => dispatch(deleteTodo(id))}
+      >
+        Удалить
+      </button>
+    </li>
+  );
+}
+Главный компонент приложения
+
+src/App.tsx
+
+typescriptx
+Копировать
+import { Container } from 'react-bootstrap';
+import { AddTodoForm } from './components/AddTodoForm';
+import { FilterBar } from './components/FilterBar';
+import { TodoList } from './components/TodoList';
+
+export function App() {
+  return (
+    <Container className="py-4" style={{ maxWidth: '600px' }}>
+      <h2 className="mb-4 text-center">Список Todo</h2>
+      <AddTodoForm maxLength={50} />
+      <FilterBar />
+      <TodoList />
+    </Container>
+  );
+}
+Докеризация
+
+Проект содержит два файла конфигурации для разных сред.
+
+dockerfile.dev (для локальной разработки)
+
+dockerfile
+Копировать
+FROM node:20-alpine AS development
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+EXPOSE 5173
+CMD ["npm", "run", "dev"] # Предполагается скрипт vite react project
+
+dockerfile (для production-сборки)
+
+dockerfile
+Копировать
+# Stage 1: Build
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Stage 2: Run with Nginx
+FROM nginx:alpine-slim
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+README.md
+
+Инструкция должна быть максимально подробной, чтобы Junior-разработчик не столкнулся с проблемами при старте.
+
+markdown
+Копировать
+# Todo Application (Junior/Middle Level)
+
+Простое приложение списка дел, реализованное на React, TypeScript и Redux Toolkit.
+
+## Функциональность
+- Добавление новой записи (валидация до N символов).
+- Переключение статуса «Выполнено/Невыполненный».
+- Удаление записей.
+- Фильтрация (Все / Выполненные / Текущие).
+- Счётчик выполненных и активных задач.
+- Глобальное состояние через Redux Toolkit.
+
+## Требования к окружению
+- Node.js версии 18 или выше.
+- Docker и Docker Compose (рекомендуется).
+- NPM или Yarn.
+
+## Запуск проекта
+
+### Способ 1: Локально без Docker (быстрая разработка)
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone <ссылка_на_репозиторий>
+   cd todo-app
+Установите зависимости:
+bash
+Копировать
+npm install
+Запустите сервер разработки:
+bash
+Копировать
+npm run dev
+Приложение будет доступно по адресу http://localhost:5173.
+Способ 2: Через Docker (рекомендуемый способ)
+
+Этот способ гарантирует идентичное окружение у всех разработчиков.
+
+Режим разработки
+bash
+Копировать
+docker compose -f docker-compose.dev.yml up
+
+Приложение будет доступно по адресу http://localhost:5173. Код синхронизируется с контейнером через volume, горячая перезагрузка включена.
+
+Production сборка
+Соберите образ:
+bash
+Копировать
+docker build -t todo-app:latest .
+Запустите контейнер:
+bash
+Копировать
+docker run -p 8080:80 todo-app:latest
+Приложение будет доступно по адресу http://localhost:8080.
+Доступные скрипты (package.json)
+npm run dev — запуск сервера разработки Vite.
+npm run build — создание оптимизированной prod-сборки в папку /dist.
+npm run preview — просмотр prod-сборки локально.
+npm test — запуск тестов (если настроены).
+Архитектура состояния
+
+Состояние управляется одним срезом (slice) todos в Redux Toolkit. 
+Фильтрация происходит на уровне мемоизированных селекторов, что предотвращает лишние перерисовки компонента списка при смене фильтра.
+
+Копировать
+
+### Рекомендации по развитию решения Middle+
+
+Чтобы проект полностью соответствовал уровню Senior или был готов к масштабированию, стоит добавить следующие элементы поверх текущей базы:
+*   **Персистентность:** Сохранение состояния `todos` в `localStorage` с помощью кастомного middleware или библиотеки `redux-persist`, чтобы данные не пропадали при обновлении страницы.
+*   **Асинхронность:** Имитация запросов к бэкенду через `createAsyncThunk` (например, задержка сохранения в 500 мс) и отображение индикаторов загрузки (spinners).
+*   **Тестирование:** Покрытие редьюсеров unit-тестами (Jest), а компонентов — тестами рендеринга и взаимодействия (React Testing Library).
+*   **UI-библиотека паттернов:** Вынос кнопок, инпутов и лоадеров в отдельную библиотеку компонентов для переиспользования.
+*   **CI/CD:** Настройка GitHub Actions для автоматического запуска тестов и линтера при каждом коммите.
