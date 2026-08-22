@@ -1,0 +1,125 @@
+Vlasov - 22-08-2026 - Help Alica Ai
+## Техническое задание на разработку новостного портала
+
+### Технологический стек
+* **Nuxt.js** как основной фреймворк
+* **Vue.js** для компонентного подхода
+* **TypeScript** для строгой типизации
+* **Axios** для работы с API
+* **SCSS** для стилизации
+
+### Структура проекта
+
+1. Инициализация проекта:
+```bash
+npx create-nuxt-app news-portal
+```
+
+2. Основные директории:
+* **pages/** - маршруты приложения
+* **components/** - переиспользуемые компоненты
+* **store/** - управление состоянием
+* **assets/** - стили и изображения
+
+### Компоненты
+
+1. **Список новостей** (pages/index.vue):
+```vue
+<template>
+  <div class="news-list">
+    <news-item v-for="item in news" :key="item.slug" :news="item" />
+    <button @click="loadMore">Показать ещё</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      news: [],
+      currentPage: 1,
+      totalPages: 0
+    }
+  },
+  methods: {
+    async fetchNews(page) {
+      const response = await this.$axios.get(`https://domotekhnika.ru/api/v1/news?page=${page}`);
+      this.news = [...this.news, ...response.data.news];
+      this.totalPages = response.data.pageCount;
+    },
+    loadMore() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+        this.fetchNews(this.currentPage);
+      }
+    }
+  },
+  created() {
+    this.fetchNews(1);
+  }
+}
+</script>
+```
+
+2. **Карточка новости** (components/NewsItem.vue):
+```vue
+<template>
+  <div class="news-item">
+    <nuxt-link :to="`/news/${news.slug}`">
+      <img :src="news.image" alt="Новость">
+      <h3>{{ news.title }}</h3>
+      <p v-html="news.shortText"></p>
+      <span>{{ news.datePublish }}</span>
+    </nuxt-link>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    news: {
+      type: Object,
+      required: true
+    }
+  }
+}
+</script>
+```
+
+3. **Полная новость** (pages/news/_slug.vue):
+```vue
+<template>
+  <div class="news-detail">
+    <h1>{{ news.title }}</h1>
+    <img :src="news.image" alt="Новость">
+    <p>{{ news.datePublish }}</p>
+    <div v-html="news.text"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  async asyncData({ params, $axios }) {
+    const response = await $axios.get(`https://domotekhnika.ru/api/v1/news/${params.slug}`);
+    return { news: response.data.news }
+  }
+}
+</script>
+```
+
+### Реализация пагинации
+* **Загрузка по требованию** при клике на кнопку
+* **Сохранение состояния** в store
+* **Оптимизация** через ленивую загрузку компонентов
+
+### Требования к стилизации
+* **Шапка и подвал** реализованы заглушками
+* **Адаптивный дизайн** для всех устройств
+* **Анимации** при загрузке контента
+
+### Дополнительные рекомендации
+* Добавить обработку ошибок API
+* Реализовать кэширование данных
+* Оптимизировать изображения
+* Добавить SEO-метатеги
+* Реализовать прелоадер при загрузке данных
