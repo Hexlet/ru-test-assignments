@@ -1,0 +1,429 @@
+Vlasov - 31-08-2026 + 
+Структура проекта
+Копировать
+app/
+├── model/
+│   └── Document.js
+├── store/
+│   └── Documents.js
+├── view/
+│   ├── main/
+│   │   ├── LoginWindow.js
+│   │   ├── MainViewport.js
+│   │   ├── UserPanel.js
+│   │   ├── DocsGrid.js
+│   │   └── DocFormWindow.js
+│   └── Viewport.js (или app.js как точка входа)
+├── controller/
+│   ├── AuthController.js
+│   └── MainController.js
+└── data/
+    └── documents.json
+index.html
+app.js
+________________________________________
+1. Точка входа и роутинг (index.html и app.js)
+Для управления экранами авторизации и основного приложения лучше всего использовать встроенный маршрутизатор (Router).
+app.js
+javascriptКопировать
+Ext.application({
+    name: 'SDKGarantApp',
+    
+    stores: [
+        'Documents'
+    ],
+
+    controllers: [
+        'AuthController',
+        'MainController'
+    ],
+
+    launch: function () {
+        // Проверяем наличие токена/сессии в LocalStorage
+        if (!localStorage.getItem('isLoggedIn')) {
+            this.redirectTo('login');
+        } else {
+            this.redirectTo('documents');
+        }
+    }
+});
+index.html В вашем случае библиотека уже предоставлена СДК Гарант. Путь к ней может отличаться, но подключение выглядит так:
+htmlКопировать
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Тестовое SDK Garante</title>
+    <!-- Подключаем ресурсы из вашей библиотеки -->
+    <link rel="stylesheet" type="text/css" href="resources/ext-theme-classic/build/resources/ext-theme-classic-all.css">
+    <script type="text/javascript" src="ext/ext-all.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body></body>
+</html>
+Примечание: для красной темы замените путь к CSS на собранную тему или используйте Sencha CMD для сборки кастомной темы.
+________________________________________
+2. Модель данных и Store
+app/model/Document.js
+javascriptКопировать
+Ext.define('SDKGarantApp.model.Document', {
+    extend: 'Ext.data.Model',
+    fields: [
+        {name: 'id', type: 'int'},
+        {name: 'name', type: 'string'},
+        {name: 'description', type: 'string'},
+        {name: 'signed', type: 'boolean'}
+    ]
+});
+app/store/Documents.js
+javascriptКопировать
+Ext.define('SDKGarantApp.store.Documents', {
+    extend: 'Ext.data.Store',
+    alias: 'store.documents',
+    model: 'SDKGarantApp.model.Document',
+    autoLoad: true,
+    
+    proxy: {
+        type: 'ajax',
+        url: 'data/documents.json',
+        reader: {
+            type: 'json',
+            rootProperty: 'data'
+        }
+    }
+});
+data/documents.json
+jsonКопировать
+{
+    "success": true,
+    "data": [
+        {"id": 1, "name": "Договор поставки", "description": "Поставка оборудования", "signed": true},
+        {"id": 2, "name": "Акт выполненных работ", "description": "Работы за март", "signed": false},
+        {"id": 3, "name": "Счет-фактура", "description": "НДС включен", "signed": true}
+    ]
+}
+________________________________________
+3. Экран авторизации (Экран 1)
+app/view/main/LoginWindow.js
+javascriptКопировать
+Ext.define('SDKGarantApp.view.main.LoginWindow', {
+    extend: 'Ext.window.Window',
+    xtype: 'loginwindow',
+    title: 'Авторизация',
+    closable: false,
+    modal: true,
+    width: 400,
+    
+    items: [{
+        xtype: 'form',
+        bodyPadding: 10,
+        reference: 'authForm',
+        
+        items: [{
+            xtype: 'textfield',
+            fieldLabel: 'Пользователь',
+            allowBlank: false,
+            name: 'username'
+        }, {
+            xtype: 'textfield',
+            fieldLabel: 'Пароль',
+            inputType: 'password',
+            allowBlank: false,
+            name: 'password'
+        }],
+        
+        buttons: [{
+            text: 'Войти',
+            formBind: true,
+            handler: 'onLoginClick'
+        }]
+    }]
+});
+app/controller/AuthController.js
+javascriptКопировать
+Ext.define('SDKGarantApp.controller.AuthController', {
+    extend: 'Ext.app.Controller',
+    
+    routes: {
+        'login': 'showLogin'
+    },
+
+    showLogin: function() {
+        if (!this.loginWin) {
+            this.loginWin = Ext.create('SDKGarantApp.view.main.LoginWindow');
+        }
+        this.loginWin.show();
+    },
+
+    onLoginClick: function(btn) {
+        var form = btn.up('form').getForm();
+        if (form.isValid()) {
+            var values = form.getValues();
+            // Жесткая проверка согласно ТЗ
+            if (values.username === 'admin' && values.password === 'adm123') {
+                localStorage.setItem('isLoggedIn', true);
+                localStorage.setItem('currentUser', values.username); // Для доп. задания
+                this.loginWin.destroy();
+                this.redirectTo('documents');
+            } else {
+                Ext.Msg.alert('Ошибка', 'Неверный логин или пароль');
+            }
+        }
+    }
+});
+________________________________________
+4. Основной экран (Экран 2)
+app/view/main/UserPanel.js
+javascriptКопировать
+Ext.define('SDKGarantApp.view.main.UserPanel', {
+    extend: 'Ext.panel.Panel',
+    xtype: 'userpanel',
+    width: 250,
+    header: false,
+    border: false,
+    
+    tpl: [
+        '<div style="padding: 10px;">',
+        '<h3>Добрый день, {username}</h3>',
+        '<button class="x-btn logout-btn">Выход</button>',
+        '</div>'
+    ],
+    
+    listeners: {
+        afterrender: function(panel) {
+            panel.el.down('.logout-btn').on('click', function(){
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('currentUser');
+                panel.up('viewport').destroy(); // Уничтожаем основной viewport
+                location.reload(); // Перезагружаем страницу, попадая на login через app.js
+            });
+        }
+    },
+    
+    bind: {
+        data: {username: '{username}'} // Проброс из ViewModel
+    }
+});
+app/view/main/DocsGrid.js Здесь реализованы фильтры без плагина gridfilters — через тулбар над таблицей.
+javascriptКопировать
+Ext.define('SDKGarantApp.view.main.DocsGrid', {
+    extend: 'Ext.grid.Panel',
+    xtype: 'docgrid',
+    title: 'Документы',
+    
+    tbar: [{
+        xtype: 'textfield',
+        emptyText: 'Фильтр по названию...',
+        enableKeyEvents: true,
+        listeners: {
+            keyup: 'onNameFilterChange'
+        }
+    }, {
+        xtype: 'checkboxfield',
+        boxLabel: 'Только подписанные',
+        margin: '0 0 0 10',
+        listeners: {
+            change: 'onSignedFilterToggle'
+        }
+    }],
+    
+    columns: [
+        {text: 'ID', dataIndex: 'id', flex: 1},
+        {text: 'Наименование', dataIndex: 'name', flex: 2},
+        {text: 'Описание', dataIndex: 'description', flex: 3},
+        {
+            text: 'Подписан', 
+            dataIndex: 'signed', 
+            flex: 1,
+            renderer: function(value, metaData) {
+                if (value) {
+                    metaData.style = 'background-color: #dff0d8; color: #3c763d;'; // Зеленый фон
+                    return 'Да';
+                }
+                return 'Нет';
+            }
+        }
+    ],
+    
+    listeners: {
+        itemdblclick: 'onDocDblClick'
+    }
+});
+app/view/main/DocFormWindow.js
+javascriptКопировать
+Ext.define('SDKGarantApp.view.main.DocFormWindow', {
+    extend: 'Ext.window.Window',
+    xtype: 'docformwindow',
+    modal: true,
+    width: 500,
+    
+    items: [{
+        xtype: 'form',
+        bodyPadding: 10,
+        reference: 'docForm',
+        
+        items: [{
+            xtype: 'displayfield',
+            fieldLabel: 'ID документа',
+            name: 'id'
+        }, {
+            xtype: 'textfield',
+            fieldLabel: 'Наименование',
+            allowBlank: false,
+            name: 'name'
+        }, {
+            xtype: 'checkboxfield',
+            fieldLabel: 'Подписан',
+            name: 'signed'
+        }, {
+            xtype: 'textarea',
+            fieldLabel: 'Описание',
+            name: 'description'
+        }]
+    }],
+    
+    buttons: [{
+        text: 'Сохранить',
+        formBind: true,
+        handler: 'onSaveDoc'
+    }]
+});
+app/view/main/MainViewport.js
+javascriptКопировать
+Ext.define('SDKGarantApp.view.main.MainViewport', {
+    extend: 'Ext.container.Viewport',
+    xtype: 'mainviewport',
+    
+    requires: [
+        'SDKGarantApp.view.main.UserPanel',
+        'SDKGarantApp.view.main.DocsGrid',
+        'SDKGarantApp.view.main.DocFormWindow'
+    ],
+    
+    layout: 'border',
+    
+    viewModel: {
+        data: {
+            username: localStorage.getItem('currentUser') || 'admin'
+        }
+    },
+    
+    items: [{
+        region: 'center',
+        xtype: 'tabpanel',
+        reference: 'mainTabPanel',
+        items: [] // Вкладки будут добавляться динамически
+    }, {
+        region: 'east',
+        xtype: 'userpanel'
+    }],
+    
+    dockedItems: [{
+        xtype: 'toolbar',
+        dock: 'top',
+        items: [{
+            text: 'Документы',
+            handler: 'openDocsTab'
+        }]
+    }]
+});
+app/controller/MainController.js
+javascriptКопировать
+Ext.define('SDKGarantApp.controller.MainController', {
+    extend: 'Ext.app.Controller',
+    
+    routes: {
+        'documents': 'showMain'
+    },
+
+    refs: [{
+        ref: 'mainTabPanel',
+        selector: 'tabpanel[reference=mainTabPanel]'
+    }],
+
+    control: {
+        'docgrid': {
+            itemdblclick: 'onDocDblClick'
+        }
+    },
+
+    showMain: function() {
+        Ext.create('SDKGarantApp.view.main.MainViewport');
+    },
+
+    openDocsTab: function() {
+        var tabPanel = this.getMainTabPanel();
+        var docsGrid = tabPanel.down('docgrid');
+        
+        if (!docsGrid) {
+            docsGrid = tabPanel.add({
+                xtype: 'docgrid'
+            });
+        }
+        tabPanel.setActiveTab(docsGrid);
+    },
+
+    onDocDblClick: function(grid, record) {
+        var win = Ext.create('SDKGarantApp.view.main.DocFormWindow', {
+            title: 'Редактирование документа #' + record.get('id')
+        });
+        win.down('form').loadRecord(record);
+        win.show();
+    },
+
+    onSaveDoc: function(btn) {
+        var win = btn.up('window');
+        var form = win.down('form').getForm();
+        var record = form.getRecord();
+        
+        if (form.isValid()) {
+            form.updateRecord();
+            
+            // Дополнительное задание: запрос на сервер
+            // record.save({
+            //     success: function(rec, operation) {
+            //         Ext.Msg.alert('Успех', 'Данные сохранены');
+            //         win.close();
+            //     }
+            // });
+            
+            Ext.Msg.alert('Успех', 'Изменения применены локально.');
+            win.close();
+        }
+    },
+
+    // Фильтрация
+    onNameFilterChange: function(field) {
+        var value = field.getValue().toLowerCase();
+        var grid = field.up('grid');
+        var store = grid.getStore();
+        
+        store.clearFilter(true);
+        if (value) {
+            store.filterBy(function(record){
+                return record.get('name').toLowerCase().indexOf(value) !== -1;
+            });
+        }
+    },
+
+    onSignedFilterToggle: function(checkbox, newVal) {
+        var grid = checkbox.up('grid');
+        var store = grid.getStore();
+        
+        store.clearFilter(true);
+        if (newVal) {
+            store.filter('signed', true);
+        }
+    }
+});
+________________________________________
+Выполнение дополнительных заданий:
+1.	ViewModel проброс логина: Реализовано в MainViewport. Поле username берется из localStorage при инициализации VM и привязывается к шаблону UserPanel.
+2.	Фильтры: Реализованы методами onNameFilterChange (по строке) и onSignedFilterToggle (булевый фильтр) в MainController.
+3.	Запрос на сохранение: Код закомментирован внутри метода onSaveDoc. Для работы потребуется настроить RESTful Proxy у модели Document.
+4.	Добавление товара: Нужно добавить кнопку «Добавить» в тулбар таблицы. Ее хендлер будет создавать новую пустую запись модели (Ext.create('SDKGarantApp.model.Document')), открывать окно формы и передавать туда эту чистую запись через loadRecord.
+5.	Красная тема: Самый правильный способ — собрать свою тему через Sencha Theming (изменив переменные $base-color, $color1 и т.д. в .scss файлах вашей библиотеки). Если сборка недоступна, можно переопределить цвета глобально:
+cssКопировать
+.x-panel-header-default { background: #b71c1c !important; color: white !important; }
+.x-btn-default-toolbar-small { background: #c62828 !important; border-color: #b71c1c !important; }
+6.	Альтернативная вкладка: В методе onDocDblClick вместо создания отдельного окна win можно проверять, существует ли вкладка с itemId: 'doc-' + record.get('id') в mainTabPanel. Если нет — добавлять её туда и делать активной.
+
