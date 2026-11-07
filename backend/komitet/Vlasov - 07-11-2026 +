@@ -1,0 +1,137 @@
+Решение задачи - Vlasov - 07-11-2026
+Ниже — разбор присланной документации, исправленный код и рекомендации для реального использования. Всё, что ниже, можно сразу брать в работу.
+1. Что не так в исходном фрагменте
+•	Русские псевдонимы — новый файл, новый сервис хранения не вызовутся, это машинный перевод new File() / new StorageService().
+•	Жёсткий include конфига — раскладывает секреты в репозиторий. Нужен .env / .local.php вне VCS.
+•	Нет обработки ошибок — ParallelOperationException упомянут, но не показан.
+•	Неясный Container — в Selectel это бакет/контейнер, нужно показать создание/получение.
+•	Устаревший пакет — dev-master без версии, нет minimum-stability. Пакет не обновляется с ~2014, для продакшена лучше рассмотреть selectel-php/selectel-php или php-openstack/openstack.
+2. Установка (composer)
+jsonКопировать
+{
+  "require": {
+    "php": ">=7.4",
+    "fhteam/selectel-storage-api": "^1.0"
+  },
+  "minimum-stability": "stable"
+}
+Имя пакета изменено со старого selectel/storage-api на fhteam/selectel-storage-api. Старое имя пока работает, но не поддерживается.
+3. Конфигурация (не через include)
+config/local.php (в .gitignore):
+phpКопировать
+return [
+    'auth' => [
+        'url'   => getenv('SELECTEL_AUTH_URL') ?: 'https://auth.selcdn.ru/v2.0',
+        'user'  => getenv('SELECTEL_USER'),
+        'key'   => getenv('SELECTEL_KEY'),
+    ],
+    'container' => 'my-container', // или имя существующего
+];
+Подключение:
+phpКопировать
+$config = require __DIR__ . '/../config/local.php';
+4. Аутентификация (исправленный вариант)
+phpКопировать
+use Selectel\Authentication\CredentialsAuthentication;
+use Selectel\Container;
+use Selectel\StorageService;
+
+$auth = new CredentialsAuthentication(
+    $config['auth']['user'],
+    $config['auth']['key'],
+    $config['auth']['url']
+);
+$auth->authenticate();
+
+// Получаем (или создаём) контейнер
+$container = new Container($config['container']);
+$service = new StorageService($auth);
+
+// Если контейнер не существует — создаём
+if (!$service->containerExists($container)) {
+    $service->createContainer($container);
+}
+Важно: auth_url для Selectel обычно:
+•	v2: https://auth.selcdn.ru/v2.0
+•	v3: https://auth.selcdn.ru/v3/auth/tokens
+5. Загрузка / удаление / скачивание
+Загрузка
+phpКопировать
+use Selectel\File;
+
+$file = new File('test.txt');
+$file->setLocalName(__DIR__ . '/../data/config.php');
+// setSize() можно не вызывать — вычислится автоматически при чтении
+$service->uploadFile($container, $file);
+
+// Дать публичный URL (если контейнер публичный)
+$publicUrl = $service->getPublicUrl($container, 'test.txt');
+Скачивание
+phpКопировать
+$remoteFile = new File('test.txt');
+$service->downloadFile($container, $remoteFile, __DIR__ . '/downloads/test.txt');
+Удаление
+phpКопировать
+$file = new File('test.txt');
+$service->deleteFile($container, $file);
+6. Параллельные операции
+phpКопировать
+use Selectel\Exception\ParallelOperationException;
+
+// Массив файлов для загрузки
+$files = [
+    new File('1.txt'),
+    new File('2.txt'),
+    new File('3.txt'),
+];
+
+foreach ($files as $f) {
+    $f->setLocalName(__DIR__ . "/data/{$f->getName()}");
+}
+
+try {
+    $service->uploadFiles($container, $files);
+} catch (ParallelOperationException $e) {
+    foreach ($e->getErrors() as $error) {
+        // $error['file'], $error['code'], $error['message']
+        error_log("Failed {$error['file']}: {$error['message']}");
+    }
+}
+Для удаления — аналогично $service->deleteFiles($container, [$file1, $file2]).
+Нюанс
+uploadFiles() блокирует выполнение до получения всех ответов. Если нужно асинхронно — используйте Guzzle promises напрямую (через внутренний клиент) или запускайте в фоне через очередь.
+7. Архитектура сбора метрик (возвращаясь к прошлой задаче)
+Если этот код — часть продукта, и вы хотите понимать, как потребители контента взаимодействуют с хранилищем, добавьте события:
+phpКопировать
+// Пример обёртки
+class TrackedStorageService extends StorageService {
+    public function uploadFile(Container $c, File $f): void {
+        parent::uploadFile($c, $f);
+        event(new FileUploaded($c->getName(), $f->getName(), $f->getSize()));
+    }
+}
+События → Kafka/ClickHouse → дашборд:
+•	FileUploaded, FileDeleted, FileDownloaded
+•	ContainerCreated, ContainerDeleted
+•	Связь с user_id, content_id, session_id
+Метрики:
+•	upload_latency_p95 (перцентиль)
+•	files_per_user_daily
+•	failed_uploads_rate
+•	storage_used_mb (billing)
+8. Безопасность
+•	Никогда не комить config/local.php.
+•	Используйте getenv() / $_ENV.
+•	Ограничьте контейнеры: только чтение для клиентов, запись — только для бэкенда.
+•	Включите WAF на Selectel (если используется CDN).
+9. Если проект новый — рассмотрите альтернативы
+•	`selectel-php/selectel-php` — официальный SDK, поддерживается.
+•	`php-openstack/openstack` — для совместимости с S3-совместимым API Selectel.
+10. Что можно сделать прямо сейчас
+1.	Скопируйте исправленные сниппеты в проект.
+2.	Вынесите секреты в .env.
+3.	Добавьте обработку ParallelOperationException.
+4.	Оберните вызовы в try/catch с логированием (Monolog).
+5.	Напишите тестовый сценарий: загрузить 3 файла параллельно → удалить.
+Если нужно — покажу готовый Docker-образ для локальной разработки с Selectel (через selectel/s3 + LocalStack) или CI пайплайн с проверкой синтаксита.
+
