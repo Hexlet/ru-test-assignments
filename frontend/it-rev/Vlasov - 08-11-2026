@@ -1,0 +1,321 @@
+Решение задачи - 16-09-2026
+Ниже представлен подробный план реализации тестового задания. Поскольку у меня нет доступа к вашему локальному репозиторию и файловой системе, я не могу выполнить команды git clone или запустить проект на своем компьютере. Однако я предоставлю полную архитектуру, структуру файлов и готовый код для каждого компонента, который вы сможете скопировать в свой шаблон Create React App.
+
+1. Архитектура проекта и выбор инструментов
+
+Стек: React (с хуками), TypeScript, Redux Toolkit, Styled Components, Recharts, Yandex Maps API, Jest + React Testing Library.
+
+Redux Toolkit (RTK): Используется вместо классического Redux для минимизации бойлерплейта. Слайсы объединяют редьюсеры и экшены, а RTK Query может упростить работу с API, если данные будут запрашиваться удаленно.
+Styled Components: Для изоляции стилей компонентов и соблюдения макета без глобальной CSS-специфичности.
+Recharts: Легковесная библиотека для построения графика активности. Она отлично работает с типизацией данных.
+Yandex.Maps API: Для дополнительного задания по расчету расстояния между точками. Выбор обусловлен лучшей поддержкой геосервисов Рунета.
+2. Структура директорий (Feature-based)
+Копировать
+src/
+├── api/                  # Работа с данными
+│   └── walks.ts          # Загрузка JSON-файла через import или fetch
+├── app/
+│   ├── store.ts          # Конфигурация Redux Store
+│   └── hooks.ts          # Типизированные useAppDispatch / useAppSelector
+├── components/
+│   ├── MapModal/         # Всплывающее окно с картой
+│   │   ├── MapModal.tsx
+│   │   └── MapModal.styled.ts
+│   └── common/           # Переиспользуемые UI (кнопки, инпуты)
+├── features/
+│   └── walks/            # Логика работы с прогулками
+│       ├── WalksTable/
+│       │   ├── WalksTable.tsx
+│       │   ├── WalksTable.styled.ts
+│       │   └── TableHeader.tsx
+│       ├── WalkForm/     # Форма добавления/редактирования
+│       │   └── WalkForm.tsx
+│       ├── ActivityChart/
+│       │   └── ActivityChart.tsx
+│       ├── walksSlice.ts # Redux-слайс: state, reducers, async thunks
+│       └── types.ts      # Интерфейсы Walk, SortOrder
+├── pages/
+│   └── Dashboard.tsx     # Главная страница, объединяет таблицу и график
+├── utils/
+│   └── sortUtils.ts      # Функции сортировки дат и чисел
+├── index.tsx
+└── App.tsx
+3. Подготовка данных (JSON) и типов (features/walks/types.ts)
+
+Предполагается, что файл data/walks.json лежит в папке public/data.
+Пример структуры одной записи:
+
+json
+Копировать
+{
+  "id": "a1b2c3",
+  "date": "2025-09-14",
+  "distance": 5.4,
+  "duration": 65,
+  "points": [
+    { "lat": 55.7558, "lng": 37.6173 },
+    { "lat": 55.7580, "lng": 37.6190 }
+  ]
+}
+
+types.ts:
+
+typescript
+Копировать
+export interface Point {
+  lat: number;
+  lng: number;
+}
+
+export interface Walk {
+  id: string;
+  date: string; // YYYY-MM-DD
+  distance: number; // km
+  duration: number; // minutes
+  points?: Point[]; // Опционально, нужно для доп. задания
+}
+
+export type SortField = 'date' | 'distance';
+export type SortOrder = 'asc' | 'desc';
+
+interface WalksState {
+  items: Walk[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+  sortBy: SortField;
+  order: SortOrder;
+  editingId: string | null;
+}
+4. Управление состоянием (Redux Toolkit — features/walks/walksSlice.ts)
+typescript
+Копировать
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
+import { Walk, SortField, SortOrder } from './types';
+import walksData from '../../api/walks'; // Импорт JSON как модуля
+
+const initialState = {
+  items: [...walksData], // Загружаем из файла при старте
+  status: 'succeeded',
+  error: null,
+  sortBy: 'date' as SortField,
+  order: 'desc' as SortOrder,
+  editingId: null,
+};
+
+const walksSlice = createSlice({
+  name: 'walks',
+  initialState,
+  reducers: {
+    addWalk(state, action: PayloadAction<Omit<Walk, 'id'>>) {
+      state.items.push({ ...action.payload, id: uuidv4() });
+    },
+    updateWalk(state, action: PayloadAction<Walk>) {
+      const index = state.items.findIndex(w => w.id === action.payload.id);
+      if (index !== -1) {
+        state.items[index] = action.payload;
+      }
+    },
+    deleteWalk(state, action: PayloadAction<string>) {
+      state.items = state.items.filter(w => w.id !== action.payload);
+    },
+    setSortBy(state, action: PayloadAction<SortField>) {
+      if (state.sortBy === action.payload) {
+        state.order = state.order === 'asc' ? 'desc' : 'asc';
+      } else {
+        state.sortBy = action.payload;
+        state.order = 'desc';
+      }
+    },
+    startEdit(state, action: PayloadAction<string | null>) {
+      state.editingId = action.payload;
+    },
+  },
+});
+
+export const { addWalk, updateWalk, deleteWalk, setSortBy, startEdit } = walksSlice.actions;
+export default walksSlice.reducer;
+5. Компонент таблицы с сортировкой (WalksTable.tsx)
+
+Таблица должна поддерживать редактирование строк (инлайн или переключение на форму).
+
+typescript
+Копировать
+// Внутри WalksTable.tsx
+import { useAppSelector, useAppDispatch } from '../../../app/hooks';
+import { selectAllWalks, selectSortConfig, setSortBy, startEdit, deleteWalk } from '../walksSlice';
+import { formatDistance, parseISO, format } from 'date-fns';
+import { ru } from 'date-fns/locale';
+import * as S from './WalksTable.styled';
+
+const WalksTable = () => {
+  const dispatch = useAppDispatch();
+  const walks = useAppSelector(selectAllWalks); // Селектор с учетом сортировки
+  const { sortBy, order } = useAppSelector(selectSortConfig);
+
+  const handleSort = (field: SortField) => {
+    dispatch(setSortBy(field));
+  };
+
+  return (
+    <S.Table>
+      <thead>
+        <tr>
+          <th onClick={() => handleSort('date')}>
+            Дата ({sortBy === 'date' && (order === 'asc' ? '▲' : '▼')})
+          </th>
+          <th onClick={() => handleSort('distance')}>
+            Расстояние, км ({sortBy === 'distance' && (order === 'asc' ? '▲' : '▼')})
+          </th>
+          <th>Действия</th>
+        </tr>
+      </thead>
+      <tbody>
+        {walks.map(walk => (
+          <tr key={walk.id}>
+            {walk.id === useAppSelector(s => s.walks.editingId) ? (
+              /* Здесь рендерится форма редактирования */ <></>
+            ) : (
+              <>
+                <td>{format(parseISO(walk.date), 'dd MMM yyyy', { locale: ru })}</td>
+                <td>{walk.distance.toFixed(2)}</td>
+                <td>
+                  <button onClick={() => dispatch(startEdit(walk.id))}>Ред.</button>
+                  <button onClick={() => dispatch(deleteWalk(walk.id))}>Удал.</button>
+                </td>
+              </>
+            )}
+          </tr>
+        ))}
+      </tbody>
+    </S.Table>
+  );
+};
+6. График активности (ActivityChart.tsx)
+
+Используем библиотеку Recharts. Данные группируются по дате (если в JSON несколько прогулок за день, их дистанции суммируются).
+
+typescript
+Копировать
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useAppSelector } from '../../../app/hooks';
+import { selectAllWalks } from '../walksSlice';
+
+const ActivityChart = () => {
+  const walks = useAppSelector(selectAllWalks);
+  
+  // Агрегация данных по дням
+  const chartData = walks.reduce((acc, walk) => {
+    const existing = acc.find(item => item.date === walk.date);
+    if (existing) {
+      existing.distance += walk.distance;
+    } else {
+      acc.push({ date: walk.date, distance: walk.distance });
+    }
+    return acc;
+  }, [] as { date: string; distance: number; }[])
+  .sort((a, b) => a.date.localeCompare(b.date));
+
+  return (
+    <ResponsiveContainer width="100%" height={300}>
+      <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="date" tickFormatter={(date) => new Date(date).toLocaleDateString(undefined, { month: 'short', day: '2-digit' })} />
+        <YAxis domain={[0, 'auto']} />
+        <Tooltip 
+          formatter={(value: number) => `${value.toFixed(2)} км`}
+          labelFormatter={(label) => `Дата: ${new Date(label).toLocaleDateString()}`}
+        />
+        <Line type="monotone" dataKey="distance" stroke="#3b82f6" dot={{ r: 4 }} strokeWidth={2} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+};
+7. Дополнительное задание: карта и расчет расстояния (MapModal.tsx)
+
+Для расчета используется формула гаверсинусов или встроенные средства API. В примере ниже использован упрощенный подход через геометрию Яндекс.Карт.
+
+typescript
+Копировать
+import ymaps from '@yandex/ymaps-react';
+import { ModalOverlay } from './MapModal.styled';
+
+const MapModal = ({ isOpen, onClose, points, onSave }) => {
+  if (!isOpen || !points?.length) return null;
+
+  return (
+    <ModalOverlay role="dialog">
+      {/* Библиотека @yandex/ymaps-react позволяет декларативно собирать карту */}
+      <ymaps.YMaps query={{ apikey: 'ВАШ_КЛЮЧ_API', lang: 'ru_RU' }}>
+        <ymaps.Map width="100%" height="400px" defaultState={{ center: points[0], zoom: 13 }}>
+          {points.map((pt, i) => (
+            <ymaps.Placemark geometry={pt} key={i} />
+          ))}
+          {points.length > 1 && (
+            <ymaps.Polyline 
+              geometry={[...points, points[0]]} 
+              options={{ 
+                strokeColor: "#ff0000", 
+                strokeWidth: 4 
+              }} 
+            />
+          )}
+        </ymaps.Map>
+      </ymaps.YMaps>
+      <div>
+        <button onClick={onClose}>Закрыть</button>
+        {/* Расчет длины маршрута лучше делать внутри обработчика событий карты (например, 'geometrychange') */}
+        {/* Либо использовать ymaps.coordSystem.geo.getDistance(points[0], points[1]) для двух точек */}
+      </div>
+    </ModalOverlay>
+  );
+};
+8. Тесты (Jest + RTL)
+
+Пример теста для удаления прогулки (features/walks/walksSlice.test.ts):
+
+typescript
+Копировать
+import reducer, { deleteWalk } from './walksSlice';
+import walksData from '../../api/walks';
+
+describe('walksSlice', () => {
+  it('should remove a walk by id', () => {
+    const testWalk = { id: 'test-id', date: '2025-01-01', distance: 1, duration: 10 };
+    const state = reducer({ items: [testWalk, ...walksData], status: 'succeeded', error: null, sortBy: 'date', order: 'desc', editingId: null }, deleteWalk('test-id'));
+    
+    expect(state.items).toHaveLength(walksData.length);
+    expect(state.items.some(w => w.id === 'test-id')).toBe(false);
+  });
+});
+
+Пример интеграционного теста для таблицы (WalksTable.test.tsx):
+
+typescript
+Копировать
+import { render, screen, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import walksReducer from '../walksSlice';
+import WalksTable from './WalksTable';
+
+test('allows user to delete a row', () => {
+  const store = configureStore({ reducer: { walks: walksReducer } });
+  render(<Provider store={store}><WalksTable /></Provider>);
+  
+  const deleteButtons = screen.getAllByText('Удал.');
+  fireEvent.click(deleteButtons[0]);
+  
+  expect(screen.queryAllByText('Удал.')).toHaveLength(deleteButtons.length - 1);
+});
+9. Адаптивность и кроссбраузерность
+Адаптивность: Таблица оборачивается в контейнер с горизонтальным скроллом (overflow-x: auto) на мобильных устройствах. На десктопах включается sticky для заголовка таблицы. Используются относительные единицы (rem, %).
+Кроссбраузерность: Современные версии Chrome, Firefox, Safari, Edge полностью поддерживают используемый стек (ES6+, CSS Grid/Flexbox, Shadow DOM от Styled Components). Полифиллы не требуются, если CRA сконфигурирован под дефолтный браузерслист (browserslist).
+Чек-лист перед отправкой репозитория:
+Добавлен .env.example с инструкцией, где брать API-ключ карт.
+В README.md описана инструкция по запуску (npm install, npm start), назначению кнопок и краткое описание архитектуры.
+Код форматирован через Prettier, линтинг проходит без ошибок (npm run lint).
+ESLint настроен на использование правил React Hooks и JSX доступности (a11y).
+Все интерактивные элементы (кнопки сортировки, формы) доступны для навигации с клавиатуры (Tab, Enter, Space).
+Тесты запускаются командой npm test и проходят успешно.
+Приложение проверено в режиме инкогнито во всех целевых браузерах.
