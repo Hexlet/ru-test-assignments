@@ -1,0 +1,26 @@
+Решение задачи - Fullslack #2 - 09-11-2026
+Help Giga Chat
+Здесь фокус на TypeScript, управление UI-состоянием и взаимодействие с API. Задание имитирует онбординг пользователя.
+Backend (Node.js / Express / PostgreSQL)
+•	Структура БД: Таблица users с полями id (UUID), email (unique), created_at.
+•	Эндпоинты:
+1.	POST /api/check-email — принимает { email }. Проверяет наличие в БД. Если есть — статус 409 Conflict. Если нет — 200 OK.
+2.	POST /api/subscribe — принимает { email }. Проверяет формат, проверяет уникальность, создает запись, возвращает { id: "uuid-user" }.
+•	Важный нюанс: Проверка «уже зарегистрирована» должна быть отдельным быстрым запросом (на onChange инпута с debounce), чтобы пользователь сразу видел ошибку, не нажимая «Отправить».
+Frontend (React / TypeScript)
+•	State Management: Можно использовать Redux Toolkit (RTK Query идеально подходит для кэширования запросов check-email) или Zustand для простоты. Состояние формы:
+typescriptКопировать
+interface FormState {
+  email: string;
+  isValid: boolean;
+  isSubmitting: boolean;
+  error?: 'invalid_format' | 'already_exists' | 'server_error';
+  isShared: boolean;
+  userId?: string;
+}
+•	Реализация задач:
+o	#task1 (Валидация): На каждое нажатие кнопки клавиатуры (input) вешается debounce (300мс). Запускается regex-проверка /^[^\s@]+@[^\s@]+\.[^\s@]+$/. Кнопка «Подписаться» имеет проп disabled={!isValid || isSubmitting}.
+o	#task2 (Шеринг): Для VK: window.open(\https://vk.com/share.php?url=${currentUrl}\`)`. После window.open мы не знаем, нажал ли пользователь «Поделиться». Поэтому логика такая: блокируем интерфейс, показываем кнопку «Я поделился». Если пользователь нажал ее, отправляем на бэкенд запрос подтверждения. Если бэкенд (по какой-то своей логике) говорит, что шеринга не было — показываем красную ошибку под кнопкой.
+o	#task3 (Сохранение): После успешного POST /api/subscribe полученный userId пишется в localStorage.setItem('aviasalesUserId', id).
+o	#task4 (Финальный экран): При монтировании компонента формы проверяется localStorage.getItem('aviasalesUserId'). Если ID есть — компонент возвращает <FinalScreen />. Это позволяет пользователю обновить страницу — он все равно останется на «финише».
+•	TypeScript-безопасность: Все API-ответы типизированы. Используется axios с перехватчиками (interceptors) для обработки токенов или общих ошибок сети.
