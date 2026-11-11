@@ -1,0 +1,328 @@
+Решение задачи - PHP Developer Test - 11-11-2026 + 
+
+1. Подготовка данных (CSV)
+В предоставленном файле property-data.csv содержится 10 строк. Полный список данных для импорта:
+csvКопировать
+Name,Price,Bedrooms,Bathrooms,Storeys,Garages
+The Victoria,374662,4,2,2,2
+The Xavier,513268,4,2,1,2
+The Como,454990,4,3,2,3
+The Aspen,384356,4,2,2,2
+The Lucretia,572002,4,3,2,2
+The Toorak,521951,5,2,1,2
+The Skyscape,263604,3,2,2,2
+The Clifton,386103,3,2,1,1
+The Geneva,390600,4,3,2,2
+The Crestmont,423500,4,2,2,2
+2. Бэкенд (Laravel 13)
+Миграция базы данных database/migrations/2026_11_11_000000_create_properties_table.php
+phpКопировать
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('properties', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->unsignedInteger('price');
+            $table->unsignedTinyInteger('bedrooms');
+            $table->unsignedTinyInteger('bathrooms');
+            $table->unsignedTinyInteger('storeys');
+            $table->unsignedTinyInteger('garages');
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('properties');
+    }
+};
+Сидер для импорта CSV database/seeders/PropertySeeder.php
+phpКопировать
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class PropertySeeder extends Seeder
+{
+    public function run(): void
+    {
+        $path = database_path('seeders/data/property-data.csv');
+        
+        if (!file_exists($path)) {
+            $this->command->info("CSV file not found at {$path}");
+            return;
+        }
+
+        $handle = fopen($path, 'r');
+        $header = fgetcsv($handle); // Пропускаем заголовок
+
+        $batch = [];
+        while (($row = fgetcsv($handle)) !== false) {
+            $batch[] = [
+                'name' => $row[0],
+                'price' => (int)$row[1],
+                'bedrooms' => (int)$row[2],
+                'bathrooms' => (int)$row[3],
+                'storeys' => (int)$row[4],
+                'garages' => (int)$row[5],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+        fclose($handle);
+
+        DB::table('properties')->insert($batch);
+    }
+}
+Примечание: файл CSV нужно переместить в папку database/seeders/data/.
+Модель app/Models/Property.php
+phpКопировать
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Property extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name', 'price', 'bedrooms', 'bathrooms', 'storeys', 'garages'
+    ];
+}
+Контроллер API app/Http/Controllers/Api/PropertyController.php
+phpКопировать
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Models\Property;
+use Illuminate\Http\Request;
+
+class PropertyController extends Controller
+{
+    public function search(Request $request)
+    {
+        $query = Property::query();
+
+        if ($request->filled('name')) {
+            $query->where('name', 'LIKE', '%' . $request->input('name') . '%');
+        }
+
+        if ($request->filled('bedrooms')) {
+            $query->where('bedrooms', $request->input('bedrooms'));
+        }
+
+        if ($request->filled('bathrooms')) {
+            $query->where('bathrooms', $request->input('bathrooms'));
+        }
+
+        if ($request->filled('storeys')) {
+            $query->where('storeys', $request->input('storeys'));
+        }
+
+        if ($request->filled('garages')) {
+            $query->where('garages', $request->input('garages'));
+        }
+
+        if ($request->filled('price_from') && $request->filled('price_to')) {
+            $query->whereBetween('price', [
+                $request->input('price_from'), 
+                $request->input('price_to')
+            ]);
+        }
+
+        return response()->json($query->get());
+    }
+}
+Маршрутизация routes/api.php
+phpКопировать
+use App\Http\Controllers\Api\PropertyController;
+
+Route::get('/properties/search', [PropertyController::class, 'search']);
+3. Фронтенд (Vue.js 3)
+Для упрощения интеграции с Laravel используется Vite. Файлы размещаются в resources/js/.
+Основной компонент поиска resources/js/components/PropertySearch.vue
+vueКопировать
+<template>
+  <div class="container">
+    <h2>Property Search</h2>
+    <form @submit.prevent="fetchProperties">
+      <div class="form-row">
+        <input type="text" placeholder="Name (partial match)" v-model="form.name" />
+        <input type="number" placeholder="Bedrooms" v-model.number="form.bedrooms" />
+        <input type="number" placeholder="Bathrooms" v-model.number="form.bathrooms" />
+        <input type="number" placeholder="Storeys" v-model.number="form.storeys" />
+        <input type="number" placeholder="Garages" v-model.number="form.garages" />
+      </div>
+      <div class="form-row price-range">
+        <input type="number" placeholder="Price from" v-model.number="form.price_from" />
+        <span>to</span>
+        <input type="number" placeholder="Price to" v-model.number="form.price_to" />
+      </div>
+      <button type="submit" :disabled="loading">
+        <span v-if="loading">Searching...</span>
+        <span v-else>Search</span>
+      </button>
+    </form>
+
+    <div v-if="loading" class="spinner"></div>
+
+    <div v-if="!loading && results.length === 0 && searched" class="no-results">
+      No properties found matching your criteria.
+    </div>
+
+    <table v-if="results.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Bedrooms</th>
+          <th>Bathrooms</th>
+          <th>Storeys</th>
+          <th>Garages</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="property in results" :key="property.id">
+          <td>{{ property.name }}</td>
+          <td>${{ property.price.toLocaleString() }}</td>
+          <td>{{ property.bedrooms }}</td>
+          <td>{{ property.bathrooms }}</td>
+          <td>{{ property.storeys }}</td>
+          <td>{{ property.garages }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script setup>
+import { ref, reactive } from 'vue';
+import axios from 'axios';
+
+const form = reactive({
+  name: '',
+  bedrooms: null,
+  bathrooms: null,
+  storeys: null,
+  garages: null,
+  price_from: null,
+  price_to: null
+});
+
+const results = ref([]);
+const loading = ref(false);
+const searched = ref(false);
+
+const fetchProperties = async () => {
+  loading.value = true;
+  searched.value = true;
+  
+  try {
+    const response = await axios.get('/api/properties/search', { params: form });
+    results.value = response.data;
+  } catch (error) {
+    results.value = [];
+    console.error(error);
+  } finally {
+    loading.value = false;
+  }
+};
+</script>
+
+<style scoped>
+.container { max-width: 900px; margin: 0 auto; padding: 20px; font-family: sans-serif; }
+form { margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px; }
+.form-row { display: flex; gap: 10px; align-items: center; }
+.form-row input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+.price-range input { width: 120px; }
+button { padding: 10px 20px; background: #41b883; color: white; border: none; border-radius: 4px; cursor: pointer; }
+button:disabled { background: #9fcfbc; cursor: not-allowed; }
+.spinner { border: 4px solid #f3f3f3; border-top: 4px solid #41b883; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.no-results { text-align: center; color: #666; padding: 20px; font-style: italic; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #f2f2f2; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+</style>
+Подключение к приложению resources/js/app.js
+javascriptКопировать
+import './bootstrap';
+import { createApp } from 'vue';
+import PropertySearch from './components/PropertySearch.vue';
+
+createApp(PropertySearch).mount('#app');
+Шаблон Blade resources/views/welcome.blade.php (заменить содержимое)
+htmlКопировать
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laravel Property Search</title>
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
+4. Инструкции по сборке и запуску (для README.md)
+1.	Настройка БД: Создайте базу данных .env (DB_DATABASE=homestead и т.д.).
+2.	Установка бэкенда:
+bashКопировать
+composer install
+php artisan migrate
+php artisan db:seed --class=PropertySeeder
+3.	Установка фронтенда:
+bashКопировать
+npm install
+npm run dev
+4.	Запуск сервера:
+bashКопировать
+php artisan serve
+Откройте http://127.0.0.1:8000.
+5. Пример работы API
+Запрос: GET http://127.0.0.1:8000/api/properties/search?bedrooms=4&garages=2
+Ответ (JSON):
+jsonКопировать
+[
+  {
+    "id": 1,
+    "name": "The Victoria",
+    "price": 374662,
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "storeys": 2,
+    "garages": 2,
+    "created_at": "2026-11-11T...",
+    "updated_at": "2026-11-11T..."
+  },
+  {
+    "id": 2,
+    "name": "The Xavier",
+    "price": 513268,
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "storeys": 1,
+    "garages": 2,
+    "created_at": "2026-11-11T...",
+    "updated_at": "2026-11-11T..."
+  }
+]
+(В ответе будут отфильтрованы только те объекты, где ровно 4 спальни и 2 гаража).
+
