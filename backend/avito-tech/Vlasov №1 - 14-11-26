@@ -1,0 +1,304 @@
+Решение задачи - mi-trainee-task-2021.md
+Vlasov - 14-11-26 - Help Giga Chat 
+Реализуем сервер для второго задания (чат-сервер) на Python с использованием микрофреймворка FastAPI и базы данных SQLite (через SQLAlchemy). SQLite выбран для простоты демонстрации: он не требует отдельной установки СУБД, файл базы данных (chat.db) сохраняется на диск, и при перезапуске сервера все данные остаются на месте.
+
+Для реализации связи "многие-ко-многим" (пользователи в чатах) потребуется промежуточная таблица.
+
+1. Структура проекта
+Копировать
+chat_server/
+├── app/
+│   ├── __init__.py
+│   ├── main.py          # Точка входа, инициализация FastAPI
+│   ├── database.py      # Настройка подключения к БД
+│   ├── models.py        # Модели SQLAlchemy (User, Chat, Message, UserChat)
+│   └── schemas.py       # Схемы Pydantic (формат входных и выходных JSON)
+├── requirements.txt
+└── README.md
+2. Код программы
+
+app/database.py
+
+python
+Копировать
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+SQLALCHEMY_DATABASE_URL = "sqlite:///./chat.db"
+
+engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
+
+app/models.py
+
+python
+Копировать
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Table
+from sqlalchemy.orm import relationship
+from datetime import datetime
+from .database import Base
+
+# Промежуточная таблица для связи Многие-ко-Многим
+user_chat_association = Table(
+    'user_chat',
+    Base.metadata,
+    Column('user_id', Integer, ForeignKey('users.id')),
+    Column('chat_id', Integer, ForeignKey('chats.id'))
+)
+
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    chats = relationship("Chat", secondary=user_chat_association, back_populates="users")
+
+class Chat(Base):
+    __tablename__ = "chats"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, unique=True, index=True, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    users = relationship("User", secondary=user_chat_association, back_populates="chats")
+    messages = relationship("Message", back_populates="chat", cascade="all, delete-orphan")
+
+class Message(Base):
+    __tablename__ = "messages"
+    id = Column(Integer, primary_key=True, index=True)
+    chat_id = Column(Integer, ForeignKey('chats.id'), nullable=False)
+    author_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    text = Column(String, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    chat = relationship("Chat", back_populates="messages")
+    author = relationship("User")
+
+app/schemas.py
+
+python
+Копировать
+from pydantic import BaseModel
+from datetime import datetime
+from typing import List, Optional
+
+class UserBase(BaseModel):
+    username: str
+
+class UserCreate(UserBase):
+    pass
+
+class User(UserBase):
+    id: int
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+class ChatBase(BaseModel):
+    name: str
+    users: List[int]
+
+class ChatCreate(ChatBase):
+    pass
+
+class Chat(ChatBase):
+    id: int
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+class MessageBase(BaseModel):
+    chat: int
+    author: int
+    text: str
+
+class MessageCreate(MessageBase):
+    pass
+
+class Message(MessageBase):
+    id: int
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+class ChatListResponse(BaseModel):
+    id: int
+    name: str
+    created_at: datetime
+    last_message_at: Optional[datetime]
+
+class UserChatsResponse(BaseModel):
+    chats: List[ChatListResponse]
+
+class MessageListResponse(BaseModel):
+    id: int
+    chat: int
+    author: int
+    text: str
+    created_at: datetime
+
+app/main.py
+
+python
+Копировать
+from fastapi import FastAPI, HTTPException, Depends
+from sqlalchemy.orm import Session
+from datetime import datetime
+from typing import List
+
+from . import models, schemas, database
+
+app = FastAPI(title="Chat Server API")
+
+# Создаем таблицы при старте, если их нет
+models.Base.metadata.create_all(bind=database.engine)
+
+def get_db():
+    db = database.SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.post("/users/add", response_model=schemas.User)
+def add_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    db_user = db.query(models.User).filter(models.User.username == user.username).first()
+    if db_user:
+        raise HTTPException(status_code=400, detail="Username already exists")
+    
+    db_user = models.User(username=user.username)
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
+
+@app.post("/chats/add", response_model=schemas.Chat)
+def add_chat(chat: schemas.ChatCreate, db: Session = Depends(get_db)):
+    # Проверяем, что все пользователи существуют
+    db_users = db.query(models.User).filter(models.User.id.in_(chat.users)).all()
+    if len(db_users) != len(chat.users):
+        raise HTTPException(status_code=404, detail="One or more users not found")
+    
+    if db.query(models.Chat).filter(models.Chat.name == chat.name).first():
+        raise HTTPException(status_code=400, detail="Chat name already exists")
+
+    db_chat = models.Chat(name=chat.name)
+    db_chat.users = db_users
+    db.add(db_chat)
+    db.commit()
+    db.refresh(db_chat)
+    return db_chat
+
+@app.post("/messages/add", response_model=schemas.Message)
+def add_message(message: schemas.MessageCreate, db: Session = Depends(get_db)):
+    db_chat = db.query(models.Chat).filter(models.Chat.id == message.chat).first()
+    db_author = db.query(models.User).filter(models.User.id == message.author).first()
+    
+    if not db_chat:
+        raise HTTPException(status_code=404, detail="Chat not found")
+    if not db_author:
+        raise HTTPException(status_code=404, detail="Author not found")
+
+    db_message = models.Message(
+        chat_id=message.chat,
+        author_id=message.author,
+        text=message.text
+    )
+    db.add(db_message)
+    db.commit()
+    db.refresh(db_message)
+    return db_message
+
+@app.post("/chats/get", response_model=schemas.UserChatsResponse)
+def get_user_chats(user_id: int, db: Session = Depends(get_db)):
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if not db_user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    chats_data = []
+    for chat in db_user.chats:
+        last_msg = db.query(models.Message).filter(models.Message.chat_id == chat.id).order_by(models.Message.created_at.desc()).first()
+        chats_data.append({
+            "id": chat.id,
+            "name": chat.name,
+            "created_at": chat.created_at,
+            "last_message_at": last_msg.created_at if last_msg else None
+        })
+    
+    # Сортировка по последнему сообщению (от позднего к раннему)
+    chats_data.sort(key=lambda x: x["last_message_at"] or datetime.min, reverse=True)
+    
+    return {"chats": chats_data}
+
+@app.post("/messages/get", response_model=List[schemas.MessageListResponse])
+def get_chat_messages(chat_id: int, db: Session = Depends(get_db)):
+    db_chat = db.query(models.Chat).filter(models.Chat.id == chat_id).first()
+    if not db_chat:
+        raise HTTPException(status_code=404, detail="Chat not found")
+
+    messages = db.query(models.Message).filter(models.Message.chat_id == chat_id).order_by(models.Message.created_at.asc()).all()
+    return messages
+
+requirements.txt
+
+Копировать
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+3. Инструкция по запуску
+Сохраните файлы в указанные директории.
+Создайте виртуальное окружение и установите зависимости:
+bash
+Копировать
+python -m venv venv
+source venv/bin/activate  # (или venv\Scripts\activate на Windows)
+pip install -r requirements.txt
+Запустите сервер:
+bash
+Копировать
+uvicorn app.main:app --reload --port 9000
+
+Сервер будет доступен по адресу http://localhost:9000. Документация к API автоматически сгенерируется по адресу http://localhost:9000/docs.
+
+4. Примеры использования (cURL)
+
+Добавить пользователя:
+
+bash
+Копировать
+curl -X POST "http://localhost:9000/users/add" -H "Content-Type: application/json" -d "{\"username\": \"alice\"}"
+
+Создать чат:
+(предположим, что ID пользователя alice равен 1, а второго пользователя bob — 2)
+
+bash
+Копировать
+curl -X POST "http://localhost:9000/chats/add" -H "Content-Type: application/json" -d "{\"name\": \"general\", \"users\": [1, 2]}"
+
+Отправить сообщение:
+(предположим, ID чата равен 1)
+
+bash
+Копировать
+curl -X POST "http://localhost:9000/messages/add" -H "Content-Type: application/json" -d "{\"chat\": 1, \"author\": 1, \"text\": \"Hello everyone\"}"
+
+Получить чаты пользователя:
+
+bash
+Копировать
+curl -X POST "http://localhost:9000/chats/get" -H "Content-Type: application/json" -d "{\"user\": 1}"
+
+Получить сообщения в чате:
+
+bash
+Копировать
+curl -X POST "http://localhost:9000/messages/get" -H "Content-Type: application/json" -d "{\"chat\": 1}"
+
+Жду ваших дальнейших указаний: мы можем обсудить, как переписать этот код на Go, как реализовать асинхронную отправку сообщений, как добавить тесты или как упаковать это приложение в Docker-контейнер.
