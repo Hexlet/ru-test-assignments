@@ -1,0 +1,88 @@
+Java – Сенсорные настройки (touchtunes) 
+Решение задачи - Vlasov - 17-11-2026 + 
+Ниже представлен подробный план разработки этого бэкенд-сервиса, разбитый на логические этапы с учетом требований production-ready качества.
+Этап 1. Подготовка проекта и инфраструктуры (1–2 дня)
+1.	Инициализация репозитория: создание публичного репозитория на GitHub/GitLab. Название не должно содержать слово "touchtunes".
+2.	Создание Spring Boot проекта: использование Spring Initializr с зависимостями:
+o	Spring Web (для контроллеров);
+o	Spring WebFlux (для WebClient);
+o	Spring Boot DevTools (опционально, для разработки);
+o	Lombok (для сокращения бойлерплейта в DTO);
+o	JUnit 5, AssertJ, Mockito (для тестов).
+3.	Настройка сборки (Maven/Gradle): добавление плагинов для сборки Docker-образа (например, spring-boot-maven-plugin или jib), форматирования кода (Spotless/Checkstyle) и отчета о покрытии (JaCoCo).
+4.	Базовая конфигурация (application.yml): вынос URL внешних API, таймаутов (2–5 сек) и параметров кэширования (5 минут).
+Этап 2. Проектирование DTO и клиентов внешних API (2 дня)
+1.	Создание DTO (Data Transfer Objects):
+o	JukeboxDto (поля: id, модель, компоненты).
+o	ComponentDto (поле: name).
+o	SettingDto (поля: id, требуется).
+o	JukeboxResponseDto (обертка для ответа: content, pagination).
+o	ErrorResponseDto (стандартизированное тело ошибки).
+2.	Реализация SettingsClient (WebClient):
+o	Метод Mono<SettingDto> getSettingById(UUID id).
+o	Обработка 404 от внешнего API и выброс своего NotFoundException.
+o	Настройка ExchangeFilterFunction для логирования запросов и добавления requestId.
+3.	Реализация JukeboxClient (WebClient):
+o	Метод Flux<JukeboxDto> getAllJukes().
+o	Настройка таймаутов и обработчиков ошибок (преобразование 5xx в BadGatewayException).
+Этап 3. Реализация бизнес-логики и кэширования (Service Layer) (2–3 дня)
+1.	Создание SettingsService:
+o	Метод получения настройки по ID.
+o	Кэширование: аннотация @Cacheable (Caffeine) с ключом settingId и TTL 5 минут. Это обеспечит дедупликацию запросов к Settings API.
+2.	Создание JukeboxService (ядро фильтрации):
+o	Метод Page<JukeboxDto> findCompatibleJukes(UUID settingId, String model, int offset, int limit).
+o	Алгоритм фильтрации:
+	Получение SettingDto из SettingsService (из кэша или API).
+	Получение списка всех автоматов из JukeboxClient.
+	Преобразование List<ComponentDto> автомата в Set<String> имен компонентов для быстрого поиска ($O(1)$).
+	Проверка условия: componentsSet.containsAll(requiredComponents). Учет регистра — строгое совпадение.
+	Если передан model: фильтрация через toLowerCase().contains(model.toLowerCase()).
+	Применение пагинации (Stream API: skip(offset).limit(limit)).
+	Подсчет totalElements до применения skip/limit (путем вызова count() на стриме или сохранения размера списка).
+Этап 4. Реализация API и обработка ошибок (Controller Layer) (2 дня)
+1.	Создание JukeboxController:
+o	Эндпоинт @GetMapping("/api/v1/jukes").
+o	Валидация параметров через @RequestParam и jakarta.validation (@NotNull, @Pattern для UUID, @Min(0), @Max(100)).
+2.	Централизованная обработка ошибок (@ControllerAdvice):
+o	MethodArgumentNotValidException / ConstraintViolationException $\rightarrow$ HTTP 400.
+o	NotFoundException (настройка не найдена) $\rightarrow$ HTTP 404.
+o	WebClientResponseException (ошибки 5xx от внешних API) $\rightarrow$ HTTP 502.
+o	Exception (непредвиденные) $\rightarrow$ HTTP 500.
+o	Все ошибки должны возвращаться в формате ErrorResponseDto.
+3.	Структурированное логирование: добавление фильтра (OncePerRequestFilter), который генерирует requestId (UUID) и пробрасывает его в MDC (Mapped Diagnostic Context) для логирования в JSON.
+Этап 5. Тестирование (3–4 дня)
+1.	Unit-тесты (JukeboxServiceTest):
+o	Тесты на логику containsAll (автомат с лишними компонентами — проходит; с недостающими — нет; регистр — не совпадает).
+o	Тесты на пустые списки, null-ы.
+2.	Unit-тесты клиентов (WebClient):
+o	Использование MockWebServer (от OkHttp) или WireMock.
+o	Проверка успешного ответа, таймаута, ответа 404/500 от внешнего API.
+3.	Интеграционные тесты (@SpringBootTest):
+o	Запуск приложения на случайном порту.
+o	Мокирование SettingsClient и JukeboxClient через @MockBean.
+o	Проверка эндпоинта через TestRestTemplate или WebTestClient на все коды ответов (200, 400, 404, 502).
+4.	Проверка покрытия (JaCoCo): убедиться, что метрика > 80%.
+Этап 6. Контейнеризация и документация (1–2 дня)
+1.	Создание Dockerfile: использование многослойной сборки (builder stage с Maven/Gradle и runtime stage с eclipse-temurin:17-jre).
+2.	Оптимизация образа: создание непривилегированного пользователя внутри контейнера.
+3.	Написание README.md:
+o	Описание проблемы и API.
+o	Инструкция mvn clean package.
+o	Инструкция локального запуска: java -jar target/service.jar.
+o	Инструкция запуска в Docker: docker build -t juke-filter . && docker run -p 8080:8080 juke-filter.
+o	Инструкция запуска тестов: mvn test.
+Этап 7. Финализация и сдача (1 день)
+1.	Проверка критериев приемки:
+o	Запуск java -jar и docker run на чистой машине.
+o	Проверка пагинации (граничные значения offset/limit).
+o	Проверка валидации (отрицательные числа, limit > 100).
+2.	Финальный коммит: очистка от TODO, отладочных логов и временных файлов.
+3.	Публикация: отправка ссылки на репозиторий или архива с кодом.
+Риски и способы их минимизации
+•	Проблема: несоответствие кодировки в JSON (в примере ТЗ поля модель и требуется написаны кириллицей).
+o	Решение: настроить ObjectMapper на поддержку UTF-8 и убедиться, что файлы .java сохранены в UTF-8 без BOM.
+•	Проблема: дедупликация запросов к Settings API.
+o	Решение: использование @Cacheable — самый простой способ. Если требуется более тонкий контроль, можно реализовать паттерн SingleFlight (блокировка на уровне ключа settingId внутри метода сервиса).
+•	Проблема: потребление памяти при получении всех автоматов.
+o	Решение: так как в ТЗ не предусмотрена фильтрация на стороне Jukebox API, придется грузить весь список в память. Для защиты от OOM можно установить жесткий лимит на общее количество автоматов (например, обрывать запрос, если их больше 10 000), либо использовать WebClient с итеративной обработкой, если API поддерживает стриминг.
+
