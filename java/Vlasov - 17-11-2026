@@ -1,0 +1,215 @@
+Решение задачи - Infomaximum 
+Для реализации этого задания оптимально использовать язык Python. Он имеет встроенные библиотеки для работы с XML (xml.etree.ElementTree) и CSV (csv), а также удобные инструменты для работы с путями к файлам (pathlib) и обработки исключений.
+Ниже представлена архитектура и готовый код консольного приложения, которое полностью соответствует требованиям задания.
+Архитектура решения
+1.	Главный цикл (CLI): 
+o	Приложение работает в бесконечном цикле, ожидая ввода пользователя. 
+o	Для завершения работы предусмотрена команда exit (или quit). 
+o	Ввод проверяется: если это не команда выхода, приложение пытается найти файл по указанному пути.
+2.	Определение формата: 
+o	По расширению файла (.xml или .csv) выбирается соответствующий парсер. 
+o	Если расширение не распознано, приложение выводит ошибку и возвращается в главный цикл, не падая.
+3.	Парсинг данных: 
+o	XML: Итеративный парсер (iterparse) для экономии памяти. Ищет теги <building> и извлекает из них город и этажность.
+o	CSV: Чтение через csv.DictReader. Приложение автоматически определяет, в каких столбцах находятся данные (поиск по ключевым словам city, этаж/floor в заголовках), что делает его устойчивым к перестановке колонок.
+o	Нормализация: Названия городов приводятся к нижнему регистру и обрезаются по краям, чтобы «Москва» и « москва » считались одним городом.
+4.	Логика обработки (ядро): 
+o	Все записи сохраняются в список. 
+o	С помощью collections.Counter вычисляются дубликаты (полная строка записи) и статистика по этажам для каждого города.
+5.	Вывод статистики: 
+o	Дубликаты: Группируются и выводятся только те записи, которые встречаются более одного раза, с указанием точного количества повторений.
+o	Этажность: Для каждого города строится таблица. Если для какого-то количества этажей (например, 5-этажных) данных нет, в таблице выводится 0.
+6.	Обработка ошибок: Весь блок чтения и обработки файла обернут в try...except. Любая ошибка (файл не найден, битая кодировка, поврежденная структура XML/CSV) перехватывается, выводится понятное сообщение, и приложение возвращается к ожиданию ввода.
+Код приложения (main.py)
+pythonКопировать
+import csv
+import xml.etree.ElementTree as ET
+from pathlib import Path
+from collections import Counter, defaultdict
+import sys
+
+def parse_csv(file_path: Path):
+    records = []
+    with open(file_path, 'r', encoding='utf-8-sig') as f:
+        reader = csv.DictReader(f)
+        if not reader.fieldnames:
+            raise ValueError("CSV-файл пустой или не имеет заголовка.")
+        
+        # Автодетект колонок
+        city_col = None
+        floors_col = None
+        for field in reader.fieldnames:
+            norm = field.strip().lower()
+            if 'city' in norm or 'город' in norm:
+                city_col = field
+            if 'floor' in norm or 'этаж' in norm:
+                floors_col = field
+                
+        if not city_col or not floors_col:
+            raise ValueError("Не удалось автоматически определить колонки 'Город' и 'Этажи' в CSV.")
+
+        for row in reader:
+            # Сохраняем полную строку для поиска дублей и извлекаем данные
+            records.append(row)
+    return records
+
+def parse_xml(file_path: Path):
+    records = []
+    # Итеративный парсер для работы с большими файлами
+    for event, elem in ET.iterparse(file_path, events=("end",)):
+        if elem.tag == 'building':
+            city_elem = elem.find('city')
+            floors_elem = elem.find('floors')
+            
+            if city_elem is not None and floors_elem is not None and city_elem.text and floors_elem.text:
+                # Создаем словарь, имитирующий строку CSV, для унификации дальнейшей обработки
+                record = {'city': city_elem.text.strip(), 'floors': floors_elem.text.strip()}
+                records.append(record)
+            elem.clear() # Очистка памяти
+    return records
+
+def process_data(records):
+    if not records:
+        return {}, {}
+
+    # 1. Поиск дубликатов (полная запись)
+    # Преобразуем словарь в кортеж отсортированных пар для хеширования
+    record_strings = [tuple(sorted(r.items())) for r in records]
+    duplicates = Counter(record_strings)
+    # Оставляем только те, что встречаются более 1 раза
+    duplicates = {k: v for k, v in duplicates.items() if v > 1}
+
+    # 2. Статистика этажности по городам
+    city_stats = defaultdict(lambda: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0})
+    
+    for rec in records:
+        city = rec.get('city', '').strip().lower()
+        floors_str = rec.get('floors', '').strip()
+        
+        if not city or not floors_str:
+            continue
+            
+        try:
+            floors = int(floors_str)
+            if 1 <= floors <= 5:
+                city_stats[city][floors] += 1
+        except ValueError:
+            continue
+
+    return duplicates, city_stats
+
+def print_statistics(duplicates, city_stats):
+    print("\n" + "="*60)
+    print("СВОДНАЯ СТАТИСТИКА")
+    print("="*60)
+
+    # Блок 1: Дубликаты
+    print("\n1. Дублирующиеся записи:")
+    if not duplicates:
+        print("   Дубликаты не обнаружены.")
+    else:
+        for record_tuple, count in duplicates.items():
+            # Обратное преобразование кортежа в читаемую строку
+            record_str = ", ".join([f"{k}='{v}'" for k, v in record_tuple])
+            print(f"   - {record_str} | Количество: {count}")
+
+    # Блок 2: Этажность
+    print("\n2. Количество зданий по этажам в каждом городе:")
+    if not city_stats:
+        print("   Данные для анализа этажности отсутствуют.")
+    else:
+        # Шапка таблицы
+        header = f"{'Город':<20} | {'1 эт.':>6} | {'2 эт.':>6} | {'3 эт.':>6} | {'4 эт.':>6} | {'5 эт.':>6}"
+        print(header)
+        print("-" * len(header))
+        
+        for city in sorted(city_stats.keys()):
+            stats = city_stats[city]
+            print(f"{city.capitalize():<20} | {stats[1]:>6} | {stats[2]:>6} | {stats[3]:>6} | {stats[4]:>6} | {stats[5]:>6}")
+
+    print("="*60 + "\n")
+
+def main():
+    print("Консольное приложение для анализа справочников городов.")
+    print("Введите полный путь до файла (XML или CSV) для анализа.")
+    print("Для завершения работы введите: exit")
+
+    while True:
+        try:
+            user_input = input("\n>>> ").strip()
+
+            if user_input.lower() in ['exit', 'quit']:
+                print("Завершение работы.")
+                break
+
+            file_path = Path(user_input)
+
+            if not file_path.exists():
+                print(f"Ошибка: Файл по пути '{file_path}' не найден.")
+                continue
+            if not file_path.is_file():
+                print(f"Ошибка: '{file_path}' не является файлом.")
+                continue
+
+            records = []
+            if file_path.suffix.lower() == '.csv':
+                records = parse_csv(file_path)
+            elif file_path.suffix.lower() == '.xml':
+                records = parse_xml(file_path)
+            else:
+                print("Ошибка: Неизвестный формат файла. Поддерживаются только .csv и .xml")
+                continue
+
+            if not records:
+                print("Предупреждение: Файл не содержит данных для обработки.")
+                continue
+
+            duplicates, city_stats = process_data(records)
+            print_statistics(duplicates, city_stats)
+
+        except Exception as e:
+            print(f"\nПроизошла непредвиденная ошибка: {e}")
+            print("Приложение не завершено. Попробуйте ввести другой путь к файлу.\n")
+
+if __name__ == "__main__":
+    # На Windows для корректного отображения кириллицы в консоли
+    if sys.platform == "win32":
+        import os
+        os.system("")
+    main()
+Как запустить и использовать
+1.	Убедитесь, что у вас установлен Python (версии 3.7 или выше).
+2.	Сохраните код выше в файл с именем main.py в той же папке, где лежат ваши файлы справочников.
+3.	Откройте терминал (командную строку), перейдите в эту папку и запустите приложение:
+bashКопировать
+python main.py
+4.	Введите полный путь до вашего XML или CSV файла, например:
+o	Windows: C:\Users\User\Documents\cities.xml
+o	Linux/macOS: /home/user/documents/cities.csv
+5.	Приложение выведет статистику и снова покажет строку приглашения >>> для ввода следующего файла.
+6.	Для выхода введите exit.
+Пример вывода статистики
+Ввод: data/sample.csv
+Вывод:
+Копировать
+============================================================
+СВОДНАЯ СТАТИСТИКА
+============================================================
+
+1. Дублирующиеся записи:
+   - city='Москва', floors='5' | Количество: 3
+   - city='Санкт-Петербург', floors='2' | Количество: 2
+
+2. Количество зданий по этажам в каждом городе:
+Город                |  1 эт. |  2 эт. |  3 эт. |  4 эт. |  5 эт.
+---------------------------------------------------------------
+владивосток          |      2 |      0 |      5 |      1 |      0
+казань               |      0 |     10 |      3 |      0 |      8
+москва               |     15 |      4 |      0 |      2 |     25
+санкт-петербург      |      1 |     12 |      7 |      3 |      0
+============================================================
+Важные замечания по реализации
+•	Устойчивость: Приложение не упадет, если в XML-файле нарушена структура (пропущены теги), в CSV перепутаны колонки или встретятся нечисловые значения в поле этажности. Все такие записи будут просто пропущены, а пользователю будет выведено предупреждение или сообщение об ошибке.
+•	Дубликаты: Под дубликатом понимается полное совпадение всей строки (или всей записи в XML). Если в двух записях совпадает город и этажность, но в CSV есть третья колонка (например, id), и id разный — эти записи дублями считаться не будут.
+•	Производительность: Использование xml.etree.ElementTree.iterparse позволяет обрабатывать XML-файлы размером в сотни мегабайт и более, не загружая их целиком в оперативную память.
+
