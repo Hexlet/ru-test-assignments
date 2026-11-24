@@ -1,0 +1,51 @@
+Задание №2 - 24-11-2026 - download-assignments.py
+The file download_assignments.py is a Python script designed to download external assignment links from a README.md file, save them as local Markdown files, and update the README.md to point to these local copies. It includes robust concurrency control, platform-specific fetchers, and a detailed parser for the README structure.
+Below are the definitions and references for the primary functions and symbols in the file.
+Global Constants and Configuration
+Symbol	Type	Definition / Purpose
+README_PATH	Path	Path to the README.md file, located two directories up from the script.
+REPO_ROOT	Path	Root directory of the repository (parent of README_PATH).
+LOCK_FILE	Path	Path to the lock file (.download_assignments.lock) used to prevent concurrent script execution.
+SECTION_TO_DIR	dict[str, str]	Maps human-readable section names from the README (e.g., "Backend", "Python") to local directory names (e.g., "backend", "python").
+SKIP_URL_PATTERNS	list[str]	List of domain substrings for platforms that cannot be reliably fetched without authentication (e.g., Google Drive, Notion, Dropbox).
+GITHUB_TOKEN	str	Environment variable for a GitHub personal access token to increase API rate limits.
+HTTP and Fetching Helpers
+Function	Definition / Purpose
+`http_get(url: str, timeout: int = 15) -> str	None`
+`fetch_github_repo(url: str) -> str	None`
+`fetch_gist(url: str) -> str	None`
+`fetch_google_docs(url: str) -> str	None`
+`fetch_external(url: str) -> str	None`
+is_skippable(url: str) -> bool	Checks if a URL contains any substring from SKIP_URL_PATTERNS.
+Naming and Path Helpers
+Function	Definition / Purpose
+sanitize_dir(name: str) -> str	Cleans a string to be safe for use as a directory name. Removes Markdown formatting (*text*, ~~text~~), forbidden filesystem characters (<>:"/|?*()), and truncates the result to 60 characters.
+slug_from_url(url: str) -> str	Derives a unique, human-readable filename slug from a URL. Logic varies by platform: uses repo name for GitHub, gist-{id} for Gists, or the path segments for trees.
+_looks_like_assignment_url(url: str) -> bool	Heuristic to distinguish assignment links from company homepages. Returns True for known assignment domains or GitHub URLs with at least two path segments.
+company_from_url(url: str) -> str	Extracts a company or organization name from a URL for standalone entries (e.g., the owner name from a GitHub URL).
+local_path_for(entry: dict) -> Path	Constructs the full local filesystem path for an assignment: {REPO_ROOT}/{section_dir}/{company_dir}/{slug}.md.
+readme_link(local_file: Path) -> str	Builds a relative Markdown link (e.g., ./backend/hexlet/my-task.md) to be inserted into README.md. URL-encodes path parts for safety.
+README Parser
+Function	Definition / Purpose
+parse_assignments(readme_text: str) -> list[dict]	Scans the README.md content to find external assignment links. It tracks the current <summary> section and unindented bullet companies. Returns a list of dictionaries, each containing line_idx, section, company, title, and url. It specifically looks for 4-space indented bullets ( * [Title](url)) that point to external http links.
+Main Execution Logic
+Function	Definition / Purpose
+run(dry_run: bool = False) -> None	The main orchestrator. Acquires a file lock (fcntl.flock) to prevent parallel runs. Parses the README, iterates through entries, fetches content, saves files to disk, and updates the README.md lines in memory before writing them back. Tracks statistics for saved, skipped, failed, and already existing files.
+if __name__ == "__main__":	Entry point. Checks for the --dry-run argument to execute run(dry_run=True) without making network requests or writing files.
+Symbol References (Call Graph)
+•	run() is the entry point. It calls:
+o	parse_assignments() to extract data.
+o	is_skippable() to filter URLs.
+o	local_path_for() to determine save locations.
+o	fetch_external() to download content (which in turn calls fetch_gist, fetch_github_repo, or fetch_google_docs).
+o	readme_link() to generate new Markdown links.
+o	Standard library functions: open(), fcntl.flock(), Path.read_text(), Path.write_text(), Path.mkdir().
+•	fetch_external() calls:
+o	fetch_gist() if URL contains gist.github.com.
+o	fetch_github_repo() if URL contains github.com/.
+o	fetch_google_docs() if URL contains docs.google.com/document.
+•	fetch_github_repo() and fetch_gist() call:
+o	http_get() to perform the actual network I/O.
+•	slug_from_url() uses multiple re.search() patterns to parse different URL structures.
+•	sanitize_dir() uses re.sub() to strip Markdown syntax and forbidden characters.
+
