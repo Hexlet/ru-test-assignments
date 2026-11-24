@@ -1,0 +1,83 @@
+Решение Задания №1 - check-relative-links.py +
+To integrate the provided Python script into your CI pipeline, you need to add a job that executes the script and fails the build if it returns a non-zero exit code. Below are configurations for the most common CI systems.
+1. GitHub Actions
+Add this job to your .github/workflows/ci.yml. It is designed to run on every push and pull request.
+yamlКопировать
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  check-links:
+    name: Check relative Markdown links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies (if any)
+        run: pip install -r requirements.txt
+        # If you have no requirements.txt, this step can be removed.
+
+      - name: Run link checker
+        run: python3 scripts/check-relative-links.py
+Note: If the script fails, the run step will exit with code 1, causing the entire CI job to fail and preventing the merge.
+2. GitLab CI
+Add this to your .gitlab-ci.yml. It uses the official Python Docker image.
+yamlКопировать
+stages:
+  - test
+
+link_check:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - pip install -r requirements.txt
+    - python3 scripts/check-relative-links.py
+  only:
+    - merge_requests
+    - main
+3. Jenkins (Declarative Pipeline)
+Add this stage to your Jenkinsfile.
+groovyКопировать
+pipeline {
+    agent any
+    stages {
+        stage('Check relative links') {
+            steps {
+                sh 'python3 scripts/check-relative-links.py'
+            }
+        }
+    }
+    post {
+        failure {
+            echo 'Broken relative links detected. Check the job logs for details.'
+        }
+    }
+}
+4. Local pre-commit hook (Optional)
+To catch broken links before they even reach CI, you can add a local Git hook. Create a file named .git/hooks/pre-commit:
+bashКопировать
+#!/bin/bash
+python3 scripts/check-relative-links.py
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "Commit rejected: broken relative links found."
+  exit 1
+fi
+Then make it executable: chmod +x .git/hooks/pre-commit.
+Recommended improvements for the script
+While the current script works, here are a few enhancements to make it more robust for a production CI environment:
+•	Handle anchor links (#section): The script currently strips anchors but doesn't verify if the target file actually contains the corresponding heading. You can add a check using a library like markdown-it-py to parse the target file and ensure the ID exists.
+•	Handle query parameters: The script strips ?query=string, which is correct for file system checks, but ensure this doesn't hide legitimate issues if your site generator uses queries for routing.
+•	Performance: For large repositories, os.walk can be slow. Consider using pathlib.Path.rglob('*.md') for cleaner code, or caching the list of all existing files in the repo at the start of the script to avoid repeated os.path.exists calls.
+•	Logging: The script prints to stdout. In CI, ensure your logging level is set so that the list of broken files is clearly visible in the job summary. You could also add an option to output the results as JSON or JUnit XML for better CI integration.
+
