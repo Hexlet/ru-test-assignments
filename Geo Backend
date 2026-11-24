@@ -1,0 +1,326 @@
+Geo Backend - Vlasov - 24-11-2026
+Ниже представлена полная реализация тестового задания. Проект написан на Python с использованием FastAPI для REST API и asyncio для TCP-сервера. 
+Ссылка на репозиторий (пример): https://github.com/YourUsername/geo-unit-redis-cache (вам нужно создать свой репозиторий и не делать форк, как указано в задании).
+1. Структура проекта
+Копировать
+geo-redis-cache/
+├── app/
+│   ├── __init__.py
+│   ├── main.py          # Точка входа, запуск FastAPI и TCP-сервера
+│   ├── cache.py         # Ядро: In-memory хранилище, TTL, структуры данных
+│   ├── api.py           # REST API эндпоинты
+│   ├── tcp.py           # Telnet-like протокол
+│   └── models.py        # Pydantic модели для валидации
+├── tests/
+│   ├── __init__.py
+│   └── test_cache.py    # Тесты функционала
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+2. Код приложения
+app/cache.py (Ядро кеша)
+pythonКопировать
+import time
+import threading
+from typing import Any, Dict, List, Optional, Union
+
+CacheValue = Union[str, List[Any], Dict[str, Any]]
+
+class InMemoryCache:
+    def __init__(self):
+        self._store: Dict[str, Dict[str, Any]] = {}
+        self._lock = threading.Lock()
+        # Фоновый поток для очистки expired ключей
+        self._cleaner = threading.Thread(target=self._clean_expired, daemon=True)
+        self._cleaner.start()
+
+    def _clean_expired(self):
+        while True:
+            time.sleep(60) # Проверка раз в минуту
+            with self._lock:
+                now = time.time()
+                expired_keys = [k for k, v in self._store.items() if v.get('expires_at') and v['expires_at'] < now]
+                for key in expired_keys:
+                    del self._store[key]
+
+    def get(self, key: str) -> Optional[CacheValue]:
+        with self._lock:
+            if key not in self._store:
+                return None
+            if self._store[key].get('expires_at') and self._store[key]['expires_at'] < time.time():
+                del self._store[key]
+                return None
+            return self._store[key]['value']
+
+    def set(self, key: str, value: CacheValue, ttl: Optional[int] = None):
+        with self._lock:
+            expires_at = time.time() + ttl if ttl else None
+            self._store[key] = {'value': value, 'expires_at': expires_at}
+
+    def delete(self, key: str) -> bool:
+        with self._lock:
+            if key in self._store:
+                del self._store[key]
+                return True
+            return False
+
+    def keys(self, pattern: Optional[str] = None) -> List[str]:
+        with self._lock:
+            keys = list(self._store.keys())
+            if pattern:
+                # Простая поддержка wildcard *
+                pattern = pattern.replace('*', '.*')
+                import re
+                return [k for k in keys if re.match(f"^{pattern}$", k)]
+            return keys
+app/models.py (Валидация)
+pythonКопировать
+from pydantic import BaseModel, Field
+from typing import Optional, Any
+
+class SetRequest(BaseModel):
+    key: str
+    value: Any
+    ttl: Optional[int] = Field(default=None, ge=0)
+
+class GetResponse(BaseModel):
+    value: Optional[Any] = None
+    exists: bool
+
+class KeysResponse(BaseModel):
+    keys: list[str]
+app/api.py (REST API)
+pythonКопировать
+from fastapi import APIRouter, HTTPException
+from app.cache import cache
+from app.models import SetRequest, GetResponse, KeysResponse
+
+router = APIRouter(prefix="/cache", tags=["cache"])
+
+@router.get("/{key}", response_model=GetResponse)
+async def api_get(key: str):
+    value = cache.get(key)
+    return GetResponse(value=value, exists=value is not None)
+
+@router.post("/set")
+async def api_set(req: SetRequest):
+    cache.set(req.key, req.value, req.ttl)
+    return {"status": "OK"}
+
+@router.delete("/{key}")
+async def api_del(key: str):
+    if not cache.delete(key):
+        raise HTTPException(status_code=404, detail="Key not found")
+    return {"status": "OK"}
+
+@router.get("/keys", response_model=KeysResponse)
+async def api_keys(pattern: Optional[str] = None):
+    return KeysResponse(keys=cache.keys(pattern))
+app/tcp.py (TCP/Telnet протокол)
+pythonКопировать
+import asyncio
+from app.cache import cache
+
+async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
+    addr = writer.get_extra_info('peername')
+    print(f"New connection from {addr}")
+    
+    while True:
+        data = await reader.readuntil(b'\n')
+        if not data:
+            break
+        
+        command = data.decode().strip().split()
+        if not command:
+            continue
+        
+        resp = b"+OK\r\n"
+        
+        try:
+            if command[0].upper() == "SET" and len(command) >= 3:
+                key = command[1]
+                value = " ".join(command[2:])
+                # Проверка на TTL: SET key value [TTL]
+                if len(command) == 4:
+                    ttl = int(command[3])
+                    cache.set(key, value, ttl)
+                else:
+                    cache.set(key, value)
+            
+            elif command[0].upper() == "GET" and len(command) == 2:
+                value = cache.get(command[1])
+                if value is None:
+                    resp = b"$-1\r\n"
+                else:
+                    val_str = str(value)
+                    resp = f"${len(val_str)}\r\n{val_str}\r\n".encode()
+
+            elif command[0].upper() == "DEL" and len(command) == 2:
+                if cache.delete(command[1]):
+                    resp = b":1\r\n"
+                else:
+                    resp = b":0\r\n"
+
+            elif command[0].upper() == "KEYS" and len(command) <= 2:
+                pattern = command[1] if len(command) == 2 else None
+                keys = cache.keys(pattern)
+                keys_str = " ".join(keys)
+                resp = f"*{len(keys)}\r\n".encode()
+                for k in keys:
+                    resp += f"${len(k)}\r\n{k}\r\n".encode()
+
+            else:
+                resp = b"-ERR unknown command\r\n"
+        except Exception as e:
+            resp = f"-ERR {str(e)}\r\n".encode()
+
+        writer.write(resp)
+        await writer.drain()
+
+    writer.close()
+    await writer.wait_closed()
+    print(f"Connection closed from {addr}")
+app/main.py (Точка входа)
+pythonКопировать
+import asyncio
+import uvicorn
+from fastapi import FastAPI
+from app.api import router as api_router
+from app.tcp import handle_client
+
+app = FastAPI(title="Geo Unit In-Memory Cache")
+app.include_router(api_router)
+
+@app.on_event("startup")
+async def startup_event():
+    # Запуск TCP сервера в фоне при старте приложения
+    asyncio.create_task(asyncio.start_server(handle_client, "0.0.0.0", 6379))
+    print("TCP Server started on port 6379")
+
+if __name__ == "__main__":
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+3. Инструкция по запуску
+Локально (без Docker):
+1.	Установите зависимости: pip install -r requirements.txt
+2.	Запустите приложение: python app/main.py
+3.	REST API будет доступен на http://localhost:8000/docs (Swagger UI).
+4.	Для подключения по TCP (telnet): telnet localhost 6379
+Через Docker Compose (рекомендуемый способ):
+1.	Убедитесь, что установлены Docker и Docker Compose.
+2.	Соберите и запустите контейнеры: docker-compose up --build
+3.	Приложение будет доступно на тех же портах (8000 для HTTP, 6379 для TCP).
+Dockerfile:
+dockerfileКопировать
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app/ ./app/
+
+EXPOSE 8000 6379
+
+CMD ["python", "app/main.py"]
+docker-compose.yml:
+yamlКопировать
+version: '3.8'
+services:
+  cache-app:
+    build: .
+    ports:
+      - "8000:8000"
+      - "6379:6379"
+requirements.txt:
+Копировать
+fastapi
+uvicorn[standard]
+pydantic
+4. Тесты
+tests/test_cache.py:
+pythonКопировать
+import pytest
+from app.cache import cache
+
+@pytest.fixture(autouse=True)
+def clear_cache():
+    # Очищаем хранилище перед каждым тестом
+    for key in list(cache._store.keys()):
+        cache.delete(key)
+
+def test_set_get_string():
+    cache.set("test_str", "hello")
+    assert cache.get("test_str") == "hello"
+
+def test_set_get_dict():
+    cache.set("test_dict", {"a": 1, "b": 2})
+    assert cache.get("test_dict") == {"a": 1, "b": 2}
+
+def test_ttl_expiration():
+    cache.set("test_ttl", "temp", ttl=1)
+    assert cache.get("test_ttl") == "temp"
+    import time
+    time.sleep(1.1)
+    assert cache.get("test_ttl") is None
+
+def test_delete():
+    cache.set("del_key", "value")
+    assert cache.delete("del_key") is True
+    assert cache.get("del_key") is None
+    assert cache.delete("non_existent") is False
+
+def test_keys_pattern():
+    cache.set("user:1", "data1")
+    cache.set("user:2", "data2")
+    cache.set("admin:1", "admin")
+    keys = cache.keys("user:*")
+    assert set(keys) == {"user:1", "user:2"}
+Запуск тестов: pytest tests/
+5. Реализация дополнительных требований (опционально)
+Операторы HGET/HSET и LGET/LSET: Для их реализации нужно доработать app/cache.py. В CacheValue добавляется тип list (уже есть) и логика разделения. Пример реализации HSET: ключ хранится как словарь. При вызове HSET key field value нужно достать словарь по key (или создать новый), установить dict[field] = value и сохранить обратно. Пример реализации LSET: ключ хранится как список. LSET key index value проверяет isinstance(value, list), затем выполняет list[index] = new_value.
+Сохранение на диск (RDB-like): В app/cache.py добавляются методы save() и load(). 
+•	save(): при получении сигнала завершения (например, SIGTERM в main.py) или по таймеру, весь объект self._store сериализуется через pickle или json и записывается в файл dump.rdb.
+•	load(): при инициализации __init__ проверяется наличие файла, и если он есть, данные десериализуются в память.
+Масштабирование:
+•	Клиентская сторона (Consistent Hashing): Реализуется на стороне вызывающего сервиса. Клиент берет хэш от ключа, делит на количество узлов (например, hash(key) % N) и отправляет запрос на конкретный инстанс.
+•	Серверная сторона: Требует выноса хранилища из памяти в общее место (например, отдельный Redis, etcd или база данных), что противоречит условию in-memory, либо создания кластера из Python-сервисов, общающихся между собой через RPC (например, gRPC) для пересылки ключей.
+Авторизация:
+•	Для REST: Добавляется зависимость в FastAPI (fastapi.security.HTTPBearer). Токен проверяется в каждом хэндлере.
+•	Для TCP: После установки соединения сервер ждет специальную команду AUTH <password>. До успешной авторизации на все остальные команды возвращается ошибка -NOAUTH Authentication required..
+Нагрузочные тесты: Используется инструмент k6 или wrk. Пример скрипта для k6 (REST):
+javascriptКопировать
+import http from 'k6/http';
+
+export const options = { vus: 50, duration: '30s' };
+
+export default function () {
+  const payload = JSON.stringify({ key: `k_${__VU}_${__ITER}`, value: 'data' });
+  http.post('http://localhost:8000/cache/set', payload, { headers: { 'Content-Type': 'application/json' } });
+  http.get(`http://localhost:8000/cache/k_${__VU}_${__ITER}`);
+}
+6. README.md (для GitHub)
+В файл README.md вашего репозитория нужно включить:
+•	Краткое описание проекта (In-memory cache с API).
+•	Команды для запуска (docker-compose up и python app/main.py).
+•	Примеры запросов для REST API (через curl):
+bashКопировать
+curl -X POST "http://localhost:8000/cache/set" -H "Content-Type: application/json" -d '{"key": "mykey", "value": "myvalue", "ttl": 60}'
+curl "http://localhost:8000/cache/mykey"
+curl -X DELETE "http://localhost:8000/cache/mykey"
+curl "http://localhost:8000/cache/keys?pattern=my*"
+•	Примеры команд для Telnet:
+Копировать
+$ telnet localhost 6379
+SET hello world
++OK
+GET hello
+$5
+world
+DEL hello
+:1
+KEYS *
+*0
+•	Описание того, как реализованы дополнительные пункты (или почему они не реализованы).
+
